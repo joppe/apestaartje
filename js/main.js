@@ -1,4 +1,4 @@
-/*global jQuery, Template*/
+/*global window, jQuery, Template*/
 
 jQuery(function ($) {
     'use strict';
@@ -6,5 +6,5 @@ jQuery(function ($) {
     //var t = new Template('<p>Hello World!</p>');
     var t = new Template('<p><%= title %></p>');
 
-    console.log(t);
+    window.console.log(t);
 });
