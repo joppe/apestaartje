@@ -1,0 +1,21 @@
+{
+  "name": "apestaartje",
+  "version": "0.0.0",
+  "description": "apestaartje",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joppe/apestaartje.git"
+  },
+  "author": "Joppe Aarts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joppe/apestaartje/issues"
+  },
+  "dependencies": {
+    "jasmine-core": "^2.1.3",
+    "karma": "^0.12.28",
+    "karma-jasmine": "^0.3.2",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
+}
