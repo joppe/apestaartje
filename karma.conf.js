@@ -33,7 +33,8 @@ module.exports = function (config) {
                 served: true,
                 included: true
             },
-            'js/*.js'
+            'js/**/*.js',
+            'test/unit/*.js'
         ],
 
 

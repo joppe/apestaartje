@@ -104,7 +104,7 @@
         return tokens;
     }
 
-    function tokenizeTemplate(string) {
+    function tokenizeTemplate(string) { w
         var tokens = [],
             index = 0,
             lastIndex = 0,
