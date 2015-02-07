@@ -1,3 +1,6 @@
-bower_components/
+app/cache/
+app/logs/
+vendor/
+web/bundles/
 .idea/
-node_modules/
+bower_components/
