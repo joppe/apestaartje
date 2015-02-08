@@ -1,0 +1,3 @@
+aap_aap_site:
+    resource: "@AapAapSiteBundle/Controller"
+    type: annotation
