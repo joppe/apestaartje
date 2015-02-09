@@ -2,9 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/aapaapsite/css/screen.css') }}"/>
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <script type="text/javascript" data-main="/bundles/aapaapsite/js/main" src="{{ asset('bundles/aapaapsite/bower_components/requirejs/require.js') }}"></script>
     </head>
     <body>
         {% block body %}{% endblock %}

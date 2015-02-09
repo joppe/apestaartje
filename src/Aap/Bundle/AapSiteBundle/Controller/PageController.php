@@ -10,6 +10,11 @@ use \Symfony\Component\HttpFoundation\Response;
 use \Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use \Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+/**
+ * Class PageController
+ *
+ * @package Aap\Bundle\AapSiteBundle\Controller
+ */
 class PageController extends Controller
 {
     /**

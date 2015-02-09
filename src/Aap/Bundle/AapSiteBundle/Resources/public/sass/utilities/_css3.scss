@@ -1,0 +1,13 @@
+/**
+ * Add vendor prefixes for a property
+ *
+ * @param string $property
+ * @param mixed $value
+ */
+@mixin add-vendor-prefixes($property, $value) {
+  $vendor-prefixes: ('-webkit-' '-moz-' '-o-' '-ms-' '');
+
+  @each $vendor-prefix in $vendor-prefixes {
+    #{$vendor-prefix}#{$property}: $value;
+  }
+}
