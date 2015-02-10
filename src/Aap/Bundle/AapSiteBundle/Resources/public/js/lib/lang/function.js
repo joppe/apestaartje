@@ -19,7 +19,7 @@ define(
              * @param {Function} func
              * @returns {Array}
              */
-            arguments: function (func) {
+            argumentNames: function (func) {
                 var str = func.toString(),
                     matches = str.match(ARGS),
                     args = [];
@@ -51,4 +51,5 @@ define(
                 };
             }
         };
-    });
+    }
+);

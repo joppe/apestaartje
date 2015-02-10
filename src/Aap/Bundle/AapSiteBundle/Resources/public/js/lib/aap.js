@@ -8,25 +8,26 @@
 define(
     ['underscore'],
     function (_) {
-    'use strict';
+        'use strict';
 
-    return {
-        /**
-         * @param {string} namespace
-         * @returns {Object}
-         */
-        createNamespace: function (namespace) {
-            var target = window;
+        return {
+            /**
+             * @param {string} namespace
+             * @returns {Object}
+             */
+            createNamespace: function (namespace) {
+                var target = window;
 
-            _.each(namespace.split('.'), function (part) {
-                if (undefined === target[part]) {
-                    target[part] = {};
-                }
+                _.each(namespace.split('.'), function (part) {
+                    if (undefined === target[part]) {
+                        target[part] = {};
+                    }
 
-                target = target[part];
-            });
+                    target = target[part];
+                });
 
-            return target;
-        }
-    };
-});
+                return target;
+            }
+        };
+    }
+);
