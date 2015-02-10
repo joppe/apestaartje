@@ -1,4 +1,4 @@
-/*global require*/
+/*global require, console*/
 
 require(
     ['config'],
@@ -6,8 +6,8 @@ require(
     'use strict';
 
     require(
-        ['lib/lang/string', 'lib/lang/function'],
-        function (Str, Func) {
+        ['lib/lang/string', 'lib/lang/function', 'lib/dependencyinjection/container'],
+        function (Str, Func, Di) {
             // Str
             console.log(Str.ucfirst('lalal alal alla'));
             console.log(Str.snakeToCamelCase('this_is_snake_style'));
@@ -19,13 +19,32 @@ require(
                     return (new Date()).getTime();
                 });
 
+            console.log(Func.argumentNames(function (a, b, c, foo, bar) {
+                console.log('foo');
+            }));
             console.log(h());
             window.setTimeout(function () {
                 console.log(h());
             }, 500);
-            console.log(Func.arguments(function (a, b, c, foo, bar) {
-                console.log('foo');
-            }));
+
+            // Di
+            var di = new Di();
+
+            di.register('cached-time', function () {
+                return (new Date()).getTime();
+            }, true);
+
+            di.register('time', function () {
+                return (new Date()).getTime();
+            }, false);
+
+            console.log('di cached time', di.get('cached-time'));
+            console.log('time', di.get('time'));
+
+            window.setTimeout(function () {
+                console.log('di cached time', di.get('cached-time'));
+                console.log('time', di.get('time'));
+            }, 500);
         }
     );
 });
