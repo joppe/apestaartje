@@ -6,8 +6,23 @@ require(
     'use strict';
 
     require(
-        ['lib/lang/string', 'lib/lang/function', 'lib/dependencyinjection/container'],
-        function (Str, Func, Di) {
+        ['lib/lang/string', 'lib/lang/function', 'lib/dependencyinjection/container', 'lib/request/uri-parser', 'lib/util/sorted-set'],
+        function (Str, Func, Di, UriParser, SortedSet) {
+            var u = new UriParser({
+                    param: '/',
+                    keyValue: '=',
+                    value: ','
+                });
+            console.log(u.parseUri('a=1/b=2/c=3,4'));
+
+            var s = new SortedSet(['foo', 'bar']);
+            s.add('test');
+            s.add([33, 194]);
+            s.add([1, 2, 3, 4]);
+            s.add(10);
+            s.add(0);
+            console.log(s.values);
+
             // Str
             console.log(Str.ucfirst('lalal alal alla'));
             console.log(Str.snakeToCamelCase('this_is_snake_style'));
