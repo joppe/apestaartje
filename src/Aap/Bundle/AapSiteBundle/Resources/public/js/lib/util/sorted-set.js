@@ -21,7 +21,7 @@ define(
 
         SortedSet = Class.createClass({
             /**
-             * @param {Array|string|number} values
+             * @param {Array|string|Number} value
              */
             initialize: function (value) {
                 this.values = [];
@@ -32,15 +32,19 @@ define(
             },
 
             /**
-             * @param {Array|string|number} value
+             * @param {Array|string|Number} value
+             * @returns {SortedSet}
              */
             set: function (value) {
                 this.values = [];
                 this.add(value);
+
+                return this;
             },
 
             /**
-             * @param {Array|string|number} value
+             * @param {Array|string|Number} value
+             * @returns {SortedSet}
              */
             add: function (value) {
                 if (_.isArray(value)) {
@@ -49,10 +53,33 @@ define(
                     this.values.push(value);
                     this.values = sort(this.values);
                 }
+
+                return this;
             },
 
+            /**
+             * @param {*} value
+             * @returns {SortedSet}
+             */
             remove: function (value) {
+                this.values = _.without(this.values, value);
 
+                return this;
+            },
+
+            /**
+             * @param {*} value
+             * @returns {boolean}
+             */
+            contains: function (value) {
+                return _.indexOf(this.values, value) !== -1;
+            },
+
+            /**
+             * @returns {Number}
+             */
+            length: function () {
+                return this.values.length;
             }
         });
 
