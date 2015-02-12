@@ -1,4 +1,4 @@
-/*global define, window*/
+/*global define*/
 
 /**
  * @author Joppe Aarts <joppe@apestaartje.info>
@@ -90,6 +90,13 @@ define(
              */
             length: function () {
                 return this.values.length;
+            },
+
+            /**
+             * @returns {Array}
+             */
+            getValues: function () {
+                return this.values;
             }
         });
 
