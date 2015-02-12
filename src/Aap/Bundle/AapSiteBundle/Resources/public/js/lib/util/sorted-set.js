@@ -13,15 +13,25 @@ define(
         var SortedSet,
             sort;
 
+        /**
+         * Sort an array by its value
+         *
+         * @param {Array} values
+         * @returns {Array}
+         */
         sort = function (values) {
             return _.sortBy(_.uniq(values), function (value) {
                 return value;
             });
         };
 
+        /**
+         * @class {SortedSet}
+         */
         SortedSet = Class.createClass({
             /**
              * @param {Array|string|Number} value
+             * @constructs
              */
             initialize: function (value) {
                 this.values = [];
