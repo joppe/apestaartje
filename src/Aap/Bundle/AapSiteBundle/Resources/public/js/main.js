@@ -21,6 +21,12 @@ require(
             s.add([1, 2, 3, 4]);
             s.add(10);
             s.add(0);
+            console.log('values', s.values);
+            s.remove(33);
+            console.log(s.values);
+            console.log(s.contains(2));
+            console.log(s.contains(9992));
+            s.add(0);
             console.log(s.values);
 
             // Str
