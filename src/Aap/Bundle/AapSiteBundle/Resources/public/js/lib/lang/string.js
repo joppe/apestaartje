@@ -10,7 +10,7 @@ define(
     function () {
         'use strict';
 
-        var TRIM = /^\s+|\s+$/m,
+        var TRIM = /^\s+|\s+$/gm,
             SNAKE_CHAR = /_(\w)/g,
             SPINE_CHAR = /-(\w)/g,
             FIRST_CHAR = /(^\w)/g;
