@@ -38,13 +38,13 @@ define(
             it('contains a value and return true if so', function () {
                 var s = new SortedSet(['foo', 'bar']);
 
-                expect(s.contains('foo')).toEqual(true);
+                expect(s.contains('foo')).toBe(true);
             });
 
             it('contains a value and return false if not', function () {
                 var s = new SortedSet(['foo', 'bar']);
 
-                expect(s.contains('foobar')).toEqual(false);
+                expect(s.contains('foobar')).toBe(false);
             });
 
         });
