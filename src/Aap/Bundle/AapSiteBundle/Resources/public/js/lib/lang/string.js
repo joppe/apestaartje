@@ -10,12 +10,33 @@ define(
     function () {
         'use strict';
 
-        var TRIM = /^\s+|\s+$/gm,
+        var LTRIM = /^\s+/g,
+            RTRIM = /\s+$/g,
             SNAKE_CHAR = /_(\w)/g,
             SPINE_CHAR = /-(\w)/g,
             FIRST_CHAR = /(^\w)/g;
 
         return {
+            /**
+             * Removing leading whitespace
+             *
+             * @param {string} str
+             * @returns {string}
+             */
+            ltrim: function (str) {
+                return str.replace(LTRIM, '');
+            },
+
+            /**
+             * Removing trailing whitespace
+             *
+             * @param {string} str
+             * @returns {string}
+             */
+            rtrim: function (str) {
+                return str.replace(RTRIM, '');
+            },
+
             /**
              * Remove all trailing and leading whitespace of a string
              *
@@ -23,7 +44,7 @@ define(
              * @returns {string}
              */
             trim: function (str) {
-                return str.replace(TRIM, '');
+                return this.rtrim(this.ltrim(str));
             },
 
             /**
