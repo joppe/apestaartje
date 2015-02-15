@@ -1,5 +1,10 @@
 /*global define, describe, jasmine, it, expect*/
 
+/**
+ * @author Joppe Aarts <joppe@apestaartje.info>
+ * @copyright Apestaartje <http://apestaartje.info>
+ */
+
 define(
     ['lib/lang/string'],
     function (Str) {
