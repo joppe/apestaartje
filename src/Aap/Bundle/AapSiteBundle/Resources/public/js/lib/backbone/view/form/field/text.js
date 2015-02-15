@@ -10,12 +10,12 @@ define(
     function (AbstractView) {
         'use strict';
 
-        var FieldString = AbstractView.extend({
+        var FieldText = AbstractView.extend({
             initialize: function () {
-                console.log('FieldString.initialize');
+                console.log('FieldText.initialize');
             }
         });
 
-        return FieldString;
+        return FieldText;
     }
 );
