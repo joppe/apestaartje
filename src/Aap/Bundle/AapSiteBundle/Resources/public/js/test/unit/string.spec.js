@@ -10,7 +10,7 @@ define(
     function (Str) {
         'use strict';
 
-        describe('string.js', function () {
+        describe('string tests', function () {
 
             it('trim', function () {
                 expect(Str.trim('  foo  ')).toEqual('foo');
