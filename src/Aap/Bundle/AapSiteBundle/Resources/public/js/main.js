@@ -34,12 +34,6 @@ require(
             s.add(0);
             console.log(s.values);
 
-            // Str
-            console.log(Str.ucfirst('lalal alal alla'));
-            console.log(Str.snakeToCamelCase('this_is_snake_style'));
-            console.log(Str.spineToCamelCase('this-is-snake-style'));
-            console.log(Str.ucfirst('lower'));
-
             // Func
             var h = Func.cache(function helper() {
                     return (new Date()).getTime();
