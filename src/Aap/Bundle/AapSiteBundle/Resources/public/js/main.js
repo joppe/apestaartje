@@ -8,15 +8,32 @@
 require(
     ['config'],
     function() {
-    'use strict';
+        'use strict';
 
-        var s = 'lib/backbone/view/form/builder';
         require(
-        [s],
-        function (FormBuilder) {
-            var builder = new FormBuilder();
+            [
+                'backbone',
+                'jquery',
+                'lib/backbone/view/form/builder'
+            ],
+            function (
+                Backbone,
+                $,
+                FormBuilder
+            ) {
+                var options = {
+                        model: new Backbone.Model()
+                    },
+                    builder = new FormBuilder(options);
 
-            console.log(builder);
-        }
-    );
-});
+                builder.add('title', 'lib/backbone/view/form/field/string', {});
+                builder.add('text', 'lib/backbone/view/form/field/text', {});
+                builder.add('subtitle', 'lib/backbone/view/form/field/string', {});
+
+                $('body').append(builder.render().el);
+
+                console.log(builder);
+            }
+        );
+    }
+);
