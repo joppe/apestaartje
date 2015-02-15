@@ -10,10 +10,13 @@ require(
     function() {
     'use strict';
 
-    require(
-        [],
-        function () {
+        var s = 'lib/backbone/view/form/builder';
+        require(
+        [s],
+        function (FormBuilder) {
+            var builder = new FormBuilder();
 
+            console.log(builder);
         }
     );
 });
