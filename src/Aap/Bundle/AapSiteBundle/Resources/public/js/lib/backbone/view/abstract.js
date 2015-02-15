@@ -28,7 +28,7 @@ define(
              * @returns {AbstractView}
              */
             addChild: function (child) {
-                this.children[child.model.id()] = child;
+                this.children[child.model.id] = child;
 
                 return this;
             },
@@ -40,7 +40,7 @@ define(
             removeChild: function (child) {
                 child.remove();
 
-                delete this.children[child.model.id()];
+                delete this.children[child.model.id];
 
                 return this;
             },
