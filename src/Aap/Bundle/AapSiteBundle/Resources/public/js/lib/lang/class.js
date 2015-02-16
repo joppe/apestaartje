@@ -55,6 +55,16 @@ define(
                 _.extend(Class.prototype, proto);
 
                 return Class;
+            },
+
+            /**
+             *
+             * @param {string} Class
+             * @param {Array} args
+             * @returns {Object}
+             */
+            createInstance: function (Class, args) {
+                return new Class(args);
             }
         };
     }
