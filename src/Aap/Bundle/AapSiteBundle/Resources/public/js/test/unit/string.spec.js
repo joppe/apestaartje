@@ -1,4 +1,4 @@
-/*global define, describe, jasmine, it, expect*/
+/*global define, describe, it, expect*/
 
 /**
  * @author Joppe Aarts <joppe@apestaartje.info>
@@ -11,6 +11,14 @@ define(
         'use strict';
 
         describe('string tests', function () {
+
+            it('ltrim', function () {
+                expect(Str.ltrim('  foo  ')).toBe('foo  ');
+            });
+
+            it('rtrim', function () {
+                expect(Str.rtrim('  foo  ')).toBe('  foo');
+            });
 
             it('trim', function () {
                 expect(Str.trim('  foo  ')).toBe('foo');
