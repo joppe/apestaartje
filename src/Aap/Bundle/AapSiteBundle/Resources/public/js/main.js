@@ -14,25 +14,31 @@ require(
             [
                 'backbone',
                 'jquery',
-                'lib/backbone/view/form/builder'
+                'lib/dependencyinjection/container',
+                'lib/lang/class',
+                'lib/backbone/view/form/extension'
             ],
             function (
                 Backbone,
                 $,
-                FormBuilder
+                Di,
+                Class,
+                formExtension
             ) {
-                var options = {
-                        model: new Backbone.Model()
-                    },
-                    builder = new FormBuilder(options);
+                var di = new Di(),
+                    form;
 
-                builder.add('title', 'lib/backbone/view/form/field/string', {});
-                builder.add('text', 'lib/backbone/view/form/field/text', {});
-                builder.add('subtitle', 'lib/backbone/view/form/field/string', {});
+                formExtension(di);
 
-                $('body').append(builder.render().el);
+                form = di.get('form')({
+                    model: new Backbone.Model()
+                });
+                form.add('title', 'form.string', {});
+                form.add('intro', 'form.text', {});
+                form.add('text', 'form.text', {});
 
-                console.log(builder);
+                $('body').append(form.render().el);
+                console.log(form);
             }
         );
     }

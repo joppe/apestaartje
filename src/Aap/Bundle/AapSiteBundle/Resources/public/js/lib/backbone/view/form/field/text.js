@@ -6,12 +6,25 @@
  */
 
 define(
-    ['lib/backbone/view/abstract'],
-    function (AbstractView) {
+    [
+        'lib/lang/class',
+        'lib/backbone/view/form/field/abstract'
+    ],
+    function (
+        Class,
+        AbstractField
+    ) {
         'use strict';
 
-        var FieldText = AbstractView.extend({
-            initialize: function () {
+        var FieldText;
+
+        FieldText = AbstractField.extend({
+            /**
+             * @param {Object} options
+             */
+            initialize: function (options) {
+                Class.callSuper(AbstractField, 'initialize', arguments, this);
+
                 console.log('FieldText.initialize');
             }
         });

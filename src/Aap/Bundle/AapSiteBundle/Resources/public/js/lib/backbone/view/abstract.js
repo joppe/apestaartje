@@ -24,23 +24,30 @@ define(
             },
 
             /**
-             * @param {Backbone.View} child
+             * @returns {string|number}
+             */
+            identifier: function () {
+                return this.model.id;
+            },
+
+            /**
+             * @param {AbstractView} child
              * @returns {AbstractView}
              */
             addChild: function (child) {
-                this.children[child.model.id] = child;
+                this.children[child.identifier()] = child;
 
                 return this;
             },
 
             /**
-             * @param {Backbone.View} child
+             * @param {AbstractView} child
              * @returns {AbstractView}
              */
             removeChild: function (child) {
                 child.remove();
 
-                delete this.children[child.model.id];
+                delete this.children[child.identifier()];
 
                 return this;
             },
