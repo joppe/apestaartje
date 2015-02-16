@@ -36,6 +36,14 @@ define(
                 expect(Str.ucfirst('are you sure?')).toBe('Are you sure?');
             });
 
+            it ('pad left', function () {
+                expect(Str.pad('1', 4, 0, Str.pad.PAD_LEFT)).toBe('0001');
+            });
+
+            it ('pad right', function () {
+                expect(Str.pad('1', 4, 0, Str.PAD_RIGHT)).toBe('1000');
+            });
+
         });
 
     }
