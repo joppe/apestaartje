@@ -58,10 +58,9 @@ define(
             },
 
             /**
-             *
-             * @param {string} Class
+             * @param {Function} Class
              * @param {Array} args
-             * @returns {Object}
+             * @returns {Class}
              */
             createInstance: function (Class, args) {
                 return new Class(args);
