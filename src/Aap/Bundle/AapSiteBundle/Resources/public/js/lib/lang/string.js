@@ -17,6 +17,9 @@ define(
             FIRST_CHAR = /(^\w)/g;
 
         return {
+            PAD_LEFT: 1,
+            PAD_RIGHT: 2,
+
             /**
              * Removing leading whitespace
              *
@@ -83,6 +86,34 @@ define(
                 return str.replace(FIRST_CHAR, function (match, group) {
                     return group.toUpperCase();
                 });
+            },
+
+            /**
+             * @param {string} str
+             * @param {number} length
+             * @param {string} char
+             * @param {number} [direction]
+             * @returns {string}
+             */
+            pad: function (str, length, char, direction) {
+                var padLength = length - str.length,
+                    padString = '';
+
+                direction = direction || this.PAD_LEFT;
+
+                if (padLength === 1) {
+                    padString = char;
+                } else if (padLength > 1) {
+                    padString = new Array(padLength + 1).join(char);
+                }
+
+                if (direction === this.PAD_LEFT) {
+                    str = padString + str;
+                } else if (direction === this.PAD_RIGHT) {
+                    str += padString;
+                }
+
+                return str;
             }
         };
     }
