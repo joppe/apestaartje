@@ -34,7 +34,7 @@ define(
             initialize: function (options) {
                 Class.callSuper(AbstractField, 'initialize', arguments, this);
 
-                this.template = this.services.get('template').get('field-string', template);
+                this.setTemplate('field-string', template, options.template);
             },
 
             update: function () {

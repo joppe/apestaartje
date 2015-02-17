@@ -49,6 +49,22 @@ define(
 
             },
 
+            /**
+             * @param {string} identifier
+             * @param {string} standard
+             * @param {string} custom
+             */
+            setTemplate: function (identifier, standard, custom) {
+                if (undefined !== custom) {
+                    this.template = this.services.get('template').get(_.uniqueId(identifier), custom);
+                } else {
+                    this.template = this.services.get('template').get(identifier, standard);
+                }
+            },
+
+            /**
+             * @returns {Field}
+             */
             render: function () {
                 this.$el.html(this.template({
                     id: this.id,
