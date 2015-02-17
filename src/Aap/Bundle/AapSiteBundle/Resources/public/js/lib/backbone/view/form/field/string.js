@@ -38,7 +38,7 @@ define(
             },
 
             update: function () {
-                this.$el.val(this.model.get(this.property));
+                this.$el.find('input').val(this.model.get(this.property));
             },
 
             setValue: function () {

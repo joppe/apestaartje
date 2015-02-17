@@ -66,15 +66,22 @@ define(
              * @returns {Field}
              */
             render: function () {
-                this.$el.html(this.template({
+                this.$el.html(this.template(this.getTemplateData()));
+
+                return this;
+            },
+
+            /**
+             * @returns {Object}
+             */
+            getTemplateData: function () {
+                return {
                     id: this.id,
                     name: this.property,
                     label: this.label,
                     placeholder: this.placeholder,
                     value: this.model.get(this.property)
-                }));
-
-                return this;
+                };
             }
         });
 

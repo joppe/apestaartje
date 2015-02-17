@@ -28,7 +28,13 @@ require(
                 formExtension
             ) {
                 var services = new Di(),
-                    form;
+                    form,
+                    model;
+
+                window.model = model = new Backbone.Model({
+                    title: 'This is the title',
+                    text: 'Dummy text'
+                });
 
                 services.register('template', function () {
                     return template;
@@ -37,14 +43,25 @@ require(
                 formExtension(services);
 
                 form = services.get('form')({
-                    model: new Backbone.Model()
+                    model: model
                 });
                 form.add('title', 'form.string', {});
                 form.add('intro', 'form.text', {});
-                form.add('text', 'form.text', {});
+                form.add('vehicle', 'form.select', {
+                    options: [
+                        {id: 'car', label: 'Car'},
+                        {id: 'plane', label: 'Plane'},
+                        {id: 'boat', label: 'Boat'},
+                        {id: 'bicycle', label: 'Bicycle'}
+                    ],
+                    defaultValue: 'bicycle'
+                });
+                form.add('text', 'form.text', {
+                    template: '<h1><%= label %></h1>'
+                });
+                form.add('send', 'form.submit', {});
 
                 $('body').append(form.render().el);
-                console.log(form);
             }
         );
     }

@@ -38,7 +38,7 @@ define(
             },
 
             update: function () {
-                this.$el.val(this.model.get(this.property));
+                this.$el.find('textarea').val(this.model.get(this.property));
             },
 
             setValue: function () {
