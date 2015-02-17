@@ -23,7 +23,9 @@ define(
         var FormBuilder;
 
         FormBuilder = AbstractView.extend({
-            className: 'form',
+            tagName: 'form',
+
+            className: 'form-horizontal',
 
             /**
              * @param {Object} options

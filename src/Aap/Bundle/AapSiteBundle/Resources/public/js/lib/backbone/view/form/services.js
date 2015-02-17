@@ -25,7 +25,7 @@ define(
             services
                 .register('form', function () {
                     return function (options) {
-                        options.di = services;
+                        options.services = services;
 
                         return new FormBuilder(options);
                     };
@@ -33,7 +33,7 @@ define(
 
                 .register('form.string', function () {
                     return function (options) {
-                        options.di = services;
+                        options.services = services;
 
                         return new FieldString(options);
                     };
@@ -41,7 +41,7 @@ define(
 
                 .register('form.text', function () {
                     return function (options) {
-                        options.di = services;
+                        options.services = services;
 
                         return new FieldText(options);
                     };

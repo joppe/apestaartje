@@ -16,17 +16,23 @@ require(
                 'jquery',
                 'lib/dependencyinjection/container',
                 'lib/lang/class',
-                'lib/backbone/view/form/extension'
+                'lib/backbone/view/template',
+                'lib/backbone/view/form/services'
             ],
             function (
                 Backbone,
                 $,
                 Di,
                 Class,
+                template,
                 formExtension
             ) {
                 var services = new Di(),
                     form;
+
+                services.register('template', function () {
+                    return template;
+                }, true);
 
                 formExtension(services);
 

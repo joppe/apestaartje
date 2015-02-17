@@ -16,7 +16,12 @@ define(
     ) {
         'use strict';
 
-        var FieldString;
+        var FieldString,
+            template = '' +
+                '<label for="<%= id %>" class="col-sm-2 control-label"><%= label %></label>' +
+                '<div class="col-sm-10">' +
+                    '<input type="text" class="form-control" placeholder="<%= placeholder %>" value="<%= value %>" name="<%= name %>">' +
+                '</div>';
 
         FieldString = AbstractField.extend({
             /**
@@ -25,7 +30,7 @@ define(
             initialize: function (options) {
                 Class.callSuper(AbstractField, 'initialize', arguments, this);
 
-                console.log('FieldString.initialize');
+                this.template = this.services.get('template').get('field-string', template);
             }
         });
 

@@ -7,10 +7,12 @@
 
 define(
     [
+        'underscore',
         'lib/lang/class',
         'lib/backbone/view/abstract'
     ],
     function (
+        _,
         Class,
         AbstractView
     ) {
@@ -19,6 +21,8 @@ define(
         var Field;
 
         Field = AbstractView.extend({
+            className: 'form-group',
+
             /**
              * @param {Object} options
              */
@@ -26,7 +30,12 @@ define(
                 Class.callSuper(AbstractView, 'initialize', arguments, this);
 
                 this.property = options.property;
-                console.log(this.property);
+                this.services = options.services;
+                this.label = undefined !== options.label ? options.label : this.property;
+                this.id = this.property + '-' + this.model.cid;
+                this.placeholder = undefined !== options.placeholder ? options.placeholder : '';
+
+                this.listenTo(this.model, 'change:' + this.property, _.bind(this.update, this));
             },
 
             /**
@@ -34,6 +43,22 @@ define(
              */
             identifier: function () {
                 return this.property + '_' + this.model.cid;
+            },
+
+            update: function () {
+
+            },
+
+            render: function () {
+                this.$el.html(this.template({
+                    id: this.id,
+                    name: this.property,
+                    label: this.label,
+                    placeholder: this.placeholder,
+                    value: this.model.get(this.property)
+                }));
+
+                return this;
             }
         });
 

@@ -26,7 +26,7 @@ define(
                     templates[id] = template;
                 }
 
-                return template;
+                return templates[id];
             }
         };
     }
