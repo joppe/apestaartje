@@ -9,12 +9,14 @@ define(
     [
         'lib/backbone/view/form/builder',
         'lib/backbone/view/form/field/string',
-        'lib/backbone/view/form/field/text'
+        'lib/backbone/view/form/field/text',
+        'lib/backbone/view/form/field/submit'
     ],
     function (
         FormBuilder,
         FieldString,
-        FieldText
+        FieldText,
+        FieldSubmit
     ) {
         'use strict';
 
@@ -44,6 +46,14 @@ define(
                         options.services = services;
 
                         return new FieldText(options);
+                    };
+                }, false)
+
+                .register('form.submit', function () {
+                    return function (options) {
+                        options.services = services;
+
+                        return new FieldSubmit(options);
                     };
                 }, false)
             ;
