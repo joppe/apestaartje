@@ -3,4 +3,5 @@ app/logs/
 vendor/
 web/bundles/
 .idea/
-bower_components/
+src/Aap/Bundle/AapSiteBundle/Resources/public/css/
+src/Aap/Bundle/AapSiteBundle/Resources/public/bower_components
