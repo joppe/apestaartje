@@ -24,6 +24,10 @@ define(
                 '</div>';
 
         FieldString = AbstractField.extend({
+            events: {
+                'keyup input': 'setValue'
+            },
+
             /**
              * @param {Object} options
              */
@@ -31,6 +35,14 @@ define(
                 Class.callSuper(AbstractField, 'initialize', arguments, this);
 
                 this.template = this.services.get('template').get('field-string', template);
+            },
+
+            update: function () {
+                this.$el.val(this.model.get(this.property));
+            },
+
+            setValue: function () {
+                this.model.set(this.property, this.$el.find('input').val());
             }
         });
 
