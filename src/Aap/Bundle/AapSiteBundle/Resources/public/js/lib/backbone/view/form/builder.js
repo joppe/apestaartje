@@ -31,7 +31,7 @@ define(
             initialize: function (options) {
                 Class.callSuper(AbstractView, 'initialize', arguments, this);
 
-                this.di = options.di;
+                this.services = options.services;
             },
 
             /**
@@ -46,7 +46,7 @@ define(
                 options.model = this.model;
                 options.property = property;
 
-                this.addChild(this.di.get(type)(options));
+                this.addChild(this.services.get(type)(options));
 
                 return this;
             }
