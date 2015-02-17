@@ -21,11 +21,11 @@ define(
         /**
          * @param {dependencyinjection.Container} di
          */
-        return function (di) {
-            di
+        return function (services) {
+            services
                 .register('form', function () {
                     return function (options) {
-                        options.di = di;
+                        options.di = services;
 
                         return new FormBuilder(options);
                     };
@@ -33,7 +33,7 @@ define(
 
                 .register('form.string', function () {
                     return function (options) {
-                        options.di = di;
+                        options.di = services;
 
                         return new FieldString(options);
                     };
@@ -41,7 +41,7 @@ define(
 
                 .register('form.text', function () {
                     return function (options) {
-                        options.di = di;
+                        options.di = services;
 
                         return new FieldText(options);
                     };

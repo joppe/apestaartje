@@ -25,12 +25,12 @@ require(
                 Class,
                 formExtension
             ) {
-                var di = new Di(),
+                var services = new Di(),
                     form;
 
-                formExtension(di);
+                formExtension(services);
 
-                form = di.get('form')({
+                form = services.get('form')({
                     model: new Backbone.Model()
                 });
                 form.add('title', 'form.string', {});
