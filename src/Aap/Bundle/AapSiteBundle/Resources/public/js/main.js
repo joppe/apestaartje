@@ -17,7 +17,8 @@ require(
                 'lib/dependencyinjection/container',
                 'lib/lang/class',
                 'lib/backbone/view/template',
-                'lib/backbone/view/form/services'
+                'lib/backbone/view/form/services',
+                'lib/backbone/model/loader'
             ],
             function (
                 Backbone,
@@ -25,7 +26,8 @@ require(
                 Di,
                 Class,
                 template,
-                formExtension
+                formExtension,
+                modelLoader
             ) {
                 var services = new Di(),
                     form,
@@ -62,6 +64,13 @@ require(
                 form.add('send', 'form.submit', {});
 
                 $('body').append(form.render().el);
+
+                modelLoader('foo', {
+                    foo: 'lib/lang/class',
+                    bar: 'backbone'
+                }, function (model) {
+                    console.log(model);
+                });
             }
         );
     }
