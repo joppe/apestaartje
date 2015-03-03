@@ -16,20 +16,22 @@ define(
     ) {
         'use strict';
 
-        var FieldSelect,
+        var FieldRadio,
             template = '' +
-                '<label for="<%= id %>" class="col-sm-2 control-label"><%= label %></label>' +
-                '<div class="col-sm-10">' +
-                    '<select class="form-control">' +
-                        '<% for (var i = 0; i < options.length; i += 1) { %>' +
-                            '<option value="<%= options[i].id %>"<% if (options[i].id === value) { %> selected<% } %>><%= options[i].label %></option>' +
-                        '<% } %>' +
-                    '</select>' +
+                '<div class="col-sm-10 col-sm-push-2">' +
+                    '<% for (var i = 0; i < options.length; i += 1) { %>' +
+                        '<div class="radio">' +
+                            '<label>' +
+                                '<input type="radio" name="<%= name %>" value="<%= options[i].id %>"<% if (options[i].id === value) { %> checked<% } %>>' +
+                                '<%= options[i].label %>' +
+                            '</label>' +
+                        '</div>' +
+                    '<% } %>' +
                 '</div>';
 
-        FieldSelect = AbstractField.extend({
+        FieldRadio = AbstractField.extend({
             events: {
-                'change select': 'setValue'
+                'change input': 'setValue'
             },
 
             /**
@@ -41,15 +43,15 @@ define(
                 this.options = options.options;
                 this.defaultValue = options.defaultValue;
 
-                this.setTemplate('field-select', template, options.template);
+                this.setTemplate('field-radio', template, options.template);
             },
 
             update: function () {
-                this.$el.find('select').val(this.model.get(this.property));
+                this.$el.find('input[value=' + this.model.get(this.property) + ']').attr('checked', true);
             },
 
             setValue: function () {
-                this.model.set(this.property, this.$el.find('select').val());
+                this.model.set(this.property, this.$el.find('input:checked').val());
             },
 
             /**
@@ -60,12 +62,12 @@ define(
                     value = this.model.get(this.property);
 
                 data.options = this.options;
-                data.value =  undefined !== value ? value : this.defaultValue;
+                data.value = (undefined !== value) ? value : this.defaultValue;
 
                 return data;
             }
         });
 
-        return FieldSelect;
+        return FieldRadio;
     }
 );

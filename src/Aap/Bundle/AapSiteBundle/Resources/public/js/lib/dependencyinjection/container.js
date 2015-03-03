@@ -1,4 +1,4 @@
-/*global define, window*/
+/*global define*/
 
 /**
  * @author Joppe Aarts <joppe@apestaartje.info>

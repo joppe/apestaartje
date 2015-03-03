@@ -11,6 +11,7 @@ define(
         'lib/backbone/view/form/field/string',
         'lib/backbone/view/form/field/text',
         'lib/backbone/view/form/field/select',
+        'lib/backbone/view/form/field/radio',
         'lib/backbone/view/form/field/submit'
     ],
     function (
@@ -18,6 +19,7 @@ define(
         FieldString,
         FieldText,
         FieldSelect,
+        FieldRadio,
         FieldSubmit
     ) {
         'use strict';
@@ -56,6 +58,14 @@ define(
                         options.services = services;
 
                         return new FieldSelect(options);
+                    };
+                }, false)
+
+                .register('form.radio', function () {
+                    return function (options) {
+                        options.services = services;
+
+                        return new FieldRadio(options);
                     };
                 }, false)
 

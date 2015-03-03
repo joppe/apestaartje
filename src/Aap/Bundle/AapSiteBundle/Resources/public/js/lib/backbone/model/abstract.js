@@ -1,4 +1,4 @@
-/*global define, window*/
+/*global define*/
 
 /**
  * @author Joppe Aarts <joppe@apestaartje.info>
@@ -8,21 +8,16 @@
 define(
     [
         'backbone',
-        'underscore',
-        'lib/lang/class'
+        'underscore'
     ],
     function (
         Backbone,
-        _,
-        Class
+        _
     ) {
         'use strict';
 
         var AbstractModel;
 
-        /**
-         * @class {AbstractModel}
-         */
         AbstractModel = Backbone.Model.extend({
             schema: {
                 //string, file, float, int, bool, variant
@@ -31,31 +26,30 @@ define(
             parse: function (response) {
                 var attributes = {};
 
-                _.each(this.model, function (type, identifier) {
-                    var data = response[identifier],
+                _.each(this.schema, function (type, property) {
+                    var value = response[property],
                         model,
                         ClassName;
 
                     if ('variant' === type || 'string' === type || 'file' === type) {
-                        attributes[identifier] = data;
-                    } else if ('bool' === type) {
-                        attributes[identifier] = true === data;
+                        attributes[property] = value;
                     } else if ('float' === type) {
-                        data = parseFloat(data);
-                        attributes[identifier] = isNaN(data) ? 0 : data;
+                        value = parseFloat(value);
+                        attributes[property] = isNaN(value) ? 0 : value;
                     } else if ('int' === type) {
-                        data = parseInt(data, 10);
-                        attributes[identifier] = isNaN(data) ? 0 : data;
+                        value = parseInt(value, 10);
+                        attributes[property] = isNaN(value) ? 0 : value;
+                    } else if ('bool' === type) {
+                        attributes[property] = (true === value);
                     } else {
-                        model = this.get(identifier);
+                        model = this.get(property);
 
                         if (model) {
-                            model.set(model.parse(data));
+                            model.set(model.parse(value));
                         } else {
-                            // the class name must be already available
-                            ClassName = Class.resolveClass(window, type);
+                            ClassName = type;
 
-                            attributes[identifier] = new ClassName(data, {
+                            attributes[property] = new ClassName(value, {
                                 parse: true
                             });
                         }
@@ -63,6 +57,13 @@ define(
                 }, this);
 
                 return attributes;
+            },
+
+            /**
+             * @returns {Object}
+             */
+            getData: function () {
+                return this.attributes;
             },
 
             /**
