@@ -37,14 +37,17 @@ define(
              * Cache the result of a function
              *
              * @param {Function} func
+             * @param {Object} context
              * @returns {Function}
              */
-            cache: function (func) {
+            cache: function (func, context) {
                 var result;
 
                 return function () {
-                    if (undefined === result) {
-                        result = func.apply(func, arguments);
+                    if (null !== func) {
+                        context = undefined !== context ? context : this;
+                        result = func.apply(context, arguments);
+                        func = null;
                     }
 
                     return result;
