@@ -41,13 +41,12 @@ define(
                 Class.callSuper(AbstractField, 'initialize', arguments, this);
 
                 this.options = options.options;
-                this.defaultValue = options.defaultValue;
 
                 this.setTemplate('field-radio', template, options.template);
             },
 
             update: function () {
-                this.$el.find('input[value=' + this.model.get(this.property) + ']').attr('checked', true);
+                this.$el.find('input[value=' + this.model.get(this.property) + ']').prop('checked', true);
             },
 
             setValue: function () {
@@ -58,11 +57,10 @@ define(
              * @returns {Object}
              */
             getTemplateData: function () {
-                var data = Class.callSuper(AbstractField, 'getTemplateData', arguments, this),
-                    value = this.model.get(this.property);
+                var data = Class.callSuper(AbstractField, 'getTemplateData', arguments, this);
 
                 data.options = this.options;
-                data.value = (undefined !== value) ? value : this.defaultValue;
+                data.value = this.model.get(this.property);
 
                 return data;
             }
