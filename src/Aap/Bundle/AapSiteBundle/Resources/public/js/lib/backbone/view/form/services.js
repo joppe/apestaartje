@@ -12,6 +12,7 @@ define(
         'lib/backbone/view/form/field/text',
         'lib/backbone/view/form/field/select',
         'lib/backbone/view/form/field/radio',
+        'lib/backbone/view/form/field/checkbox',
         'lib/backbone/view/form/field/submit'
     ],
     function (
@@ -20,6 +21,7 @@ define(
         FieldText,
         FieldSelect,
         FieldRadio,
+        FieldCheckbox,
         FieldSubmit
     ) {
         'use strict';
@@ -29,7 +31,7 @@ define(
          */
         return function (services) {
             services
-                .register('form', function () {
+                .register('form.builder', function () {
                     return function (options) {
                         options.services = services;
 
@@ -37,7 +39,7 @@ define(
                     };
                 }, false)
 
-                .register('form.string', function () {
+                .register('form.field.string', function () {
                     return function (options) {
                         options.services = services;
 
@@ -45,7 +47,7 @@ define(
                     };
                 }, false)
 
-                .register('form.text', function () {
+                .register('form.field.text', function () {
                     return function (options) {
                         options.services = services;
 
@@ -53,7 +55,7 @@ define(
                     };
                 }, false)
 
-                .register('form.select', function () {
+                .register('form.field.select', function () {
                     return function (options) {
                         options.services = services;
 
@@ -61,7 +63,7 @@ define(
                     };
                 }, false)
 
-                .register('form.radio', function () {
+                .register('form.field.radio', function () {
                     return function (options) {
                         options.services = services;
 
@@ -69,7 +71,15 @@ define(
                     };
                 }, false)
 
-                .register('form.submit', function () {
+                .register('form.field.checkbox', function () {
+                    return function (options) {
+                        options.services = services;
+
+                        return new FieldCheckbox(options);
+                    };
+                }, false)
+
+                .register('form.field.submit', function () {
                     return function (options) {
                         options.services = services;
 
