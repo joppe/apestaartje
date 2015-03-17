@@ -6,6 +6,7 @@
 namespace Aap\Bundle\AapSiteBundle\Controller;
 
 use \Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use \Symfony\Component\HttpFoundation\JsonResponse;
 use \Symfony\Component\HttpFoundation\Response;
 use \Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use \Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -18,16 +19,23 @@ use \Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class PageController extends Controller
 {
     /**
-     * @Route("/{name}", defaults={"name" = "foo"})
+     * @Route("/")
      * @Template
      *
-     * @param string $name
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction($name)
+    public function indexAction()
     {
-        return array(
-            'name' => $name
-        );
+        return array();
+    }
+
+    /**
+     * @Route("/crud")
+     *
+     * @return JsonResponse
+     */
+    public function crudAction()
+    {
+        return new JsonResponse(array('foo' => 'bar'));
     }
 }
