@@ -7,6 +7,7 @@ namespace Aap\Bundle\AapSiteBundle\Controller;
 
 use \Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use \Symfony\Component\HttpFoundation\JsonResponse;
+use \Symfony\Component\HttpFoundation\Request;
 use \Symfony\Component\HttpFoundation\Response;
 use \Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use \Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -32,10 +33,15 @@ class PageController extends Controller
     /**
      * @Route("/crud")
      *
+     * @param Request $request
      * @return JsonResponse
      */
-    public function crudAction()
+    public function crudAction(Request $request)
     {
-        return new JsonResponse(array('foo' => 'bar'));
+        $response = array();
+
+        var_dump($request->request->all());
+
+        return new JsonResponse($response);
     }
 }
