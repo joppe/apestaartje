@@ -42,20 +42,20 @@ define(
                     success = options.success || function () {},
                     error = options.error || function () {},
                     url = model.url(),
-                    data = {
-                        csrf: this.csrf,
-                        data: _.isFunction(model.getData) ? model.getData() : model.attributes
-                    };
+                    data = _.isFunction(model.getData) ? model.getData() : model.attributes;
 
-                if (this.csrf && method === 'read') {
-                    url += '?csrf=' + this.csrf;
+                if (this.csrf) {
+                    if (method === 'read') {
+                        url += '?csrf=' + this.csrf;
+                    } else {
+                        data.append('csrf', this.csrf);
+                    }
                 }
 
                 this.trigger('sync', jqXHR);
 
                 jqXHR = $.ajax({
                     url: url,
-                    dataType: 'json',
                     type: method === 'read' ? 'GET' : 'POST',
                     data: method === 'read' ? '' : data,
                     processData: false,
