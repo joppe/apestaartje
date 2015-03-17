@@ -9,11 +9,13 @@ define(
     [
         'lib/dependencyinjection/container',
         'lib/backbone/view/template',
+        'lib/backbone/sync',
         'lib/backbone/view/form/services'
     ],
     function (
         di,
         template,
+        Sync,
         formExtension
     ) {
         'use strict';
@@ -22,6 +24,10 @@ define(
 
         services.register('template', function () {
             return template;
+        }, true);
+
+        services.register('sync', function (csrf) {
+            return new Sync(csrf);
         }, true);
 
         formExtension(services);

@@ -1,4 +1,4 @@
-/*global define*/
+/*global define, FormData*/
 
 /**
  * @author Joppe Aarts <joppe@apestaartje.info>
@@ -63,7 +63,18 @@ define(
              * @returns {Object}
              */
             getData: function () {
-                return this.attributes;
+                var data = new FormData();
+
+                _.each(this.schema, function (type, property) {
+                    if (true === _.contains(['string', 'file', 'float', 'int', 'bool', 'variant'], type)) {
+                        data.append(property, this.get(property));
+                    } else {
+                        // todo: delegate retrieval of data to fieldtype
+                        data.append(property, this.get(property));
+                    }
+                });
+
+                return data;
             },
 
             /**

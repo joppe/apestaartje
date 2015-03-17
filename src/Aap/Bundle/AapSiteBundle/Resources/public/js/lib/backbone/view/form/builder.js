@@ -25,15 +25,23 @@ define(
         FormBuilder = AbstractView.extend({
             tagName: 'form',
 
-            className: 'form-horizontal',
+            className: 'form-horizontal form',
 
             /**
              * @param {Object} options
              */
             initialize: function (options) {
+                var sync;
+
                 Class.callSuper(AbstractView, 'initialize', arguments, this);
 
                 this.services = options.services;
+
+                sync = this.services.get('sync');
+                console.log(this.services);
+                this.model.sync = function (method, model, options) {
+                    sync.sync(method, model, options);
+                };
             },
 
             /**

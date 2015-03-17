@@ -36,8 +36,11 @@ require(
                     vehicle: '',
                     accessoires: new Backbone.Collection(),
                     color: null,
-                    thumbnail: null
+                    thumbnail: 'http://lorempixel.com/400/200/sports/1/'
                 });
+                model.url = function () {
+                    return '/foo';
+                };
 
                 form = services.get('form.builder')({
                     model: model
