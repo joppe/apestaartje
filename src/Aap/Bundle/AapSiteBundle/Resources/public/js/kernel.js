@@ -7,15 +7,17 @@
 
 define(
     [
+        'backbone',
         'lib/dependencyinjection/container',
         'lib/backbone/view/template',
-        'lib/backbone/sync',
+        'lib/backbone/connection',
         'lib/backbone/view/form/services'
     ],
     function (
+        Backbone,
         di,
         template,
-        Sync,
+        Connection,
         formExtension
     ) {
         'use strict';
@@ -26,11 +28,22 @@ define(
             return template;
         }, true);
 
-        services.register('sync', function (csrf) {
-            return new Sync(csrf);
+        services.register('connection', function () {
+            return new Connection();
         }, true);
 
         formExtension(services);
+
+        /**
+         * Override backbone's sync method
+         *
+         * @param {string} method
+         * @param {Backbone,Model} model
+         * @param {Object} options
+         */
+        Backbone.sync = function (method, model, options) {
+            return services.get('connection').sync(method, model, options);
+        };
 
         return {
             getServices: function () {
