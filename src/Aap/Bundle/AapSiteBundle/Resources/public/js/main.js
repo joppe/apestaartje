@@ -16,57 +16,51 @@ require(
                 'jquery',
                 'kernel',
                 'lib/lang/class',
-                'lib/backbone/model/loader'
+                'recipes/model/recipe'
             ],
             function (
                 Backbone,
                 $,
                 Kernel,
                 Class,
-                modelLoader
+                Recipe
             ) {
                 var services = Kernel.getServices(),
                     form,
                     model;
 
-                window.model = model = new Backbone.Model({
-                    title: 'This is the title',
-                    intro: '',
-                    text: 'Dummy text',
-                    vehicle: '',
-                    accessoires: new Backbone.Collection(),
-                    color: null,
-                    thumbnail: 'http://lorempixel.com/400/200/sports/1/'
+                window.model = model = new Recipe({
+                    title: 'Paella',
+                    thumbnail: 'http://s.iamafoodblog.com/wp-content/uploads/2012/07/paella-25.jpg',
+                    text: 'Rijst op zijn italiaans',
+                    kitchen: 'italiaans',
+                    vegetarian: false,
+                    ingredients: null
                 });
-                model.url = function () {
-                    return '/foo';
-                };
 
                 form = services.get('form.builder')({
                     model: model
                 });
                 form.add('title', 'form.field.string', {});
-                form.add('intro', 'form.field.text', {});
-                form.add('vehicle', 'form.field.select', {
-                    options: [
-                        {id: 'car', label: 'Car'},
-                        {id: 'plane', label: 'Plane'},
-                        {id: 'boat', label: 'Boat'},
-                        {id: 'bicycle', label: 'Bicycle'}
-                    ],
-                    defaultValue: 'bicycle'
-                });
                 form.add('thumbnail', 'form.field.file', {});
-                form.add('text', 'form.field.text', {
-                    template: '<h1><%= label %></h1>'
-                });
-                form.add('color', 'form.field.radio', {
+                form.add('text', 'form.field.text', {});
+                form.add('kitchen', 'form.field.select', {
                     options: [
-                        {id: 'red', label: 'Red'},
-                        {id: 'green', label: 'Green'},
-                        {id: 'blue', label: 'Blue'}
-                    ]
+                        {id: 'nederlands', label: 'Nederlands'},
+                        {id: 'frans', label: 'Frans'},
+                        {id: 'italiaans', label: 'Italiaans'},
+                        {id: 'oosters', label: 'Oosters'}
+                    ],
+                    defaultValue: 'nederlands'
                 });
+                form.add('vegetarian', 'form.field.radio', {
+                    options: [
+                        {id: false, label: 'Nee'},
+                        {id: true, label: 'Ja'}
+                    ],
+                    defaultValue: false
+                });
+                /*/
                 form.add('accessoires', 'form.field.checkbox', {
                     options: [
                         {id: 'airco', label: 'Airco'},
@@ -75,17 +69,10 @@ require(
                         {id: 'parc-assist', label: 'Parc assist'}
                     ]
                 });
+                /**/
                 form.add('send', 'form.field.submit', {});
 
                 $('body').append(form.render().el);
-
-                // check if the modelLoader works
-                modelLoader('foo', {
-                    foo: 'lib/lang/class',
-                    bar: 'backbone'
-                }, function (model) {
-                    console.log(model);
-                });
             }
         );
     }
