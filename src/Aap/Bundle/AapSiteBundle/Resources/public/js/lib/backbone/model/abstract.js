@@ -23,6 +23,12 @@ define(
                 //string, file, float, int, bool, variant
             },
 
+            /**
+             * Parse the data
+             *
+             * @param {Object} response
+             * @returns {Object}
+             */
             parse: function (response) {
                 var attributes = {};
 
@@ -31,7 +37,7 @@ define(
                         model,
                         ClassName;
 
-                    if ('variant' === type || 'string' === type || 'file' === type) {
+                    if ('variant' === type || 'text' === type || 'string' === type || 'file' === type) {
                         attributes[property] = value;
                     } else if ('float' === type) {
                         value = parseFloat(value);
@@ -69,10 +75,10 @@ define(
                     if (true === _.contains(['string', 'file', 'float', 'int', 'bool', 'variant'], type)) {
                         data.append(property, this.get(property));
                     } else {
-                        // todo: delegate retrieval of data to fieldtype
-                        data.append(property, this.get(property));
+                        // todo: delegate retrieval of data to sub model
+                        //data.append(property, this.get(property));
                     }
-                });
+                }, this);
 
                 return data;
             },
@@ -91,6 +97,13 @@ define(
 
                     return ret;
                 }, this);
+            },
+
+            /**
+             * @returns {string}
+             */
+            url: function () {
+                return '/crud';
             }
         });
 
