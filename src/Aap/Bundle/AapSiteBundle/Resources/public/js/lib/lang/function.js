@@ -37,7 +37,7 @@ define(
              * Cache the result of a function
              *
              * @param {Function} func
-             * @param {Object} context
+             * @param {Object} [context]
              * @returns {Function}
              */
             cache: function (func, context) {

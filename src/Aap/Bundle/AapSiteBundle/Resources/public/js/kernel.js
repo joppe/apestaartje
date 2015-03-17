@@ -12,13 +12,13 @@ define(
         'lib/backbone/view/form/services'
     ],
     function (
-        Di,
+        di,
         template,
         formExtension
     ) {
         'use strict';
 
-        var services = new Di();
+        var services = di.create();
 
         services.register('template', function () {
             return template;

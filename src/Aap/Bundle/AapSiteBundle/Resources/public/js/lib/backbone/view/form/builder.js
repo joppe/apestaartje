@@ -37,7 +37,7 @@ define(
             },
 
             /**
-             * Add a check if in path is no slash prefix path with 'lib/backbone/view/form/field/'
+             * Add a field
              *
              * @param {string} property
              * @param {string} type

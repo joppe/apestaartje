@@ -35,7 +35,8 @@ require(
                     text: 'Dummy text',
                     vehicle: '',
                     accessoires: new Backbone.Collection(),
-                    color: null
+                    color: null,
+                    thumbnail: null
                 });
 
                 form = services.get('form.builder')({
@@ -52,6 +53,7 @@ require(
                     ],
                     defaultValue: 'bicycle'
                 });
+                form.add('thumbnail', 'form.field.file', {});
                 form.add('text', 'form.field.text', {
                     template: '<h1><%= label %></h1>'
                 });

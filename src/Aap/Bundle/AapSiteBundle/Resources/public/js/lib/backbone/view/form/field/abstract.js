@@ -30,7 +30,7 @@ define(
                 Class.callSuper(AbstractView, 'initialize', arguments, this);
 
                 this.property = options.property;
-                this.services = options.services;
+                this.templateFactory = options.templateFactory;
                 this.label = undefined !== options.label ? options.label : this.property;
                 this.id = this.property + '-' + this.model.cid;
                 this.placeholder = undefined !== options.placeholder ? options.placeholder : '';
@@ -56,9 +56,9 @@ define(
              */
             setTemplate: function (identifier, standard, custom) {
                 if (undefined !== custom) {
-                    this.template = this.services.get('template').get(_.uniqueId(identifier), custom);
+                    this.template = this.templateFactory.get(_.uniqueId(identifier), custom);
                 } else {
-                    this.template = this.services.get('template').get(identifier, standard);
+                    this.template = this.templateFactory.get(identifier, standard);
                 }
             },
 
