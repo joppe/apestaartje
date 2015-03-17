@@ -9,22 +9,29 @@ define(
     [
         'underscore',
         'backbone',
+        'lib/lang/class',
         'jquery'
     ],
     function (
         _,
         Backbone,
+        Class,
         $
     ) {
         'use strict';
 
-        var Sync;
+        var Connection;
 
-        Sync = function (csrf) {
-            this.csrf = csrf;
-        };
+        Connection = Class.createClass({
+            /**
+             * @param {string} csrf
+             */
+            setCsrf: function (csrf) {
+                this.csrf = csrf;
+            }
+        });
 
-        _.extend(Sync.prototype, Backbone.Events, {
+        _.extend(Connection.prototype, Backbone.Events, {
             /**
              * @param {string} method
              * @param {Backbone,Model} model
@@ -44,21 +51,23 @@ define(
                     url += '?csrf=' + this.csrf;
                 }
 
+                this.trigger('sync', jqXHR);
+
                 jqXHR = $.ajax({
-                    url: model.get('url'),
+                    url: url,
                     dataType: 'json',
                     type: method === 'read' ? 'GET' : 'POST',
-                    data: method === 'read' ? '' : data
-                })
-                .done(_.bind(function (response) {
+                    data: method === 'read' ? '' : data,
+                    processData: false,
+                    contentType: false
+                }).done(_.bind(function (response) {
                     if (response.error) {
                         this.trigger('error', response);
                         error(response);
                     } else {
                         success(response.data ? response.data : response);
                     }
-                }, this))
-                .fail(_.bind(function (jqXHR, textStatus) {
+                }, this)).fail(_.bind(function (jqXHR, textStatus) {
                     this.trigger('error', textStatus);
                     error(textStatus);
                 }, this));
@@ -67,6 +76,6 @@ define(
             }
         });
 
-        return Sync;
+        return Connection;
     }
 );
