@@ -41,10 +41,13 @@ define(
              * Create a class definition
              *
              * @param {Object} proto
+             * @param {Object} [parent]
              * @returns {Function}
              */
-            createClass: function (proto) {
+            createClass: function (proto, parent) {
                 var Class;
+
+                parent = undefined !== parent ? parent.prototype : {};
 
                 Class = function () {
                     if (undefined !== this.initialize) {
@@ -52,7 +55,7 @@ define(
                     }
                 };
 
-                _.extend(Class.prototype, proto);
+                _.extend(Class.prototype, parent, proto);
 
                 return Class;
             },

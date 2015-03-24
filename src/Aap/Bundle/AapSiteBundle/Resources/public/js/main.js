@@ -12,23 +12,40 @@ require(
 
         require(
             [
-                'backbone',
-                'jquery',
-                'kernel',
-                'lib/lang/class',
-                'recipes/model/recipe'
+                //'backbone',
+                //'jquery',
+                //'kernel',
+                //'lib/lang/class',
+                //'recipes/model/recipe',
+                'lib/dsl/lexer',
+                'lib/dsl/list-lexer'
             ],
             function (
-                Backbone,
-                $,
-                Kernel,
-                Class,
-                Recipe
+                //Backbone,
+                //$,
+                //Kernel,
+                //Class,
+                //Recipe,
+                Lexer,
+                ListLexer
             ) {
-                var services = Kernel.getServices(),
-                    form,
-                    model;
+                //var services = Kernel.getServices(),
+                //    form,
+                //    model;
 
+                window.lexer = function (input) {
+                    var l = new ListLexer(input),
+                        t = l.nextToken();
+
+                    while (t.type !== Lexer.EOF) {
+                        console.log(t);
+                        t = l.nextToken();
+                    }
+
+                    console.log(t);
+                };
+
+/*/
                 window.model = model = new Recipe({
                     title: 'Paella',
                     thumbnail: 'http://s.iamafoodblog.com/wp-content/uploads/2012/07/paella-25.jpg',
@@ -60,6 +77,7 @@ require(
                     ],
                     defaultValue: false
                 });
+                /**/
                 /*/
                 form.add('accessoires', 'form.field.checkbox', {
                     options: [
@@ -70,9 +88,9 @@ require(
                     ]
                 });
                 /**/
-                form.add('send', 'form.field.submit', {});
+                //form.add('send', 'form.field.submit', {});
 
-                $('body').append(form.render().el);
+                //$('body').append(form.render().el);
             }
         );
     }
