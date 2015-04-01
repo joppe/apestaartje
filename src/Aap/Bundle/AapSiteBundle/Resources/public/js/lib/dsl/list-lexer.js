@@ -62,13 +62,13 @@ define(
                         continue;
                     } else if (',' === this.c) {
                         this.consume();
-                        token = new Token(ListLexer.COMMA, ',');
+                        token = new Token(ListLexer.COMMA, ',', this);
                     } else if ('[' === this.c) {
                         this.consume();
-                        token = new Token(ListLexer.LBRACK, '[');
+                        token = new Token(ListLexer.LBRACK, '[', this);
                     } else if (']' === this.c) {
                         this.consume();
-                        token = new Token(ListLexer.RBRACK, ']');
+                        token = new Token(ListLexer.RBRACK, ']', this);
                     } else {
                         if (this.isLetter()) {
                             token = this.name();
@@ -83,7 +83,7 @@ define(
                 }
 
                 if (undefined === token) {
-                    token = new Token(Lexer.EOF, '<EOF>');
+                    token = new Token(Lexer.EOF, '<EOF>', this);
                 }
 
                 return token;
@@ -103,7 +103,7 @@ define(
                     this.consume();
                 } while (this.isLetter());
 
-                return new Token(ListLexer.NAME, buffer);
+                return new Token(ListLexer.NAME, buffer, this);
             }
         }, Lexer);
 
