@@ -30,7 +30,7 @@ define(
 
             /**
              * @param {number} tokenType
-             * @returns {number}
+             * @returns {string}
              */
             getTokenName: function (tokenType) {
                 return ListLexer.tokenNames[tokenType];
