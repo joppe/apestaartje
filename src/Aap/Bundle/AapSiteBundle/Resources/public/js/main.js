@@ -18,7 +18,8 @@ require(
                 //'lib/lang/class',
                 //'recipes/model/recipe',
                 'lib/dsl/lexer',
-                'lib/dsl/list-lexer'
+                'lib/dsl/list-lexer',
+                'lib/dsl/list-parser'
             ],
             function (
                 //Backbone,
@@ -27,7 +28,8 @@ require(
                 //Class,
                 //Recipe,
                 Lexer,
-                ListLexer
+                ListLexer,
+                ListParser
             ) {
                 //var services = Kernel.getServices(),
                 //    form,
@@ -43,6 +45,13 @@ require(
                     }
 
                     console.log(t);
+                };
+
+                window.parser = function (input) {
+                    var lexer = new ListLexer(input),
+                        parser = new ListParser(lexer);
+
+                    parser.list();
                 };
 
 /*/
