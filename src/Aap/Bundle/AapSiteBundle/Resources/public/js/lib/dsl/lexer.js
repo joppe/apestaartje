@@ -60,10 +60,11 @@ define(
             },
 
             /**
+             * @param {number} tokenType
              * @throws Exception
              */
-            getTokenName: function () {
-                throw 'nextToken() not implemented for lexer';
+            getTokenName: function (tokenType) {
+                throw 'nextToken() not implemented for lexer, tokenType "' + tokenType + '" given';
             }
 
         });
