@@ -7,12 +7,10 @@
 
 define(
     [
-        'lib/lang/class',
-        'lib/dsl/list-lexer'
+        'lib/lang/class'
     ],
     function (
-        Class,
-        ListLexer
+        Class
     ) {
         'use strict';
 
@@ -22,17 +20,19 @@ define(
             /**
              * @param {number} type
              * @param {string} text
+             * @param {Lexer} lexer
              */
-            initialize: function (type, text) {
+            initialize: function (type, text, lexer) {
                 this.type = type;
                 this.text = text;
+                this.lexer = lexer;
             },
 
             /**
              * @returns {string}
              */
             toString: function () {
-                var name = ListLexer.tokenNames[this.type];
+                var name = this.lexer.getTokenName(this.type);
 
                 return '<"' + this.text + '", "' + name + '">';
             }
