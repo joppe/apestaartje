@@ -16,6 +16,11 @@ define(
 
         var Lexer;
 
+        /**
+         * A LL(1) Recursive Descent Lexer
+         *
+         * @type {Function}
+         */
         Lexer = Class.createClass({
             /**
              * @param {string} input
@@ -45,7 +50,22 @@ define(
                 } else {
                     throw 'Expecting "' + c + '"; found "' + this.c + '"';
                 }
+            },
+
+            /**
+             * @throws Exception
+             */
+            nextToken: function () {
+                throw 'nextToken() not implemented for lexer';
+            },
+
+            /**
+             * @throws Exception
+             */
+            getTokenName: function () {
+                throw 'nextToken() not implemented for lexer';
             }
+
         });
 
         Lexer.EOF = 1;
