@@ -21,12 +21,16 @@ module.exports = function (config) {
 
         // systemjs config
         systemjs: {
+            configFile: '../public/js/system.conf.js',
+
             files: [
                 'src/**/*.es6',
                 'test/unit/**/*.spec.js'
             ],
 
-            configFile: '../public/js/system.conf.js',
+            config: {
+                baseURL: './'
+            },
 
             // systemjs does not support other extensions then .js for test files
             testFileSuffix: '.spec.js'
