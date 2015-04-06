@@ -6,36 +6,38 @@
 
 module.exports = function (config) {
     config.set({
-
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
+        basePath: '../',
 
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine', 'requirejs'],
+        frameworks: ['systemjs', 'jasmine'],
 
 
         // list of files / patterns to load in the browser
-        files: [
-            {pattern: 'bower_components/**/*.js', included: false},
-            {pattern: 'js/lib/**/*.js', included: false},
-            //{pattern: 'recipes/**/*.js', included: false},
-            {pattern: 'js/test/**/*spec.js', included: false},
-
-            'js/test/test-main.js'
-        ],
+        files: [],
 
 
-        // list of files to exclude
-        exclude: [
-        ],
+        // systemjs config
+        systemjs: {
+            files: [
+                'src/**/*.es6',
+                'test/unit/**/*.spec.js'
+            ],
 
+            configFile: '../public/js/system.conf.js',
 
-        // preprocess matching files before serving them to the browser
-        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {
+            // systemjs does not support other extensions then .js for test files
+            testFileSuffix: '.spec.js'
         },
+
+
+        plugins : [
+            'karma-systemjs',
+            'karma-jasmine',
+            'karma-chrome-launcher'
+        ],
 
 
         // test results reporter to use
@@ -63,7 +65,7 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
 
 
         // Continuous Integration mode

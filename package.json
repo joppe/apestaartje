@@ -1,0 +1,31 @@
+{
+    "name": "apestaartje",
+    "private": true,
+    "version": "1.0.0",
+    "description": "fun project",
+    "main": "karma.conf.js",
+    "directories": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/joppe/apestaartje.git"
+    },
+    "keywords": [
+        "js",
+        "babeljs",
+        "systemjs",
+        "symfony"
+    ],
+    "author": "Joppe Aarts",
+    "license": "MIT",
+    "devDependencies": {
+        "es6-module-loader": "^0.15.0",
+        "karma": "^0.12.16",
+        "karma-chrome-launcher": "^0.1.4",
+        "karma-jasmine": "^0.1.5",
+        "karma-systemjs": "^0.2.0",
+        "systemjs": "^0.15.0",
+        "babel": "^4.7.3"
+    }
+}

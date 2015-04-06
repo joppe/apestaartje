@@ -5,3 +5,4 @@ web/bundles/
 .idea/
 src/Aap/Bundle/AapSiteBundle/Resources/public/css/
 src/Aap/Bundle/AapSiteBundle/Resources/public/bower_components/
+node_modules/
