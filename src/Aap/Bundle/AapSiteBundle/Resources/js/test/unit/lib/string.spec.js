@@ -1,6 +1,6 @@
 /*global describe, it, expect*/
 
-import {Str,RE_SPECIALS} from 'lib/lang/string';
+import {Str, RE_SPECIALS, PAD_LEFT, PAD_RIGHT} from 'lib/lang/string';
 
 describe('Str.escapeRegExp', function () {
     'use strict';
@@ -29,5 +29,49 @@ describe('Str.toCamelCase', function () {
 
     it('Double underscores will be replaced by a single underscore', function () {
         expect(Str.toCamelCase('hello__world')).toBe('hello_world');
+    });
+});
+
+describe('Str.toSnakeCase', function () {
+    'use strict';
+
+    it('Convert uppercased chars to lowercased chars with an underscore prefix', function () {
+        expect(Str.toSnakeCase('helloWorld')).toBe('hello_world');
+    });
+});
+
+describe('Str.toSpineCase', function () {
+    'use strict';
+
+    it('Convert uppercased chars to lowercased chars with a dash prefix', function () {
+        expect(Str.toSpineCase('helloWorld')).toBe('hello-world');
+    });
+});
+
+describe('Str.ucfirst', function () {
+    'use strict';
+
+    it('Only the fist char must be uppercase', function () {
+        expect(Str.ucfirst('aaaaa')).toBe('Aaaaa');
+    });
+
+    it('Leave strings starting with a number untouched', function () {
+        expect(Str.ucfirst('1aaaaa')).toBe('1aaaaa');
+    });
+});
+
+describe('Str.pad', function () {
+    'use strict';
+
+    it('Pad left (default)', function () {
+        expect(Str.pad('a', 4, 'b')).toBe('bbba');
+    });
+
+    it('Pad left', function () {
+        expect(Str.pad('c', 4, 'b', PAD_LEFT)).toBe('bbbc');
+    });
+
+    it('Pad right', function () {
+        expect(Str.pad('1', 4, '0', PAD_RIGHT)).toBe('1000');
     });
 });
