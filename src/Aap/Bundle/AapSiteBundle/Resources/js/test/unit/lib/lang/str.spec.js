@@ -1,6 +1,6 @@
 /*global describe, it, expect*/
 
-import {Str, RE_SPECIALS, PAD_LEFT, PAD_RIGHT} from 'lib/lang/string';
+import {Str, RE_SPECIALS, PAD_LEFT, PAD_RIGHT} from 'lib/lang/str';
 
 describe('Str.escapeRegExp', function () {
     'use strict';
