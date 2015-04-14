@@ -108,7 +108,7 @@ export class Str {
      * @returns {string}
      */
     static pad(str, length, char, direction = PAD_LEFT) {
-        var padLength = length - str.length,
+        let padLength = length - str.length,
             padString = '';
 
         if (padLength === 1) {
