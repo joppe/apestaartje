@@ -7,6 +7,10 @@
     "directories": {
         "test": "test"
     },
+    "scripts": {
+        "babel": "babel src/Aap/Bundle/AapSiteBundle/Resources/es6/src --out-dir src/Aap/Bundle/AapSiteBundle/Resources/public/js --modules system",
+        "karma": "node node_modules/karma/bin/karma start src/Aap/Bundle/AapSiteBundle/Resources/es6/test/karma.conf.js --single-run --no-auto-watch --reporters dots"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/joppe/apestaartje.git"
