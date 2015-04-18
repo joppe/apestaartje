@@ -1,5 +1,8 @@
 export const EOF = 1;
 
+/**
+ * @class
+ */
 export class Lexer {
     /**
      * @param {string} input
