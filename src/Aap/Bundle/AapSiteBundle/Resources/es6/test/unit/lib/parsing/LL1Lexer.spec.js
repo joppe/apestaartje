@@ -1,6 +1,6 @@
 /*global describe, it, expect*/
 
-import {LL1Lexer} from 'lib/parsing/ll1-lexer';
+import {LL1Lexer} from 'lib/parsing/LL1Lexer';
 
 describe('LL1Lexer', function () {
     'use strict';

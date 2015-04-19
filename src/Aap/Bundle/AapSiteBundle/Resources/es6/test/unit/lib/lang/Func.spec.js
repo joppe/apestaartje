@@ -1,6 +1,6 @@
 /*global describe, it, expect*/
 
-import {Func} from 'lib/lang/func';
+import {Func} from 'lib/lang/Func';
 
 describe('Str.escapeRegExp', function () {
     'use strict';

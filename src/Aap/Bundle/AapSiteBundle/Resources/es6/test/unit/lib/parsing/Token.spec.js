@@ -1,6 +1,6 @@
 /*global describe, it, expect*/
 
-import {Token} from 'lib/parsing/token';
+import {Token} from 'lib/parsing/Token';
 
 describe('Token', function () {
     'use strict';
