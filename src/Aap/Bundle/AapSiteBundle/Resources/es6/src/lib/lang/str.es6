@@ -28,6 +28,9 @@ export const PAD_LEFT = 1;
 
 export const PAD_RIGHT = 2;
 
+/**
+ * @class
+ */
 export class Str {
     /**
      * Escape a string by adding slashes to special regexp chars.
