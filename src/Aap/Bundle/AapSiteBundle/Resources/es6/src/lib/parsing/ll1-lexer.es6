@@ -11,29 +11,29 @@ export class LL1Lexer {
      */
     constructor(input) {
         this.input = input;
-        this.p = 0;
-        this.c = this.input.charAt(this.p);
+        this.index = 0;
+        this.char = this.input.charAt(this.index);
     }
 
     consume() {
-        this.p += 1;
+        this.index += 1;
 
-        if (this.p >= this.input.length) {
-            this.c = EOF;
+        if (this.index >= this.input.length) {
+            this.char = EOF;
         } else {
-            this.c = this.input.charAt(this.p);
+            this.char = this.input.charAt(this.index);
         }
     }
 
     /**
-     * @param {string} c
+     * @param {string} char
      * @throws An exception
      */
-    match(c) {
-        if (this.c === c) {
+    match(char) {
+        if (this.char === char) {
             this.consume();
         } else {
-            throw 'Expecting "' + c + '"; found "' + this.c + '"';
+            throw 'Expecting "' + char + '"; found "' + this.char + '"';
         }
     }
 
