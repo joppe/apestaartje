@@ -1,5 +1,8 @@
 const RE_ARGS = /^function[^\(]*\(([^\)]*)\)/m;
 
+/**
+ * @class
+ */
 export class Func {
     /**
      * @param {Function} func
