@@ -4,7 +4,8 @@ System.config({
     baseURL: 'bundles/aapaapsite/js/',
 
     paths: {
-        'lib/*': 'src/lib/*.es6'
+        'lib/*': 'src/lib/*.es6',
+        'parsing/*': 'src/parsing/*.es6'
     },
 
     //map: {
