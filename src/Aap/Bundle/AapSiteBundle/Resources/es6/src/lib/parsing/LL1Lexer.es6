@@ -1,5 +1,3 @@
-export const EOF = 1;
-
 /**
  * A LL(1) Lexer
  *
@@ -19,7 +17,7 @@ export class LL1Lexer {
         this.index += 1;
 
         if (this.index >= this.input.length) {
-            this.char = EOF;
+            this.char = LL1Lexer.EOF;
         } else {
             this.char = this.input.charAt(this.index);
         }
@@ -52,3 +50,5 @@ export class LL1Lexer {
         throw 'nextToken() not implemented for lexer, tokenType "' + tokenType + '" given';
     }
 }
+
+LL1Lexer.EOF = 1;
