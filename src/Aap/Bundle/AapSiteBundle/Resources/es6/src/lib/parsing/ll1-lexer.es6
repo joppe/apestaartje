@@ -1,9 +1,11 @@
 export const EOF = 1;
 
 /**
+ * A LL(1) Lexer
+ *
  * @class
  */
-export class Lexer {
+export class LL1Lexer {
     /**
      * @param {string} input
      */
@@ -17,7 +19,7 @@ export class Lexer {
         this.p += 1;
 
         if (this.p >= this.input.length) {
-            this.c = Lexer.EOF;
+            this.c = EOF;
         } else {
             this.c = this.input.charAt(this.p);
         }
@@ -25,6 +27,7 @@ export class Lexer {
 
     /**
      * @param {string} c
+     * @throws An exception
      */
     match(c) {
         if (this.c === c) {
@@ -35,7 +38,7 @@ export class Lexer {
     }
 
     /**
-     * @throws Exception
+     * @throws An exception
      */
     nextToken() {
         throw 'nextToken() not implemented for lexer';
