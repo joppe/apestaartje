@@ -3,8 +3,6 @@
 import {LL1Lexer} from 'lib/parsing/LL1Lexer';
 
 describe('LL1Lexer', function () {
-    'use strict';
-
     it('match', function () {
         let l = new LL1Lexer('abcd');
 
