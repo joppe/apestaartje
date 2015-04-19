@@ -4,21 +4,19 @@
 export class Token {
     /**
      * @param {number} type
+     * @param {string} name
      * @param {string} text
-     * @param {Lexer} lexer
      */
-    constructor(type, text, lexer) {
+    constructor(type, name, text) {
         this.type = type;
+        this.name = name;
         this.text = text;
-        this.lexer = lexer;
     }
 
     /**
      * @returns {string}
      */
     toString() {
-        let name = this.lexer.getTokenName(this.type);
-
-        return '<"' + this.text + '", "' + name + '">';
+        return '<"' + this.text + '", "' + this.name + '">';
     }
 }
