@@ -1,5 +1,5 @@
 import {Func} from 'lib/lang/Func';
-import {_} from 'underscore';
+import _ from 'underscore';
 
 /**
  * @class
