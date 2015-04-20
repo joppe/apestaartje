@@ -24,12 +24,17 @@ module.exports = function (config) {
             configFile: '../public/js/system.conf.js',
 
             files: [
+                'test/vendor/underscore/underscore.js',
                 'src/**/*.es6',
                 'test/unit/**/*.spec.js'
             ],
 
             config: {
-                baseURL: './'
+                baseURL: './',
+
+                map: {
+                    underscore: 'test/vendor/underscore/underscore'
+                }
             },
 
             // systemjs does not support other extensions then .js for test files
