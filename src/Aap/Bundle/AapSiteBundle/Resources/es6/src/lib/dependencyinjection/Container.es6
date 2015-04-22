@@ -17,11 +17,11 @@ export class Container {
      * @returns {Container}
      */
     register(name, func, singleton) {
-        if (this.has(name)) {
+        if (this.has(name, false)) {
             throw 'Service "' + name + '" already defined';
         }
 
-        this[name] = new Service(func, singleton);
+        this.services[name] = new Service(func, singleton);
 
         return this;
     }
@@ -30,10 +30,14 @@ export class Container {
      * Check if a service/alias exists
      *
      * @param {string} name
+     * @param {boolean} [checkAliasses]
      * @returns {boolean}
      */
-    has(name) {
-        return (undefined !== this[name] || undefined !== this[name]);
+    has(name, checkAliasses = true) {
+        let service = (undefined !== this.services[name]),
+            alias = (true === checkAliasses && undefined !== this.aliases[name]);
+
+        return service || alias;
     }
 
     /**
@@ -41,26 +45,21 @@ export class Container {
      *
      * @param {string} name
      * @returns {*}
+     * @throws {string}
      */
     get(name) {
-        let result,
-            service,
-            args;
-
-        if (this.has(name)) {
-            service = this.resolve(name);
+        /** @type {Service} service */
+        let service = this.services(this.resolve(name)),
             args = _.map(service.getArgumentNames(), function (arg) {
                 return this.has(arg) ? this.get(arg) : null;
             }, this);
-            result = service.get(args);
-        } else {
-            throw 'Service "' + name + '" not found';
-        }
 
-        return result;
+        return service.call(args);
     }
 
     /**
+     * Create an alias for a service or alias
+     *
      * @param {string} alias
      * @param {string} name
      * @returns {Container}
@@ -68,34 +67,34 @@ export class Container {
      */
     alias(alias, name) {
         if (false === this.has(name)) {
-            throw 'Service "' + name + '" not found';
+            throw 'Service/alias "' + name + '" not found';
         }
 
         if (this.has(alias)) {
             throw 'Service/alias "' + name + '" already exists';
         }
 
-        this[alias] = name;
+        this.aliases[alias] = name;
 
         return this;
     }
 
     /**
      * @param {string} name
-     * @returns {Service}
+     * @returns {string}
      * @throws {string}
      */
     resolve(name) {
-        var service;
+        var serviceName;
 
-        if (undefined !== this[name]) {
-            service = this[name];
-        } else if (undefined !== this[name]) {
-            service = this.resolve(this[name]);
+        if (undefined !== this.services[name]) {
+            serviceName = name;
+        } else if (undefined !== this.aliases[name]) {
+            serviceName = this.resolve(this.aliases[name]);
         } else {
             throw 'Cannot resolve service "' + name + '"';
         }
 
-        return service;
+        return serviceName;
     }
 }
