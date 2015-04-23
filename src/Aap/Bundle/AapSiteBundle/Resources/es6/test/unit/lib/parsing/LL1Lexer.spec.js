@@ -5,7 +5,7 @@ import {LL1Lexer} from 'lib/parsing/LL1Lexer';
 describe('LL1Lexer', function () {
     'use strict';
 
-    it('match', function () {
+    it('Match the character that is at the current index', function () {
         let l = new LL1Lexer('abcd');
 
         l.match('a');
@@ -14,11 +14,18 @@ describe('LL1Lexer', function () {
         expect(l.char).toBe('b');
     });
 
-    it('no match throws an exception', function () {
+    it('No match throws an exception', function () {
         let l = new LL1Lexer('abcd');
 
         expect(function () {
             l.match('c');
         }).toThrow();
+    });
+
+    it('Create a token', function () {
+        let l = new LL1Lexer('abcd'),
+            t = l.createToken(LL1Lexer.EOF, '');
+
+        expect(t.toString()).toEqual('<"", "<EOF>">');
     });
 });

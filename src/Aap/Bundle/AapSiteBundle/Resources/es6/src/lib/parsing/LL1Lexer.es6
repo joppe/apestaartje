@@ -1,3 +1,5 @@
+import {Token} from 'lib/parsing/Token';
+
 /**
  * A LL(1) Lexer
  *
@@ -47,8 +49,18 @@ export class LL1Lexer {
      * @throws Exception
      */
     getTokenName(tokenType) {
-        throw 'nextToken() not implemented for lexer, tokenType "' + tokenType + '" given';
+        return this.constructor.TOKEN_NAMES[tokenType];
+    }
+
+    /**
+     * @param {number} tokenType
+     * @param {string} text
+     * @returns {Token}
+     */
+    createToken(tokenType, text) {
+        return new Token(tokenType, this.getTokenName(tokenType), text);
     }
 }
 
 LL1Lexer.EOF = 1;
+LL1Lexer.TOKEN_NAMES = ['n/a', '<EOF>'];

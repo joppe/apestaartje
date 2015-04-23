@@ -5,7 +5,11 @@ import {ListLexer} from 'parsing/ListLexer';
 describe('ListLexer', function () {
     'use strict';
 
-    it('parse a clean list', function () {
+    it('Should contain all token names', function () {
+        expect(ListLexer.TOKEN_NAMES).toEqual([ 'n/a', '<EOF>', 'NAME', 'COMMA', 'LBRACK', 'RBRACK' ]);
+    });
+
+    it('Parse a clean list', function () {
         let input = '[a,b,c]',
             l = new ListLexer(input),
             t = l.nextToken();
@@ -27,7 +31,7 @@ describe('ListLexer', function () {
         expect(t.type).toBe(ListLexer.EOF);
     });
 
-    it('to throw an error', function () {
+    it('To throw an error', function () {
         let input = '[a.b,c]',
             l = new ListLexer(input);
 
