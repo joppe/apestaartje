@@ -3,6 +3,8 @@
 import {Str, RE_SPECIALS, PAD_LEFT, PAD_RIGHT} from 'lib/lang/Str';
 
 describe('Str.escapeRegExp', function () {
+    'use strict';
+
     it('Add a slash to the regexp special chars', function () {
         RE_SPECIALS.forEach(c => {
             expect(Str.escapeRegExp(c)).toBe('\\' + c);
@@ -15,6 +17,8 @@ describe('Str.escapeRegExp', function () {
 });
 
 describe('Str.toCamelCase', function () {
+    'use strict';
+
     it('Convert a underscore followed by a letter to an uppercase letter', function () {
         expect(Str.toCamelCase('hello_world')).toBe('helloWorld');
     });
@@ -29,18 +33,24 @@ describe('Str.toCamelCase', function () {
 });
 
 describe('Str.toSnakeCase', function () {
+    'use strict';
+
     it('Convert uppercased chars to lowercased chars with an underscore prefix', function () {
         expect(Str.toSnakeCase('helloWorld')).toBe('hello_world');
     });
 });
 
 describe('Str.toSpineCase', function () {
+    'use strict';
+
     it('Convert uppercased chars to lowercased chars with a dash prefix', function () {
         expect(Str.toSpineCase('helloWorld')).toBe('hello-world');
     });
 });
 
 describe('Str.ucfirst', function () {
+    'use strict';
+
     it('Only the fist char must be uppercase', function () {
         expect(Str.ucfirst('aaaaa')).toBe('Aaaaa');
     });
@@ -51,6 +61,8 @@ describe('Str.ucfirst', function () {
 });
 
 describe('Str.pad', function () {
+    'use strict';
+
     it('Pad left (default)', function () {
         expect(Str.pad('a', 4, 'b')).toBe('bbba');
     });

@@ -3,6 +3,8 @@
 import {Service} from 'lib/dependencyinjection/Service';
 
 describe('Service', function () {
+    'use strict';
+
     it('The method getArgumentNames() should return the names of all arguments the service function expects', function () {
         let s = new Service(function (a, b, foo) {});
 

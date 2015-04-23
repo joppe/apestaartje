@@ -1,8 +1,10 @@
 /*global describe, it, expect*/
 
-import {ListLexer, EOF} from 'parsing/ListLexer';
+import {ListLexer} from 'parsing/ListLexer';
 
 describe('ListLexer', function () {
+    'use strict';
+
     it('parse a clean list', function () {
         let input = '[a,b,c]',
             l = new ListLexer(input),

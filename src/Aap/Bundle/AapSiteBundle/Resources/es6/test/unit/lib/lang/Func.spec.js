@@ -3,6 +3,8 @@
 import {Func} from 'lib/lang/Func';
 
 describe('Str.escapeRegExp', function () {
+    'use strict';
+
     it('Get the names of all arguments of an anonymous function', function () {
         /* jshint unused:false */
         expect(Func.argumentNames(function (a, ab, absdef) {
