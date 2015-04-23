@@ -49,7 +49,7 @@ export class Container {
      */
     get(name) {
         /** @type {Service} service */
-        let service = this.services(this.resolve(name)),
+        let service = this.services[this.resolve(name)],
             args = _.map(service.getArgumentNames(), function (arg) {
                 return this.has(arg) ? this.get(arg) : null;
             }, this);
@@ -71,7 +71,7 @@ export class Container {
         }
 
         if (this.has(alias)) {
-            throw 'Service/alias "' + name + '" already exists';
+            throw 'Service/alias "' + alias + '" already exists';
         }
 
         this.aliases[alias] = name;
