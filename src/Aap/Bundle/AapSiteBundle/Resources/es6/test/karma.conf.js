@@ -33,6 +33,11 @@ module.exports = function (config) {
             config: {
                 baseURL: './',
 
+                paths: {
+                    'lib/*': 'src/lib/*.es6',
+                    'parsing/*': 'src/parsing/*.es6'
+                },
+
                 map: {
                     underscore: 'test/vendor/underscore/underscore',
                     backbone: 'test/vendor/backbone/backbone.js'
