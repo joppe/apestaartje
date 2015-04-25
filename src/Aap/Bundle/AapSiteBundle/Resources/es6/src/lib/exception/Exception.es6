@@ -1,3 +1,6 @@
+/**
+ * @class
+ */
 export class Exception {
     /**
      * @param {string} message
