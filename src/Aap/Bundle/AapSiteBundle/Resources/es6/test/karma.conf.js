@@ -25,6 +25,7 @@ module.exports = function (config) {
 
             files: [
                 'test/vendor/underscore/underscore.js',
+                'test/vendor/backbone/backbone.js',
                 'src/**/*.es6',
                 'test/unit/**/*.spec.js'
             ],
@@ -33,7 +34,8 @@ module.exports = function (config) {
                 baseURL: './',
 
                 map: {
-                    underscore: 'test/vendor/underscore/underscore'
+                    underscore: 'test/vendor/underscore/underscore',
+                    backbone: 'test/vendor/backbone/backbone.js'
                 }
             },
 
