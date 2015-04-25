@@ -1,4 +1,5 @@
 import {Token} from 'lib/parsing/Token';
+import {Exception} from 'lib/exception/Exception';
 
 /**
  * A LL(1) Lexer
@@ -27,21 +28,21 @@ export class LL1Lexer {
 
     /**
      * @param {string} char
-     * @throws An exception
+     * @throws {Exception}
      */
     match(char) {
         if (this.char === char) {
             this.consume();
         } else {
-            throw 'Expecting "' + char + '"; found "' + this.char + '"';
+            throw new Exception('Expecting "' + char + '"; found "' + this.char + '"');
         }
     }
 
     /**
-     * @throws An exception
+     * @throws {Exception}
      */
     nextToken() {
-        throw 'nextToken() not implemented for lexer';
+        throw new Exception('nextToken() not implemented for lexer');
     }
 
     /**

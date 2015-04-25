@@ -1,6 +1,7 @@
 /*global describe, it, expect*/
 
 import {LL1Lexer} from 'lib/parsing/LL1Lexer';
+import {Exception} from 'lib/exception/Exception';
 
 describe('LL1Lexer', function () {
     'use strict';
@@ -19,7 +20,7 @@ describe('LL1Lexer', function () {
 
         expect(function () {
             l.match('c');
-        }).toThrow();
+        }).toThrow(new Exception('Expecting "c"; found "a"'));
     });
 
     it('Create a token', function () {
