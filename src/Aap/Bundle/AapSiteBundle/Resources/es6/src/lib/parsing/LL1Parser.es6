@@ -1,3 +1,5 @@
+import {Exception} from 'lib/exception/Exception';
+
 /**
  * @class
  */
@@ -18,7 +20,7 @@ export class LL1Parser {
         if (tokenType === this.lookahead.type) {
             this.consume();
         } else {
-            throw 'Expecting "' + this.input.getTokenName(tokenType) + '"; found "' + this.lookahead + '"';
+            throw new Exception('Expecting "' + this.input.getTokenName(tokenType) + '"; found "' + this.lookahead + '"');
         }
     }
 

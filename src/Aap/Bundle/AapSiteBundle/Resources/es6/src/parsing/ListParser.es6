@@ -1,6 +1,10 @@
 import {Parser} from 'lib/parsing/Parser';
 import {ListLexer} from 'parsing/ListLexer';
+import {Exception} from 'lib/exception/Exception';
 
+/**
+ * @class
+ */
 export class ListParser {
     /**
      * list: '[' elements ']'
@@ -25,6 +29,8 @@ export class ListParser {
 
     /**
      * element: name | list
+     *
+     * @throws {Exception}
      */
     element() {
         if (this.lookahead.type === ListLexer.NAME) {
@@ -32,7 +38,7 @@ export class ListParser {
         } else if (this.lookahead.type === ListLexer.LBRACK) {
             this.list();
         } else {
-            throw 'Expceting name or list; found "' + this.lookahead + '"';
+            throw new Exception('Expceting name or list; found "' + this.lookahead + '"');
         }
     }
 }
