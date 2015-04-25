@@ -1,4 +1,5 @@
 import {LL1Lexer} from 'lib/parsing/LL1Lexer';
+import {Exception} from 'lib/exception/Exception';
 
 /**
  * @class
@@ -20,6 +21,7 @@ export class ListLexer extends LL1Lexer {
 
     /**
      * @returns Token
+     * @throws {Exception}
      */
     nextToken() {
         let token;
@@ -41,7 +43,7 @@ export class ListLexer extends LL1Lexer {
                 if (this.isLetter()) {
                     token = this.name();
                 } else {
-                    throw 'Invalid character "' + this.char + '"';
+                    throw new Exception('Invalid character "' + this.char + '"');
                 }
             }
 
