@@ -1,16 +1,17 @@
 /*global System*/
 
 System.config({
-    baseURL: 'bundles/aapaapsite/js/',
+    baseURL: 'bundles/aapaapsite/',
 
     paths: {
-        'lib/*': 'src/lib/*.es6',
-        'parsing/*': 'src/parsing/*.es6'
+        'lib/*': 'js/lib/*.es6',
+        'parsing/*': 'js/parsing/*.es6'
     },
 
-    //map: {
-    //    jquery: './bower_components/jquery/dist/jquery'
-    //},
+    map: {
+        underscore: 'vendor/underscore/underscore',
+        backbone: 'vendor/backbone/backbone.js'
+    },
 
     transpiler: 'babel'
 });
