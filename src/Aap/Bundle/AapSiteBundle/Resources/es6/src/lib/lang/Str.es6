@@ -1,4 +1,9 @@
 /**
+ * @author Joppe Aarts <joppe@apestaartje.info>
+ * @copyright Apestaartje <http://apestaartje.info>
+ */
+
+/**
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions}
  */
 export const RE_SPECIALS = [

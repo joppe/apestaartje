@@ -1,3 +1,8 @@
+/**
+ * @author Joppe Aarts <joppe@apestaartje.info>
+ * @copyright Apestaartje <http://apestaartje.info>
+ */
+
 const RE_ARGS = /^function[^\(]*\(([^\)]*)\)/m;
 
 /**

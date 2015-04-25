@@ -1,3 +1,8 @@
+/**
+ * @author Joppe Aarts <joppe@apestaartje.info>
+ * @copyright Apestaartje <http://apestaartje.info>
+ */
+
 import {Service} from 'lib/dependencyinjection/Service';
 import {Exception} from 'lib/exception/Exception';
 import _ from 'underscore';

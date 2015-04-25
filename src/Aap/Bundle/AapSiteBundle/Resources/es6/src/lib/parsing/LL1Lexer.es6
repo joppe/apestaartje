@@ -1,3 +1,8 @@
+/**
+ * @author Joppe Aarts <joppe@apestaartje.info>
+ * @copyright Apestaartje <http://apestaartje.info>
+ */
+
 import {Token} from 'lib/parsing/Token';
 import {Exception} from 'lib/exception/Exception';
 

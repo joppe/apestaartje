@@ -1,3 +1,8 @@
+/**
+ * @author Joppe Aarts <joppe@apestaartje.info>
+ * @copyright Apestaartje <http://apestaartje.info>
+ */
+
 import {Func} from 'lib/lang/Func';
 import _ from 'underscore';
 

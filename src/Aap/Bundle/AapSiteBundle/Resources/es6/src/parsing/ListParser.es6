@@ -1,3 +1,8 @@
+/**
+ * @author Joppe Aarts <joppe@apestaartje.info>
+ * @copyright Apestaartje <http://apestaartje.info>
+ */
+
 import {Parser} from 'lib/parsing/Parser';
 import {ListLexer} from 'parsing/ListLexer';
 import {Exception} from 'lib/exception/Exception';

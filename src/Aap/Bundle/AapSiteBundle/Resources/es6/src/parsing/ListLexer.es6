@@ -1,3 +1,8 @@
+/**
+ * @author Joppe Aarts <joppe@apestaartje.info>
+ * @copyright Apestaartje <http://apestaartje.info>
+ */
+
 import {LL1Lexer} from 'lib/parsing/LL1Lexer';
 import {Exception} from 'lib/exception/Exception';
 
