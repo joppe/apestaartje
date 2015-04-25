@@ -1,6 +1,7 @@
 /*global describe*/
 
 import {Container} from 'lib/dependencyinjection/Container';
+import {Exception} from 'lib/exception/Exception';
 
 describe('Container', function () {
     'use strict';
@@ -42,7 +43,7 @@ describe('Container', function () {
 
         expect(function () {
             c.alias('foobar', 'foo');
-        }).toThrow('Service/alias "foobar" already exists');
+        }).toThrow(new Exception('Service/alias "foobar" already exists'));
     });
 
     it('Resolve an alias to the name of the service', function () {

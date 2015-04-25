@@ -1,4 +1,5 @@
 import {Service} from 'lib/dependencyinjection/Service';
+import {Exception} from 'lib/exception/Exception';
 import _ from 'underscore';
 
 /**
@@ -15,10 +16,11 @@ export class Container {
      * @param {Function} func
      * @param {boolean} singleton
      * @returns {Container}
+     * @throws {Exception}
      */
     register(name, func, singleton) {
         if (this.has(name, false)) {
-            throw 'Service "' + name + '" already defined';
+            throw new Exception('Service "' + name + '" already defined');
         }
 
         this.services[name] = new Service(func, singleton);
@@ -63,15 +65,15 @@ export class Container {
      * @param {string} alias
      * @param {string} name
      * @returns {Container}
-     * @throws {string}
+     * @throws {Exception}
      */
     alias(alias, name) {
         if (false === this.has(name)) {
-            throw 'Service/alias "' + name + '" not found';
+            throw new Exception('Service/alias "' + name + '" not found');
         }
 
         if (this.has(alias)) {
-            throw 'Service/alias "' + alias + '" already exists';
+            throw new Exception('Service/alias "' + alias + '" already exists');
         }
 
         this.aliases[alias] = name;
@@ -82,7 +84,7 @@ export class Container {
     /**
      * @param {string} name
      * @returns {string}
-     * @throws {string}
+     * @throws {Exception}
      */
     resolve(name) {
         var serviceName;
@@ -92,7 +94,7 @@ export class Container {
         } else if (undefined !== this.aliases[name]) {
             serviceName = this.resolve(this.aliases[name]);
         } else {
-            throw 'Cannot resolve service "' + name + '"';
+            throw new Exception('Cannot resolve service "' + name + '"');
         }
 
         return serviceName;
