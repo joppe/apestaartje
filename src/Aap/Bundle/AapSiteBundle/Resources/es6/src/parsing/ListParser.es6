@@ -3,14 +3,14 @@
  * @copyright Apestaartje <http://apestaartje.info>
  */
 
-import {Parser} from 'lib/parsing/Parser';
+import {LL1Parser} from 'lib/parsing/LL1Parser';
 import {ListLexer} from 'parsing/ListLexer';
 import {Exception} from 'lib/exception/Exception';
 
 /**
  * @class ListParser
  */
-export class ListParser {
+export class ListParser extends LL1Parser {
     /**
      * list: '[' elements ']'
      */
