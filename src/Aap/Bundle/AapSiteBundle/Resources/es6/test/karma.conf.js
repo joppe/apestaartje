@@ -34,6 +34,7 @@ module.exports = function (config) {
                 baseURL: './',
 
                 paths: {
+                    'app/*': 'src/app/*.es6',
                     'lib/*': 'src/lib/*.es6',
                     'bundles/*': 'bundles/lib/*.es6',
                     'framework/*': 'framework/lib/*.es6',

@@ -4,10 +4,11 @@ System.config({
     baseURL: 'bundles/aapaapsite/',
 
     paths: {
-        'lib/*': 'js/lib/*.es6',
-        'bundles/*': 'js/bundles/*.es6',
-        'framework/*': 'js/framework/*.es6',
-        'parsing/*': 'js/parsing/*.es6'
+        'app/*': 'js/app/*.js',
+        'lib/*': 'js/lib/*.js',
+        'bundles/*': 'js/bundles/*.js',
+        'framework/*': 'js/framework/*.js',
+        'parsing/*': 'js/parsing/*.js'
     },
 
     map: {
