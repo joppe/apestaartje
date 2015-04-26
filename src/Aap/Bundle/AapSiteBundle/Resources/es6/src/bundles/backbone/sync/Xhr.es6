@@ -5,13 +5,12 @@
  * @copyright Apestaartje <http://apestaartje.info>
  */
 
-import Backbone from 'backbone';
-import _ from 'underscore';
+import {Event} from 'bundles/backbone/event/Event';
 
 /**
  * @class Xhr
  */
-export class Xhr extends Backbone.Events {
+export class Xhr extends Event {
     /**
      * @param {string} [csrf]
      */
@@ -63,12 +62,14 @@ export class Xhr extends Backbone.Events {
         }).done(_.bind(function (response) {
             if (response.error) {
                 this.trigger('error', response);
+
                 error(response);
             } else {
                 success(response.data ? response.data : response);
             }
         }, this)).fail(_.bind(function (jqXHR, textStatus) {
             this.trigger('error', textStatus);
+
             error(textStatus);
         }, this));
 
