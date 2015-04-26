@@ -7,14 +7,14 @@ describe('Container', function () {
     'use strict';
 
     it('Should be possible to register a service and return itself', function () {
-        var c = new Container(),
+        let c = new Container(),
             f = function () {};
 
         expect(c.register('foo', f)).toBe(c);
     });
 
     it('Check if a service exists', function () {
-        var c = new Container(),
+        let c = new Container(),
             f = function () {};
 
         c.register('foo', f);
@@ -24,7 +24,7 @@ describe('Container', function () {
     });
 
     it('Create an alias of an existing service', function () {
-        var c = new Container(),
+        let c = new Container(),
             f = function () {};
 
         c.register('foo', f);
@@ -35,7 +35,7 @@ describe('Container', function () {
     });
 
     it('Cannot create an alias if the name is already used', function () {
-        var c = new Container(),
+        let c = new Container(),
             f = function () {};
 
         c.register('foo', f);
@@ -47,7 +47,7 @@ describe('Container', function () {
     });
 
     it('Resolve an alias to the name of the service', function () {
-        var c = new Container(),
+        let c = new Container(),
             f = function () {};
 
         c.register('foo', f);
@@ -57,7 +57,7 @@ describe('Container', function () {
     });
 
     it('Get a defined service by name', function () {
-        var c = new Container(),
+        let c = new Container(),
             f = function () {
                 return 2;
             };
@@ -68,7 +68,7 @@ describe('Container', function () {
     });
 
     it('Get a defined service by alias', function () {
-        var c = new Container(),
+        let c = new Container(),
             f = function () {
                 return 2;
             };
