@@ -1,3 +1,5 @@
 /*global window*/
 
-window.console.log('main');
+import {AppKernel} from 'app/AppKernel';
+
+let app = new AppKernel();
