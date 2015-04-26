@@ -7,7 +7,7 @@ import {LL1Lexer} from 'lib/parsing/LL1Lexer';
 import {Exception} from 'lib/exception/Exception';
 
 /**
- * @class
+ * @class ListLexer
  */
 export class ListLexer extends LL1Lexer {
     /**

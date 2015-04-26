@@ -34,7 +34,7 @@ export const PAD_LEFT = 1;
 export const PAD_RIGHT = 2;
 
 /**
- * @class
+ * @class Str
  */
 export class Str {
     /**

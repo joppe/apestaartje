@@ -6,7 +6,7 @@
 const RE_ARGS = /^function[^\(]*\(([^\)]*)\)/m;
 
 /**
- * @class
+ * @class Func
  */
 export class Func {
     /**

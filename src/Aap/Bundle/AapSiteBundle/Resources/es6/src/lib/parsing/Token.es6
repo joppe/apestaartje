@@ -4,7 +4,7 @@
  */
 
 /**
- * @class
+ * @class Token
  */
 export class Token {
     /**

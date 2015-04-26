@@ -7,7 +7,7 @@ import {Func} from 'lib/lang/Func';
 import _ from 'underscore';
 
 /**
- * @class
+ * @class Service
  */
 export class Service {
     /**

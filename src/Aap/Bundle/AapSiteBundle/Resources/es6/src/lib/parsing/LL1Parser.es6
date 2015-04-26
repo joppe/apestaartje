@@ -6,7 +6,7 @@
 import {Exception} from 'lib/exception/Exception';
 
 /**
- * @class
+ * @class LL1Parser
  */
 export class LL1Parser {
     /**

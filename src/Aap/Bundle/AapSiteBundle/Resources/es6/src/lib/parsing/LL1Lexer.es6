@@ -9,7 +9,7 @@ import {Exception} from 'lib/exception/Exception';
 /**
  * A LL(1) Lexer
  *
- * @class
+ * @class LL1Lexer
  */
 export class LL1Lexer {
     /**

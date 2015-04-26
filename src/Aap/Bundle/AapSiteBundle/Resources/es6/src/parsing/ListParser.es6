@@ -8,7 +8,7 @@ import {ListLexer} from 'parsing/ListLexer';
 import {Exception} from 'lib/exception/Exception';
 
 /**
- * @class
+ * @class ListParser
  */
 export class ListParser {
     /**

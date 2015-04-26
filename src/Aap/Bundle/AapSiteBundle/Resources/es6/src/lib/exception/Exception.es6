@@ -4,7 +4,7 @@
  */
 
 /**
- * @class
+ * @class Exception
  */
 export class Exception {
     /**

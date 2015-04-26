@@ -8,7 +8,7 @@ import {Exception} from 'lib/exception/Exception';
 import _ from 'underscore';
 
 /**
- * @class
+ * @class Container
  */
 export class Container {
     constructor() {
