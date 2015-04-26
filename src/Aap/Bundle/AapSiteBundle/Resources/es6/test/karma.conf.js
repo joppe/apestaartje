@@ -36,6 +36,7 @@ module.exports = function (config) {
                 paths: {
                     'lib/*': 'src/lib/*.es6',
                     'bundles/*': 'bundles/lib/*.es6',
+                    'framework/*': 'framework/lib/*.es6',
                     'parsing/*': 'src/parsing/*.es6'
                 },
 

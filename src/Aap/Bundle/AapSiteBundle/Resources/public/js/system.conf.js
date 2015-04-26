@@ -6,6 +6,7 @@ System.config({
     paths: {
         'lib/*': 'js/lib/*.es6',
         'bundles/*': 'js/bundles/*.es6',
+        'framework/*': 'js/framework/*.es6',
         'parsing/*': 'js/parsing/*.es6'
     },
 
