@@ -19,7 +19,7 @@ export class LL1Parser {
 
     /**
      * @param {string} tokenType
-     * @returns boolean
+     * @returns {LL1Parser}
      */
     match(tokenType) {
         if (tokenType === this.lookahead.type) {
@@ -27,9 +27,16 @@ export class LL1Parser {
         } else {
             throw new Exception('Expecting "' + this.input.getTokenName(tokenType) + '"; found "' + this.lookahead + '"');
         }
+
+        return this;
     }
 
+    /**
+     * @returns {LL1Parser}
+     */
     consume() {
         this.lookahead = this.input.nextToken();
+
+        return this;
     }
 }
