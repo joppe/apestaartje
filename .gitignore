@@ -6,5 +6,5 @@ web/bundles/
 src/Aap/Bundle/AapSiteBundle/Resources/public/css/
 src/Aap/Bundle/AapSiteBundle/Resources/public/vendor/
 node_modules/
-src/Aap/Bundle/AapSiteBundle/Resources/public/js/*.js
+src/Aap/Bundle/AapSiteBundle/Resources/public/js/**/*.js
 !src/Aap/Bundle/AapSiteBundle/Resources/public/js/system.conf.js
