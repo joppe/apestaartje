@@ -21,6 +21,9 @@ export class LL1Lexer {
         this.char = this.input.charAt(this.index);
     }
 
+    /**
+     * @returns {LL1Lexer}
+     */
     consume() {
         this.index += 1;
 
@@ -29,10 +32,13 @@ export class LL1Lexer {
         } else {
             this.char = this.input.charAt(this.index);
         }
+
+        return this;
     }
 
     /**
      * @param {string} char
+     * @returns {LL1Lexer}
      * @throws {Exception}
      */
     match(char) {
@@ -41,6 +47,8 @@ export class LL1Lexer {
         } else {
             throw new Exception('Expecting "' + char + '"; found "' + this.char + '"');
         }
+
+        return this;
     }
 
     /**
