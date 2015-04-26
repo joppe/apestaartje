@@ -6,7 +6,7 @@ describe('Exception', function () {
     'use strict';
 
     it('Only excepts a message as argument', function () {
-        var e = new Exception('foo');
+        let e = new Exception('foo');
 
         expect(e.message).toBe('foo');
     });
