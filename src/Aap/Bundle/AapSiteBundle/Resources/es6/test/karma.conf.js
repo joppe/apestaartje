@@ -42,9 +42,9 @@ module.exports = function (config) {
                 },
 
                 map: {
-                    jquery: 'test/vendor/jquery/dist/jquery.js',
+                    jquery: 'test/vendor/jquery/dist/jquery',
                     underscore: 'test/vendor/underscore/underscore',
-                    backbone: 'test/vendor/backbone/backbone.js'
+                    backbone: 'test/vendor/backbone/backbone'
                 }
             },
 

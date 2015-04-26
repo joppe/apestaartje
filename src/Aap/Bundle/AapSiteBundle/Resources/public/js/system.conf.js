@@ -12,9 +12,9 @@ System.config({
     },
 
     map: {
-        jquery: 'vendor/jquery/dist/jquery.js',
+        jquery: 'vendor/jquery/dist/jquery',
         underscore: 'vendor/underscore/underscore',
-        backbone: 'vendor/backbone/backbone.js'
+        backbone: 'vendor/backbone/backbone'
     },
 
     meta: {
