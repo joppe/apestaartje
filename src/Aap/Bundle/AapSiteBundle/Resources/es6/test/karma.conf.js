@@ -24,6 +24,7 @@ module.exports = function (config) {
             configFile: '../public/js/system.conf.js',
 
             files: [
+                'test/vendor/jquery/dist/jquery.js',
                 'test/vendor/underscore/underscore.js',
                 'test/vendor/backbone/backbone.js',
                 'src/**/*.es6',
@@ -36,8 +37,8 @@ module.exports = function (config) {
                 paths: {
                     'app/*': 'src/app/*.es6',
                     'lib/*': 'src/lib/*.es6',
-                    'bundles/*': 'bundles/lib/*.es6',
-                    'framework/*': 'framework/lib/*.es6',
+                    'bundles/*': 'src/bundles/*.es6',
+                    'framework/*': 'src/framework/*.es6',
                     'parsing/*': 'src/parsing/*.es6'
                 },
 
