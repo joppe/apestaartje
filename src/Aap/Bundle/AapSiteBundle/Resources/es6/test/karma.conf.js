@@ -40,6 +40,7 @@ module.exports = function (config) {
                 },
 
                 map: {
+                    jquery: 'test/vendor/jquery/dist/jquery.js',
                     underscore: 'test/vendor/underscore/underscore',
                     backbone: 'test/vendor/backbone/backbone.js'
                 }
