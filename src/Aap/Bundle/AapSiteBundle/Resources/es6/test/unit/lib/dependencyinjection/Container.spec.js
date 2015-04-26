@@ -1,4 +1,4 @@
-/*global describe, expect*/
+/*global describe, it, expect*/
 
 import {Container} from 'lib/dependencyinjection/Container';
 import {Exception} from 'lib/exception/Exception';
