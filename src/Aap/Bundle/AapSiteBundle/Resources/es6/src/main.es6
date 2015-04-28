@@ -1,4 +1,4 @@
-/*global window*/
+/*global*/
 
 import {AppKernel} from 'app/AppKernel';
 
