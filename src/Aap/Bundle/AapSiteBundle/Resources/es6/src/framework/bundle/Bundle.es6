@@ -10,6 +10,8 @@ import {ContainerAware} from 'lib/dependencyinjection/ContainerAware';
  */
 export class Bundle extends ContainerAware {
     /**
+     * Constructor
+     *
      * @param {Container} container
      */
     constructor(container) {
