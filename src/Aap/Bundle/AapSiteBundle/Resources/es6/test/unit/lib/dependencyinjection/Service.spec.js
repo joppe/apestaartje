@@ -6,13 +6,13 @@ describe('Service', function () {
     'use strict';
 
     it('The method getArgumentNames() should return the names of all arguments the service function expects', function () {
-        let s = new Service(function (a, b, foo) {});
+        let s = new Service('s', function (a, b, foo) {});
 
         expect(s.getArgumentNames()).toEqual(['a', 'b', 'foo']);
     });
 
     it('Cache the result when the singleton property is set to true', function () {
-        let s = new Service((function () {
+        let s = new Service('s', (function () {
                 var foo = 1;
 
                 return function () {
@@ -27,7 +27,7 @@ describe('Service', function () {
     });
 
     it('Do not cache the result when the singleton property is set to false', function () {
-        let s = new Service((function () {
+        let s = new Service('s', (function () {
                 var foo = 1;
 
                 return function () {
