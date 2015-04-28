@@ -20,6 +20,7 @@ export class Service {
         this.identifier = identifier;
         this.argumentNames = Func.argumentNames(func);
         this.parameters = {};
+        this.methodCalls = [];
 
         this.argumentNames.forEach((name) => {
             this.setParameter(name, undefined);
@@ -47,13 +48,20 @@ export class Service {
      * @returns {*}
      */
     call() {
-        let args = [];
+        let args = [],
+            obj;
 
         this.argumentNames.forEach((name) => {
             args.push(this.getParameter(name));
         });
 
-        return this.func.apply(this.func, args);
+        obj = this.func.apply(this.func, args);
+
+        this.methodCalls.forEach((methodCall) => {
+            obj[methodCall.methodName].apply(methodCall.args);
+        });
+
+        return obj;
     }
 
     /**
@@ -85,5 +93,19 @@ export class Service {
      */
     getIdentifier() {
         return this.identifier;
+    }
+
+    /**
+     * @param {string} methodName
+     * @param {Array} args
+     * @returns {Service}
+     */
+    addMethodCall(methodName, args) {
+        this.methodCalls.push({
+            methodName: methodName,
+            args: args
+        });
+
+        return this;
     }
 }
