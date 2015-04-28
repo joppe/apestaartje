@@ -10,13 +10,12 @@ import {Container} from 'lib/dependencyinjection/Container';
  */
 export class Kernel {
     constructor() {
-        let bundles = this.registerBundles();
-
         this.container = new Container();
+        this.bundles = this.registerBundles();
+    }
 
-        bundles.forEach(Bundle => {
-            new Bundle(this.container);
-        });
+    boot() {
+        this.initializeBundles();
     }
 
     /**
@@ -29,7 +28,20 @@ export class Kernel {
     /**
      * @returns {Array}
      */
+    getBundles() {
+        return this.bundles;
+    }
+
+    /**
+     * @returns {Array}
+     */
     registerBundles() {
         return [];
+    }
+
+    initializeBundles() {
+        this.bundles.forEach(bundle => {
+            bundle.setContainer(this.container);
+        });
     }
 }

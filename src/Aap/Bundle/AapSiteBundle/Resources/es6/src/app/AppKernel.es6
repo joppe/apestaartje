@@ -15,7 +15,7 @@ export class AppKernel extends Kernel {
      */
     registerBundles() {
         return [
-            BackboneBundle
+            new BackboneBundle()
         ];
     }
 }
