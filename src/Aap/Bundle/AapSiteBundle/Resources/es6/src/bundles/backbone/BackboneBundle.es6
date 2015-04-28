@@ -10,6 +10,9 @@ import {Xhr} from 'bundles/backbone/sync/Xhr';
  * @class BackboneBundle
  */
 export class BackboneBundle extends Bundle {
+    /**
+     * @returns {void}
+     */
     registerServices() {
         this.container.register('backbone_sync_xhr', function () {
             return new Xhr();
