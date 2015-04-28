@@ -5,6 +5,7 @@
 
 import {Service} from 'lib/dependencyinjection/Service';
 import {Exception} from 'lib/exception/Exception';
+import {SortedMap} from 'lib/util/SortedMap';
 
 /**
  * @class Container
@@ -16,18 +17,24 @@ export class Container {
     constructor() {
         this.services = {};
         this.aliases = {};
+        this.tags = new SortedMap();
     }
 
     /**
      * @param {string} identifier
      * @param {Function} func
      * @param {boolean} singleton
+     * @param {string} tag
      * @returns {Container}
      * @throws {Exception}
      */
-    register(identifier, func, singleton) {
+    register(identifier, func, singleton = true, tag = null) {
         if (this.has(identifier, false)) {
             throw new Exception('Service "' + identifier + '" already defined');
+        }
+
+        if (null !== tag) {
+            this.tags.add(tag, identifier);
         }
 
         this.services[identifier] = new Service(identifier, func, singleton);
@@ -114,7 +121,15 @@ export class Container {
      * @param {string} identifier
      * @returns {Service}
      */
-    getDefinition(identifier) {
+    findDefinition(identifier) {
         return this.services[this.resolve(identifier)];
+    }
+
+    /**
+     * @param {string} tag
+     * @returns {Array}
+     */
+    findTaggedServiceIds(tag) {
+        return this.tags.get(tag);
     }
 }
