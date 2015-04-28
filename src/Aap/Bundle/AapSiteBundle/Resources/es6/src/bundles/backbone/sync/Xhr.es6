@@ -1,11 +1,11 @@
-/*global jqXHR*/
-
 /**
  * @author Joppe Aarts <joppe@apestaartje.info>
  * @copyright Apestaartje <http://apestaartje.info>
  */
 
 import {Event} from 'bundles/backbone/event/Event';
+import _ from 'underscore';
+import $ from 'jquery';
 
 /**
  * @class Xhr

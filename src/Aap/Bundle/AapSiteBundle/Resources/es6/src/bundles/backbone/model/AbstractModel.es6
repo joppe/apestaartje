@@ -1,8 +1,11 @@
+/*global FormData*/
+
 /**
  * @author Joppe Aarts <joppe@apestaartje.info>
  * @copyright Apestaartje <http://apestaartje.info>
  */
 
+import _ from 'underscore';
 import Backbone from 'backbone';
 
 /**
