@@ -1,6 +1,11 @@
 /*global*/
 
 import {AppKernel} from 'app/AppKernel';
+import $ from 'jquery';
 
-let app = new AppKernel('development');
-app.boot();
+$(function () {
+    'use strict';
+
+    let app = new AppKernel('development');
+    app.boot();
+});
