@@ -3,7 +3,7 @@
  * @copyright Apestaartje <http://apestaartje.info>
  */
 
-import {Bundle} from 'framework/Bundle';
+import {Bundle} from 'framework/bundle/Bundle';
 
 /**
  * @class FormBundle

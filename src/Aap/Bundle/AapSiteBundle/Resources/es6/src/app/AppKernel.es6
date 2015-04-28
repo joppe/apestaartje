@@ -3,18 +3,19 @@
  * @copyright Apestaartje <http://apestaartje.info>
  */
 
-import {Kernel} from 'framework/Kernel';
+import {Kernel} from 'framework/kernel/Kernel';
 import {BackboneBundle} from 'bundles/backbone/BackboneBundle';
 
 /**
  * @class AppKernel
  */
 export class AppKernel extends Kernel {
-    constructor() {
-        this.bundles = [
+    /**
+     * @returns {Array}
+     */
+    registerBundles() {
+        return [
             BackboneBundle
         ];
-
-        super();
     }
 }
