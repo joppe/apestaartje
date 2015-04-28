@@ -29,6 +29,10 @@ export class Kernel {
     boot() {
         this.bundles.forEach(bundle => {
             bundle.setContainer(this.container);
+            bundle.init();
+        });
+
+        this.bundles.forEach(bundle => {
             bundle.boot();
         });
     }
