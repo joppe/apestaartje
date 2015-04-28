@@ -11,8 +11,14 @@ import {Container} from 'lib/dependencyinjection/Container';
 export class Kernel {
     /**
      * Constructor
+     *
+     * @param {string} environment
+     * @param {boolean} debug
      */
-    constructor() {
+    constructor(environment, debug = false) {
+        this.environment = environment;
+        this.debug = debug;
+
         this.container = new Container();
         this.bundles = this.registerBundles();
     }
@@ -21,7 +27,10 @@ export class Kernel {
      * @returns {void}
      */
     boot() {
-        this.initializeBundles();
+        this.bundles.forEach(bundle => {
+            bundle.setContainer(this.container);
+            bundle.boot();
+        });
     }
 
     /**
@@ -46,11 +55,16 @@ export class Kernel {
     }
 
     /**
-     * @returns {void}
+     * @returns {string}
      */
-    initializeBundles() {
-        this.bundles.forEach(bundle => {
-            bundle.setContainer(this.container);
-        });
+    getEnvironment() {
+        return this.environment;
+    }
+
+    /**
+     * @returns {boolean}
+     */
+    isDebug() {
+        return this.debug;
     }
 }
