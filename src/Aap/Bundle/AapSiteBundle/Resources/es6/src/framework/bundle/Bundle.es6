@@ -14,10 +14,18 @@ export class Bundle extends ContainerAware {
      */
     constructor(container) {
         this.container = container;
+    }
 
+    /**
+     * @returns {void}
+     */
+    boot() {
         this.registerServices();
     }
 
+    /**
+     * @returns {void}
+     */
     registerServices() {
     }
 }
