@@ -46,6 +46,7 @@ export class Service {
      * Get the result of the service function
      *
      * @returns {*}
+     * @throws Exception
      */
     call() {
         let args = [],
@@ -58,6 +59,10 @@ export class Service {
         obj = this.func.apply(this.func, args);
 
         this.methodCalls.forEach((methodCall) => {
+            if (false === _.isFunction(obj[methodCall.methodName])) {
+                throw new Exception('Method "' + methodCall.methodName + '" does not exist');
+            }
+
             obj[methodCall.methodName].apply(methodCall.args);
         });
 
