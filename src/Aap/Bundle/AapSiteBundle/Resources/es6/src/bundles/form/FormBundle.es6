@@ -10,9 +10,12 @@ import {FormBuilder} from 'bundles/form/builder/FormBuilder';
  * @class FormBundle
  */
 export class FormBundle extends Bundle {
+    /**
+     * @returns {void}
+     */
     boot() {
         let formBuilderService = this.container.findDefinition('form_builder_formbuilder'),
-            serviceIds = this.container.findTaggedServiceIds();
+            serviceIds = this.container.findTaggedServiceIds('form_field');
 
         serviceIds.forEach((serviceId) => {
             let fieldType = this.container.findDefinition(serviceId);
