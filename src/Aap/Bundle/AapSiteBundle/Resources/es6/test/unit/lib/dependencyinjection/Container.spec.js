@@ -1,6 +1,7 @@
 /*global describe, it, expect*/
 
 import {Container} from 'lib/dependencyinjection/Container';
+import {Service} from 'lib/dependencyinjection/Service';
 import {Exception} from 'lib/exception/Exception';
 
 describe('Container', function () {
@@ -77,5 +78,50 @@ describe('Container', function () {
         c.alias('foobar', 'foo');
 
         expect(c.get('foobar')).toBe(2);
+    });
+
+    it('Get the service instance by calling the findDefinition method', function () {
+        let c = new Container(),
+            f = function () {
+                return 2;
+            },
+            s;
+
+        c.register('foo', f);
+        s = c.findDefinition('foo');
+
+        expect(s instanceof Service).toBe(true);
+        expect(s.call()).toBe(2);
+    });
+
+    it('Arguments of a service are also service definitions', function () {
+        let c = new Container(),
+            a = function () {
+                return 4;
+            },
+            f = function (a) {
+                return 2 * a;
+            };
+
+        c.register('foo', f);
+        c.register('a', a);
+
+        expect(c.get('foo')).toBe(8);
+    });
+
+    it('A service can be tagged', function () {
+        let c = new Container();
+
+        c.register('foo', function (a) {
+            return 2 * a;
+        }, true, 'test');
+        c.register('a', function () {
+            return 4;
+        });
+        c.register('bar', function () {
+            return 'bar';
+        }, true, 'test');
+
+        expect(c.findTaggedServiceIds('test')).toEqual(['bar', 'foo']);
     });
 });
