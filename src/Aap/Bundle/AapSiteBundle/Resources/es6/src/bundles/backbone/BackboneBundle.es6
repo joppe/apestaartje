@@ -14,7 +14,7 @@ export class BackboneBundle extends Bundle {
      * @returns {void}
      */
     registerServices() {
-        this.container.register('backbone_sync_xhr', function () {
+        this.container.register('backboneSyncXhr', function () {
             return new Xhr();
         });
     }
