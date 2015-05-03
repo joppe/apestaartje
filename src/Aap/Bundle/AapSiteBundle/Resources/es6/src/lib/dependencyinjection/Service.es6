@@ -63,7 +63,7 @@ export class Service {
                 throw new Exception('Method "' + methodCall.methodName + '" does not exist');
             }
 
-            obj[methodCall.methodName].apply(methodCall.args);
+            obj[methodCall.methodName].apply(obj, methodCall.args);
         });
 
         return obj;
