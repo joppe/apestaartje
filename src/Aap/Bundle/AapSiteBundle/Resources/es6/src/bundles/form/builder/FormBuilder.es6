@@ -4,7 +4,6 @@
  */
 
 import {AbstractView} from 'bundles/backbone/view/AbstractView';
-import {Exception} from 'lib/exception/Exception';
 
 /**
  * @class FormBuilder
@@ -22,21 +21,12 @@ export class FormBuilder extends AbstractView {
      * Constructor
      *
      * @param {Object} options
+     * @param {FieldTypes} fieldTypes
      */
-    constructor(options) {
+    constructor(options, fieldTypes) {
         super(options);
 
-        this.fieldTypes = {};
-    }
-
-    /**
-     * Add a field type
-     *
-     * @param {string} identifier
-     * @param fieldType
-     */
-    addFieldType(identifier, fieldType) {
-        this.fieldTypes[identifier] = fieldType;
+        this.fieldTypes = fieldTypes;
     }
 
     /**
@@ -44,14 +34,15 @@ export class FormBuilder extends AbstractView {
      *
      * @param {string} propertyName
      * @param {string} fieldTypeIdentifier
-     * @param {Object} options
+     * @param {Object} [options]
      * @returns {FormBuilder}
+     * @throws {Exception}
      */
     add(propertyName, fieldTypeIdentifier, options) {
-        let fieldType;
+        let fieldType = this.fieldTypes.get(fieldTypeIdentifier);
 
-        if (undefined === this.fieldTypes[fieldTypeIdentifier]) {
-            throw new Exception('Field type "' + fieldTypeIdentifier + '" does not exist');
+        if (undefined === options) {
+            options = {};
         }
 
         options.model = this.model;
