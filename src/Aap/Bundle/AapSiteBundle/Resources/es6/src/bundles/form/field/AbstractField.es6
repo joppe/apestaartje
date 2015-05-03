@@ -3,7 +3,7 @@
  * @copyright Zicht Online <http://zicht.nl>
  */
 
-import {AbstractView} from 'bundles/backbone/AbstractView';
+import {AbstractView} from 'bundles/backbone/view/AbstractView';
 
 /**
  * @class AbstractView
