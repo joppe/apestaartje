@@ -15,7 +15,7 @@ export class TemplateBundle extends Bundle {
      */
     registerServices() {
         this.container.register('templateFactory', function () {
-            return new TemplateFactory();
-        });
+            return TemplateFactory;
+        }, false);
     }
 }
