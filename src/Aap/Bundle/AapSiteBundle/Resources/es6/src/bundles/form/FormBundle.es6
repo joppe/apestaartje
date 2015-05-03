@@ -28,7 +28,7 @@ export class FormBundle extends Bundle {
      * @returns {void}
      */
     registerServices() {
-        this.container.register('form_builder_formbuilder', function () {
+        this.container.register('formBuilder', function () {
             return new FormBuilder();
         }, false);
     }
