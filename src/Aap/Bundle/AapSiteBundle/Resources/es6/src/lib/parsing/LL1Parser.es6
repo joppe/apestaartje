@@ -18,7 +18,7 @@ export class LL1Parser {
     }
 
     /**
-     * @param {string} tokenType
+     * @param {number} tokenType
      * @returns {LL1Parser}
      */
     match(tokenType) {
