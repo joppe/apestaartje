@@ -26,8 +26,8 @@ export class TemplateFactory {
      * @returns {Function}
      * @throws Exception
      */
-    static getTemplate(id, html) {
-        var template;
+    static get(id, html) {
+        let template;
 
         if (false === this.has(id)) {
             if (undefined === html) {
