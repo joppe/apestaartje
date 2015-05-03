@@ -7,9 +7,9 @@ import {LL1Lexer} from 'lib/parsing/LL1Lexer';
 import {Exception} from 'lib/exception/Exception';
 
 /**
- * @class ListLexer
+ * @class LL1ListLexer
  */
-export class ListLexer extends LL1Lexer {
+export class LL1ListLexer extends LL1Lexer {
     /**
      * @returns {boolean}
      */
@@ -37,13 +37,13 @@ export class ListLexer extends LL1Lexer {
                 continue;
             } else if (',' === this.char) {
                 this.consume();
-                token = this.createToken(ListLexer.COMMA, ',');
+                token = this.createToken(LL1ListLexer.COMMA, ',');
             } else if ('[' === this.char) {
                 this.consume();
-                token = this.createToken(ListLexer.LBRACK, '[');
+                token = this.createToken(LL1ListLexer.LBRACK, '[');
             } else if (']' === this.char) {
                 this.consume();
-                token = this.createToken(ListLexer.RBRACK, ']');
+                token = this.createToken(LL1ListLexer.RBRACK, ']');
             } else {
                 if (this.isLetter()) {
                     token = this.name();
@@ -81,12 +81,12 @@ export class ListLexer extends LL1Lexer {
             this.consume();
         } while (this.isLetter());
 
-        return this.createToken(ListLexer.NAME, buffer);
+        return this.createToken(LL1ListLexer.NAME, buffer);
     }
 }
 
-ListLexer.NAME = 2;
-ListLexer.COMMA = 3;
-ListLexer.LBRACK = 4;
-ListLexer.RBRACK = 5;
-ListLexer.TOKEN_NAMES = LL1Lexer.TOKEN_NAMES.concat(['NAME', 'COMMA', 'LBRACK', 'RBRACK']);
+LL1ListLexer.NAME = 2;
+LL1ListLexer.COMMA = 3;
+LL1ListLexer.LBRACK = 4;
+LL1ListLexer.RBRACK = 5;
+LL1ListLexer.TOKEN_NAMES = LL1Lexer.TOKEN_NAMES.concat(['NAME', 'COMMA', 'LBRACK', 'RBRACK']);

@@ -4,20 +4,20 @@
  */
 
 import {LL1Parser} from 'lib/parsing/LL1Parser';
-import {ListLexer} from 'parsing/ListLexer';
+import {LL1ListLexer} from 'parsing/LL1ListLexer';
 import {Exception} from 'lib/exception/Exception';
 
 /**
- * @class ListParser
+ * @class LL1ListParser
  */
-export class ListParser extends LL1Parser {
+export class LL1ListParser extends LL1Parser {
     /**
      * list: '[' elements ']'
      */
     list() {
-        this.match(ListLexer.LBRACK);
+        this.match(LL1ListLexer.LBRACK);
         this.elements();
-        this.match(ListLexer.RBRACK);
+        this.match(LL1ListLexer.RBRACK);
     }
 
     /**
@@ -26,8 +26,8 @@ export class ListParser extends LL1Parser {
     elements() {
         this.element();
 
-        while (this.lookahead.type === ListLexer.COMMA) {
-            this.match(ListLexer.COMMA);
+        while (this.lookahead.type === LL1ListLexer.COMMA) {
+            this.match(LL1ListLexer.COMMA);
             this.element();
         }
     }
@@ -38,9 +38,9 @@ export class ListParser extends LL1Parser {
      * @throws {Exception}
      */
     element() {
-        if (this.lookahead.type === ListLexer.NAME) {
-            this.match(ListLexer.NAME);
-        } else if (this.lookahead.type === ListLexer.LBRACK) {
+        if (this.lookahead.type === LL1ListLexer.NAME) {
+            this.match(LL1ListLexer.NAME);
+        } else if (this.lookahead.type === LL1ListLexer.LBRACK) {
             this.list();
         } else {
             throw new Exception('Expceting name or list; found "' + this.lookahead + '"');
