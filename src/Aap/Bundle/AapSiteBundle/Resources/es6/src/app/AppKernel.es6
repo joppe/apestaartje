@@ -4,6 +4,7 @@
  */
 
 import {Kernel} from 'framework/kernel/Kernel';
+import {TemplateBundle} from 'bundles/template/TemplateBundle';
 import {BackboneBundle} from 'bundles/backbone/BackboneBundle';
 import {FormBundle} from 'bundles/form/FormBundle';
 
@@ -16,6 +17,7 @@ export class AppKernel extends Kernel {
      */
     registerBundles() {
         return [
+            new TemplateBundle(),
             new BackboneBundle(),
             new FormBundle()
         ];
