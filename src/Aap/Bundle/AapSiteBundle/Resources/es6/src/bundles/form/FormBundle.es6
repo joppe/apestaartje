@@ -20,7 +20,7 @@ export class FormBundle extends Bundle {
             serviceIds = this.container.findTaggedServiceIds('form_field');
 
         serviceIds.forEach((serviceId) => {
-            let fieldType = this.container.findDefinition(serviceId);
+            let fieldType = this.container.get(serviceId);
 
             formTypes.addMethodCall('add', [serviceId, fieldType]);
         });
