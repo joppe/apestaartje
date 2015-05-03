@@ -5,6 +5,7 @@
 
 import {Kernel} from 'framework/kernel/Kernel';
 import {BackboneBundle} from 'bundles/backbone/BackboneBundle';
+import {FormBundle} from 'bundles/form/FormBundle';
 
 /**
  * @class AppKernel
@@ -15,7 +16,8 @@ export class AppKernel extends Kernel {
      */
     registerBundles() {
         return [
-            new BackboneBundle()
+            new BackboneBundle(),
+            new FormBundle()
         ];
     }
 }
