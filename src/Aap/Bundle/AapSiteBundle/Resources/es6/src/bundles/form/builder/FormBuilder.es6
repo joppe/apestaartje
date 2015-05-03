@@ -3,24 +3,30 @@
  * @copyright Apestaartje <http://apestaartje.info>
  */
 
-import {AbstractView} from 'bundles/backbone/AbstractView';
+import {AbstractView} from 'bundles/backbone/view/AbstractView';
 import {Exception} from 'lib/exception/Exception';
 
 /**
  * @class FormBuilder
  */
 export class FormBuilder extends AbstractView {
+    get tagName() {
+        return 'form';
+    }
+
+    get className() {
+        return 'form-horizontal form';
+    }
+
     /**
      * Constructor
      *
      * @param {Object} options
      */
     constructor(options) {
-        this.tagName = 'form';
-        this.className = 'form-horizontal form';
-        this.fieldTypes = {};
-
         super(options);
+
+        this.fieldTypes = {};
     }
 
     /**
