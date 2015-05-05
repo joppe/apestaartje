@@ -4,6 +4,7 @@
  */
 
 import {Container} from 'lib/dependencyinjection/Container';
+import {Router} from 'framework/router/Router';
 
 /**
  * @class Kernel
@@ -18,9 +19,25 @@ export class Kernel {
     constructor(environment, debug = false) {
         this.environment = environment;
         this.debug = debug;
+    }
 
+    /**
+     * @returns {void}
+     */
+    init() {
         this.container = new Container();
         this.bundles = this.registerBundles();
+
+        this.container.register('kernel', function () {
+            return this;
+        });
+        this.container.register('router', function () {
+            return new Router();
+        });
+
+        if (true === this.debug) {
+            window.container = this.container;
+        }
     }
 
     /**
@@ -35,6 +52,8 @@ export class Kernel {
         this.bundles.forEach(bundle => {
             bundle.boot();
         });
+
+        this.container.get('router').startListening();
     }
 
     /**
