@@ -25,4 +25,6 @@ Associations many-to-one and many-to-one should be a super class for collections
 
 The Kernel
 Registers a router to the container
-Each bundle registers its controllers with the router
+Each bundle registers its controllers with the router.
+
+An action should return a response. A response can be a string/template/redirect?
