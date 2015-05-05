@@ -22,3 +22,7 @@ To display a list of a model, the following is done:
 A json converter must be used to transform relations (many to one etc).
 How to customize forms and override generic behavior?
 Associations many-to-one and many-to-one should be a super class for collections
+
+The Kernel
+Registers a router to the container
+Each bundle registers its controllers with the router
