@@ -10,6 +10,9 @@ import {MainController} from 'bundles/demo/controller/MainController';
  * @class DemoBundle
  */
 export class DemoBundle extends Bundle {
+    /**
+     * @returns {void}
+     */
     boot() {
         let controller = new MainController();
 

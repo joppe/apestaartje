@@ -11,6 +11,9 @@ import $ from 'jquery';
  * @class MainController
  */
 export class MainController extends Controller {
+    /**
+     * @returns {Object}
+     */
     get actions() {
         return {
             'index': '',
@@ -21,10 +24,16 @@ export class MainController extends Controller {
         }
     }
 
+    /**
+     * @returns {void}
+     */
     indexAction() {
         console.log('index action');
     }
 
+    /**
+     * @returns {void}
+     */
     formAction() {
         let builder = this.container.get('formBuilder'),
             form;
@@ -41,15 +50,25 @@ export class MainController extends Controller {
         $('body').append(form.render().$el);
     }
 
+    /**
+     * @param {number} id
+     * @returns {void}
+     */
     recipeAction(id) {
         console.log('recipe action');
     }
 
+    /**
+     * @returns {void}
+     */
     redAction() {
         $('body').css('background-color', 'red');
         console.log('red action');
     }
 
+    /**
+     * @returns {void}
+     */
     blueAction() {
         $('body').css('background-color', 'blue');
         console.log('blue action');
