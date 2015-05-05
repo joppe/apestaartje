@@ -7,6 +7,7 @@ import {Kernel} from 'framework/kernel/Kernel';
 import {TemplateBundle} from 'bundles/template/TemplateBundle';
 import {BackboneBundle} from 'bundles/backbone/BackboneBundle';
 import {FormBundle} from 'bundles/form/FormBundle';
+import {DemoBundle} from 'bundles/demo/DemoBundle';
 
 /**
  * @class AppKernel
@@ -19,7 +20,8 @@ export class AppKernel extends Kernel {
         return [
             new TemplateBundle(),
             new BackboneBundle(),
-            new FormBundle()
+            new FormBundle(),
+            new DemoBundle()
         ];
     }
 }
