@@ -28,3 +28,4 @@ Registers a router to the container
 Each bundle registers its controllers with the router.
 
 An action should return a response. A response can be a string/template/redirect?
+The router must implement a redirect method. That invokes a super.navigate(route, {trigger: true, replace: true})
