@@ -12,7 +12,10 @@ module.exports = function (config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['systemjs', 'jasmine'],
+        frameworks: [
+            'systemjs',
+            'jasmine'
+        ],
 
 
         // list of files / patterns to load in the browser
@@ -35,6 +38,7 @@ module.exports = function (config) {
                 baseURL: './',
 
                 paths: {
+                    'babel': 'test/node_modules/babel-core/browser.js',
                     'app/*': 'src/app/*.es6',
                     'lib/*': 'src/lib/*.es6',
                     'bundles/*': 'src/bundles/*.es6',
