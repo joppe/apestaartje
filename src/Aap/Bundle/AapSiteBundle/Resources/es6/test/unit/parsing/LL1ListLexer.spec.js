@@ -41,6 +41,6 @@ describe('LL1ListLexer', function () {
             while (t.type !== LL1ListLexer.EOF) {
                 t = l.nextToken();
             }
-        }).toThrow('Invalid character "."');
+        }).toThrow();
     });
 });
