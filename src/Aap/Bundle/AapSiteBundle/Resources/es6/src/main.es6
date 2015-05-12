@@ -1,6 +1,7 @@
-/*global window*/
+/*global*/
 
 import {AppKernel} from 'app/AppKernel';
+import $ from 'jquery';
 
 $(function () {
     'use strict';
