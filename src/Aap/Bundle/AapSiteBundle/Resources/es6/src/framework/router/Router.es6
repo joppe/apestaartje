@@ -3,6 +3,7 @@
  * @copyright Zicht Online <http://zicht.nl>
  */
 
+import {RouteAnnotation} from 'framework/router/RouteAnnotation';
 import Backbone from 'backbone';
 import _ from 'underscore';
 
@@ -12,32 +13,46 @@ import _ from 'underscore';
 export class Router extends Backbone.Router {
     /**
      * @param {Object} options
+     * @param {ControllerFactory} controllerFactory
      */
-    constructor(options) {
+    constructor(options, controllerFactory) {
         super(options);
 
+        this.controllerFactory = controllerFactory;
         this.registeredRoutes = [];
+
+        this.registerRoute('*notfound', 'not-found', _.bind(this.notFound, this));
+/*
+        _.each(RouteAnnotation.getRoutes(), (route) => {
+            this.registerRoute(route.route, route.name, function () {
+                let controller = this.getController(route.className);
+
+                controller[route.method].apply(controller, arguments);
+            });
+        });
+        /**/
+    }
+
+    /**
+     * @param {string} className
+     * @returns {Controller}
+     */
+    getController(className) {
+        return this.controllerFactory.getController(className);
     }
 
     /**
      * @param {string} route
      * @param {string} name
      * @param {Function} callback
-     * @param {boolean} prepend
      * @returns {Router}
      */
-    registerRoute(route, name, callback, prepend = false) {
-        let registeredRoute = {
-                route: route,
-                name: name,
-                callback: callback
-            };
-
-        if (prepend) {
-            this.registeredRoutes.unshift(registeredRoute);
-        } else {
-            this.registeredRoutes.push(registeredRoute);
-        }
+    registerRoute(route, name, callback) {
+        this.registeredRoutes.push({
+            route: route,
+            name: name,
+            callback: callback
+        });
 
         return this;
     }
@@ -56,14 +71,6 @@ export class Router extends Backbone.Router {
      * @returns {void}
      */
     startListening() {
-        let hasNotFound = undefined !== _.find(this.registeredRoutes, function (route) {
-                return '*' === route.route.charAt(0);
-            });
-
-        if (false === hasNotFound) {
-            this.registerRoute('*notfound', 'not-found', _.bind(this.notFound, this), true);
-        }
-
         this.registeredRoutes.forEach((registeredRoute) => {
             this.route(registeredRoute.route, registeredRoute.name, registeredRoute.callback);
         });

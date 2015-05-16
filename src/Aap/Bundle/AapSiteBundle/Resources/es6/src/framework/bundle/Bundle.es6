@@ -20,11 +20,18 @@ export class Bundle extends ContainerAware {
      * @returns {void}
      */
     boot() {
+        this.registerControllers();
     }
 
     /**
      * @returns {void}
      */
     registerServices() {
+    }
+
+    /**
+     * @returns {void}
+     */
+    registerControllers() {
     }
 }

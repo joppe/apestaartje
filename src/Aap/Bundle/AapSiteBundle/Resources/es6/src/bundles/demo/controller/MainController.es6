@@ -4,6 +4,7 @@
  */
 
 import {Controller} from 'framework/controller/Controller';
+import {route} from 'framework/router/RouteAnnotation';
 import Backbone from 'backbone';
 import $ from 'jquery';
 
@@ -11,22 +12,16 @@ import $ from 'jquery';
  * @class MainController
  */
 export class MainController extends Controller {
-    /**
-     * @returns {Object}
-     */
-    get actions() {
-        return {
-            'index': '',
-            'form': 'form',
-            'recipe': 'recipe/:id',
-            'red': 'red',
-            'blue': 'blue'
-        }
+    constructor() {
+        super();
+
+        console.log('new maincontroller');
     }
 
     /**
      * @returns {void}
      */
+    @route('')
     indexAction() {
         console.log('index action');
     }
@@ -34,6 +29,7 @@ export class MainController extends Controller {
     /**
      * @returns {void}
      */
+    @route('form')
     formAction() {
         let builder = this.container.get('formBuilder'),
             form;
@@ -54,6 +50,7 @@ export class MainController extends Controller {
      * @param {number} id
      * @returns {void}
      */
+    @route('recipe/:id')
     recipeAction(id) {
         console.log('recipe action');
     }
@@ -61,6 +58,7 @@ export class MainController extends Controller {
     /**
      * @returns {void}
      */
+    @route('red')
     redAction() {
         $('body').css('background-color', 'red');
         console.log('red action');
@@ -69,6 +67,7 @@ export class MainController extends Controller {
     /**
      * @returns {void}
      */
+    @route('blue')
     blueAction() {
         $('body').css('background-color', 'blue');
         console.log('blue action');

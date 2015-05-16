@@ -17,6 +17,5 @@ export class DemoBundle extends Bundle {
         let controller = new MainController();
 
         controller.setContainer(this.container);
-        controller.registerActions();
     }
 }

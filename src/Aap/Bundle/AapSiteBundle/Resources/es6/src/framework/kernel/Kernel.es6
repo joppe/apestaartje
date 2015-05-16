@@ -1,3 +1,5 @@
+/*global window*/
+
 /**
  * @author Joppe Aarts <joppe@apestaartje.info>
  * @copyright Apestaartje <http://apestaartje.info>
@@ -5,6 +7,7 @@
 
 import {Container} from 'lib/dependencyinjection/Container';
 import {Router} from 'framework/router/Router';
+import {ControllerFactory} from 'framework/controller/ControllerFactory';
 
 /**
  * @class Kernel
@@ -31,8 +34,15 @@ export class Kernel {
         this.container.register('kernel', function () {
             return this;
         });
-        this.container.register('router', function () {
-            return new Router();
+        this.container.register('controllerfactory', function () {
+            let controllerFactory = new ControllerFactory();
+
+            controllerFactory.setContainer(this.container);
+
+            return controllerFactory;
+        }.bind(this));
+        this.container.register('router', function (controllerfactory) {
+            return new Router({}, controllerfactory);
         });
 
         if (true === this.debug) {
