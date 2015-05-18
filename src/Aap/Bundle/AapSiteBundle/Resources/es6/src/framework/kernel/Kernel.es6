@@ -22,6 +22,9 @@ export class Kernel {
     constructor(environment, debug = false) {
         this.environment = environment;
         this.debug = debug;
+
+        this.init();
+        this.boot();
     }
 
     /**
