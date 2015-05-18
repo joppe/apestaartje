@@ -32,4 +32,4 @@ function route(route) {
     };
 }
 
-export {route, RouteAnnotation}
+export {route}
