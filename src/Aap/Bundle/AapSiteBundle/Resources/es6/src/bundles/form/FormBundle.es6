@@ -4,7 +4,7 @@
  */
 
 import {Bundle} from 'framework/bundle/Bundle';
-import {FieldTypes} from 'bundles/form/field/FieldTypes';
+import {FieldTypes} from 'bundles/form/service/FieldTypes';
 import {FormBuilder} from 'bundles/form/builder/FormBuilder';
 import {TextField} from 'bundles/form/field/TextField';
 
