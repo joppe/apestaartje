@@ -6,8 +6,5 @@ import $ from 'jquery';
 $(function () {
     'use strict';
 
-    let app = new AppKernel('development', true);
-
-    app.init();
-    app.boot();
+    new AppKernel('development', true);
 });
