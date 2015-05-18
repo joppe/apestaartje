@@ -22,15 +22,6 @@ export class Router extends Backbone.Router {
         this.registeredRoutes = [];
 
         this.registerRoute('*notfound', 'not-found', _.bind(this.notFound, this));
-/*
-        _.each(RouteAnnotation.getRoutes(), (route) => {
-            this.registerRoute(route.route, route.name, function () {
-                let controller = this.getController(route.className);
-
-                controller[route.method].apply(controller, arguments);
-            });
-        });
-        /**/
     }
 
     /**
@@ -39,6 +30,21 @@ export class Router extends Backbone.Router {
      */
     getController(className) {
         return this.controllerFactory.getController(className);
+    }
+
+    /**
+     * @param {Controller} controller
+     */
+    registerController(controller) {
+        if (undefined !== controller.annotatedRoutes) {
+            controller.annotatedRoutes.forEach((route) => {
+                this.registerRoute(route.route, route.name, function () {
+                    let controller = this.getController(route.className);
+
+                    controller[route.method].apply(controller, arguments);
+                });
+            });
+        }
     }
 
     /**

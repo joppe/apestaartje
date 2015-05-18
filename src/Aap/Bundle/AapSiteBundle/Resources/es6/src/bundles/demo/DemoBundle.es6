@@ -11,11 +11,11 @@ import {MainController} from 'bundles/demo/controller/MainController';
  */
 export class DemoBundle extends Bundle {
     /**
-     * @returns {void}
+     * @returns {Array}
      */
-    boot() {
-        let controller = new MainController();
-
-        controller.setContainer(this.container);
+    registerControllers() {
+        return [
+            MainController
+        ];
     }
 }

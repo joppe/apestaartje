@@ -20,7 +20,12 @@ export class Bundle extends ContainerAware {
      * @returns {void}
      */
     boot() {
-        this.registerControllers();
+        let router = this.container.get('router'),
+            controllers = this.registerControllers();
+
+        controllers.forEach(function (controller) {
+            router.registerController(controller);
+        });
     }
 
     /**
@@ -30,8 +35,9 @@ export class Bundle extends ContainerAware {
     }
 
     /**
-     * @returns {void}
+     * @returns {Array}
      */
     registerControllers() {
+        return [];
     }
 }
