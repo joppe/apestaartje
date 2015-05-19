@@ -38,7 +38,7 @@ export class Router extends Backbone.Router {
     registerController(controller) {
         if (undefined !== controller.annotatedRoutes) {
             controller.annotatedRoutes.forEach((route) => {
-                this.registerRoute(route.route, route.name, function () {
+                this.registerRoute(route.route, route.name, () => {
                     let controller = this.getController(route.className);
 
                     controller[route.method].apply(controller, arguments);
@@ -96,7 +96,7 @@ export class Router extends Backbone.Router {
      * @returns {Array}
      */
     getRoutes() {
-        return this.registeredRoutes.map(function (registeredRoute) {
+        return this.registeredRoutes.map((registeredRoute) => {
             return registeredRoute.route;
         });
     }
