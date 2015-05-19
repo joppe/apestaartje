@@ -5,7 +5,6 @@
 
 import {RouteAnnotation} from 'framework/router/RouteAnnotation';
 import Backbone from 'backbone';
-import _ from 'underscore';
 
 /**
  * @class Router
@@ -21,7 +20,7 @@ export class Router extends Backbone.Router {
         this.controllerFactory = controllerFactory;
         this.registeredRoutes = [];
 
-        this.registerRoute('*notfound', 'not-found', _.bind(this.notFound, this));
+        this.registerRoute('*notfound', 'not-found', this.notFound.bind(this));
     }
 
     /**
