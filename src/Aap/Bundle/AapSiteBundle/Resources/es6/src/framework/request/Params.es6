@@ -10,6 +10,9 @@ import {UriParser} from 'framework/request/UriParser';
  * @class Params
  */
 export class Params extends SortedMap {
+    /**
+     * @param {UriParser} parser
+     */
     constructor(parser) {
         super();
 
@@ -18,5 +21,9 @@ export class Params extends SortedMap {
         }
 
         this.parser = parser;
+    }
+
+    setUri(uri) {
+        this.set(uri);
     }
 }
