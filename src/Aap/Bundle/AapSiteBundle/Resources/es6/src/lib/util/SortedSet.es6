@@ -12,7 +12,7 @@ export class SortedSet {
     /**
      * Constructor
      *
-     * @param {Array|string|Number} value
+     * @param {Array|string|number} value
      */
     constructor(value) {
         this.values = [];
@@ -23,7 +23,9 @@ export class SortedSet {
     }
 
     /**
-     * @param {Array|string|Number} value
+     * Clear the values and set them with the given value(s)
+     *
+     * @param {Array|string|number} value
      * @returns {SortedSet}
      */
     set(value) {
@@ -34,11 +36,13 @@ export class SortedSet {
     }
 
     /**
-     * @param {Array|string|Number} value
+     * Add a value or if array muliple values
+     *
+     * @param {Array|string|number} value
      * @returns {SortedSet}
      */
     add(value) {
-        if (_.isArray(value)) {
+        if (Array.isArray(value)) {
             value.forEach((v) => {
                 this.add(v);
             });
@@ -51,6 +55,8 @@ export class SortedSet {
     }
 
     /**
+     * Remove a value
+     *
      * @param {*} value
      * @returns {SortedSet}
      */
@@ -61,6 +67,8 @@ export class SortedSet {
     }
 
     /**
+     * Check if a value exists
+     *
      * @param {*} value
      * @returns {boolean}
      */
@@ -69,7 +77,7 @@ export class SortedSet {
     }
 
     /**
-     * @returns {Number}
+     * @returns {number}
      */
     length() {
         return this.values.length;

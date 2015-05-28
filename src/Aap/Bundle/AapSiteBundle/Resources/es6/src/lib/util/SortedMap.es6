@@ -20,6 +20,8 @@ export class SortedMap {
     }
 
     /**
+     * Clear the values. Store all the keys and their values
+     *
      * @param {Object} obj
      */
     set(obj) {
@@ -31,8 +33,10 @@ export class SortedMap {
     }
 
     /**
+     * Add a key value
+     *
      * @param {string} key
-     * @param {Array|string|value} value
+     * @param {Array|string|number} value
      */
     add(key, value) {
         if (false === this.exists(key)) {
@@ -43,14 +47,18 @@ export class SortedMap {
     }
 
     /**
+     * Replace a key
+     *
      * @param {string} key
-     * @param {Array|string|value} value
+     * @param {Array|string|number} value
      */
     replace(key, value) {
         this.values[key] = new SortedSet(value);
     }
 
     /**
+     * Get the values of a key
+     *
      * @param {string} key
      * @returns {Array}
      */
@@ -65,6 +73,8 @@ export class SortedMap {
     }
 
     /**
+     * Check if a key value combination exists
+     *
      * @param {string} key
      * @param {Array|string|value} value
      */
@@ -79,6 +89,8 @@ export class SortedMap {
     }
 
     /**
+     * Remove a value from a key
+     *
      * @param {string} key
      * @param {Array|string|value} value
      */
