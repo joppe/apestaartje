@@ -45,9 +45,9 @@ export class Obj {
                 copy = new Date(source.getTime());
             } else if (source instanceof RegExp) { //RegExp
                 copy = new RegExp(source);
-            } else if (source.nodeType && typeof source.cloneNode === 'function') { //DOM Element
+            } else if (source.nodeType && typeof 'function' === source.cloneNode) { //DOM Element
                 copy = source.cloneNode(true);
-            } else if (Object.prototype.toString.call(source) === '[object Array]') { //Array
+            } else if (true === Array.isArray(source)) { //Array
                 let i;
 
                 copy = source.slice(); // Soft copy the array
