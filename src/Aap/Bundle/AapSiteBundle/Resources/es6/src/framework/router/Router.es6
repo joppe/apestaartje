@@ -1,3 +1,5 @@
+/*global window*/
+
 /**
  * @author Joppe Aarts <joppe@zicht.nl>
  * @copyright Zicht Online <http://zicht.nl>
@@ -11,11 +13,13 @@ import Backbone from 'backbone';
 export class Router extends Backbone.Router {
     /**
      * @param {Object} options
+     * @param {Request} request
      * @param {ControllerFactory} controllerFactory
      */
-    constructor(options, controllerFactory) {
+    constructor(options, request, controllerFactory) {
         super(options);
 
+        this.request = request;
         this.controllerFactory = controllerFactory;
         this.registeredRoutes = [];
 
@@ -67,6 +71,10 @@ export class Router extends Backbone.Router {
      */
     execute(callback, args) {
         if (callback) {
+            this.request.setUri(window.location.hash.replace(/^#/, ''));
+
+            args.unshift(this.request);
+
             callback.apply(this, args);
         }
     }
