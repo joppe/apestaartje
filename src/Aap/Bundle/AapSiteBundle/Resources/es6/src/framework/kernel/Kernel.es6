@@ -8,6 +8,7 @@
 import {Container} from 'lib/dependencyinjection/Container';
 import {Router} from 'framework/router/Router';
 import {ControllerFactory} from 'framework/controller/ControllerFactory';
+import {Request} from 'framework/request/Request';
 
 /**
  * @class Kernel
@@ -44,8 +45,11 @@ export class Kernel {
 
             return controllerFactory;
         }.bind(this));
-        this.container.register('router', function (controllerfactory) {
-            return new Router({}, controllerfactory);
+        this.container.register('request', function () {
+            return new Request();
+        });
+        this.container.register('router', function (request, controllerfactory) {
+            return new Router({}, request, controllerfactory);
         });
 
         if (true === this.debug) {
