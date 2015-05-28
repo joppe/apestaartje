@@ -3,17 +3,24 @@
  * @copyright Zicht Online <http://zicht.nl>
  */
 
-import {Params} from 'framework/request/params';
+import {Params} from 'framework/request/Params';
 
 /**
  * @class Request
  */
 export class Request {
+    constructor() {
+        this.uri = '';
+        this.params = new Params();
+    }
+
     /**
      * @param {string} uri
      */
-    constructor(uri) {
-        this.params = new Params();
+    setUri(uri) {
+        let quotPos = uri.indexOf('?');
+
+        this.uri = uri.substring(0, -1 === quotPos ? uri.length : quotPos);
         this.params.setUri(uri);
     }
 }
