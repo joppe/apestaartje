@@ -23,6 +23,9 @@ export class Params extends SortedMap {
         this.parser = parser;
     }
 
+    /**
+     * @param {string} uri
+     */
     setUri(uri) {
         this.set(uri);
     }
