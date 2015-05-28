@@ -17,11 +17,11 @@ function route(route) {
      * @param {Object}
      */
     return function (target, name, descriptor) {
-        if (undefined === target.constructor.annotatedRoutes) {
-            target.constructor.annotatedRoutes = [];
+        if (undefined === target.constructor.routes) {
+            target.constructor.routes = [];
         }
 
-        target.constructor.annotatedRoutes.push({
+        target.constructor.routes.push({
             name: target.constructor.name + ':' + name,
             className: target,
             method: name,

@@ -3,7 +3,6 @@
  * @copyright Zicht Online <http://zicht.nl>
  */
 
-import {RouteAnnotation} from 'framework/router/RouteAnnotation';
 import Backbone from 'backbone';
 
 /**
@@ -35,8 +34,8 @@ export class Router extends Backbone.Router {
      * @param {Controller} controller
      */
     registerController(controller) {
-        if (undefined !== controller.annotatedRoutes) {
-            controller.annotatedRoutes.forEach((route) => {
+        if (undefined !== controller.routes) {
+            controller.routes.forEach((route) => {
                 this.registerRoute(route.route, route.name, () => {
                     let controller = this.getController(route.className);
 
