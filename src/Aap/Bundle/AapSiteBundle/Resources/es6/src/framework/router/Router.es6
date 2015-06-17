@@ -41,15 +41,15 @@ export class Router extends Backbone.Router {
      */
     registerController(bundle, controller) {
         if (undefined !== controller.routes) {
-            controller.routes.forEach((route) => {
+            controller.routes.forEach(function (route) {
                 let name = bundle + ':' + route.name;
 
-                this.registerRoute(route.route, name, () => {
+                this.registerRoute(route.route, name, function () {
                     let controller = this.getController(route.className);
 
                     controller[route.method].apply(controller, arguments);
-                });
-            });
+                }.bind(this));
+            }.bind(this));
         }
     }
 

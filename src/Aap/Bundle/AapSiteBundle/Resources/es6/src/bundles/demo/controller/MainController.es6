@@ -19,11 +19,12 @@ export class MainController extends Controller {
     }
 
     /**
+     * @param {Request} request
      * @returns {void}
      */
     @route('')
-    indexAction() {
-        console.log('index action');
+    indexAction(request) {
+        console.log('index action', request);
     }
 
     /**
