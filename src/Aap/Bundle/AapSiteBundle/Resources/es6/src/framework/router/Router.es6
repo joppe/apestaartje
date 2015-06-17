@@ -41,15 +41,17 @@ export class Router extends Backbone.Router {
      */
     registerController(bundle, controller) {
         if (undefined !== controller.routes) {
-            controller.routes.forEach(function (route) {
+            controller.routes.forEach((route) => {
                 let name = bundle + ':' + route.name;
 
+                // somehow this cannot be a fat arrow function, the arguments array will be that of the outer most
+                // function
                 this.registerRoute(route.route, name, function () {
                     let controller = this.getController(route.className);
 
                     controller[route.method].apply(controller, arguments);
                 }.bind(this));
-            }.bind(this));
+            });
         }
     }
 
