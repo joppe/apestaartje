@@ -6,6 +6,7 @@
  */
 
 import Backbone from 'backbone';
+import _ from 'underscore';
 
 /**
  * @class Router
@@ -21,7 +22,7 @@ export class Router extends Backbone.Router {
 
         this.request = request;
         this.controllerFactory = controllerFactory;
-        this.registeredRoutes = [];
+        this.registeredRoutes = {};
 
         this.registerRoute('*notfound', 'not-found', this.notFound.bind(this));
     }
@@ -35,12 +36,15 @@ export class Router extends Backbone.Router {
     }
 
     /**
+     * @param {string} bundle
      * @param {Controller} controller
      */
-    registerController(controller) {
+    registerController(bundle, controller) {
         if (undefined !== controller.routes) {
             controller.routes.forEach((route) => {
-                this.registerRoute(route.route, route.name, () => {
+                let name = bundle + ':' + route.name;
+
+                this.registerRoute(route.route, name, () => {
                     let controller = this.getController(route.className);
 
                     controller[route.method].apply(controller, arguments);
@@ -56,11 +60,10 @@ export class Router extends Backbone.Router {
      * @returns {Router}
      */
     registerRoute(route, name, callback) {
-        this.registeredRoutes.push({
+        this.registeredRoutes[name] = {
             route: route,
-            name: name,
             callback: callback
-        });
+        };
 
         return this;
     }
@@ -71,11 +74,14 @@ export class Router extends Backbone.Router {
      */
     execute(callback, args) {
         if (callback) {
+            let name = callback.apply(null),
+                route = this.registeredRoutes[name];
+
             this.request.setUri(window.location.hash.replace(/^#/, ''));
 
             args.unshift(this.request);
 
-            callback.apply(this, args);
+            route.callback.apply(this, args);
         }
     }
 
@@ -83,8 +89,10 @@ export class Router extends Backbone.Router {
      * @returns {void}
      */
     startListening() {
-        this.registeredRoutes.forEach((registeredRoute) => {
-            this.route(registeredRoute.route, registeredRoute.name, registeredRoute.callback);
+        _.each(this.registeredRoutes, (registeredRoute, routeName) => {
+            this.route(registeredRoute.route, routeName, function () {
+                return routeName;
+            });
         });
 
         Backbone.history.start();
@@ -102,8 +110,11 @@ export class Router extends Backbone.Router {
      * @returns {Array}
      */
     getRoutes() {
-        return this.registeredRoutes.map((registeredRoute) => {
-            return registeredRoute.route;
+        return _.map(this.registeredRoutes, (registeredRoute, routeName) => {
+            return {
+                name: routeName,
+                route: registeredRoute.route
+            };
         });
     }
 }
