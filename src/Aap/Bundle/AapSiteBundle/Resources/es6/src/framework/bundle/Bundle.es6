@@ -10,6 +10,13 @@ import {ContainerAware} from 'lib/dependencyinjection/ContainerAware';
  */
 export class Bundle extends ContainerAware {
     /**
+     * @returns {string}
+     */
+    getName() {
+        return this.constructor.name;
+    }
+
+    /**
      * @returns {void}
      */
     init() {
@@ -23,8 +30,8 @@ export class Bundle extends ContainerAware {
         let router = this.container.get('router'),
             controllers = this.registerControllers();
 
-        controllers.forEach(function (controller) {
-            router.registerController(controller);
+        controllers.forEach((controller) => {
+            router.registerController(this.getName(), controller);
         });
     }
 
