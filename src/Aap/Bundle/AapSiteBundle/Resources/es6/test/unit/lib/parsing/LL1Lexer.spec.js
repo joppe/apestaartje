@@ -25,7 +25,7 @@ describe('LL1Lexer', function () {
 
     it('Create a token', function () {
         let l = new LL1Lexer('abcd'),
-            t = l.createToken(LL1Lexer.EOF, '');
+            t = l.createToken(LL1Lexer.EOF_TYPE, '');
 
         expect(t.toString()).toEqual('<"", "<EOF>">');
     });

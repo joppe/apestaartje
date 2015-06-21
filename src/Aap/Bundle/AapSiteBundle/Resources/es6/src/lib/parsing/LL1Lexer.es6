@@ -28,7 +28,7 @@ export class LL1Lexer {
         this.index += 1;
 
         if (this.index >= this.input.length) {
-            this.char = LL1Lexer.EOF;
+            this.char = LL1Lexer.EOF_TYPE;
         } else {
             this.char = this.input.charAt(this.index);
         }
@@ -76,5 +76,6 @@ export class LL1Lexer {
     }
 }
 
-LL1Lexer.EOF = 1;
+LL1Lexer.EOF = '-1';
+LL1Lexer.EOF_TYPE = 1;
 LL1Lexer.TOKEN_NAMES = ['n/a', '<EOF>'];

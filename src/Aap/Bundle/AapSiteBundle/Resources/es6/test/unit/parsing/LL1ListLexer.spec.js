@@ -28,7 +28,7 @@ describe('LL1ListLexer', function () {
         t = l.nextToken();
         expect(t.type).toBe(LL1ListLexer.RBRACK);
         t = l.nextToken();
-        expect(t.type).toBe(LL1ListLexer.EOF);
+        expect(t.type).toBe(LL1ListLexer.EOF_TYPE);
     });
 
     it('To throw an error', function () {
@@ -38,7 +38,7 @@ describe('LL1ListLexer', function () {
         expect(function () {
             let t = l.nextToken();
 
-            while (t.type !== LL1ListLexer.EOF) {
+            while (t.type !== LL1ListLexer.EOF_TYPE) {
                 t = l.nextToken();
             }
         }).toThrow();

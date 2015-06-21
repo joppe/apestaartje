@@ -58,7 +58,7 @@ export class LL1ListLexer extends LL1Lexer {
         }
 
         if (undefined === token) {
-            token = this.createToken(LL1Lexer.EOF, '<EOF>');
+            token = this.createToken(LL1Lexer.EOF_TYPE, '<EOF>');
         }
 
         return token;
