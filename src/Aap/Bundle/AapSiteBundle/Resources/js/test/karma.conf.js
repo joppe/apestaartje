@@ -30,7 +30,7 @@ module.exports = function (config) {
                 'test/vendor/jquery/dist/jquery.js',
                 'test/vendor/underscore/underscore.js',
                 'test/vendor/backbone/backbone.js',
-                'src/**/*.es6',
+                'src/**/*.js',
                 'test/unit/**/*.spec.js'
             ],
 
@@ -39,11 +39,11 @@ module.exports = function (config) {
 
                 paths: {
                     'babel': 'test/node_modules/babel-core/browser.js',
-                    'app/*': 'src/app/*.es6',
-                    'lib/*': 'src/lib/*.es6',
-                    'bundles/*': 'src/bundles/*.es6',
-                    'framework/*': 'src/framework/*.es6',
-                    'parsing/*': 'src/parsing/*.es6'
+                    'app/*': 'src/app/*.js',
+                    'lib/*': 'src/lib/*.js',
+                    'bundles/*': 'src/bundles/*.js',
+                    'framework/*': 'src/framework/*.js',
+                    'parsing/*': 'src/parsing/*.js'
                 },
 
                 map: {

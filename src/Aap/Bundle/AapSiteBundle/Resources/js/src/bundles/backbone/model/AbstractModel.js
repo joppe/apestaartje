@@ -13,6 +13,13 @@ import Backbone from 'backbone';
  */
 export class AbstractModel extends Backbone.Model {
     /**
+     * @returns {Object}
+     */
+    get schema() {
+        return {};
+    }
+
+    /**
      * Parse the data
      *
      * @param {Object} response
@@ -21,7 +28,7 @@ export class AbstractModel extends Backbone.Model {
     parse(response) {
         let attributes = {};
 
-        _.each(this.constructor.schema, function (type, property) {
+        _.each(this.schema, function (type, property) {
             var value = response[property],
                 model,
                 ClassName;
@@ -55,12 +62,13 @@ export class AbstractModel extends Backbone.Model {
     }
 
     /**
+     * @TODO this logic should not be part of the model
      * @returns {Object}
      */
     getData() {
         let data = new FormData();
 
-        _.each(this.constructor.schema, function (type, property) {
+        _.each(this.schema, function (type, property) {
             if (true === _.contains(['string', 'file', 'float', 'int', 'bool', 'variant'], type)) {
                 data.append(property, this.get(property));
             } else {

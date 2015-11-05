@@ -1,5 +1,10 @@
 /*global*/
 
+/**
+ * @author Joppe Aarts <joppe@apestaartje.info>
+ * @copyright Apestaartje <http://apestaartje.info>
+ */
+
 import {AppKernel} from 'app/AppKernel';
 import $ from 'jquery';
 
