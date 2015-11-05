@@ -8,9 +8,9 @@
         "test": "test"
     },
     "scripts": {
-        "babel": "babel src/Aap/Bundle/AapSiteBundle/Resources/es6/src --stage 1 --out-dir src/Aap/Bundle/AapSiteBundle/Resources/public/js --modules system",
-        "babel-watch": "babel src/Aap/Bundle/AapSiteBundle/Resources/es6/src --stage 1 --watch --out-dir src/Aap/Bundle/AapSiteBundle/Resources/public/js --modules system",
-        "karma": "node node_modules/karma/bin/karma start src/Aap/Bundle/AapSiteBundle/Resources/es6/test/karma.conf.js --single-run --no-auto-watch --reporters dots"
+        "babel": "babel src/Aap/Bundle/AapSiteBundle/Resources/js/src --stage 1 --out-dir src/Aap/Bundle/AapSiteBundle/Resources/public/js --modules system",
+        "babel-watch": "babel src/Aap/Bundle/AapSiteBundle/Resources/js/src --stage 1 --watch --out-dir src/Aap/Bundle/AapSiteBundle/Resources/public/js --modules system",
+        "karma": "node node_modules/karma/bin/karma start src/Aap/Bundle/AapSiteBundle/Resources/js/test/karma.conf.js --single-run --no-auto-watch --reporters dots"
     },
     "repository": {
         "type": "git",
