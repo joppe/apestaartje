@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
-ROOT_DIR := ./
-PUBLIC_DIR := src/Aap/Bundle/AapSiteBundle/Resources/public
+PWD := $(shell pwd)
+PUBLIC_DIR := $(PWD)/src/Aap/Bundle/AapSiteBundle/Resources/public
 
 sass:
 	@echo "Compile SASS"
@@ -9,17 +9,21 @@ sass:
 
 bower:
 	@echo "Install bower packages"
-	@cd $(ROOT_DIR) && bower install
+	@$(PWD)/node_modules/bower/bin/bower install
 
 npm:
 	@echo "Install node packages"
-	@cd $(ROOT_DIR) && npm install
+	@cd $(PWD) && npm install
 
 composer:
 	@echo "Install composer packages"
-	@cd $(ROOT_DIR) && composer install
+	@cd $(PWD) && composer install
 
-setup: composer npm bower sass
+typescript:
+	@echo "Compile typescript"
+	@$(PWD)/node_modules/typescript/bin/tsc --project src/Aap/Bundle/AapSiteBundle/Resources/ts
+
+setup: composer npm bower sass typescript
 	@echo "Setup done"
 
 clean:
