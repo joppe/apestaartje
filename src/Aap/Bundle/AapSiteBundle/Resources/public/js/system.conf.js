@@ -3,6 +3,8 @@
 System.config({
     baseURL: 'bundles/aapaapsite/',
 
+    defaultJSExtensions: true,
+
     paths: {
         'app/*': 'js/app/*.js',
         'lib/*': 'js/lib/*.js',
@@ -21,7 +23,5 @@ System.config({
         backbone: {
             deps: ['jquery', 'underscore']
         }
-    },
-
-    transpiler: 'babel'
+    }
 });
