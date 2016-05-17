@@ -41,6 +41,12 @@ module.exports = function (config) {
                     typescript: "node_modules/typescript/lib/typescript.js"
                 },
 
+                packages: {
+                    'src': {
+                        defaultExtension: 'ts'
+                    }
+                },
+
                 transpiler: "typescript"
             },
 
