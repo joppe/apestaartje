@@ -29,7 +29,8 @@
         "karma-chrome-launcher": "^0.2",
         "karma-jasmine": "^0.3.5",
         "karma-systemjs": "^0.7.2",
-        "systemjs": "^0.19.27"
+        "systemjs": "^0.19.27",
+        "typings": "^1.0.4"
     },
     "dependencies": {
         "bower": "^1.7.9",
