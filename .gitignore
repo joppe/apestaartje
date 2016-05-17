@@ -10,3 +10,4 @@ src/Aap/Bundle/AapSiteBundle/Resources/public/js/**/*.js
 src/Aap/Bundle/AapSiteBundle/Resources/public/js/**/*.map
 !src/Aap/Bundle/AapSiteBundle/Resources/public/js/system.no-cache.js
 !src/Aap/Bundle/AapSiteBundle/Resources/public/js/system.conf.js
+typings/
