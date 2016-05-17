@@ -13,4 +13,11 @@ export class Exception {
     constructor(message) {
         this.message = message;
     }
+
+    /**
+     * @returns {string}
+     */
+    toString() {
+        return this.message;
+    }
 }
