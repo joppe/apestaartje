@@ -1,39 +1,38 @@
 {
-  "name": "apestaartje",
-  "private": true,
-  "version": "1.0.0",
-  "description": "fun project",
-  "main": "karma.conf.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "karma": "node node_modules/karma/bin/karma start src/Aap/Bundle/AapSiteBundle/Resources/js/test/karma.conf.js --single-run --no-auto-watch --reporters dots"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/joppe/apestaartje.git"
-  },
-  "keywords": [
-    "js",
-    "systemjs",
-    "symfony",
-    "systemjs"
-  ],
-  "author": "Joppe Aarts",
-  "license": "MIT",
-  "devDependencies": {
-    "es6-module-loader": "^0.17.11",
-    "karma": "^0.12.31",
-    "karma-chrome-launcher": "^0.1.7",
-    "karma-jasmine": "^0.3.5",
-    "karma-systemjs": "^0.3.0",
-    "karma-typescript-preprocessor": "^0.2.0",
-    "plugin-typescript": "^4.0.15",
-    "systemjs": "^0.19.27"
-  },
-  "dependencies": {
-    "bower": "^1.7.9",
-    "typescript": "^1.8.10"
-  }
+    "name": "apestaartje",
+    "private": true,
+    "version": "1.0.0",
+    "description": "fun project",
+    "main": "karma.conf.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "karma": "node node_modules/karma/bin/karma start src/Aap/Bundle/AapSiteBundle/Resources/js/test/karma.conf.js --single-run --no-auto-watch --reporters dots"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/joppe/apestaartje.git"
+    },
+    "keywords": [
+        "js",
+        "systemjs",
+        "symfony",
+        "systemjs"
+    ],
+    "author": "Joppe Aarts",
+    "license": "MIT",
+    "devDependencies": {
+        "es6-module-loader": "^0.17.11",
+        "jasmine-core": "^2.3.4",
+        "karma": "^0.13.3",
+        "karma-chrome-launcher": "^0.2",
+        "karma-jasmine": "^0.3.5",
+        "karma-systemjs": "^0.7.2",
+        "systemjs": "^0.19.27"
+    },
+    "dependencies": {
+        "bower": "^1.7.9",
+        "typescript": "^1.8.10"
+    }
 }
