@@ -23,6 +23,13 @@ typescript:
 	@echo "Compile typescript"
 	@$(PWD)/node_modules/typescript/bin/tsc --project src/Aap/Bundle/AapSiteBundle/Resources/ts
 
+typings:
+	@echo "Install typings files"
+	@$(PWD)/node_modules/typings/dist/bin.js install dt~jasmine --save --global
+	@$(PWD)/node_modules/typings/dist/bin.js install dt~jquery --save --global
+	@$(PWD)/node_modules/typings/dist/bin.js install dt~backbone --save --global
+	@$(PWD)/node_modules/typings/dist/bin.js install dt~underscore --save --global
+
 setup: composer npm bower sass typescript
 	@echo "Setup done"
 
