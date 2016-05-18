@@ -14,6 +14,10 @@ export class Func {
     constructor(func:Function) {
         this.func = func;
     }
+    
+    invoke(...args:any[]):any {
+        return this.func(...args);
+    }
 
     /**
      * Get all the names of the arguments
