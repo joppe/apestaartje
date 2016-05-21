@@ -2,42 +2,59 @@
 
 import {Service} from 'src/lib/dependencyinjection/Service';
 
-describe('Service', () => {
-    it('The method getArgumentNames() should return the names of all arguments the service function expects', function () {
-        let s = new Service('s', function (a, b, foo) {});
+describe('Service.setParameter', () => {
+    it('Set the value of a parameter an return itself', () => {
+        let f = function (a, b, foo) {},
+            s = new Service('s', f);
 
-        // expect(s.getArgumentNames()).toEqual(['a', 'b', 'foo']);
+        expect(s.setParameter('a', 1)).toBe(s);
     });
 
-    /*
-    it('Cache the result when the singleton property is set to true', function () {
-        let s = new Service('s', (function () {
-                var foo = 1;
+    it('Throw an exception when trying to set the value of a non existing parameter', () => {
+        let f = function (a, b, foo) {},
+            s = new Service('s', f);
 
-                return function () {
-                    foo += 1;
+        expect(() => {
+            s.setParameter('quux', 2);
+        }).toThrow();
+    });
+});
 
-                    return foo;
-                };
-            }()), true);
+describe('Service.getParameter', () => {
+    it('Return the value of the parameter', () => {
+        let f = function (a, b, foo) {},
+            s = new Service('s', f);
 
-        expect(s.call()).toBe(2);
-        expect(s.call()).toBe(2);
+        s.setParameter('a', 10);
+
+        expect(s.getParameter('a')).toBe(10);
+        expect(s.getParameter('b')).toBe(undefined);
     });
 
-    it('Do not cache the result when the singleton property is set to false', function () {
-        let s = new Service('s', (function () {
-                var foo = 1;
+    it('Throw an exception when requesting a non existing parameter', () => {
+        let f = function (a, b, foo) {},
+            s = new Service('s', f);
 
-                return function () {
-                    foo += 1;
-
-                    return foo;
-                };
-            }()), false);
-
-        expect(s.call()).toBe(2);
-        expect(s.call()).toBe(3);
+        expect(() => {
+            s.getParameter('bar');
+        }).toThrow();
     });
-    /**/
+});
+
+describe('Service.hasParameter', () => {
+    it('Check the existence of a parameter', () => {
+        let f = function (a, b, foo) {},
+            s = new Service('s', f);
+
+        expect(s.hasParameter('a')).toBe(true);
+        expect(s.hasParameter('aa')).toBe(false);
+    });
+
+    it('Check the existence of a parameter when there are now paramters', () => {
+        let f = function () {},
+            s = new Service('s', f);
+
+        expect(s.hasParameter('a')).toBe(false);
+        expect(s.hasParameter('aa')).toBe(false);
+    });
 });
