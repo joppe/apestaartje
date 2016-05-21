@@ -18,9 +18,14 @@ export class MethodCall<T> {
 
     /**
      * @param {string} name
-     * @param {Array} args
+     * @param {Array} [args]
+     * @throws Error
      */
-    constructor(name:string, args:T[]) {
+    constructor(name:string, args:T[] = []) {
+        if (false === Array.isArray(args)) {
+            throw new Error('Argument args must be an array.');
+        }
+
         this.name = name;
         this.args = args;
     }
