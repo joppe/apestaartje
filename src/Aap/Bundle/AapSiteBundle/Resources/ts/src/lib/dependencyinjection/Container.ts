@@ -40,5 +40,27 @@ export class Container {
     has(identifier:string):boolean {
         return undefined !== this.services[identifier];
     }
+
+    get(identifier:string):any {
+        let service,
+            parameters;
+
+        if (false === this.has(identifier)) {
+            throw new Error(`Service with identifier "${identifier}" does not exist.`);
+        }
+
+        service = this.services[identifier];
+        parameters = service.getParameters();
+        
+        for (let parameter in parameters) {
+            if (parameters.hasOwnProperty(parameter) && undefined === service.getParameter(parameter)) {
+                service.setParameter(parameter, this.get(parameter));
+            }
+        }
+        
+        service = this.services[identifier];
+
+        return service.call();
+    }
 }
 
