@@ -58,3 +58,88 @@ describe('Service.hasParameter', () => {
         expect(s.hasParameter('aa')).toBe(false);
     });
 });
+
+describe('Service.getIdentifier', () => {
+    it('Must return the given identifier', () => {
+        let f = function () {},
+            s = new Service('s', f);
+
+        expect(s.getIdentifier()).toBe('s');
+    });
+});
+
+describe('Service.getArguments', () => {
+    it('Must return the parameters as an array', () => {
+        let f = function (a, b, foobar) {},
+            s = new Service('s', f);
+
+        expect(s.getArguments()).toEqual([undefined, undefined, undefined]);
+
+        s.setParameter('a', 1);
+        s.setParameter('b', 'b');
+        s.setParameter('foobar', []);
+        expect(s.getArguments()).toEqual([1, 'b', []]);
+    });
+});
+
+describe('Service.call', () => {
+    let o = {
+            i: 0,
+            k: 0,
+            x: '',
+            setX(x) {
+                this.x = x;
+            },
+            inc() {
+                this.i += 1;
+            }
+        },
+        f = () => {
+            o.k += 1;
+            return o;
+        };
+
+    it('When the service is executed it should return the result of the function', () => {
+        let s = new Service('s', f),
+            r;
+
+        expect(o.k).toBe(0);
+        expect(s.call()).toBe(o);
+
+        r = s.call();
+        expect(r).toBe(o);
+        expect(r.k).toBe(1);
+    });
+});
+
+describe('Service.addMethodCall', () => {
+    let o = {
+            i: 0,
+            k: 0,
+            x: '',
+            setX(x) {
+                this.x = x;
+            },
+            inc() {
+                this.i += 1;
+            }
+        },
+        f = () => {
+            o.k += 1;
+            return o;
+        };
+
+    it('When the service is executed it should return the result of the function', () => {
+        let s = new Service('s', f),
+            r;
+
+        expect(o.i).toBe(0);
+        s.addMethodCall('inc');
+        s.addMethodCall('inc');
+        s.addMethodCall('setX', [18]);
+
+        r = s.call();
+        expect(r.x).toBe(18);
+        expect(r.i).toBe(2);
+    });
+});

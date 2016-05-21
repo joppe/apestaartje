@@ -1,4 +1,6 @@
 import {Func} from './../lang/Func';
+import {MethodCall} from './MethodCall';
+import {Result} from './Result';
 
 /**
  * @class Service
@@ -19,12 +21,33 @@ export class Service {
     private func:Func;
 
     /**
+     * If the function can only be executed once.
+     *
+     * @type {boolean}s
+     */
+    private singleton:boolean;
+
+    /**
      * The parameters that will be used to execute the function.
      *
      * @type {object}
      */
     private parameters:{[id:string]:any} = {};
 
+    /**
+     * The methods that need to be called after executing the function.
+     * 
+     * @type {Array}
+     */
+    private methodCalls:MethodCall[] = [];
+
+    /**
+     * The cached result of the executed function.
+     *
+     * @type {Result}
+     */
+    private result:Result;
+    
     /**
      * @param {string} identifier
      * @param {Function} func
@@ -33,8 +56,9 @@ export class Service {
     constructor(identifier:string, func:Function, singleton:boolean = true) {
         this.identifier = identifier;
         this.func = new Func(func, singleton ? 1 : -1);
+        this.singleton = singleton;
 
-        this.func.argumentNames.forEach((name) => {
+        this.func.argumentNames.forEach((name:string) => {
             this.setParameter(name, undefined);
         });
     }
@@ -87,5 +111,52 @@ export class Service {
      */
     getIdentifier():string {
         return this.identifier;
+    }
+
+    /**
+     * Add a method call
+     *
+     * @param {string} name
+     * @param {Array} args
+     * @returns {Service}
+     */
+    addMethodCall(name:string, args:any[] = []):Service {
+        this.methodCalls.push(new MethodCall(name, args));
+
+        return this;
+    }
+
+    /**
+     * Get the arguments for the function
+     *
+     * @returns {Array}
+     */
+    getArguments():any[] {
+        let args = [];
+
+        for (let parameter in this.parameters) {
+            if (this.parameters.hasOwnProperty(parameter)) {
+                args.push(this.parameters[parameter]);
+            }
+        }
+
+        return args;
+    }
+
+    /**
+     * Call the service
+     *
+     * @returns {any}
+     */
+    call():any {
+        if (0 === this.func.getExecutionCount() || false === this.singleton) {
+            this.result = new Result(this.func.invoke(this.getArguments()));
+
+            this.methodCalls.forEach((methodCall:MethodCall) => {
+                this.result.applyMethod(methodCall.getName(), methodCall.getArgs());
+            });
+        }
+
+        return this.result.getValue();
     }
 }
