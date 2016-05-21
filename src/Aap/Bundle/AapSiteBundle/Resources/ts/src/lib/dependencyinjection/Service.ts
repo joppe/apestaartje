@@ -43,7 +43,7 @@ export class Service {
      * Set the value of a parameter
      *
      * @param {string} name
-     * @param {*} value
+     * @param {any} value
      * @returns {Service}
      * @throws Error
      */
@@ -61,7 +61,7 @@ export class Service {
      * Get a parameter by it's name
      *
      * @param {string} name
-     * @returns {*}
+     * @returns {any}
      * @throws Error
      */
     getParameter(name:string):any {
