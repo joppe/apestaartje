@@ -46,7 +46,21 @@ describe('Service.getParameters', () => {
         let f = function (a, b, foo) {},
             s = new Service('s', f);
 
-        expect(s.getParameters()).toEqual(['a', 'b', 'foo']);
+        expect(s.getParameters()).toEqual({
+            a: undefined,
+            b: undefined,
+            foo: undefined
+        });
+
+        s.setParameter('a', '1');
+        s.setParameter('b', ['goo']);
+        s.setParameter('foo', 19);
+
+        expect(s.getParameters()).toEqual({
+            a: '1',
+            b: ['goo'],
+            foo: 19
+        });
     });
 });
 

@@ -2,6 +2,10 @@ import {Func} from './../lang/Func';
 import {MethodCall} from './MethodCall';
 import {Result} from './Result';
 
+interface ParametersInterface {
+    [id:string]:any
+}
+
 /**
  * @class Service
  */
@@ -30,9 +34,9 @@ export class Service {
     /**
      * The parameters that will be used to execute the function.
      *
-     * @type {object}
+     * @type {ParametersInterface}
      */
-    private parameters:{[id:string]:any} = {};
+    private parameters:ParametersInterface = {};
 
     /**
      * The methods that need to be called after executing the function.
@@ -97,10 +101,10 @@ export class Service {
     }
 
     /**
-     * @returns {string[]}
+     * @returns {ParametersInterface}
      */
-    getParameters():string[] {
-        return this.func.argumentNames;
+    getParameters():ParametersInterface {
+        return this.parameters;
     }
 
     /**
@@ -110,9 +114,7 @@ export class Service {
      * @returns {boolean}
      */
     hasParameter(name:string):boolean {
-        let parameters = this.getParameters();
-
-        return parameters.includes(name);
+        return this.func.argumentNames.includes(name);
     }
 
     /**
