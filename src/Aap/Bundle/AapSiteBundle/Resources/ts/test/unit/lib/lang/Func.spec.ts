@@ -106,3 +106,16 @@ describe('Func.argumentNames', () => {
         expect(f.argumentNames).toEqual([]);
     });
 });
+
+describe('Func.getExecutionCount', () => {
+    it('Get the number how many times the function is executed', () => {
+        let f = new Func(function foo () {});
+
+        expect(f.getExecutionCount()).toBe(0);
+        f.invoke();
+        expect(f.getExecutionCount()).toBe(1);
+        f.invoke();
+        f.invoke();
+        expect(f.getExecutionCount()).toBe(3);
+    });
+});

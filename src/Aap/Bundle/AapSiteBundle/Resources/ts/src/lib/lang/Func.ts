@@ -75,6 +75,15 @@ export class Func {
     }
 
     /**
+     * Get how many times the function is executed.
+     *
+     * @returns {number}
+     */
+    getExecutionCount():number {
+        return this.executionCount;
+    }
+
+    /**
      * Get all the names of the arguments
      *
      * @returns {string[]}
