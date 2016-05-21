@@ -41,6 +41,15 @@ describe('Service.getParameter', () => {
     });
 });
 
+describe('Service.getParameters', () => {
+    it('Return an array with all parameters', () => {
+        let f = function (a, b, foo) {},
+            s = new Service('s', f);
+
+        expect(s.getParameters()).toEqual(['a', 'b', 'foo']);
+    });
+});
+
 describe('Service.hasParameter', () => {
     it('Check the existence of a parameter', () => {
         let f = function (a, b, foo) {},

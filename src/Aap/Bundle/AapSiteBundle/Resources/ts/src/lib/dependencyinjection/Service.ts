@@ -97,13 +97,22 @@ export class Service {
     }
 
     /**
+     * @returns {string[]}
+     */
+    getParameters():string[] {
+        return this.func.argumentNames;
+    }
+
+    /**
      * Check if the service has a parameter
      *
      * @param {string} name
      * @returns {boolean}
      */
     hasParameter(name:string):boolean {
-        return this.func.argumentNames.includes(name);
+        let parameters = this.getParameters();
+
+        return parameters.includes(name);
     }
 
     /**
