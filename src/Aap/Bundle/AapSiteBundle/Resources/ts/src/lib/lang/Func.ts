@@ -7,7 +7,7 @@
  * Regular expression to get the argument names of a string representation of a function. The arguments must be wrapped
  * in braces. Supports old fashioned functions and the fat arrow syntax.
  *
- * @type {RegExp}
+ * @constant {RegExp}
  */
 const RE_FUNCTION_ARGS = /^(function)?[^\(]*\(([^\)]*)\)/m;
 
