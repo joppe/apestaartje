@@ -1,52 +1,56 @@
+/// <reference path="ServiceParameterArrayInterface.ts" />
+/// <reference path="ServiceMethodCallInterface.ts" />
+/// <reference path="ServiceInterface.ts" />
+
 import {Func} from './../lang/Func';
-import {MethodCall} from './MethodCall';
 import {Result} from './Result';
 
-interface ParametersInterface {
-    [id:string]:any
-}
-
 /**
+ * A service holds a function that is lazy loaded. All the dependencies of the function are defined as arguments of the
+ * function. An argument is called a parameter and is resolved when the service is called.
+ * The parameter name must correspond with an identifier of an other service. It can also be set with the `setParameter`
+ * method.
+ *
  * @class Service
  */
-export class Service {
+export class Service implements ServiceInterface {
     /**
-     * The unique identifier of this servive
+     * The unique identifier of this service.
      *
      * @type {string}
      */
     private identifier:string;
 
     /**
-     * The Func instance
+     * The Func instance that wraps the service function.
      *
      * @type {Func}
      */
     private func:Func;
 
     /**
-     * If the function can only be executed once.
+     * Tells if the function can only be executed once.
      *
-     * @type {boolean}s
+     * @type {boolean}
      */
-    private singleton:boolean;
+    private isSingleton:boolean;
 
     /**
-     * The parameters that will be used to execute the function.
+     * The parameters that will be used as arguments when calling the service function.
      *
-     * @type {ParametersInterface}
+     * @type {ServiceParameterArrayInterface}
      */
-    private parameters:ParametersInterface = {};
+    private parameters:ServiceParameterArrayInterface = {};
 
     /**
-     * The methods that need to be called after executing the function.
+     * The methods that need to be called after executing the service function.
      * 
      * @type {Array}
      */
-    private methodCalls:MethodCall[] = [];
+    private methodCalls:ServiceMethodCallInterface[] = [];
 
     /**
-     * The cached result of the executed function.
+     * The cached result of the executed service function.
      *
      * @type {Result}
      */
@@ -54,13 +58,13 @@ export class Service {
     
     /**
      * @param {string} identifier
-     * @param {Function} func
-     * @param {boolean} [singleton]
+     * @param {Function} func the service function
+     * @param {boolean} [isSingleton]
      */
-    constructor(identifier:string, func:Function, singleton:boolean = true) {
+    constructor(identifier:string, func:Function, isSingleton:boolean = true) {
         this.identifier = identifier;
-        this.func = new Func(func, singleton ? 1 : -1);
-        this.singleton = singleton;
+        this.func = new Func(func, isSingleton ? 1 : -1);
+        this.isSingleton = isSingleton;
 
         this.func.argumentNames.forEach((name:string) => {
             this.setParameter(name, undefined);
@@ -68,14 +72,12 @@ export class Service {
     }
 
     /**
-     * Set the value of a parameter
-     *
      * @param {string} name
      * @param {any} value
-     * @returns {Service}
+     * @returns {ServiceInterface}
      * @throws Error
      */
-    setParameter(name:string, value:any):Service {
+    setParameter(name:string, value:any):ServiceInterface {
         if (false === this.hasParameter(name)) {
             throw new Error(`Parameter "${name}" does not exist for service "${this.identifier}"`);
         }
@@ -86,8 +88,6 @@ export class Service {
     }
 
     /**
-     * Get a parameter by it's name
-     *
      * @param {string} name
      * @returns {any}
      * @throws Error
@@ -101,15 +101,13 @@ export class Service {
     }
 
     /**
-     * @returns {ParametersInterface}
+     * @returns {ServiceParameterArrayInterface}
      */
-    getParameters():ParametersInterface {
+    getParameters():ServiceParameterArrayInterface {
         return this.parameters;
     }
 
     /**
-     * Check if the service has a parameter
-     *
      * @param {string} name
      * @returns {boolean}
      */
@@ -125,20 +123,21 @@ export class Service {
     }
 
     /**
-     * Add a method call
-     *
      * @param {string} name
      * @param {Array} args
-     * @returns {Service}
+     * @returns {ServiceInterface}
      */
-    addMethodCall(name:string, args:any[] = []):Service {
-        this.methodCalls.push(new MethodCall(name, args));
+    addMethodCall(name:string, args:any[] = []):ServiceInterface {
+        this.methodCalls.push(<ServiceMethodCallInterface>{
+            name,
+            args
+        });
 
         return this;
     }
 
     /**
-     * Get the arguments for the function
+     * Get the arguments for the function.
      *
      * @returns {Array}
      */
@@ -155,16 +154,14 @@ export class Service {
     }
 
     /**
-     * Call the service
-     *
      * @returns {any}
      */
     call():any {
-        if (0 === this.func.getExecutionCount() || false === this.singleton) {
+        if (0 === this.func.getExecutionCount() || false === this.isSingleton) {
             this.result = new Result(this.func.invoke(this.getArguments()));
 
-            this.methodCalls.forEach((methodCall:MethodCall) => {
-                this.result.applyMethod(methodCall.getName(), methodCall.getArgs());
+            this.methodCalls.forEach((methodCall:ServiceMethodCallInterface) => {
+                this.result.applyMethod(methodCall.name, methodCall.args);
             });
         }
 
