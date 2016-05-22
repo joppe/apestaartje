@@ -3,7 +3,7 @@
 /// <reference path="ServiceInterface.ts" />
 
 import {Func} from './../lang/Func';
-import {Result} from './Result';
+import {ServiceResult} from './ServiceResult';
 
 /**
  * A service holds a function that is lazy loaded. All the dependencies of the function are defined as arguments of the
@@ -52,9 +52,9 @@ export class Service implements ServiceInterface {
     /**
      * The cached result of the executed service function.
      *
-     * @type {Result}
+     * @type {ServiceResult}
      */
-    private result:Result;
+    private result:ServiceResult;
     
     /**
      * @param {string} identifier
@@ -158,10 +158,10 @@ export class Service implements ServiceInterface {
      */
     call():any {
         if (0 === this.func.getExecutionCount() || false === this.isSingleton) {
-            this.result = new Result(this.func.invoke(this.getArguments()));
+            this.result = new ServiceResult(this.func.invoke(this.getArguments()));
 
             this.methodCalls.forEach((methodCall:ServiceMethodCallInterface) => {
-                this.result.applyMethod(methodCall.name, methodCall.args);
+                this.result.callMethod(methodCall.name, methodCall.args);
             });
         }
 

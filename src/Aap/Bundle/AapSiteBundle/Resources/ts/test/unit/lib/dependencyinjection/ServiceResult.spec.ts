@@ -1,6 +1,6 @@
 /// <reference path="../../../../../../../../../../typings/globals/jasmine/index.d.ts" />
 
-import {Result} from 'src/lib/dependencyinjection/Result';
+import {ServiceResult} from 'src/lib/dependencyinjection/ServiceResult';
 
 let o = {
         bar: 'bar',
@@ -11,9 +11,9 @@ let o = {
             return '\\o/';
         }
     },
-    r = new Result(o);
+    r = new ServiceResult(o);
 
-describe('Result.hasMethod', () => {
+describe('ServiceResult.hasMethod', () => {
     it('Should say true when a method exists', () => {
         expect(r.hasMethod('foo')).toBe(true);
         expect(r.hasMethod('melp')).toBe(true);
@@ -25,19 +25,19 @@ describe('Result.hasMethod', () => {
     });
 });
 
-describe('Result.applyMethod', () => {
+describe('ServiceResult.callMethod', () => {
     it('Return it self when a method is applied', () => {
-        expect(r.applyMethod('foo')).toBe(r);
+        expect(r.callMethod('foo', [])).toBe(r);
     });
 
     it('Throw an error when a non existing method is applied', () => {
         expect(() => {
-            r.applyMethod('quux');
+            r.callMethod('quux', []);
         }).toThrow();
     });
 });
 
-describe('Result.getValue', () => {
+describe('ServiceResult.getValue', () => {
     it('Return the wrapped result when the getValue is executed', () => {
         expect(r.getValue()).toBe(o);
     });

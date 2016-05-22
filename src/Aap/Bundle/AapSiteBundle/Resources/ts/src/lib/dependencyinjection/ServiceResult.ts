@@ -1,9 +1,9 @@
 /**
- * @class Result
+ * @class ServiceResult
  */
-export class Result<T> {
+export class ServiceResult<T> {
     /**
-     * The value this class wraps
+     * The value this class wraps.
      *
      * @type {any}
      */
@@ -17,6 +17,8 @@ export class Result<T> {
     }
 
     /**
+     * Check if the value is an object that has a given method.
+     * 
      * @param {string} name
      * @returns {boolean}
      */
@@ -33,11 +35,13 @@ export class Result<T> {
     }
 
     /**
+     * Call a method.
+     * 
      * @param {string} name
      * @param {Array} args
-     * @returns {Result}
+     * @returns {ServiceResult}
      */
-    applyMethod(name:string, args:any[]):Result {
+    callMethod(name:string, args:any[]):ServiceResult {
         if (false === this.hasMethod(name)) {
             throw new Error(`Method "${name}" does not exist`);
         }
