@@ -1,6 +1,11 @@
-/// <reference path="ServiceParameterArrayInterface.ts" />
+/// <reference path="ServiceParameterDictionaryInterface.ts" />
 /// <reference path="ServiceMethodCallInterface.ts" />
 /// <reference path="ServiceInterface.ts" />
+
+/**
+ * @author Joppe Aarts <joppe@apestaartje.info>
+ * @copyright Apestaartje <http://apestaartje.info>
+ */
 
 import {Func} from './../lang/Func';
 import {ServiceResult} from './ServiceResult';
@@ -38,9 +43,9 @@ export class Service implements ServiceInterface {
     /**
      * The parameters that will be used as arguments when calling the service function.
      *
-     * @type {ServiceParameterArrayInterface}
+     * @type {ServiceParameterDictionaryInterface}
      */
-    private parameters:ServiceParameterArrayInterface = {};
+    private parameters:ServiceParameterDictionaryInterface = {};
 
     /**
      * The methods that need to be called after executing the service function.
@@ -101,9 +106,9 @@ export class Service implements ServiceInterface {
     }
 
     /**
-     * @returns {ServiceParameterArrayInterface}
+     * @returns {ServiceParameterDictionaryInterface}
      */
-    getParameters():ServiceParameterArrayInterface {
+    getParameters():ServiceParameterDictionaryInterface {
         return this.parameters;
     }
 
