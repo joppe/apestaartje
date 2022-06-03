@@ -1,5 +1,0 @@
-*,
-*:before,
-*:after {
-    @include add-vendor-prefixes(box-sizing, border-box);
-}

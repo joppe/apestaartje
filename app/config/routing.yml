@@ -1,3 +1,0 @@
-aap_aap_site:
-    resource: "@AapAapSiteBundle/Resources/config/routing.yml"
-    prefix:   /
