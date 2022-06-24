@@ -1,0 +1,12 @@
+{
+  "name": "@apestaartje/ts-config",
+  "version": "0.0.0",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
+  "license": "MIT",
+  "files": [
+    "base.json"
+  ]
+}
