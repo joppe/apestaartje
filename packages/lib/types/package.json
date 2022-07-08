@@ -3,7 +3,10 @@
   "version": "1.1.0",
   "description": "A library with common TypeScript types",
   "scripts": {
-    "lint": "eslint ./src --fix"
+    "build": "tsc --project tsconfig.build.json --outDir dist",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
+    "lint": "eslint ./src --fix",
+    "release": "npm publish dist"
   },
   "author": {
     "name": "Joppe Aarts",
