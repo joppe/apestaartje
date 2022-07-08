@@ -1,9 +1,4 @@
 {
-    "extends": "@apestaartje/ts-config/base.json",
-    "include": [
-        "src/**/*.ts"
-    ],
-    "exclude": [
-        "dist"
-    ],
+  "extends": "@apestaartje/ts-config/base.json",
+  "include": ["src/**/*.ts"]
 }
