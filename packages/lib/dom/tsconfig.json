@@ -1,0 +1,11 @@
+{
+  "extends": "@apestaartje/ts-config/base.json",
+  "compilerOptions": {
+    "baseUrl": "../../../",
+    "paths": {
+      "@apestaartje/geometry/*": ["packages/lib/geometry/src/*"],
+      "@apestaartje/types/*": ["packages/lib/types/src/*"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}
