@@ -1,0 +1,13 @@
+{
+  "extends": "@apestaartje/ts-config/base.json",
+  "compilerOptions": {
+    "baseUrl": "../../",
+    "paths": {
+      "@apestaartje/animation/*": ["packages/lib/animation/src/*"],
+      "@apestaartje/dom/*": ["packages/lib/dom/src/*"],
+      "@apestaartje/geometry/*": ["packages/lib/geometry/src/*"],
+      "@apestaartje/matrix/*": ["apps/matrix/src/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "@apestaartje/**/*"]
+}
