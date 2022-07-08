@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc --project tsconfig.build.json --outDir dist",
     "dev": "tsc --watch --project ./tsconfig.build.json",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
     "lint": "eslint ./src --fix",
     "prepublishOnly": "npm run build",
     "test": "jest --coverage",
