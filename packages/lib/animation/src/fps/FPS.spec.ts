@@ -18,8 +18,7 @@ describe('FPS', (): void => {
       expect(fps.count()).toBe(2);
     });
 
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    it('frames will be measured over the past second', (done: Function): void => {
+    it('frames will be measured over the past second', async (): Promise<void> => {
       const fps: FPS = new FPS();
 
       fps.tick();
@@ -27,10 +26,9 @@ describe('FPS', (): void => {
 
       expect(fps.count()).toBe(2);
 
-      window.setTimeout((): void => {
-        expect(fps.count()).toBe(0);
-        done();
-      }, 1200);
+      await new Promise((resolve) => window.setTimeout(resolve, 1200));
+
+      expect(fps.count()).toBe(0);
     });
   });
 });
