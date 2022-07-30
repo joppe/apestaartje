@@ -28,7 +28,7 @@ describe('ChildElements', (): void => {
     const el: Test = <Test>window.document.querySelector('test-childelements');
 
     expect(el.p.length).toBe(2);
-    expect(el.p[1].innerText).toBe('dolor sit amet');
+    expect(el.p[1].textContent).toBe('dolor sit amet');
   });
 
   it('The value will be `null` if the element is not found', (): void => {

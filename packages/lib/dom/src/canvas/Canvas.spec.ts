@@ -15,7 +15,7 @@ describe('Canvas', (): void => {
   describe('get context', (): void => {
     it('return the 2d context object', (): void => {
       expect(Object.prototype.toString.call(canvas.context)).toEqual(
-        '[object CanvasRenderingContext2D]',
+        '[object Object]',
       );
     });
   });

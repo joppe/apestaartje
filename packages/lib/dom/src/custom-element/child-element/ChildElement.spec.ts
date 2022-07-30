@@ -25,8 +25,7 @@ describe('ChildElement', (): void => {
     );
 
     const el = <Test>window.document.querySelector('test-childelement');
-
-    expect(el.h1?.innerText).toBe('Testing');
+    expect(el.h1?.textContent).toBe('Testing');
   });
 
   it('The value will be `null` if the element is not found', (): void => {

@@ -8,7 +8,6 @@ import { Component } from './Component';
             color: rgb(255, 0, 0);
         }
     `,
-  useShadowRoot: true,
 })
 class Test extends HTMLElement {}
 
@@ -26,17 +25,17 @@ describe('Component', (): void => {
 
     const el = window.document.querySelector('test-component');
 
-    expect(el?.shadowRoot?.querySelector('p')?.innerHTML).toBe(
-      'This is the test root',
-    );
+    expect(el?.querySelector('p')?.textContent).toBe('This is the test root');
   });
 
   it('The styles are applied to the child elements', (): void => {
     window.document.body.appendChild(document.createElement('test-component'));
 
     const el = window.document.querySelector('test-component');
-    const p = el?.shadowRoot?.querySelector('p');
+    const p = el?.querySelector('p');
 
-    expect(window.getComputedStyle(<Element>p).color).toBe('rgb(255, 0, 0)');
+    expect(window.getComputedStyle(<Element>p).getPropertyValue('color')).toBe(
+      'rgb(255, 0, 0)',
+    );
   });
 });
