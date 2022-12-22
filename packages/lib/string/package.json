@@ -1,0 +1,38 @@
+{
+  "name": "@apestaartje/string",
+  "version": "2.4.0",
+  "description": "A library with string utility functions.",
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json --outDir dist",
+    "dev": "tsc --watch --project ./tsconfig.build.json",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
+    "lint": "eslint ./src --fix",
+    "prepublishOnly": "npm run build",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
+  "license": "MIT",
+  "keywords": [
+    "TypeScript"
+  ],
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts"
+  ],
+  "devDependencies": {
+    "@apestaartje/eslint-config": "*",
+    "@apestaartje/ts-config": "*",
+    "@types/jest": "^28.1.3",
+    "eslint": "^8.18.0",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
