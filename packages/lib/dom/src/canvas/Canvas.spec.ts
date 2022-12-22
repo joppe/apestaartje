@@ -12,39 +12,7 @@ describe('Canvas', (): void => {
     });
   });
 
-  describe('get context', (): void => {
-    it('return the 2d context object', (): void => {
-      expect(Object.prototype.toString.call(canvas.context)).toEqual(
-        '[object Object]',
-      );
-    });
-  });
-
-  xdescribe('get classList', (): void => {
-    it('return the classList object of the element', (): void => {
-      expect(Object.prototype.toString.call(canvas.classList)).toEqual(
-        '[object DOMTokenList]',
-      );
-    });
-  });
-
-  xdescribe('get size', (): void => {
-    it('return the classList object of the element', (): void => {
-      expect(Object.prototype.toString.call(canvas.classList)).toEqual(
-        '[object DOMTokenList]',
-      );
-    });
-  });
-
-  xdescribe('get style', (): void => {
-    it('return the style object of the element', (): void => {
-      expect(Object.prototype.toString.call(canvas.style)).toEqual(
-        '[object CSSStyleDeclaration]',
-      );
-    });
-  });
-
-  xdescribe('set size', (): void => {
+  describe('set size', (): void => {
     it('adjust the dimensions of the canvas element', (): void => {
       canvas.appendTo(root);
       canvas.size = { width: 100, height: 500 };
@@ -57,7 +25,7 @@ describe('Canvas', (): void => {
     });
   });
 
-  xdescribe('appendTo', (): void => {
+  describe('appendTo', (): void => {
     it('add the canvas element as a child element of the given element', (): void => {
       expect(root.querySelector('canvas')).toEqual(null);
 
@@ -67,7 +35,7 @@ describe('Canvas', (): void => {
     });
   });
 
-  xdescribe('clear', (): void => {
+  describe('clear', (): void => {
     it('clears the canvas', (): void => {
       expect(canvas.clear()).toBe(canvas);
     });
