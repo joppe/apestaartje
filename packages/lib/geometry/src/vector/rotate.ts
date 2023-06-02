@@ -1,6 +1,6 @@
+import { Vector } from './Vector';
 import { angle } from './angle';
 import { length } from './length';
-import type { Vector } from './Vector';
 
 /**
  * Rotate a vector

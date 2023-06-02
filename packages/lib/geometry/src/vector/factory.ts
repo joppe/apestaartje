@@ -1,4 +1,4 @@
-import type { Vector } from './Vector';
+import { Vector } from './Vector';
 
 /**
  * Create a vector from a given length and angle

@@ -1,5 +1,5 @@
+import { Vector } from './Vector';
 import { factory } from './factory';
-import type { Vector } from './Vector';
 
 describe('vector', (): void => {
   describe('dotProduct', (): void => {

@@ -1,5 +1,5 @@
+import { Line } from './Line';
 import { clone } from './clone';
-import type { Line } from './Line';
 
 describe('line', (): void => {
   describe('clone', (): void => {

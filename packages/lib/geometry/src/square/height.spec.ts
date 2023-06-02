@@ -1,5 +1,5 @@
+import { Square } from './Square';
 import { height } from './height';
-import type { Square } from './Square';
 
 describe('square', (): void => {
   describe('height', (): void => {

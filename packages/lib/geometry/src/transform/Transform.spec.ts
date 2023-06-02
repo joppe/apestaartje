@@ -1,4 +1,5 @@
-import type { Point } from '../point/Point';
+import { Point } from '../point/Point';
+
 import { Transform } from './Transform';
 
 describe('Transform', () => {

@@ -1,5 +1,5 @@
+import { Vector } from './Vector';
 import { length } from './length';
-import type { Vector } from './Vector';
 
 describe('vector', (): void => {
   describe('length', (): void => {

@@ -1,5 +1,5 @@
+import { Point } from './Point';
 import { clone } from './clone';
-import type { Point } from './Point';
 
 describe('point', (): void => {
   describe('clone', (): void => {

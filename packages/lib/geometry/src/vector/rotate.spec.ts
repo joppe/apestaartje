@@ -1,5 +1,5 @@
+import { Vector } from './Vector';
 import { rotate } from './rotate';
-import type { Vector } from './Vector';
 
 describe('vector', (): void => {
   describe('rotate', (): void => {

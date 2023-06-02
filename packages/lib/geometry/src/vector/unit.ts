@@ -1,6 +1,6 @@
+import { Vector } from './Vector';
 import { length } from './length';
 import { scale } from './scale';
-import type { Vector } from './Vector';
 
 /**
  * Create a unit vector, the same angle and length 1

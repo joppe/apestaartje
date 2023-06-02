@@ -1,4 +1,4 @@
-import type { Vector } from './Vector';
+import { Vector } from './Vector';
 
 /**
  * Clone a Vector object

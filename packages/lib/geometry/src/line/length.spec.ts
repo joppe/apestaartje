@@ -1,5 +1,5 @@
+import { Line } from './Line';
 import { length } from './length';
-import type { Line } from './Line';
 
 describe('line', (): void => {
   describe('length', (): void => {

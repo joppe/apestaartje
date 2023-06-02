@@ -1,5 +1,5 @@
+import { Vector } from './Vector';
 import { subtract } from './subtract';
-import type { Vector } from './Vector';
 
 describe('vector', (): void => {
   describe('subtract', (): void => {

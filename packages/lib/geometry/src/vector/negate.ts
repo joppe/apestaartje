@@ -1,5 +1,5 @@
+import { Vector } from './Vector';
 import { scale } from './scale';
-import type { Vector } from './Vector';
 
 /**
  * Let the vector point in opposite direction

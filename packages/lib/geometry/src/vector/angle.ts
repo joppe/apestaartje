@@ -1,6 +1,6 @@
+import { Vector } from './Vector';
 import { dotProduct } from './dotProduct';
 import { length } from './length';
-import type { Vector } from './Vector';
 
 /**
  * Calculate the angle of a vector or between two vectors

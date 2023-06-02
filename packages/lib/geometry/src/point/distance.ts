@@ -1,4 +1,4 @@
-import type { Point } from './Point';
+import { Point } from './Point';
 
 /**
  * Calculate the distance between two points
