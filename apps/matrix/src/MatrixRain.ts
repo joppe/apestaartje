@@ -1,11 +1,11 @@
-import '../style/main.css';
-
 import { Animator } from '@apestaartje/animation/animator/Animator';
 import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Stage } from '@apestaartje/animation/stage/Stage';
 import { Component } from '@apestaartje/dom/custom-element/component/Component';
 import { Input } from '@apestaartje/dom/custom-element/input/Input';
 import { InputType } from '@apestaartje/dom/custom-element/input/InputType';
+
+import '../style/main.css';
 
 import { BACKGROUND } from './colors';
 import { Factory } from './column/factory/Factory';

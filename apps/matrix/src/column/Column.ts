@@ -3,6 +3,7 @@ import { Asset } from '@apestaartje/animation/stage/Asset';
 import { Size } from '@apestaartje/geometry/size/Size';
 
 import { random } from '../chars';
+
 import { Char } from './Char';
 import { Config } from './Config';
 

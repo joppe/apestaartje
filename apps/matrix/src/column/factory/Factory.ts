@@ -1,6 +1,7 @@
 import { Size } from '@apestaartje/geometry/size/Size';
 
 import { Column } from '../Column';
+
 import { Config } from './Config';
 
 export class Factory {
