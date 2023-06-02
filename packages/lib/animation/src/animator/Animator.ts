@@ -1,14 +1,10 @@
-import type { Animatable } from './Animatable';
-import type { Chronometer } from './Chronometer';
+import { Animatable } from './Animatable';
+import { AnimatableWrapper } from './AnimatableWrapper';
+import { Chronometer } from './Chronometer';
 
 /**
- * This animator uses the RAF of the browser
+ * This animator uses the request animation frame of the browser
  */
-
-interface AnimatableWrapper {
-  (time: number): void;
-}
-
 export class Animator {
   private readonly _chronometer: Chronometer = {
     start: 0,

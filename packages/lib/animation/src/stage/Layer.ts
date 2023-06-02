@@ -2,6 +2,7 @@ import { Canvas } from '@apestaartje/dom/canvas/Canvas';
 import { Size } from '@apestaartje/geometry/size/Size';
 
 import { Chronometer } from '../animator/Chronometer';
+
 import { Asset } from './Asset';
 import { AssetConfig } from './AssetConfig';
 

@@ -1,11 +1,11 @@
-import type { Asset } from './Asset';
+import { Asset } from './Asset';
 
 /**
  * Configuration for adding an Asset to a Layer
  */
 
-export interface AssetConfig {
+export type AssetConfig = {
   asset: Asset;
   depth: number;
   id: string;
-}
+};
