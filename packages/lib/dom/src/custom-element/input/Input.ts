@@ -1,6 +1,6 @@
-import { castValue } from './castValue';
-import type { Config } from './Config';
+import { Config } from './Config';
 import { InputType } from './InputType';
+import { castValue } from './castValue';
 
 const OBSERVED_ATTRIBUTES = 'observedAttributes';
 

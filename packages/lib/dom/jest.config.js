@@ -1,12 +1,10 @@
 /* eslint-env node */
+/* eslint-disable @typescript-eslint/no-var-requires */
+const base = require('@apestaartje/jest-config');
 
 module.exports = {
+  ...base,
   coverageDirectory: 'coverage',
-  moduleNameMapper: {
-    '@apestaartje/geometry/(.*)': '<rootDir>../geometry/src/$1',
-    '@apestaartje/types/(.*)': '<rootDir>../types/src/$1',
-  },
-  preset: 'ts-jest',
   setupFilesAfterEnv: ['./jest.setup.js'],
   testEnvironment: 'jsdom',
 };

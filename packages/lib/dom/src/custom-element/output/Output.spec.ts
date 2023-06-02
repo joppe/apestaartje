@@ -1,5 +1,6 @@
 import { Component } from '../component/Component';
-import type { EventEmitter } from './EventEmitter';
+
+import { EventEmitter } from './EventEmitter';
 import { Output } from './Output';
 
 @Component({

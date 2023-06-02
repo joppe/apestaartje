@@ -1,5 +1,6 @@
+import { HTMLCustomElement } from '../HTMLCustomElement';
 import { Component } from '../component/Component';
-import type { HTMLCustomElement } from '../HTMLCustomElement';
+
 import { Bind } from './Bind';
 
 @Component({

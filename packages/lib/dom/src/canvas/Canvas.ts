@@ -1,6 +1,6 @@
 import { Size } from '@apestaartje/geometry/size/Size';
-import { height } from '@apestaartje/geometry/square/height';
 import { Square } from '@apestaartje/geometry/square/Square';
+import { height } from '@apestaartje/geometry/square/height';
 import { width } from '@apestaartje/geometry/square/width';
 
 /**

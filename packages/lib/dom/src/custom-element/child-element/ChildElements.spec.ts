@@ -1,4 +1,5 @@
 import { Component } from '../component/Component';
+
 import { ChildElements } from './ChildElements';
 
 @Component({

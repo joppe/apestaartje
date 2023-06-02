@@ -1,4 +1,5 @@
 import { Component } from '../component/Component';
+
 import { Input } from './Input';
 import { InputType } from './InputType';
 
