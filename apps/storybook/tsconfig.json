@@ -9,5 +9,5 @@
       "@apestaartje/matrix/*": ["apps/matrix/src/*"]
     }
   },
-  "include": ["src/**/*.ts", "@apestaartje/**/*"]
+  "include": ["src/**/*.ts"]
 }
