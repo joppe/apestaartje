@@ -1,6 +1,7 @@
 /* eslint-env node */
 
 module.exports = {
+  plugins: [require.resolve('@trivago/prettier-plugin-sort-imports')],
   arrowParens: 'always',
   bracketSpacing: true,
   importOrder: [

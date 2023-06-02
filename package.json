@@ -3,22 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "cd ./apps/storybook && npm run build",
-    "dev": "cd ./apps/storybook && npm run dev",
+    "build": "cd ./apps/storybook && pnpm run build",
+    "dev": "cd ./apps/storybook && pnpm run dev",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
-    "format": "prettier --write \"packages/lib/string/**/*.{js,json,ts,md}\""
+    "format": "prettier --write \"**/*.{js,json,ts,md}\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joppe/apestaartje.git"
   },
-  "workspaces": [
-    "apps/*",
-    "packages/config/*",
-    "packages/lib/*"
-  ],
   "author": {
     "name": "Joppe Aarts",
     "email": "joppe@apestaartje.info"
@@ -27,7 +22,6 @@
   "devDependencies": {
     "@apestaartje/eslint-config": "*",
     "@apestaartje/prettier-config": "*",
-    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "eslint": "^8.41.0",
     "prettier": "^2.8.8",
     "turbo": "^1.10.1"
