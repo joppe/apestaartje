@@ -1,0 +1,17 @@
+{
+  "name": "@apestaartje/prettier-config",
+  "version": "0.0.0",
+  "scripts": {
+    "clean": "rm -rf node_modules"
+  },
+  "main": "index.js",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "prettier": "^2.8.8"
+  }
+}
