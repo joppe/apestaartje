@@ -1,0 +1,7 @@
+{
+  "@apestaartje/animation/(.*)": "<rootDir>../animation/src/$1",
+  "@apestaartje/dom/(.*)": "<rootDir>../dom/src/$1",
+  "@apestaartje/geometry/(.*)": "<rootDir>../geometry/src/$1",
+  "@apestaartje/string/(.*)": "<rootDir>../string/src/$1",
+  "@apestaartje/types/(.*)": "<rootDir>../types/src/$1"
+}
