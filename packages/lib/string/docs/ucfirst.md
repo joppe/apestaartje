@@ -3,11 +3,13 @@
 This function capitalizes the first character of a string.
 
 ## Definition:
+
 ```typescript
 ucfirst(input: string): string;
 ```
 
 ## Usage:
+
 ```javascript
 import { ucfirst } from 'dist/ucfirst';
 
