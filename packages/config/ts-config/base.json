@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "isolatedModules": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "outDir": "dist",
+    "removeComments": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es6",
+    "useDefineForClassFields": true,
+    "paths": {
+      "@apestaartje/animation/*": [
+        "packages/lib/animation/src/*"
+      ],
+      "@apestaartje/dom/*": [
+        "packages/lib/dom/src/*"
+      ],
+      "@apestaartje/geometry/*": [
+        "packages/lib/geometry/src/*"
+      ],
+      "@apestaartje/string/*": [
+        "packages/lib/string/src/*"
+      ],
+      "@apestaartje/types/*": [
+        "packages/lib/types/src/*"
+      ],
+      "@apestaartje/matrix/*": [
+        "apps/matrix/src/*"
+      ],
+      "@apestaartje/storybook/*": [
+        "apps/storybook/src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}
