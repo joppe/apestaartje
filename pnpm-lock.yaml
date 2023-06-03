@@ -24,7 +24,7 @@ importers:
     dependencies:
       '@apestaartje/animation':
         specifier: '*'
-        version: 1.0.0
+        version: link:../../packages/lib/animation
     devDependencies:
       '@apestaartje/eslint-config':
         specifier: '*'
@@ -114,10 +114,10 @@ importers:
     dependencies:
       '@apestaartje/dom':
         specifier: '*'
-        version: 1.3.1
+        version: link:../dom
       '@apestaartje/geometry':
         specifier: '*'
-        version: 1.0.1
+        version: link:../geometry
     devDependencies:
       '@apestaartje/eslint-config':
         specifier: '*'
@@ -154,7 +154,34 @@ importers:
     dependencies:
       '@apestaartje/number':
         specifier: '*'
-        version: 1.1.0
+        version: link:../number
+    devDependencies:
+      '@apestaartje/eslint-config':
+        specifier: '*'
+        version: link:../../config/eslint-config
+      '@apestaartje/jest-config':
+        specifier: '*'
+        version: link:../../config/jest-config
+      '@apestaartje/ts-config':
+        specifier: '*'
+        version: link:../../config/ts-config
+      '@types/jest':
+        specifier: ^29.5.2
+        version: 29.5.2
+      eslint:
+        specifier: ^8.41.0
+        version: 8.41.0
+      jest:
+        specifier: ^29.5.0
+        version: 29.5.0
+      ts-jest:
+        specifier: ^29.1.0
+        version: 29.1.0(@babel/core@7.22.1)(jest@29.5.0)(typescript@5.1.3)
+      typescript:
+        specifier: ^5.1.3
+        version: 5.1.3
+
+  packages/lib/color:
     devDependencies:
       '@apestaartje/eslint-config':
         specifier: '*'
@@ -185,7 +212,7 @@ importers:
     dependencies:
       '@apestaartje/geometry':
         specifier: '*'
-        version: 1.0.1
+        version: link:../geometry
     devDependencies:
       '@apestaartje/eslint-config':
         specifier: '*'
@@ -326,31 +353,6 @@ packages:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
     dev: true
-
-  /@apestaartje/animation@1.0.0:
-    resolution: {integrity: sha512-ICHWZhOg4KyEsBbZ/PaYFklU+iKRHIQUSAejEAl9iP22dsmPBveJUsx3yl7pp0OmSBtnt+RjeDuTbsWKRn03MA==}
-    dependencies:
-      '@apestaartje/dom': 1.3.1
-      '@apestaartje/geometry': 1.5.0
-    dev: false
-
-  /@apestaartje/dom@1.3.1:
-    resolution: {integrity: sha512-xPKgn3pzVj66ChRhndEMjlxnaG/kmFK6YyM2F4b8yFLCUIU7/WkLGeKjYJpPXosfNwzAYwO5+s5baHdB4HDh5A==}
-    dependencies:
-      '@apestaartje/geometry': 1.5.0
-    dev: false
-
-  /@apestaartje/geometry@1.0.1:
-    resolution: {integrity: sha512-rHy3wslMCqcq7Sqzm7PaSro9tDfn5RChc3aEmy4NsdRGRMy20nCt12rIV1cgc62sLqnVG5ZJAa1euBw883B22w==}
-    dev: false
-
-  /@apestaartje/geometry@1.5.0:
-    resolution: {integrity: sha512-mR/dlHJ2B8psWx5r8558joc9QVjbI8mPkn1lqIowsHrA9GJivht2iS2PS9SBgpm25USsJoccy9aSluawqzJFAg==}
-    dev: false
-
-  /@apestaartje/number@1.1.0:
-    resolution: {integrity: sha512-R72rNKdMI/7maMmu00erjjyS/rrr0sK/q5hH/9shOBILgx+yRp/6w2uFOIn/Sp0WsDui0NFjfIAGhWqHfz9GRg==}
-    dev: false
 
   /@aw-web-design/x-default-browser@1.4.88:
     resolution: {integrity: sha512-AkEmF0wcwYC2QkhK703Y83fxWARttIWXDmQN8+cof8FmFZ5BRhnNXGymeb1S73bOCLfWjYELxtujL56idCN/XA==}
