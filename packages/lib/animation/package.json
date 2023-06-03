@@ -1,6 +1,6 @@
 {
   "name": "@apestaartje/animation",
-  "version": "0.0.0",
+  "version": "2.0.1",
   "description": "An animation library",
   "scripts": {
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",

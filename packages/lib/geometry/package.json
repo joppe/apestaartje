@@ -1,6 +1,6 @@
 {
   "name": "@apestaartje/geometry",
-  "version": "0.0.0",
+  "version": "1.5.0",
   "description": "A library with functions that help you with geometry",
   "scripts": {
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",

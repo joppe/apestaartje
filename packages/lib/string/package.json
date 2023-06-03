@@ -1,6 +1,6 @@
 {
   "name": "@apestaartje/string",
-  "version": "0.0.0",
+  "version": "2.4.0",
   "description": "A library with string utility functions.",
   "scripts": {
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
