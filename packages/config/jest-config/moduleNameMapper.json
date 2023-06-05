@@ -1,7 +1,14 @@
 {
   "@apestaartje/animation/(.*)": "<rootDir>../animation/src/$1",
+  "@apestaartje/array/(.*)": "<rootDir>../array/src/$1",
+  "@apestaartje/color/(.*)": "<rootDir>../color/src/$1",
+  "@apestaartje/date/(.*)": "<rootDir>../date/src/$1",
+  "@apestaartje/dependency-injection/(.*)": "<rootDir>../dependency-injection/src/$1",
   "@apestaartje/dom/(.*)": "<rootDir>../dom/src/$1",
+  "@apestaartje/function/(.*)": "<rootDir>../function/src/$1",
   "@apestaartje/geometry/(.*)": "<rootDir>../geometry/src/$1",
+  "@apestaartje/number/(.*)": "<rootDir>../number/src/$1",
+  "@apestaartje/physics/(.*)": "<rootDir>../physics/src/$1",
   "@apestaartje/string/(.*)": "<rootDir>../string/src/$1",
   "@apestaartje/types/(.*)": "<rootDir>../types/src/$1"
 }
