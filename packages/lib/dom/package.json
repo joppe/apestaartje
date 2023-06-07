@@ -13,9 +13,6 @@
     "email": "joppe@apestaartje.info"
   },
   "license": "MIT",
-  "keywords": [
-    "TypeScript"
-  ],
   "dependencies": {
     "@apestaartje/geometry": "*"
   },
@@ -31,5 +28,8 @@
     "jest-environment-jsdom": "^29.5.0",
     "ts-jest": "^29.1.0",
     "typescript": "^5.1.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
