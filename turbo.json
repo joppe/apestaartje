@@ -4,6 +4,9 @@
       "outputs": ["coverage/**"],
       "dependsOn": []
     },
+    "generate-paths": {
+      "outputs": []
+    },
     "lint": {
       "outputs": []
     },

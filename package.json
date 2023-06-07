@@ -8,7 +8,8 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
-    "format": "prettier --write \"**/*.{js,json,ts,md}\""
+    "format": "prettier --write \"**/*.{js,json,ts,md}\"",
+    "generate-paths": "turbo run generate-paths"
   },
   "repository": {
     "type": "git",
