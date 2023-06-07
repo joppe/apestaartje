@@ -19,7 +19,7 @@ export const MatrixStory = ({
 
   return div;
 };
-MatrixStory.storyName = 'Matrix';
+MatrixStory.storyName = 'Matrix rain';
 MatrixStory.argTypes = {
   width: {
     control: {
