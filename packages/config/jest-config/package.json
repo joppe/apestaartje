@@ -2,7 +2,7 @@
   "name": "@apestaartje/jest-config",
   "version": "0.0.0",
   "scripts": {
-    "package-mapper": "node ./scripts/package-mapper.js"
+    "generate-paths": "node ./scripts/package-mapper.js"
   },
   "author": {
     "name": "Joppe Aarts",

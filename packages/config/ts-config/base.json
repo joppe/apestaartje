@@ -37,23 +37,47 @@
       "@apestaartje/dom/*": [
         "packages/lib/dom/src/*"
       ],
+      "@apestaartje/element/*": [
+        "packages/lib/element/src/*"
+      ],
+      "@apestaartje/finite-state-machine/*": [
+        "packages/lib/finite-state-machine/src/*"
+      ],
       "@apestaartje/function/*": [
         "packages/lib/function/src/*"
       ],
       "@apestaartje/geometry/*": [
         "packages/lib/geometry/src/*"
       ],
+      "@apestaartje/iterator/*": [
+        "packages/lib/iterator/src/*"
+      ],
+      "@apestaartje/lens/*": [
+        "packages/lib/lens/src/*"
+      ],
       "@apestaartje/number/*": [
         "packages/lib/number/src/*"
       ],
+      "@apestaartje/observable/*": [
+        "packages/lib/observable/src/*"
+      ],
       "@apestaartje/physics/*": [
         "packages/lib/physics/src/*"
+      ],
+      "@apestaartje/store/*": [
+        "packages/lib/store/src/*"
       ],
       "@apestaartje/string/*": [
         "packages/lib/string/src/*"
       ],
       "@apestaartje/types/*": [
         "packages/lib/types/src/*"
+      ],
+      "@apestaartje/uuid/*": [
+        "packages/lib/uuid/src/*"
+      ],
+      "@apestaartje/2048/*": [
+        "apps/2048/src/*"
       ],
       "@apestaartje/matrix/*": [
         "apps/matrix/src/*"

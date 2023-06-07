@@ -2,7 +2,7 @@
   "name": "@apestaartje/ts-config",
   "version": "0.0.0",
   "scripts": {
-    "package-paths": "node ./scripts/package-paths.js"
+    "generate-paths": "node ./scripts/package-paths.js"
   },
   "author": {
     "name": "Joppe Aarts",
