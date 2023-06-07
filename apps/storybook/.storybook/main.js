@@ -3,9 +3,7 @@ const path = require('path');
 const { mergeConfig } = require('vite');
 
 // read tsconfig.json
-const tsconfig = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, '../tsconfig.json'), 'utf-8'),
-);
+const tsconfig = require('@apestaartje/ts-config/base.json');
 
 // get the alias mapping
 const alias = Object.keys(tsconfig.compilerOptions.paths).reduce((acc, key) => {
