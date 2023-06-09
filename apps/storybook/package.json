@@ -19,6 +19,9 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@apestaartje/2048": "*",
+    "@apestaartje/game-of-life": "*",
+    "@apestaartje/nervous-matrix": "*",
     "@apestaartje/matrix": "*"
   },
   "devDependencies": {

@@ -79,8 +79,14 @@
       "@apestaartje/2048/*": [
         "apps/2048/src/*"
       ],
+      "@apestaartje/game-of-life/*": [
+        "apps/game-of-life/src/*"
+      ],
       "@apestaartje/matrix/*": [
         "apps/matrix/src/*"
+      ],
+      "@apestaartje/nervous-matrix/*": [
+        "apps/nervous-matrix/src/*"
       ],
       "@apestaartje/storybook/*": [
         "apps/storybook/src/*"
