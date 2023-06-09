@@ -25,7 +25,7 @@ export class Stage {
   constructor(size: Size) {
     this._size = size;
 
-    this._container = window.document.createElement('div');
+    this._container = document.createElement('div');
     this._container.style.width = `${this._size.width}px`;
     this._container.style.height = `${this._size.height}px`;
     this._container.style.position = 'relative';
