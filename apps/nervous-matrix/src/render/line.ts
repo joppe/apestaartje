@@ -1,4 +1,4 @@
-import { LineOptions } from './LIneOptions';
+import { LineOptions } from './LineOptions';
 
 const DEFAULT_COLOR = '#ff0000';
 

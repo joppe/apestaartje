@@ -40,7 +40,8 @@ export function app(container: HTMLElement): void {
   stage.createLayer('foreground', 10).addAsset(matrix, 'matrix', 10);
 
   const animator = new Animator((time: Chronometer): boolean => {
-    stage.render(time);
+    stage.tick(time);
+    stage.render();
 
     return true;
   });

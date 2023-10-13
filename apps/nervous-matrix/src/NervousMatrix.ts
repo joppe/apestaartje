@@ -41,10 +41,11 @@ export class NervousMatrix implements Asset {
     return false;
   }
 
-  public render(time: Chronometer, context: CanvasRenderingContext2D): void {
-    const dt: number = time.offset * 0.001;
+  public tick(time: Chronometer): void {
+    this._matrix.tick(time.offset * 0.001);
+  }
 
+  public render(context: CanvasRenderingContext2D): void {
     this._grid.render(context);
-    this._matrix.tick(dt);
   }
 }

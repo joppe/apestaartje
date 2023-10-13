@@ -30,7 +30,11 @@ export class Column implements Asset {
     return this._cleanup;
   }
 
-  public render(_time: Chronometer, ctx: CanvasRenderingContext2D): void {
+  public tick(_time: Chronometer): void {
+    // Do nothing
+  }
+
+  public render(ctx: CanvasRenderingContext2D): void {
     let y = 0;
 
     this._counter += 1;

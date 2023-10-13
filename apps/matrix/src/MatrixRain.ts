@@ -1,5 +1,5 @@
 import { Animator } from '@apestaartje/animation/animator/Animator';
-import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
+import { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Stage } from '@apestaartje/animation/stage/Stage';
 import { Component } from '@apestaartje/dom/custom-element/component/Component';
 import { Input } from '@apestaartje/dom/custom-element/input/Input';
@@ -46,7 +46,8 @@ export class MatrixRain extends HTMLElement {
     stage.element.style.filter = `blur(${this.blurFactor}px)`;
 
     const animator = new Animator((time: Chronometer) => {
-      stage.render(time);
+      stage.tick(time);
+      stage.render();
 
       const column = factory.tick();
 
