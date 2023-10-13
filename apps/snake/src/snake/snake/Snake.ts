@@ -51,7 +51,7 @@ export class Snake implements Asset {
 
   public grow(size = 1): void {
     const lastSegment = this._segments[this._segments.length - 1];
-    const position = move(lastSegment.position, opposite(this._direction));
+    const position = lastSegment.position;
 
     Array.from({ length: size }, (): void => {
       this._segments.push(new Segment(position));
