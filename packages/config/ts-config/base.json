@@ -49,6 +49,9 @@
       "@apestaartje/geometry/*": [
         "packages/lib/geometry/src/*"
       ],
+      "@apestaartje/grid/*": [
+        "packages/lib/grid/src/*"
+      ],
       "@apestaartje/iterator/*": [
         "packages/lib/iterator/src/*"
       ],
@@ -87,6 +90,9 @@
       ],
       "@apestaartje/nervous-matrix/*": [
         "apps/nervous-matrix/src/*"
+      ],
+      "@apestaartje/snake/*": [
+        "apps/snake/src/*"
       ],
       "@apestaartje/storybook/*": [
         "apps/storybook/src/*"

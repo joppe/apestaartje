@@ -1,0 +1,24 @@
+{
+  "name": "@apestaartje/snake",
+  "version": "1.0.0",
+  "description": "Snake game",
+  "scripts": {
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
+    "lint": "eslint ./src --fix"
+  },
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@apestaartje/animation": "*",
+    "@apestaartje/grid": "*"
+  },
+  "devDependencies": {
+    "@apestaartje/eslint-config": "*",
+    "@apestaartje/ts-config": "*",
+    "eslint": "^8.41.0",
+    "typescript": "^5.1.3"
+  }
+}
