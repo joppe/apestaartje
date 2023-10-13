@@ -80,9 +80,15 @@ export class Stage {
     return layerConfig.layer;
   }
 
-  public render(time: Chronometer): HTMLDivElement {
+  public tick(time: Chronometer): void {
     this._layerConfigs.forEach((layerConfig: LayerConfig): void => {
-      layerConfig.layer.render(time);
+      layerConfig.layer.tick(time);
+    });
+  }
+
+  public render(): HTMLDivElement {
+    this._layerConfigs.forEach((layerConfig: LayerConfig): void => {
+      layerConfig.layer.render();
     });
 
     return this._container;

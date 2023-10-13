@@ -77,7 +77,17 @@ export class Layer {
     return assetConfig.asset;
   }
 
-  public render(time: Chronometer): void {
+  public tick(time: Chronometer): void {
+    if (this._isFrozen && this._isRendered) {
+      return;
+    }
+
+    this._assetConfigs.forEach((assetConfig: AssetConfig): void => {
+      assetConfig.asset.tick(time);
+    });
+  }
+
+  public render(): void {
     if (this._isFrozen && this._isRendered) {
       return;
     }
@@ -86,7 +96,8 @@ export class Layer {
 
     this._assetConfigs.forEach((assetConfig: AssetConfig): void => {
       this._canvas.context.save();
-      assetConfig.asset.render(time, this._canvas.context);
+
+      assetConfig.asset.render(this._canvas.context);
 
       if (assetConfig.asset.cleanup()) {
         this.removeAsset(assetConfig.id);

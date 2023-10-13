@@ -6,5 +6,7 @@ import { Chronometer } from '../animator/Chronometer';
 export type Asset = {
   cleanup(): boolean;
 
-  render(time: Chronometer, context: CanvasRenderingContext2D): void;
+  tick(time: Chronometer): void;
+
+  render(context: CanvasRenderingContext2D): void;
 };
