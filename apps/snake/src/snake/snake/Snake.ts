@@ -20,33 +20,40 @@ export type SnakeOptions = {
 
 export class Snake implements Asset {
   private readonly _renderer: Renderer;
-  private _position: GridPosition;
-  private _segments: Segment[];
-  private _direction: Direction;
+  private _position: GridPosition = { row: 0, column: 0 };
+  private _segments: Segment[] = [];
+  private _direction: Direction = Direction.Right;
   private _timer: Timer;
 
   public set direction(direction: Direction) {
     this._direction = direction;
   }
 
+  public get direction(): Direction {
+    return this._direction;
+  }
+
   public get position(): GridPosition {
     return this._position;
   }
 
+  public get size(): number {
+    return this._segments.length;
+  }
+
   constructor({ renderer, position, size, direction }: SnakeOptions) {
     this._renderer = renderer;
-    this._position = position;
-    this._direction = direction;
     this._timer = new Timer(200);
 
-    const segmentDirection = opposite(direction);
+    this.init(position, size, direction);
+  }
 
-    this._segments = Array.from(
-      { length: size },
-      (_: unknown, index: number): Segment => {
-        return new Segment(move(position, segmentDirection, index));
-      },
-    );
+  public reset(
+    position: GridPosition,
+    size: number,
+    direction: Direction,
+  ): void {
+    this.init(position, size, direction);
   }
 
   public grow(size = 1): void {
@@ -107,5 +114,23 @@ export class Snake implements Asset {
       segment.position = position;
       position = nextPosition;
     });
+  }
+
+  private init(
+    position: GridPosition,
+    size: number,
+    direction: Direction,
+  ): void {
+    this._position = position;
+    this._direction = direction;
+
+    const segmentDirection = opposite(direction);
+
+    this._segments = Array.from(
+      { length: size },
+      (_: unknown, index: number): Segment => {
+        return new Segment(move(position, segmentDirection, index));
+      },
+    );
   }
 }

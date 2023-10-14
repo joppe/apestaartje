@@ -19,6 +19,10 @@ export class Score implements Asset {
     this._score = 0;
   }
 
+  public reset(): void {
+    this._score = 0;
+  }
+
   public increase(): void {
     this._score += 1;
   }

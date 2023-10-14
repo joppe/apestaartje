@@ -2,7 +2,9 @@ import { Candy } from '../candy/Candy';
 import { Map } from '../map/Map';
 import { Direction } from '../move/Direction';
 import { Renderer } from '../render/Renderer';
+import { Score } from '../score/Score';
 import { Snake } from '../snake/Snake';
+import { Status } from '../status/Status';
 
 export type FromTemplateOptions = {
   renderer: Renderer;
@@ -10,12 +12,16 @@ export type FromTemplateOptions = {
   wallChar: string;
   snakeChar: string;
   foodChar: string;
+  scoreChar: string;
+  statusChar: string;
 };
 
 export type FromTemplateResult = {
   map: Map;
   snake?: Snake;
   candy?: Candy;
+  score?: Score;
+  status?: Status;
 };
 
 export function fromTemplate({
@@ -24,6 +30,8 @@ export function fromTemplate({
   wallChar,
   snakeChar,
   foodChar,
+  scoreChar,
+  statusChar,
 }: FromTemplateOptions): FromTemplateResult {
   const lines = template.trim().split('\n');
   const rows = lines.length;
@@ -32,6 +40,8 @@ export function fromTemplate({
     map: new Map({ rows, columns, renderer }),
     snake: undefined,
     candy: undefined,
+    score: undefined,
+    status: undefined,
   };
 
   lines.forEach((row: string, rowIndex: number): void => {
@@ -52,6 +62,12 @@ export function fromTemplate({
           break;
         case wallChar:
           result.map.addWall(position);
+          break;
+        case scoreChar:
+          result.score = new Score({ renderer, position });
+          break;
+        case statusChar:
+          result.status = new Status({ renderer, position });
           break;
       }
     });
