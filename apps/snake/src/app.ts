@@ -2,12 +2,14 @@ import { Animator } from '@apestaartje/animation/animator/Animator';
 import { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Stage } from '@apestaartje/animation/stage/Stage';
 
+import { keyboard } from './snake/controls/keyboard';
 import { fromTemplate } from './snake/generate/fromTemplate';
 import { isSamePosition } from './snake/map/isSamePosition';
 import { Direction } from './snake/move/Direction';
 import { Renderer } from './snake/render/Renderer';
 import { Score } from './snake/score/Score';
 import { State, Status } from './snake/status/Status';
+import { Reset } from './snake/status/reset';
 
 /**
  * The snake game
@@ -25,7 +27,16 @@ export type AppOptions = {
   wallChar: string;
   snakeChar: string;
   foodChar: string;
+  scoreChar: string;
+  statusChar: string;
   blockSize: number;
+  colors: {
+    wall: string;
+    snake: string;
+    candy: string;
+    text: string;
+    background: string;
+  };
   container: HTMLElement;
 };
 
@@ -34,33 +45,36 @@ export function app({
   wallChar,
   snakeChar,
   foodChar,
+  scoreChar,
+  statusChar,
   blockSize,
+  colors,
   container,
 }: AppOptions): void {
   const renderer = new Renderer({
     blockSize,
-    colors: { wall: '#964B00', snake: '#f00', candy: '#0f0', text: '#000' },
+    colors,
   });
-  const { map, snake, candy } = fromTemplate({
+  const { map, snake, candy, score, status } = fromTemplate({
     renderer,
     template,
     wallChar,
     snakeChar,
     foodChar,
-  });
-  const score = new Score({
-    renderer,
-    position: { row: map.rows + 1, column: 0 },
-  });
-  const status = new Status({
-    renderer,
-    position: { row: 5, column: 5 },
+    scoreChar,
+    statusChar,
   });
 
-  if (snake === undefined || candy === undefined) {
-    throw new Error('Snake or candy not found');
+  if (
+    snake === undefined ||
+    candy === undefined ||
+    score === undefined ||
+    status === undefined
+  ) {
+    throw new Error('Could not find all elements in the template');
   }
 
+  const reset = new Reset({ snake, candy });
   const stage = new Stage({
     width: blockSize * map.columns,
     height: blockSize * (map.rows + 2),
@@ -77,24 +91,32 @@ export function app({
   foreground.addAsset(score, 'score', 30);
   foreground.addAsset(status, 'status', 40);
 
-  window.addEventListener('keydown', (event: KeyboardEvent): void => {
-    switch (event.code) {
-      case 'Space':
+  keyboard({
+    Space: (): void => {
+      if (status.state === State.IDLE) {
         status.state = State.RUNNING;
-        break;
-      case 'ArrowUp':
-        snake.direction = Direction.Up;
-        break;
-      case 'ArrowRight':
-        snake.direction = Direction.Right;
-        break;
-      case 'ArrowDown':
-        snake.direction = Direction.Down;
-        break;
-      case 'ArrowLeft':
-        snake.direction = Direction.Left;
-        break;
-    }
+      }
+    },
+    ArrowUp: (): void => {
+      snake.direction = Direction.Up;
+    },
+    ArrowRight: (): void => {
+      snake.direction = Direction.Right;
+    },
+    ArrowDown: (): void => {
+      snake.direction = Direction.Down;
+    },
+    ArrowLeft: (): void => {
+      snake.direction = Direction.Left;
+    },
+    KeyQ: (): void => {
+      if (status.state === State.GAME_OVER) {
+        reset.reset();
+        score.reset();
+
+        status.state = State.RUNNING;
+      }
+    },
   });
 
   const animator = new Animator((time: Chronometer): boolean => {
@@ -126,6 +148,7 @@ export function app({
     return true;
   });
 
+  stage.element.style.backgroundColor = colors.background;
   container.appendChild(stage.element);
 
   animator.start();

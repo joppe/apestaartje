@@ -38,7 +38,7 @@ export class Renderer {
       text = 'Game over';
     }
 
-    this.text(position, text, context);
+    this.text(position, text, 34, context);
   }
 
   public score(
@@ -46,7 +46,7 @@ export class Renderer {
     score: number,
     context: CanvasRenderingContext2D,
   ): void {
-    this.text(position, `Score: ${score}`, context);
+    this.text(position, `Score: ${score}`, 18, context);
   }
 
   public wall(position: GridPosition, context: CanvasRenderingContext2D): void {
@@ -70,6 +70,7 @@ export class Renderer {
   protected text(
     position: GridPosition,
     title: string,
+    size: number,
     context: CanvasRenderingContext2D,
   ): void {
     const point: Point = {
@@ -81,6 +82,7 @@ export class Renderer {
       position: point,
       color: this._colors.text,
       title,
+      size,
       context,
     });
   }
