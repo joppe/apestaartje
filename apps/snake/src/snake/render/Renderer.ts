@@ -13,6 +13,7 @@ export type RendererOptions = {
     candy: string;
     snake: string;
     text: string;
+    background: string;
   };
 };
 
@@ -104,6 +105,7 @@ export class Renderer {
         height: this._blockSize,
       },
       color,
+      background: this._colors.background,
       context,
     });
   }

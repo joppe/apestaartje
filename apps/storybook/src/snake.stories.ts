@@ -17,21 +17,17 @@ export const SnakeStory = () => {
 1                      S                      1
 1                                             1
 1                                             1
-1              G                              1
+1                                             1
 1                                             1
 1                                             1
 1                                             1
 11111111111111111111111111111111111111111111111
-
-$
 `;
   app({
     template,
     wallChar: '1',
     snakeChar: 'S',
     foodChar: 'c',
-    scoreChar: '$',
-    statusChar: 'G',
     container: div,
     blockSize: 20,
     colors: {
