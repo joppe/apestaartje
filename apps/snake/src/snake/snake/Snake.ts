@@ -43,7 +43,7 @@ export class Snake implements Asset {
 
   constructor({ renderer, position, size, direction }: SnakeOptions) {
     this._renderer = renderer;
-    this._timer = new Timer(200);
+    this._timer = new Timer(100);
 
     this.init(position, size, direction);
   }
@@ -73,20 +73,6 @@ export class Snake implements Asset {
 
   public cleanup(): boolean {
     return false;
-  }
-
-  public undo(): void {
-    const segments = [...this._segments];
-    segments.reverse();
-
-    let position = move(segments[0].position, opposite(this._direction));
-
-    segments.forEach((segment: Segment): void => {
-      let nextPosition = segment.position;
-
-      segment.position = position;
-      position = nextPosition;
-    });
   }
 
   public tick(time: Chronometer): void {

@@ -27,8 +27,6 @@ export type AppOptions = {
   wallChar: string;
   snakeChar: string;
   foodChar: string;
-  scoreChar: string;
-  statusChar: string;
   blockSize: number;
   colors: {
     wall: string;
@@ -45,8 +43,6 @@ export function app({
   wallChar,
   snakeChar,
   foodChar,
-  scoreChar,
-  statusChar,
   blockSize,
   colors,
   container,
@@ -55,25 +51,26 @@ export function app({
     blockSize,
     colors,
   });
-  const { map, snake, candy, score, status } = fromTemplate({
+  const { map, snake, candy } = fromTemplate({
     renderer,
     template,
     wallChar,
     snakeChar,
     foodChar,
-    scoreChar,
-    statusChar,
   });
 
-  if (
-    snake === undefined ||
-    candy === undefined ||
-    score === undefined ||
-    status === undefined
-  ) {
+  if (snake === undefined || candy === undefined) {
     throw new Error('Could not find all elements in the template');
   }
 
+  const status = new Status({
+    renderer,
+    position: { row: Math.floor(map.rows / 2) + 5, column: 15 },
+  });
+  const score = new Score({
+    renderer,
+    position: { row: map.rows + 1, column: 0 },
+  });
   const reset = new Reset({ snake, candy });
   const stage = new Stage({
     width: blockSize * map.columns,
@@ -125,13 +122,11 @@ export function app({
 
       // Check if eating itself
       if (snake.isEatingItSelf()) {
-        snake.undo();
         status.state = State.GAME_OVER;
       }
 
       // Check colission with wall
       if (map.isWall(snake.position)) {
-        snake.undo();
         status.state = State.GAME_OVER;
       }
 
