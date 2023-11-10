@@ -9,6 +9,7 @@
   "@apestaartje/finite-state-machine/(.*)": "<rootDir>../finite-state-machine/src/$1",
   "@apestaartje/function/(.*)": "<rootDir>../function/src/$1",
   "@apestaartje/geometry/(.*)": "<rootDir>../geometry/src/$1",
+  "@apestaartje/grid/(.*)": "<rootDir>../grid/src/$1",
   "@apestaartje/iterator/(.*)": "<rootDir>../iterator/src/$1",
   "@apestaartje/lens/(.*)": "<rootDir>../lens/src/$1",
   "@apestaartje/number/(.*)": "<rootDir>../number/src/$1",

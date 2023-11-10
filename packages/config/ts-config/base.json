@@ -91,6 +91,9 @@
       "@apestaartje/nervous-matrix/*": [
         "apps/nervous-matrix/src/*"
       ],
+      "@apestaartje/pacman/*": [
+        "apps/pacman/src/*"
+      ],
       "@apestaartje/snake/*": [
         "apps/snake/src/*"
       ],
