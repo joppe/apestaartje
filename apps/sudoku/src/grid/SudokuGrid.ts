@@ -32,6 +32,10 @@ export class SudokuGrid {
     return this._grid.getCell(position);
   }
 
+  public getCellByPosition(position: GridPosition): Cell {
+    return this._grid.getCell(position);
+  }
+
   public getPosition(index: number): GridPosition {
     return this._grid.toPosition(index);
   }

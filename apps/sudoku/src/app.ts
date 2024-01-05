@@ -1,5 +1,7 @@
 import { SudokuGrid } from './grid/SudokuGrid';
 import { SolutionStrategy } from './strategy/SolutionStrategy';
+import { axisPairInBlock } from './strategy/axisPairInBlock';
+import { nakedPairs } from './strategy/nakedPairs';
 import { singlePossibilityInGroup } from './strategy/singlePossibilityInGroup';
 import { solvedInOtherCell } from './strategy/solvedInOtherCell';
 import './style.css';
@@ -9,6 +11,7 @@ import { createView } from './view/view';
 
 type AppOptions = {
   container: HTMLElement;
+  preset: number[];
 };
 
 enum Mode {
@@ -16,17 +19,13 @@ enum Mode {
   Edit,
 }
 
-const preset = [
-  0, 3, 0, 0, 0, 5, 1, 6, 0, 0, 5, 7, 0, 0, 0, 0, 2, 8, 0, 0, 8, 4, 0, 0, 0, 0,
-  0, 3, 0, 5, 0, 8, 2, 6, 9, 7, 2, 0, 6, 7, 0, 0, 0, 0, 0, 1, 0, 9, 6, 5, 4, 0,
-  8, 3, 0, 6, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 4, 0, 8, 7, 0, 0, 0, 3, 0, 1, 8,
-  0, 0, 0,
-];
-export function app({ container }: AppOptions): void {
+export function app({ container, preset }: AppOptions): void {
   const grid = new SudokuGrid();
   const strategies: SolutionStrategy[] = [
     solvedInOtherCell,
     singlePossibilityInGroup,
+    axisPairInBlock,
+    nakedPairs,
   ];
 
   const root = document.createElement('div');
