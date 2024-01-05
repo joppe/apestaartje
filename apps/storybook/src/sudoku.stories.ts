@@ -18,6 +18,8 @@ const Template = ({ preset }: TemplateProps) => {
   return container;
 };
 
+export const Default = Template.bind({});
+
 export const EasySudoku: StoryFn<TemplateProps> = Template.bind({});
 EasySudoku.storyName = 'Sudoku easy';
 EasySudoku.args = {
@@ -27,6 +29,13 @@ EasySudoku.args = {
     4, 0, 8, 3, 0, 6, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 4, 0, 8, 7, 0, 0, 0, 3,
     0, 1, 8, 0, 0, 0,
   ],
+};
+EasySudoku.argTypes = {
+  preset: {
+    table: {
+      disable: true,
+    },
+  },
 };
 
 export const MediumSudoku: StoryFn<TemplateProps> = Template.bind({});
@@ -39,6 +48,13 @@ MediumSudoku.args = {
     6, 1, 2, 0, 0, 0,
   ],
 };
+MediumSudoku.argTypes = {
+  preset: {
+    table: {
+      disable: true,
+    },
+  },
+};
 
 export const HardSudoku: StoryFn<TemplateProps> = Template.bind({});
 HardSudoku.storyName = 'Sudoku hard';
@@ -49,4 +65,29 @@ HardSudoku.args = {
     0, 0, 0, 0, 6, 0, 3, 0, 0, 0, 0, 0, 0, 0, 8, 0, 7, 0, 0, 0, 9, 0, 9, 0, 0,
     1, 0, 0, 0, 0, 3,
   ],
+};
+HardSudoku.argTypes = {
+  preset: {
+    table: {
+      disable: true,
+    },
+  },
+};
+
+export const ExpertSudoku: StoryFn<TemplateProps> = Template.bind({});
+ExpertSudoku.storyName = 'Sudoku expert';
+ExpertSudoku.args = {
+  preset: [
+    0, 0, 7, 0, 0, 0, 0, 0, 3, 1, 5, 9, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 2,
+    0, 7, 0, 0, 0, 2, 0, 0, 0, 4, 6, 0, 4, 0, 0, 0, 7, 0, 0, 0, 5, 0, 0, 8, 0,
+    0, 0, 0, 0, 0, 8, 0, 0, 5, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+    0, 9, 1, 0, 7, 0,
+  ],
+};
+ExpertSudoku.argTypes = {
+  preset: {
+    table: {
+      disable: true,
+    },
+  },
 };

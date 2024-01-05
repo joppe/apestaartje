@@ -7,7 +7,7 @@ import { cellsByColumn } from '../grid/cellsByColumn';
 import { cellsByRow } from '../grid/cellsByRow';
 
 type Pair = {
-  count: number;
+  indices: number[];
   a: number;
   b: number;
 };
@@ -15,24 +15,20 @@ type Pair = {
 class PairRegistry {
   private readonly _pairs: Pair[] = [];
 
-  public numbers(): number[] {
-    return this._pairs.reduce((numbers: number[], pair: Pair): number[] => {
-      if (pair.count === 2) {
-        numbers.push(pair.a, pair.b);
-      }
-
-      return numbers;
-    }, []);
+  public get(): Pair[] {
+    return this._pairs.filter((pair: Pair): boolean => {
+      return pair.indices.length > 1;
+    });
   }
 
-  public add(a: number, b: number): void {
+  public add(a: number, b: number, index: number): void {
     const pair = this.find(a, b);
 
     if (pair) {
-      pair.count += 1;
+      pair.indices.push(index);
     } else {
       this._pairs.push({
-        count: 1,
+        indices: [index],
         a,
         b,
       });
@@ -58,29 +54,33 @@ export function nakedPairs(grid: SudokuGrid): Promise<number> {
 
   for (const grouper of groupers) {
     for (const index of range(0, 8)) {
-      const pairs = new PairRegistry();
+      const pairRegistry = new PairRegistry();
 
       for (const cell of grouper(grid, index)) {
         if (cell.possibilities.length === 2) {
-          pairs.add(cell.possibilities[0], cell.possibilities[1]);
+          pairRegistry.add(
+            cell.possibilities[0],
+            cell.possibilities[1],
+            cell.index,
+          );
         }
       }
 
-      const numbers = pairs.numbers();
+      const pairs = pairRegistry.get();
 
-      if (numbers.length > 0) {
+      for (const pair of pairs) {
         for (const cell of grouper(grid, index)) {
           if (
-            cell.possibilities.length > 2 ||
-            (cell.possibilities.length === 2 &&
-              !pairs.has(cell.possibilities[0], cell.possibilities[1]))
+            cell.possibilities.length > 1 &&
+            !pair.indices.includes(cell.index) &&
+            cell.possibilities.includes(pair.a) &&
+            cell.possibilities.includes(pair.b)
           ) {
             grid.setPossibilities(
               cell.index,
-              cell.possibilities.filter(
-                (possibility: number): boolean =>
-                  !numbers.includes(possibility),
-              ),
+              cell.possibilities.filter((possibility: number): boolean => {
+                return possibility !== pair.a && possibility !== pair.b;
+              }),
             );
             solved += 1;
           }

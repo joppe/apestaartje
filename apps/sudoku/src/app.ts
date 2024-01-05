@@ -19,6 +19,12 @@ enum Mode {
   Edit,
 }
 
+async function wait(ms: number): Promise<void> {
+  return new Promise((resolve: () => void): void => {
+    setTimeout(resolve, ms);
+  });
+}
+
 export function app({ container, preset }: AppOptions): void {
   const grid = new SudokuGrid();
   const strategies: SolutionStrategy[] = [
@@ -71,9 +77,13 @@ export function app({ container, preset }: AppOptions): void {
       } else {
         strategyIndex += 1;
       }
+
+      await wait(100);
     } while (strategyIndex < strategies.length);
 
     view.update(grid);
+
+    console.log('stopped');
 
     if (validateSolution(grid)) {
       console.log('valid solution');
