@@ -6,6 +6,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "isolatedModules": true,
+    "lib": ["ESNext", "DOM"],
     "module": "ESNext",
     "moduleResolution": "Node",
     "noUnusedLocals": true,
@@ -19,88 +20,39 @@
     "target": "es6",
     "useDefineForClassFields": true,
     "paths": {
-      "@apestaartje/animation/*": [
-        "packages/lib/animation/src/*"
-      ],
-      "@apestaartje/array/*": [
-        "packages/lib/array/src/*"
-      ],
-      "@apestaartje/color/*": [
-        "packages/lib/color/src/*"
-      ],
-      "@apestaartje/date/*": [
-        "packages/lib/date/src/*"
-      ],
+      "@apestaartje/animation/*": ["packages/lib/animation/src/*"],
+      "@apestaartje/array/*": ["packages/lib/array/src/*"],
+      "@apestaartje/color/*": ["packages/lib/color/src/*"],
+      "@apestaartje/date/*": ["packages/lib/date/src/*"],
       "@apestaartje/dependency-injection/*": [
         "packages/lib/dependency-injection/src/*"
       ],
-      "@apestaartje/dom/*": [
-        "packages/lib/dom/src/*"
-      ],
-      "@apestaartje/element/*": [
-        "packages/lib/element/src/*"
-      ],
+      "@apestaartje/dom/*": ["packages/lib/dom/src/*"],
+      "@apestaartje/element/*": ["packages/lib/element/src/*"],
+      "@apestaartje/event-emitter/*": ["packages/lib/event-emitter/src/*"],
       "@apestaartje/finite-state-machine/*": [
         "packages/lib/finite-state-machine/src/*"
       ],
-      "@apestaartje/function/*": [
-        "packages/lib/function/src/*"
-      ],
-      "@apestaartje/geometry/*": [
-        "packages/lib/geometry/src/*"
-      ],
-      "@apestaartje/grid/*": [
-        "packages/lib/grid/src/*"
-      ],
-      "@apestaartje/iterator/*": [
-        "packages/lib/iterator/src/*"
-      ],
-      "@apestaartje/lens/*": [
-        "packages/lib/lens/src/*"
-      ],
-      "@apestaartje/number/*": [
-        "packages/lib/number/src/*"
-      ],
-      "@apestaartje/observable/*": [
-        "packages/lib/observable/src/*"
-      ],
-      "@apestaartje/physics/*": [
-        "packages/lib/physics/src/*"
-      ],
-      "@apestaartje/store/*": [
-        "packages/lib/store/src/*"
-      ],
-      "@apestaartje/string/*": [
-        "packages/lib/string/src/*"
-      ],
-      "@apestaartje/types/*": [
-        "packages/lib/types/src/*"
-      ],
-      "@apestaartje/uuid/*": [
-        "packages/lib/uuid/src/*"
-      ],
-      "@apestaartje/2048/*": [
-        "apps/2048/src/*"
-      ],
-      "@apestaartje/game-of-life/*": [
-        "apps/game-of-life/src/*"
-      ],
-      "@apestaartje/matrix/*": [
-        "apps/matrix/src/*"
-      ],
-      "@apestaartje/nervous-matrix/*": [
-        "apps/nervous-matrix/src/*"
-      ],
-      "@apestaartje/snake/*": [
-        "apps/snake/src/*"
-      ],
-      "@apestaartje/storybook/*": [
-        "apps/storybook/src/*"
-      ]
+      "@apestaartje/function/*": ["packages/lib/function/src/*"],
+      "@apestaartje/geometry/*": ["packages/lib/geometry/src/*"],
+      "@apestaartje/grid/*": ["packages/lib/grid/src/*"],
+      "@apestaartje/iterator/*": ["packages/lib/iterator/src/*"],
+      "@apestaartje/lens/*": ["packages/lib/lens/src/*"],
+      "@apestaartje/number/*": ["packages/lib/number/src/*"],
+      "@apestaartje/observable/*": ["packages/lib/observable/src/*"],
+      "@apestaartje/physics/*": ["packages/lib/physics/src/*"],
+      "@apestaartje/store/*": ["packages/lib/store/src/*"],
+      "@apestaartje/string/*": ["packages/lib/string/src/*"],
+      "@apestaartje/types/*": ["packages/lib/types/src/*"],
+      "@apestaartje/uuid/*": ["packages/lib/uuid/src/*"],
+      "@apestaartje/2048/*": ["apps/2048/src/*"],
+      "@apestaartje/game-of-life/*": ["apps/game-of-life/src/*"],
+      "@apestaartje/matrix/*": ["apps/matrix/src/*"],
+      "@apestaartje/nervous-matrix/*": ["apps/nervous-matrix/src/*"],
+      "@apestaartje/snake/*": ["apps/snake/src/*"],
+      "@apestaartje/storybook/*": ["apps/storybook/src/*"],
+      "@apestaartje/sudoku/*": ["apps/sudoku/src/*"]
     }
   },
-  "exclude": [
-    "dist",
-    "node_modules"
-  ]
+  "exclude": ["dist", "node_modules"]
 }

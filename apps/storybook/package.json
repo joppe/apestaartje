@@ -23,6 +23,7 @@
     "@apestaartje/game-of-life": "*",
     "@apestaartje/nervous-matrix": "*",
     "@apestaartje/snake": "*",
+    "@apestaartje/sudoku": "*",
     "@apestaartje/matrix": "*"
   },
   "devDependencies": {

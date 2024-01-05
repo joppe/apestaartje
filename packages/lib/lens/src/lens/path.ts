@@ -1,32 +1,49 @@
-/**
- * https://stackoverflow.com/questions/58434389/typescript-deep-keyof-of-a-nested-object
- * https://stackoverflow.com/questions/49005179/typescript-infer-type-of-nested-keyof-properties
- * https://stackoverflow.com/questions/52417131/what-does-mean-in-typescript
- */
+export type Path<Obj extends object> = {
+  [Key in keyof Obj & string]: Obj[Key] extends object
+    ? `${Key}` | `${Key}.${Path<Obj[Key]>}`
+    : `${Key}`;
+}[keyof Obj & string];
 
-export function path<T extends Object>() {
-  function inner<
-    K1 extends keyof T,
-    K2 extends keyof T[K1],
-    K3 extends keyof T[K1][K2],
-    K4 extends keyof T[K1][K2][K3],
-  >(p: [K1] | [K1, K2] | [K1, K2, K3] | [K1, K2, K3, K4]) {
-    function loop(p, obj) {
-      const prop: string = p[0];
+export type PathArray<Obj> = {
+  [Key in keyof Obj & string]: Obj[Key] extends object
+    ? [`${Key}`] | [`${Key}`, ...PathArray<Obj[Key]>]
+    : [`${Key}`];
+}[keyof Obj & string];
 
-      if (p.length === 1) {
-        return obj[prop];
-      }
+export type PathArrayValue<Obj, Path extends PathArray<Obj>> = Path extends [
+  infer Key,
+  ...infer Rest,
+]
+  ? Key extends keyof Obj
+    ? Rest extends PathArray<Obj[Key]>
+      ? Obj[Key] extends object
+        ? PathArrayValue<Obj[Key], Rest>
+        : never
+      : Obj[Key]
+    : never
+  : never;
 
-      return loop(p.slice(1), obj[prop]);
-    }
+const address = {
+  street: {
+    name: 'Fake St',
+    number: {
+      digits: 123,
+      addition: 'b',
+    },
+  },
+  city: 'Nowhere',
+  state: 'NY',
+  zip: '12345',
+};
 
-    return (
-      target: T,
-    ): T[K1] | T[K1][K2] | T[K1][K2][K3] | T[K1][K2][K3][K4] => {
-      return loop(p, target);
-    };
-  }
-
-  return inner;
+export function path<Obj>(path: PathArray<Obj>) {
+  return (target: Obj): PathArrayValue<Obj, PathArray<Obj>> => {
+    return (path as string[]).reduce((acc: any, key: string): any => {
+      return acc[key];
+    }, target);
+  };
 }
+
+const streetName = path(['street', 'name'])(address);
+
+console.log(streetName);

@@ -1,0 +1,155 @@
+:root {
+  --cell-size: 50px;
+  --border-color: black;
+  --possibility-color: red;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.sudoku {
+  width: calc(9 * var(--cell-size));
+  height: calc(9 * var(--cell-size));
+  border-top: 3px solid var(--border-color);
+  border-left: 3px solid var(--border-color);
+}
+
+.input {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  width: 100%;
+  height: 100%;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+input:nth-child(3n) {
+  border-right-width: 3px;
+}
+input:nth-child(3n) {
+  border-right-width: 3px;
+}
+input:nth-child(n + 19) {
+  border-bottom-width: 3px;
+}
+input:nth-child(n + 28) {
+  border-bottom-width: 1px;
+}
+input:nth-child(n + 46) {
+  border-bottom-width: 3px;
+}
+input:nth-child(n + 55) {
+  border-bottom-width: 1px;
+}
+input:nth-child(n + 73) {
+  border-bottom-width: 3px;
+}
+
+.sudoku--edit > .view {
+  display: none;
+}
+.sudoku--normal > .input {
+  display: none;
+}
+
+.view {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  width: 100%;
+  height: 100%;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+.cell:nth-child(3n) {
+  border-right-width: 3px;
+}
+.cell:nth-child(n + 19) {
+  border-bottom-width: 3px;
+}
+.cell:nth-child(n + 28) {
+  border-bottom-width: 1px;
+}
+.cell:nth-child(n + 46) {
+  border-bottom-width: 3px;
+}
+.cell:nth-child(n + 55) {
+  border-bottom-width: 1px;
+}
+.cell:nth-child(n + 73) {
+  border-bottom-width: 3px;
+}
+
+.cell--solved .possibilities {
+  display: none;
+}
+
+.possibilities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+}
+
+.possibilities--1 .possibility:nth-child(1),
+.possibilities--2 .possibility:nth-child(2),
+.possibilities--3 .possibility:nth-child(3),
+.possibilities--4 .possibility:nth-child(4),
+.possibilities--5 .possibility:nth-child(5),
+.possibilities--6 .possibility:nth-child(6),
+.possibilities--7 .possibility:nth-child(7),
+.possibilities--8 .possibility:nth-child(8),
+.possibilities--9 .possibility:nth-child(9) {
+  color: var(--possibility-color);
+}
+
+.possibility {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  font-size: 8px;
+  line-height: 8px;
+  color: transparent;
+}
+.possibility:nth-child(3n) {
+  border-right: none;
+}
+.possibility:nth-child(n + 7) {
+  border-bottom: none;
+}
+
+.cell--solved .solution {
+  display: flex;
+}
+.solution {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}

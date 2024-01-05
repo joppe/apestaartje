@@ -1,16 +1,21 @@
-import { Cell } from './Cell';
 import { GridPosition } from './GridPosition';
 
 export type GridOptions<T> = {
   rows: number;
   columns: number;
-  initialValue: T;
+  initializer: Initializer<T>;
 };
+
+export type InitializerOptions = GridPosition & {
+  index: number;
+};
+
+export type Initializer<T> = (options: InitializerOptions) => T;
 
 export class Grid<T> {
   private readonly _rows: number;
   private readonly _columns: number;
-  private _cells: Cell<T>[];
+  private _cells: T[];
 
   public get rows(): number {
     return this._rows;
@@ -24,11 +29,11 @@ export class Grid<T> {
     return this._rows * this._columns;
   }
 
-  public get cells(): Cell<T>[] {
+  public get cells(): T[] {
     return this._cells;
   }
 
-  constructor({ rows, columns, initialValue }: GridOptions<T>) {
+  constructor({ rows, columns, initializer }: GridOptions<T>) {
     this._rows = rows;
     this._columns = columns;
     this._cells = Array.from(
@@ -37,21 +42,17 @@ export class Grid<T> {
         const row = this.toRow(index);
         const column = this.toColumn(index);
 
-        return new Cell({
-          row,
-          column,
-          value: initialValue,
-        });
+        return initializer({ row, column, index });
       },
     );
   }
 
-  public getCell(position: GridPosition): Cell<T> {
+  public getCell(position: GridPosition): T {
     return this._cells[this.toIndex(position)];
   }
 
-  public setCell(position: GridPosition, cell: Cell<T>): void {
-    this._cells[this.toIndex(position)] = cell;
+  public setCell(position: GridPosition, value: T): void {
+    this._cells[this.toIndex(position)] = value;
   }
 
   public isValidPosition({ row, column }: GridPosition): boolean {
@@ -64,6 +65,13 @@ export class Grid<T> {
 
   public isValidColumn(column: number): boolean {
     return column >= 0 && column < this._columns;
+  }
+
+  public toPosition(index: number): GridPosition {
+    return {
+      row: this.toRow(index),
+      column: this.toColumn(index),
+    };
   }
 
   public toIndex({ row, column }: GridPosition): number {
