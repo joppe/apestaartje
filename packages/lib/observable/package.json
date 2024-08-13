@@ -14,9 +14,9 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@apestaartje/eslint-config": "*",
-    "@apestaartje/jest-config": "*",
-    "@apestaartje/ts-config": "*",
+    "@apestaartje/eslint-config": "workspace:*",
+    "@apestaartje/jest-config": "workspace:*",
+    "@apestaartje/ts-config": "workspace:*",
     "@types/jest": "^29.5.2",
     "eslint": "^8.41.0",
     "jest": "^29.5.0",
