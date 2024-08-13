@@ -27,7 +27,7 @@ export class Cell<T> {
     return this._value;
   }
 
-  constructor({ row, column, value }: CellOptions<T>) {
+  public constructor({ row, column, value }: CellOptions<T>) {
     this._row = row;
     this._column = column;
     this._value = value;

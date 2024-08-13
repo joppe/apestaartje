@@ -1,8 +1,8 @@
 import { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Asset } from '@apestaartje/animation/stage/Asset';
-import { Cell } from '@apestaartje/grid/grid/Cell';
-import { Grid } from '@apestaartje/grid/grid/Grid';
-import { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import { Cell } from '@apestaartje/grid/Cell';
+import { Grid } from '@apestaartje/grid/Grid';
+import { GridPosition } from '@apestaartje/grid/GridPosition';
 
 import { Renderer } from '../render/Renderer';
 
@@ -43,7 +43,7 @@ export class Map implements Asset {
   }
 
   public addWall(position: GridPosition): void {
-    this._grid.setCell(position, new Cell({ value: true, ...position }));
+    this._grid.setCell(new Cell({ value: true, ...position }));
   }
 
   public isWall(position: GridPosition): boolean {

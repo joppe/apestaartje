@@ -50,8 +50,8 @@ export class Grid<T> {
     return this._cells[this.toIndex(position)];
   }
 
-  public setCell(position: GridPosition, cell: Cell<T>): void {
-    this._cells[this.toIndex(position)] = cell;
+  public setCell(cell: Cell<T>): void {
+    this._cells[this.toIndex(cell.position)] = cell;
   }
 
   public isValidPosition({ row, column }: GridPosition): boolean {
@@ -80,5 +80,12 @@ export class Grid<T> {
 
   public toColumn(index: number): number {
     return index % this._columns;
+  }
+
+  public toPosition(index: number): GridPosition {
+    return {
+      row: this.toRow(index),
+      column: this.toColumn(index),
+    };
   }
 }
