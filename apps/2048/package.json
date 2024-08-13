@@ -12,12 +12,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@apestaartje/element": "*",
-    "@apestaartje/iterator": "*"
+    "@apestaartje/element": "workspace:*",
+    "@apestaartje/iterator": "workspace:*"
   },
   "devDependencies": {
-    "@apestaartje/eslint-config": "*",
-    "@apestaartje/ts-config": "*",
+    "@apestaartje/eslint-config": "workspace:*",
+    "@apestaartje/ts-config": "workspace:*",
     "eslint": "^8.41.0",
     "typescript": "^5.1.3"
   }

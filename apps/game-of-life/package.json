@@ -8,9 +8,9 @@
   "author": "Joppe Aarts <joppe@apestaartje.info>",
   "license": "MIT",
   "devDependencies": {
-    "@apestaartje/eslint-config": "*",
-    "@apestaartje/ts-config": "*",
-    "@apestaartje/types": "*",
+    "@apestaartje/eslint-config": "workspace:*",
+    "@apestaartje/ts-config": "workspace:*",
+    "@apestaartje/types": "workspace:*",
     "eslint": "^8.41.0",
     "typescript": "^5.1.3"
   },
