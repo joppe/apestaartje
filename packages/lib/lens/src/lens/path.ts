@@ -44,6 +44,6 @@ export function path<Obj>(path: PathArray<Obj>) {
   };
 }
 
-const streetName = path(['street', 'name'])(address);
+const streetName = path<typeof address>(['street', 'name'])(address);
 
 console.log(streetName);
