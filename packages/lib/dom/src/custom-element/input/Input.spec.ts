@@ -12,19 +12,19 @@ class Test extends HTMLElement {
     attribute: 'text',
     type: InputType.Str,
   })
-  public declare string: string;
+  declare public string: string;
 
   @Input({
     type: InputType.Float,
     watch: true,
   })
-  public declare float: number;
+  declare public float: number;
 
   @Input({
     type: InputType.Bool,
     watch: false,
   })
-  public declare declareboolean: boolean;
+  declare public declareboolean: boolean;
 
   public attributeChangedCallbackCalled = 0;
 

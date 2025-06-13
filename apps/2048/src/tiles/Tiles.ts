@@ -143,8 +143,8 @@ export class Tiles {
         styles += `
                     .tiles__tile--pos-${row}-${column} {
                         transform: translate(${column * size}px, ${
-          row * size
-        }px);
+                          row * size
+                        }px);
                     }
                 `;
       }

@@ -1,7 +1,7 @@
-/* eslint-env node */
+import trivagoSortImports from '@trivago/prettier-plugin-sort-imports';
 
-module.exports = {
-  plugins: [require.resolve('@trivago/prettier-plugin-sort-imports')],
+export default {
+  plugins: [trivagoSortImports],
   arrowParens: 'always',
   bracketSpacing: true,
   importOrder: [

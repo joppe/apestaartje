@@ -19,20 +19,20 @@ export class MatrixRain extends HTMLElement {
     type: InputType.Int,
     watch: true,
   })
-  public declare width: number;
+  declare public width: number;
 
   @Input({
     type: InputType.Int,
     watch: true,
   })
-  public declare height: number;
+  declare public height: number;
 
   @Input({
     type: InputType.Int,
     attribute: 'blur-factor',
     watch: true,
   })
-  public declare blurFactor: number;
+  declare public blurFactor: number;
 
   constructor() {
     super();

@@ -14,10 +14,10 @@ import { ChildElements } from './ChildElements';
 })
 class Test extends HTMLElement {
   @ChildElements('p')
-  public declare p: HTMLElement[];
+  declare public p: HTMLElement[];
 
   @ChildElements('h2')
-  public declare h2: HTMLElement[];
+  declare public h2: HTMLElement[];
 }
 
 describe('ChildElements', (): void => {
