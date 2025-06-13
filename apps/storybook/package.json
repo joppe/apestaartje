@@ -1,6 +1,7 @@
 {
   "name": "@apestaartje/storybook",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "src/main.ts",
   "scripts": {
@@ -27,6 +28,7 @@
     "@apestaartje/matrix": "workspace:*"
   },
   "devDependencies": {
+    "@apestaartje/eslint-config": "workspace:*",
     "@apestaartje/ts-config": "workspace:*",
     "@storybook/addon-essentials": "^7.0.18",
     "@storybook/addon-interactions": "^7.0.18",
@@ -35,6 +37,7 @@
     "@storybook/html": "^7.0.18",
     "@storybook/html-vite": "^7.0.18",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "eslint": "^9.28.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.0.18",

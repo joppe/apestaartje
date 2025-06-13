@@ -1,6 +1,7 @@
 {
   "name": "@apestaartje/snake",
   "version": "1.0.0",
+  "type": "module",
   "description": "Snake game",
   "scripts": {
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
@@ -18,7 +19,7 @@
   "devDependencies": {
     "@apestaartje/eslint-config": "workspace:*",
     "@apestaartje/ts-config": "workspace:*",
-    "eslint": "^8.41.0",
+    "eslint": "^9.28.0",
     "typescript": "^5.1.3"
   }
 }

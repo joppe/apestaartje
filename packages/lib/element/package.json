@@ -1,6 +1,7 @@
 {
   "name": "@apestaartje/element",
   "version": "0.0.1",
+  "type": "module",
   "description": "A element generator",
   "scripts": {
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
@@ -20,7 +21,7 @@
     "@apestaartje/types": "workspace:*",
     "@types/jest": "^29.5.2",
     "canvas": "^2.11.2",
-    "eslint": "^8.41.0",
+    "eslint": "^9.28.0",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "ts-jest": "^29.1.0",
