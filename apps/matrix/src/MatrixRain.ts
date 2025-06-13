@@ -36,7 +36,9 @@ export class MatrixRain extends HTMLElement {
 
   constructor() {
     super();
+  }
 
+  public connectedCallback(): void {
     const fontSize = 24;
     const size = { width: this.width, height: this.height };
     const stage = new Stage(size);
