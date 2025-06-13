@@ -19,15 +19,15 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@apestaartje/2048": "*",
-    "@apestaartje/game-of-life": "*",
-    "@apestaartje/nervous-matrix": "*",
-    "@apestaartje/snake": "*",
-    "@apestaartje/sudoku": "*",
-    "@apestaartje/matrix": "*"
+    "@apestaartje/2048": "workspace:*",
+    "@apestaartje/game-of-life": "workspace:*",
+    "@apestaartje/nervous-matrix": "workspace:*",
+    "@apestaartje/snake": "workspace:*",
+    "@apestaartje/sudoku": "workspace:*",
+    "@apestaartje/matrix": "workspace:*"
   },
   "devDependencies": {
-    "@apestaartje/ts-config": "*",
+    "@apestaartje/ts-config": "workspace:*",
     "@storybook/addon-essentials": "^7.0.18",
     "@storybook/addon-interactions": "^7.0.18",
     "@storybook/addon-links": "^7.0.18",
