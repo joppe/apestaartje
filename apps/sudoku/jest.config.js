@@ -1,8 +1,6 @@
-/* eslint-env node */
-/* eslint-disable @typescript-eslint/no-var-requires */
-const base = require('@apestaartje/jest-config');
+import base from '@apestaartje/jest-config';
 
-module.exports = {
+export default {
   ...base,
   moduleNameMapper: {
     '@apestaartje/iterator/(.*)': '<rootDir>../../packages/lib/iterator/src/$1',

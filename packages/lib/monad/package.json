@@ -5,9 +5,7 @@
   "description": "Mondad implementation in TypeScript",
   "scripts": {
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
-    "lint": "eslint ./src --fix",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "lint": "eslint ./src --fix"
   },
   "author": {
     "name": "Joppe Aarts",

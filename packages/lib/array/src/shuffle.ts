@@ -1,4 +1,4 @@
-import { rand } from '@apestaartje/number';
+import { rand } from '@apestaartje/number/rand';
 
 /**
  * Shuffle the elements of an array

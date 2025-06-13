@@ -1,8 +1,5 @@
-/* eslint-env node */
-/* eslint-disable @typescript-eslint/no-var-requires */
-
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 const rootPath = path.resolve(__dirname, '../../../../');
 const targetPath = path.join(rootPath, 'packages/lib');
