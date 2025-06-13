@@ -1,6 +1,5 @@
 export function ChildElements(selector: string): PropertyDecorator {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  return (target: Object, propertyName: string | symbol): void => {
+  return (target: object, propertyName: string | symbol): void => {
     Object.defineProperty(target, propertyName, {
       enumerable: true,
       get: function (): HTMLElement[] {

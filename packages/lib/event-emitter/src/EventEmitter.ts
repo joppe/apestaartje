@@ -1,10 +1,10 @@
 import { Listener } from './types/Listener';
 import { Unregister } from './types/Unregister';
 
-export type Events = Record<string, Listener<any>>;
+export type Events = Record<string, Listener<unknown>>;
 
 export class EventEmitter<EventRegistry extends Events> {
-  private readonly _listeners: Record<string, Listener<any>[]> = {};
+  private readonly _listeners: Record<string, Listener<unknown>[]> = {};
 
   public on<Event extends keyof EventRegistry>(
     event: Event,
