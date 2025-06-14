@@ -75,7 +75,7 @@ export class Matrix {
     const nodes: Node[] = [];
     let x: number = offset;
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     
     for (const _i of range(0, cols - 1, 1)) {
       nodes.push(
         new Node({
@@ -101,7 +101,7 @@ export class Matrix {
     const nodes: Node[] = [];
     let y: number = offset;
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     
     for (const _i of range(0, rows - 1, 1)) {
       nodes.push(
         new Node({
