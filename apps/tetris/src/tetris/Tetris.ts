@@ -1,6 +1,8 @@
 import { Store } from '@apestaartje/store/Store';
 import { factory } from '@apestaartje/store/factory';
 
+import '../../style/tetris.css';
+
 import { keyboard } from './control/keyboard';
 import { container } from './dependency-injection/container';
 import { Engine } from './game/Engine';

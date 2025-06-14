@@ -99,7 +99,7 @@ export class Grid<T> {
   public reset(): void {
     this._values = [];
 
-    for (const y of range(0, this.height - 1, 1)) {
+    for (const _y of range(0, this.height - 1, 1)) {
       this._values.push(...this.emptyLine());
     }
   }

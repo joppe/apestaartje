@@ -1,0 +1,58 @@
+:root {
+  --count-down-size: 40px;
+  --count-down-height: 300px;
+}
+
+tetris-count-down {
+  position: absolute;
+  z-index: 20;
+  display: none;
+  width: 100%;
+  height: var(--count-down-height);
+  overflow: hidden;
+
+  &.active {
+    display: block;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(0, calc(-1 * var(--count-down-height)));
+  }
+}
+
+.c-countdown-counter {
+  position: absolute;
+  width: var(--count-down-size);
+  height: var(--count-down-size);
+  margin-left: calc(50% - (var(--count-down-size) / 2));
+  transform: translate(0, calc(var(--count-down-height) / 2));
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: var(--count-down-size);
+  background-color: var(--blue--black-marlin);
+  color: var(--red--geraldine);
+  visibility: hidden;
+
+  &.animate {
+    visibility: visible;
+    animation-name: fadeout;
+    animation-duration: 1.2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    /* or: backwards, both, none */
+    animation-delay: 0.8s;
+  }
+}

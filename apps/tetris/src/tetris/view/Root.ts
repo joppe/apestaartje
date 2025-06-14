@@ -49,7 +49,7 @@ import './pages/HomePage';
 })
 export class Root extends HTMLElement {
   @ChildElements('[data-page]')
-  public pages: HTMLElement[];
+  declare public pages: HTMLElement[];
 
   private _currentState: string = config.initial;
   private readonly _state: Machine;

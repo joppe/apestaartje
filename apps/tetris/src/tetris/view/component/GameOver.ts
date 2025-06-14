@@ -40,16 +40,16 @@ export class GameOver extends HTMLElement {
     watch: true,
     type: InputType.Bool,
   })
-  public active: boolean;
+  declare public active: boolean;
 
   @ChildElement('tetris-enter-name')
-  public enterName: HTMLElement;
+  declare public enterName: HTMLElement;
 
   @ChildElement('nav')
-  public nav: HTMLElement;
+  declare public nav: HTMLElement;
 
   @Output('state-change')
-  public stateChange: EventEmitter<string>;
+  declare public stateChange: EventEmitter<string>;
 
   private readonly _highScore: HighScore;
   private readonly _store: Store<Data>;
@@ -61,11 +61,7 @@ export class GameOver extends HTMLElement {
     this._store = container.resolve('store');
   }
 
-  public attributeChangedCallback(
-    name: string,
-    oldValue: string,
-    newValue: string,
-  ): void {
+  public attributeChangedCallback(name: string): void {
     if (name === 'active') {
       this.toggle();
     }

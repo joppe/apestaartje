@@ -12,16 +12,16 @@ export class NavigationLink extends HTMLElement {
   @Input({
     attribute: 'event-name',
   })
-  public eventName: string;
+  declare public eventName: string;
 
   @Input()
-  public title: string;
+  declare public title: string;
 
   @Output('state-change')
-  public stateChange: EventEmitter<string>;
+  declare public stateChange: EventEmitter<string>;
 
   @ChildElement('button')
-  public button: HTMLElement | null;
+  declare public button: HTMLElement | null;
 
   public connectedCallback(): void {
     if (this.button === null) {

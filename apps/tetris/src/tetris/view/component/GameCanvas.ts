@@ -28,10 +28,10 @@ export class GameCanvas extends HTMLElement {
     watch: true,
     type: InputType.Bool,
   })
-  public active: boolean;
+  declare public active: boolean;
 
   @Output('game-over')
-  public finished: EventEmitter<boolean>;
+  declare public finished: EventEmitter<boolean>;
 
   private _background: Canvas;
   private _foreground: Canvas;

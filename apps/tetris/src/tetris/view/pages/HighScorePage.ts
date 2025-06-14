@@ -30,10 +30,10 @@ export class HighScorePage extends HTMLElement {
     watch: true,
     type: InputType.Bool,
   })
-  public active: boolean;
+  declare public active: boolean;
 
   @ChildElement('table')
-  public table: HTMLOListElement;
+  declare public table: HTMLOListElement;
 
   private readonly _highScore: HighScore;
   private _isConnected: boolean = false;
@@ -44,11 +44,7 @@ export class HighScorePage extends HTMLElement {
     this._highScore = container.resolve<HighScore>('high-score');
   }
 
-  public attributeChangedCallback(
-    name: string,
-    oldValue: string,
-    newValue: string,
-  ): void {
+  public attributeChangedCallback(name: string): void {
     if (this._isConnected && name === 'active') {
       this.toggle();
     }
@@ -64,14 +60,11 @@ export class HighScorePage extends HTMLElement {
       return;
     }
 
-    // tslint:disable-next-line no-inner-html
     this.table.innerHTML = '';
 
     this._highScore.getAll().forEach((entry: Entry): void => {
       const tr: HTMLElement = document.createElement('tr');
-      const day: Date = new Date(entry.date);
 
-      // tslint:disable-next-line no-inner-html
       tr.innerHTML = `
                     <td>${String(entry.score)}</td>
                     <td>${String(entry.name)}</td>

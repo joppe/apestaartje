@@ -1,0 +1,16 @@
+@import './config/color.css';
+
+@import './base/reset.css';
+@import './base/base.css';
+
+@import './element/button.css';
+@import './element/container.css';
+@import './element/input.css';
+@import './element/nav.css';
+
+@import './component/count-down.css';
+@import './component/game-canvas.css';
+@import './component/game-over.css';
+@import './component/high-score-table.css';
+
+@import './page/game.css';

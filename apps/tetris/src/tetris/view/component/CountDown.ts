@@ -18,25 +18,21 @@ const ACTIVE_CLASS: string = 'active';
 })
 export class CountDown extends HTMLElement {
   @ChildElements('.c-countdown-counter')
-  public steps: HTMLElement[];
+  declare public steps: HTMLElement[];
 
   @Input({
     attribute: 'active',
     watch: true,
     type: InputType.Bool,
   })
-  public active: boolean;
+  declare public active: boolean;
 
   @Output('count-down-finished')
-  public finished: EventEmitter<boolean>;
+  declare public finished: EventEmitter<boolean>;
 
-  private _interval: number;
+  declare private _interval: number;
 
-  public attributeChangedCallback(
-    name: string,
-    oldValue: string,
-    newValue: string,
-  ): void {
+  public attributeChangedCallback(name: string): void {
     if (name === 'active') {
       this.toggle();
     }

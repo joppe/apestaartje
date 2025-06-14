@@ -38,16 +38,16 @@ export class GamePage extends HTMLElement {
     watch: true,
     type: InputType.Bool,
   })
-  public active: boolean;
+  declare public active: boolean;
 
   @ChildElement('tetris-count-down')
-  public countDown: HTMLElement;
+  declare public countDown: HTMLElement;
 
   @ChildElement('tetris-game-over')
-  public gameOver: HTMLElement;
+  declare public gameOver: HTMLElement;
 
   @ChildElement('tetris-game-canvas')
-  public gameCanvas: HTMLElement;
+  declare public gameCanvas: HTMLElement;
 
   private _currentState: string = config.initial;
   private readonly _state: Machine;
@@ -75,11 +75,7 @@ export class GamePage extends HTMLElement {
     });
   }
 
-  public attributeChangedCallback(
-    name: string,
-    oldValue: string,
-    newValue: string,
-  ): void {
+  public attributeChangedCallback(name: string): void {
     if (this._isConnected && name === 'active') {
       this.toggle();
     }

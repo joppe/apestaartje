@@ -12,13 +12,9 @@ export class PageContainer extends HTMLElement {
     attribute: 'active',
     watch: true,
   })
-  public isActive: boolean;
+  declare public isActive: boolean;
 
-  public attributeChangedCallback(
-    name: string,
-    oldValue: string,
-    newValue: string,
-  ): void {
+  public attributeChangedCallback(name: string): void {
     if (name === 'active') {
       this.updateVisibility();
     }

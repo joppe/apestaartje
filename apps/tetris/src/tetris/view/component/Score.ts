@@ -11,7 +11,7 @@ import { Data } from '../../store/Data';
 })
 export class Score extends HTMLElement {
   @ChildElement('h3')
-  public _score: HTMLElement;
+  declare public _score: HTMLElement;
 
   private _store: Store<Data>;
 

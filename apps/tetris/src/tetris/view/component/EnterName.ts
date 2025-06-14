@@ -29,19 +29,19 @@ export class EnterName extends HTMLElement {
     watch: true,
     type: InputType.Bool,
   })
-  public active: boolean;
+  declare public active: boolean;
 
   @ChildElement('input')
-  public name: HTMLInputElement;
+  declare public name: HTMLInputElement;
 
   @ChildElement('button')
-  public button: HTMLButtonElement;
+  declare public button: HTMLButtonElement;
 
   @ChildElement('b')
-  public points: HTMLElement;
+  declare public points: HTMLElement;
 
   @Output('state-change')
-  public stateChange: EventEmitter<string>;
+  declare public stateChange: EventEmitter<string>;
 
   private readonly _highScore: HighScore;
   private readonly _store: Store<Data>;
@@ -73,11 +73,7 @@ export class EnterName extends HTMLElement {
     });
   }
 
-  public attributeChangedCallback(
-    name: string,
-    oldValue: string,
-    newValue: string,
-  ): void {
+  public attributeChangedCallback(name: string): void {
     if (!this._isConnected) {
       return;
     }
