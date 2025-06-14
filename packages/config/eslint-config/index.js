@@ -1,17 +1,19 @@
-/* eslint-env node */
+import js from '@eslint/js';
+import prettierConfig from 'eslint-config-prettier';
+import { defineConfig } from 'eslint/config';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
-module.exports = {
-  root: true,
-  parser: '@typescript-eslint/parser',
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
-  plugins: ['@typescript-eslint'],
-  parserOptions: {
-    sourceType: 'module',
-    ecmaVersion: 2020,
+export default defineConfig([
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
+    plugins: { js },
+    extends: ['js/recommended'],
   },
-  env: {
-    browser: true,
-    es2017: true,
-    node: true,
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
+    languageOptions: { globals: globals.browser },
   },
-};
+  tseslint.configs.recommended,
+  prettierConfig,
+]);

@@ -9,7 +9,7 @@ import { Output } from './Output';
 })
 class Test extends HTMLElement {
   @Output('counter')
-  public declare counter: EventEmitter<number>;
+  declare public counter: EventEmitter<number>;
 
   private _count = 0;
 

@@ -1,8 +1,10 @@
 {
   "name": "@apestaartje/matrix",
   "version": "0.0.0",
+  "type": "module",
   "description": "The Matrix rain effect",
   "scripts": {
+    "dev": "vite",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
     "lint": "eslint ./src --fix"
   },
@@ -17,8 +19,9 @@
   "devDependencies": {
     "@apestaartje/eslint-config": "workspace:*",
     "@apestaartje/ts-config": "workspace:*",
-    "eslint": "^8.41.0",
-    "typescript": "^5.1.3"
+    "eslint": "^9.28.0",
+    "typescript": "^5.1.3",
+    "vite": "^6.3.5"
   },
   "dependencies": {
     "@apestaartje/animation": "workspace:*"

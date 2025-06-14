@@ -1,4 +1,3 @@
-import { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Asset } from '@apestaartje/animation/stage/Asset';
 import { Size } from '@apestaartje/geometry/size/Size';
 
@@ -30,7 +29,7 @@ export class Column implements Asset {
     return this._cleanup;
   }
 
-  public tick(_time: Chronometer): void {
+  public tick(): void {
     // Do nothing
   }
 

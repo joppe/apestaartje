@@ -1,7 +1,0 @@
-{
-  "extends": "@apestaartje/ts-config/base.json",
-  "compilerOptions": {
-    "baseUrl": "../../"
-  },
-  "include": ["src/**/*.ts"]
-}

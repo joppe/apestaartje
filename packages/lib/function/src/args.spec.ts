@@ -76,7 +76,6 @@ describe('function args', (): void => {
       expect(
         args(
           class Foo {
-            // eslint-disable-next-line @typescript-eslint/no-empty-function
             constructor() {}
           },
         ),

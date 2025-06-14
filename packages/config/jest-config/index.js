@@ -1,14 +1,17 @@
-/* eslint-env node */
-/* eslint-disable @typescript-eslint/no-var-requires */
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const fs = require('fs');
-const path = require('path');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const moduleNameMapper = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'moduleNameMapper.json'), 'utf8'),
 );
 
-module.exports = {
+const config = {
   moduleNameMapper,
   preset: 'ts-jest',
 };
+
+export default config;

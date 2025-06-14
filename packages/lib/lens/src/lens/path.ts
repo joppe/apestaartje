@@ -38,6 +38,7 @@ const address = {
 
 export function path<Obj>(path: PathArray<Obj>) {
   return (target: Obj): PathArrayValue<Obj, PathArray<Obj>> => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (path as string[]).reduce((acc: any, key: string): any => {
       return acc[key];
     }, target);

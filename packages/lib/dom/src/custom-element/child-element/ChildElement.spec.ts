@@ -13,10 +13,10 @@ import { ChildElement } from './ChildElement';
 })
 class Test extends HTMLElement {
   @ChildElement('h1')
-  public declare h1: HTMLElement | null;
+  declare public h1: HTMLElement | null;
 
   @ChildElement('h2')
-  public declare h2: HTMLElement | null;
+  declare public h2: HTMLElement | null;
 }
 
 describe('ChildElement', (): void => {

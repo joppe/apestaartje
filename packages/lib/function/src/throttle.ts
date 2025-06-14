@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 export function throttle(threshhold: number, fn: Function): Function {
   let last: number | undefined;
   let timeout: number;

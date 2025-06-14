@@ -95,7 +95,7 @@ export class Snake implements Asset {
     this._position = position;
 
     this._segments.forEach((segment: Segment): void => {
-      let nextPosition = segment.position;
+      const nextPosition = segment.position;
 
       segment.position = position;
       position = nextPosition;

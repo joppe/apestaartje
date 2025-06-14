@@ -8,9 +8,9 @@ const ARGUMENTS_RE =
 const CONSTRUCTOR_RE = /\sconstructor\s*\(([\w$,\s]*)\)\s*{/im;
 const ARGUMENT_SEPARATOR = ',';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export function args(func: Function): string[] {
-  const str: string = func.toString();
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+export function args(fn: Function): string[] {
+  const str: string = fn.toString();
   let matches: RegExpMatchArray | null;
 
   if (IS_CLASS_RE.test(str)) {

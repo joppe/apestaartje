@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type, @typescript-eslint/no-explicit-any
 function isFunction(value: any): value is Function {
   if (typeof value === 'function') {
     return true;
@@ -9,8 +9,7 @@ function isFunction(value: any): value is Function {
 
 export function Bind(): MethodDecorator {
   return <T>(
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    _target: Object,
+    _target: object,
     _propertyKey: string | symbol,
     descriptor: TypedPropertyDescriptor<T>,
   ): TypedPropertyDescriptor<T> => {

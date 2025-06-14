@@ -5,7 +5,7 @@ import { castValue } from './castValue';
 const OBSERVED_ATTRIBUTES = 'observedAttributes';
 
 export function Input(config: Config = {}): PropertyDecorator {
-  // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (target: any, propertyKey: string | symbol): void => {
     const propertyName = String(propertyKey);
     const attribute =

@@ -1,4 +1,3 @@
-import { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Asset } from '@apestaartje/animation/stage/Asset';
 import { GridPosition } from '@apestaartje/grid/grid/GridPosition';
 
@@ -37,7 +36,7 @@ export class Status implements Asset {
     return false;
   }
 
-  public tick(_time: Chronometer): void {
+  public tick(): void {
     // Nothing to do here
   }
 
