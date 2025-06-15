@@ -1,6 +1,6 @@
 import { clone as clonePoint } from '../point/clone';
 
-import { Line } from './Line';
+import type { Line } from './Line';
 
 /**
  * Clone a Line object

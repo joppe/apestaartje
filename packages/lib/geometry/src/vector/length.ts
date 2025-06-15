@@ -1,4 +1,4 @@
-import { Vector } from './Vector';
+import type { Vector } from './Vector';
 
 /**
  * Calculate the length of a vector

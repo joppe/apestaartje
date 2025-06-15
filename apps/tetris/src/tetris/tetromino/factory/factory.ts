@@ -1,7 +1,7 @@
-import { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 
 import { Tetromino } from '../Tetromino';
-import { Type } from '../Type';
+import type { Type } from '../Type';
 import { getConfig } from '../factory/getConfig';
 
 import { createBlocks } from './createBlocks';

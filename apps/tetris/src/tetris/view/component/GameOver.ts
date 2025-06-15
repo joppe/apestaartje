@@ -2,14 +2,14 @@ import { ChildElement } from '@apestaartje/dom/custom-element/child-element/Chil
 import { Component } from '@apestaartje/dom/custom-element/component/Component';
 import { Input } from '@apestaartje/dom/custom-element/input/Input';
 import { InputType } from '@apestaartje/dom/custom-element/input/InputType';
-import { EventEmitter } from '@apestaartje/dom/custom-element/output/EventEmitter';
+import type { EventEmitter } from '@apestaartje/dom/custom-element/output/EventEmitter';
 import { Output } from '@apestaartje/dom/custom-element/output/Output';
-import { Store } from '@apestaartje/store/Store';
+import type { Store } from '@apestaartje/store/Store';
 
 import { container } from '../../dependency-injection/container';
 import { Event as GlobalEvent } from '../../finite-state-machine/global/Event';
-import { HighScore } from '../../game/high-score/HighScore';
-import { Data } from '../../store/Data';
+import type { HighScore } from '../../game/high-score/HighScore';
+import type { Data } from '../../store/Data';
 
 import './EnterName';
 

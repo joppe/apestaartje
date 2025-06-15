@@ -1,4 +1,4 @@
-import { Cell, SudokuGrid } from './SudokuGrid';
+import type { Cell, SudokuGrid } from './SudokuGrid';
 
 export function cellsByBlock(grid: SudokuGrid, block: number): Iterable<Cell> {
   const column = block % 3;

@@ -1,6 +1,6 @@
-import { Mapping } from '../Mapping';
-import { Cell } from '../matrix/Cell';
-import { Matrix } from '../matrix/Matrix';
+import type { Mapping } from '../Mapping';
+import type { Cell } from '../matrix/Cell';
+import type { Matrix } from '../matrix/Matrix';
 
 export function keyboardListener(
   displacement: number,

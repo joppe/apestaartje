@@ -1,4 +1,4 @@
-import { Point } from './Point';
+import type { Point } from './Point';
 import { add } from './add';
 
 describe('point', (): void => {

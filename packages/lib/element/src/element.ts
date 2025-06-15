@@ -1,4 +1,4 @@
-import { ElementConfig } from './ElementConfig';
+import type { ElementConfig } from './ElementConfig';
 
 export function element(config: ElementConfig): HTMLElement {
   const [tagName, attributes = {}, children] = config;

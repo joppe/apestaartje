@@ -1,8 +1,8 @@
-import { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
 import { range } from '@apestaartje/iterator/range/range';
 
-import { Axis } from '../grid/Axis';
-import { SudokuGrid } from '../grid/SudokuGrid';
+import type { Axis } from '../grid/Axis';
+import type { SudokuGrid } from '../grid/SudokuGrid';
 import { cellsByAxisFromBlock } from '../grid/cellsByAxisFromBlock';
 import { blockAxisIndexToGridAxisIndex } from '../grid/helper/blockAxisIndexToGridAxisIndex';
 import { otherAxisIndicesOutsideBlock } from '../grid/helper/otherAxisIndicesOutsideBlock';

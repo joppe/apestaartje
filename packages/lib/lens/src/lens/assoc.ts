@@ -1,4 +1,4 @@
-import { Setter } from './Setter';
+import type { Setter } from './Setter';
 
 export function assoc<T>(property: keyof T): Setter<T> {
   return (value: T[keyof T], obj: T): T => {

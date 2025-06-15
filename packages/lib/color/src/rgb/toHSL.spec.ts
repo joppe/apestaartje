@@ -1,4 +1,4 @@
-import { HSL } from '../hsl/HSL';
+import type { HSL } from '../hsl/HSL';
 
 import { toHSL } from './toHSL';
 

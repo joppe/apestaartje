@@ -1,9 +1,9 @@
 import { last } from '@apestaartje/array/last';
 
 import { container } from '../../dependency-injection/container';
-import { Storage } from '../../storage/Storage';
+import type { Storage } from '../../storage/Storage';
 
-import { Entry } from './Entry';
+import type { Entry } from './Entry';
 
 const LOCAL_STORAGE_KEY: string = 'tetris_high_score';
 

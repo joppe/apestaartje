@@ -1,4 +1,4 @@
-import { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { factory } from '@apestaartje/geometry/vector/factory';
 
 /**

@@ -1,4 +1,4 @@
-import { Observable } from '../Observable';
+import type { Observable } from '../Observable';
 
 import { timer } from './timer';
 

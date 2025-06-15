@@ -1,7 +1,7 @@
 import { element } from '@apestaartje/element/element';
 
-import { Grid } from '../grid/Grid';
-import { Tiles } from '../tiles/Tiles';
+import type { Grid } from '../grid/Grid';
+import type { Tiles } from '../tiles/Tiles';
 
 import './container.css';
 

@@ -2,8 +2,8 @@ import { range } from '@apestaartje/array/iterator/range';
 
 import { Node } from '../spring/Node';
 
-import { Cell } from './Cell';
-import { MatrixOptions } from './MatrixOptions';
+import type { Cell } from './Cell';
+import type { MatrixOptions } from './MatrixOptions';
 import { getColumn } from './getColumn';
 import { getRow } from './getRow';
 

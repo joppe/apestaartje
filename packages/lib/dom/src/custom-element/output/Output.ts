@@ -1,4 +1,4 @@
-import { EventEmitter } from './EventEmitter';
+import type { EventEmitter } from './EventEmitter';
 
 export function Output<T>(eventName: string): PropertyDecorator {
   return (target: object, propertyName: string | symbol): void => {

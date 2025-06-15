@@ -1,6 +1,6 @@
 import { Injectable } from '@apestaartje/dependency-injection/decorator/Injectable';
 
-import { Storage } from './Storage';
+import type { Storage } from './Storage';
 
 @Injectable('storage')
 export class Local implements Storage {

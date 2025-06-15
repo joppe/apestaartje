@@ -1,10 +1,10 @@
-import { SafeObserver } from '../observer/SafeObserver';
-import { Operator } from '../operator/Operator';
+import type { SafeObserver } from '../observer/SafeObserver';
+import type { Operator } from '../operator/Operator';
 import { map } from '../operator/map/map';
 
 import { Observable } from './Observable';
-import { Subscriber } from './Subscriber';
-import { Subscription } from './Subscription';
+import type { Subscriber } from './Subscriber';
+import type { Subscription } from './Subscription';
 
 type NextableObserver<T> = { next(v: T): void };
 type ErrorableObserver = { error(e: Error): void };

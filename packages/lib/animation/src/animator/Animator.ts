@@ -1,6 +1,6 @@
-import { Animatable } from './Animatable';
-import { AnimatableWrapper } from './AnimatableWrapper';
-import { Chronometer } from './Chronometer';
+import type { Animatable } from './Animatable';
+import type { AnimatableWrapper } from './AnimatableWrapper';
+import type { Chronometer } from './Chronometer';
 
 /**
  * This animator uses the request animation frame of the browser

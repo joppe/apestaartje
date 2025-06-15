@@ -1,4 +1,4 @@
-import { Square } from './Square';
+import type { Square } from './Square';
 
 /**
  * Calculate the width of a square

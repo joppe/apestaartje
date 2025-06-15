@@ -1,9 +1,9 @@
 import { Observable } from '../../observable/Observable';
-import { Subscription } from '../../observable/Subscription';
-import { SafeObserver } from '../../observer/SafeObserver';
-import { Operator } from '../Operator';
+import type { Subscription } from '../../observable/Subscription';
+import type { SafeObserver } from '../../observer/SafeObserver';
+import type { Operator } from '../Operator';
 
-import { MapFunction } from './MapFunction';
+import type { MapFunction } from './MapFunction';
 
 export function map<T, K>(transform: MapFunction<T, K>): Operator<T, K> {
   return (observable: Observable<T>): Observable<K> => {

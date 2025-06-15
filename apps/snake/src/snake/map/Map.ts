@@ -1,8 +1,8 @@
-import { Asset } from '@apestaartje/animation/stage/Asset';
+import type { Asset } from '@apestaartje/animation/stage/Asset';
 import { Grid } from '@apestaartje/grid/grid/Grid';
-import { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
 
-import { Renderer } from '../render/Renderer';
+import type { Renderer } from '../render/Renderer';
 
 export type MapOptions = {
   renderer: Renderer;

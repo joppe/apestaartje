@@ -1,6 +1,6 @@
 import { range } from '@apestaartje/iterator/range/range';
 
-import { Cell, SudokuGrid } from '../grid/SudokuGrid';
+import type { Cell, SudokuGrid } from '../grid/SudokuGrid';
 
 export type View = {
   update(grid: SudokuGrid): void;

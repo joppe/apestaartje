@@ -1,4 +1,4 @@
-import { SelectHandler } from './SelectHandler';
+import type { SelectHandler } from './SelectHandler';
 
 export function loader(container: HTMLElement, onSelect: SelectHandler): void {
   const input: HTMLInputElement = document.createElement('input');

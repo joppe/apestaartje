@@ -1,5 +1,5 @@
 import { Animator } from '@apestaartje/animation/animator/Animator';
-import { Chronometer } from '@apestaartje/animation/animator/Chronometer';
+import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Stage } from '@apestaartje/animation/stage/Stage';
 
 import { keyboard } from './snake/controls/keyboard';

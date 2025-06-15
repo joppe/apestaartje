@@ -1,4 +1,4 @@
-import { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { add as addVector } from '@apestaartje/geometry/vector/add';
 
 import { zero } from './zero';

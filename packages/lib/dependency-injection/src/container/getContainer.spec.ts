@@ -1,4 +1,4 @@
-import { Container } from './Container';
+import type { Container } from './Container';
 import { getContainer } from './getContainer';
 
 describe('getContainer', (): void => {

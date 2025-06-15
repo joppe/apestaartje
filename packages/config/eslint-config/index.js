@@ -19,6 +19,14 @@ export default defineConfig([
 
   {
     rules: {
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          disallowTypeAnnotations: true,
+          fixStyle: 'separate-type-imports',
+          prefer: 'type-imports',
+        },
+      ],
       '@typescript-eslint/no-unused-vars': [
         'error',
         {

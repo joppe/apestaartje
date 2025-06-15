@@ -1,4 +1,4 @@
-import { Node } from '../spring/Node';
+import type { Node } from '../spring/Node';
 
 export type Cell = {
   topLine: Node;

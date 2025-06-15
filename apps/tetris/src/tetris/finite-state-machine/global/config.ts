@@ -1,4 +1,4 @@
-import { States } from '@apestaartje/finite-state-machine/state/States';
+import type { States } from '@apestaartje/finite-state-machine/state/States';
 
 import { Event } from './Event';
 import { State } from './State';

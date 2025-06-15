@@ -1,5 +1,5 @@
 import { Store } from './Store';
-import { StoreFactory } from './StoreFactory';
+import type { StoreFactory } from './StoreFactory';
 
 export const factory: StoreFactory = ((): StoreFactory => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

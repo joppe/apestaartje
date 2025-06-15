@@ -1,5 +1,5 @@
-import { Cell } from './Cell';
-import { CellCollection } from './CellCollection';
+import type { Cell } from './Cell';
+import type { CellCollection } from './CellCollection';
 
 export type CellRegistry = {
   add(x: number, y: number): Cell;

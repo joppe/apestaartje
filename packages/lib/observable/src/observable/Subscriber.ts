@@ -1,6 +1,6 @@
-import { SafeObserver } from '../observer/SafeObserver';
+import type { SafeObserver } from '../observer/SafeObserver';
 
-import { Subscription } from './Subscription';
+import type { Subscription } from './Subscription';
 
 /**
  * A subscriber is a function that connects a data source to an observable.

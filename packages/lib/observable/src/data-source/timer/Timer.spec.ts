@@ -1,4 +1,4 @@
-import { DataSourceOptions } from '../DataSourceOptions';
+import type { DataSourceOptions } from '../DataSourceOptions';
 
 import { Timer } from './Timer';
 

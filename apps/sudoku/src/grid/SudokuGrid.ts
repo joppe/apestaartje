@@ -1,5 +1,5 @@
 import { Grid } from '@apestaartje/grid/grid/Grid';
-import { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
 
 export type Cell = {
   index: number;

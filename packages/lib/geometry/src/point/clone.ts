@@ -1,4 +1,4 @@
-import { Point } from './Point';
+import type { Point } from './Point';
 
 /**
  * Clone a Point object

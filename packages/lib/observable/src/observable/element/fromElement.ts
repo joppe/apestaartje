@@ -1,6 +1,6 @@
-import { SafeObserver } from '../../observer/SafeObserver';
+import type { SafeObserver } from '../../observer/SafeObserver';
 import { Observable } from '../Observable';
-import { Subscription } from '../Subscription';
+import type { Subscription } from '../Subscription';
 
 export function fromElement(
   element: HTMLElement,

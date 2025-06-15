@@ -1,4 +1,4 @@
-import { Vector } from './Vector';
+import type { Vector } from './Vector';
 import { length } from './length';
 import { scale } from './scale';
 

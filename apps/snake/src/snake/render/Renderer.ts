@@ -1,5 +1,5 @@
-import { Point } from '@apestaartje/geometry/point/Point';
-import { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import type { Point } from '@apestaartje/geometry/point/Point';
+import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
 
 import { State } from '../status/Status';
 

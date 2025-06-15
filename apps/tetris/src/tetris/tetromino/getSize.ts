@@ -1,7 +1,7 @@
-import { Square } from '@apestaartje/geometry/square/Square';
+import type { Square } from '@apestaartje/geometry/square/Square';
 import { height } from '@apestaartje/geometry/square/height';
 import { width } from '@apestaartje/geometry/square/width';
-import { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 
 export function getSize(blocks: Vector[]): number {
   const square: Square = blocks.reduce(

@@ -1,6 +1,6 @@
 import { distance } from '../point/distance';
 
-import { Line } from './Line';
+import type { Line } from './Line';
 
 /**
  * Calculate the length of a line

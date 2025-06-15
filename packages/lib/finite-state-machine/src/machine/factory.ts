@@ -1,6 +1,6 @@
-import { States } from '../state/States';
+import type { States } from '../state/States';
 
-import { Machine } from './Machine';
+import type { Machine } from './Machine';
 
 export function factory({ initial, states }: States): Machine {
   const history: string[] = [];

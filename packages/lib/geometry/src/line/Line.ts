@@ -1,4 +1,4 @@
-import { Point } from '../point/Point';
+import type { Point } from '../point/Point';
 
 /**
  * 2D Line

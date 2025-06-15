@@ -1,6 +1,6 @@
 import { Observable } from '../observable/Observable';
-import { Subscription } from '../observable/Subscription';
-import { SafeObserver } from '../observer/SafeObserver';
+import type { Subscription } from '../observable/Subscription';
+import type { SafeObserver } from '../observer/SafeObserver';
 
 export class Subject<T> extends Observable<T> {
   private _observers: SafeObserver<T>[] = [];

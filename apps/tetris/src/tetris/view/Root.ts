@@ -1,13 +1,13 @@
 import { ChildElements } from '@apestaartje/dom/custom-element/child-element/ChildElements';
 import { Component } from '@apestaartje/dom/custom-element/component/Component';
-import { Machine } from '@apestaartje/finite-state-machine/machine/Machine';
+import type { Machine } from '@apestaartje/finite-state-machine/machine/Machine';
 import { factory as stateFactory } from '@apestaartje/finite-state-machine/machine/factory';
-import { Store } from '@apestaartje/store/Store';
+import type { Store } from '@apestaartje/store/Store';
 
 import { container } from '../dependency-injection/container';
 import { State } from '../finite-state-machine/global/State';
 import { config } from '../finite-state-machine/global/config';
-import { Data } from '../store/Data';
+import type { Data } from '../store/Data';
 
 import './component/PageContainer';
 import './component/Preview';

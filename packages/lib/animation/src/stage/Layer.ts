@@ -1,10 +1,10 @@
 import { Canvas } from '@apestaartje/dom/canvas/Canvas';
-import { Size } from '@apestaartje/geometry/size/Size';
+import type { Size } from '@apestaartje/geometry/size/Size';
 
-import { Chronometer } from '../animator/Chronometer';
+import type { Chronometer } from '../animator/Chronometer';
 
-import { Asset } from './Asset';
-import { AssetConfig } from './AssetConfig';
+import type { Asset } from './Asset';
+import type { AssetConfig } from './AssetConfig';
 
 /**
  * A animatable layer

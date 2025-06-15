@@ -5,8 +5,8 @@ import { InputType } from '@apestaartje/dom/custom-element/input/InputType';
 
 import { container } from '../../dependency-injection/container';
 import { Event } from '../../finite-state-machine/global/Event';
-import { Entry } from '../../game/high-score/Entry';
-import { HighScore } from '../../game/high-score/HighScore';
+import type { Entry } from '../../game/high-score/Entry';
+import type { HighScore } from '../../game/high-score/HighScore';
 import '../component/NavigationLink';
 
 @Component({

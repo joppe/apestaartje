@@ -1,6 +1,6 @@
-import { HSL } from '../hsl/HSL';
+import type { HSL } from '../hsl/HSL';
 import { toRGB } from '../hsl/toRGB';
-import { RGB } from '../rgb/RGB';
+import type { RGB } from '../rgb/RGB';
 import { toHSL } from '../rgb/toHSL';
 
 export function adjust(color: RGB, percentage: number): RGB {

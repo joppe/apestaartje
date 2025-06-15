@@ -1,20 +1,20 @@
 import { Animator } from '@apestaartje/animation/animator/Animator';
-import { Size } from '@apestaartje/geometry/size/Size';
-import { Vector } from '@apestaartje/geometry/vector/Vector';
-import { Observable } from '@apestaartje/observable/observable/Observable';
-import { Subscription } from '@apestaartje/observable/observable/Subscription';
+import type { Size } from '@apestaartje/geometry/size/Size';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { Observable } from '@apestaartje/observable/observable/Observable';
+import type { Subscription } from '@apestaartje/observable/observable/Subscription';
 import { Subject } from '@apestaartje/observable/subject/Subject';
-import { Store } from '@apestaartje/store/Store';
+import type { Store } from '@apestaartje/store/Store';
 
 import { Action } from '../control/Action';
-import { Control } from '../control/Control';
+import type { Control } from '../control/Control';
 import { container } from '../dependency-injection/container';
-import { Cell } from '../grid/Cell';
+import type { Cell } from '../grid/Cell';
 import { Grid } from '../grid/Grid';
-import { Data } from '../store/Data';
-import { Tetromino } from '../tetromino/Tetromino';
-import { TetrominoData } from '../tetromino/TetrominoData';
-import { Type } from '../tetromino/Type';
+import type { Data } from '../store/Data';
+import type { Tetromino } from '../tetromino/Tetromino';
+import type { TetrominoData } from '../tetromino/TetrominoData';
+import type { Type } from '../tetromino/Type';
 import { random } from '../tetromino/random/random';
 
 const INITIAL_SPEED: number = 5;

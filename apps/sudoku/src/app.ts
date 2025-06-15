@@ -1,5 +1,5 @@
 import { SudokuGrid } from './grid/SudokuGrid';
-import { SolutionStrategy } from './strategy/SolutionStrategy';
+import type { SolutionStrategy } from './strategy/SolutionStrategy';
 import { axisPairInBlock } from './strategy/axisPairInBlock';
 import { nakedPairs } from './strategy/nakedPairs';
 import { singlePossibilityInGroup } from './strategy/singlePossibilityInGroup';

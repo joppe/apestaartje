@@ -1,4 +1,4 @@
-import { Observable } from '@apestaartje/observable/observable/Observable';
+import type { Observable } from '@apestaartje/observable/observable/Observable';
 
 import type { Action } from './Action';
 

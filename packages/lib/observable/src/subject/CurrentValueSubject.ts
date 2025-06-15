@@ -1,5 +1,5 @@
-import { Subscription } from '../observable/Subscription';
-import { Observer } from '../observer/Observer';
+import type { Subscription } from '../observable/Subscription';
+import type { Observer } from '../observer/Observer';
 
 import { Subject } from './Subject';
 

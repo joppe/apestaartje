@@ -1,7 +1,7 @@
 import { random as randomNumber } from '@apestaartje/number/random';
 
-import { Tetromino } from '../Tetromino';
-import { Type } from '../Type';
+import type { Tetromino } from '../Tetromino';
+import type { Type } from '../Type';
 import { factory } from '../factory/factory';
 
 import { createTypeList } from './createTypeList';

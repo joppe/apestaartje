@@ -2,7 +2,7 @@ import { ChildElements } from '@apestaartje/dom/custom-element/child-element/Chi
 import { Component } from '@apestaartje/dom/custom-element/component/Component';
 import { Input } from '@apestaartje/dom/custom-element/input/Input';
 import { InputType } from '@apestaartje/dom/custom-element/input/InputType';
-import { EventEmitter } from '@apestaartje/dom/custom-element/output/EventEmitter';
+import type { EventEmitter } from '@apestaartje/dom/custom-element/output/EventEmitter';
 import { Output } from '@apestaartje/dom/custom-element/output/Output';
 
 const ANIMATE_CLASS: string = 'animate';

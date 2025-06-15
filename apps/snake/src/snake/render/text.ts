@@ -1,4 +1,4 @@
-import { Point } from '@apestaartje/geometry/point/Point';
+import type { Point } from '@apestaartje/geometry/point/Point';
 
 export type TextOptions = {
   position: Point;

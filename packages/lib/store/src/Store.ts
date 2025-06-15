@@ -1,4 +1,4 @@
-import { Subscription } from '@apestaartje/observable/observable/Subscription';
+import type { Subscription } from '@apestaartje/observable/observable/Subscription';
 import { CurrentValueSubject } from '@apestaartje/observable/subject/CurrentValueSubject';
 
 export class Store<T extends object> {

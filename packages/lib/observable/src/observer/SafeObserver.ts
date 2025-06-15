@@ -1,6 +1,6 @@
-import { Subscription } from '../observable/Subscription';
+import type { Subscription } from '../observable/Subscription';
 
-import { Observer } from './Observer';
+import type { Observer } from './Observer';
 
 export class SafeObserver<T> implements Observer<T> {
   private _isUnsubscribed = false;
