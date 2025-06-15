@@ -1,4 +1,4 @@
-import { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { length } from '@apestaartje/geometry/vector/length';
 import { scale } from '@apestaartje/geometry/vector/scale';
 

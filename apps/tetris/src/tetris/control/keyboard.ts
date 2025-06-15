@@ -1,9 +1,9 @@
 import { Observable } from '@apestaartje/observable/observable/Observable';
-import { Subscription } from '@apestaartje/observable/observable/Subscription';
-import { SafeObserver } from '@apestaartje/observable/observer/SafeObserver';
+import type { Subscription } from '@apestaartje/observable/observable/Subscription';
+import type { SafeObserver } from '@apestaartje/observable/observer/SafeObserver';
 
 import { Action } from './Action';
-import { Control } from './Control';
+import type { Control } from './Control';
 
 const CLOCKWISE: string = 's';
 const COUNTER_CLOCKWISE: string = 'a';

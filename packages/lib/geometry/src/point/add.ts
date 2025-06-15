@@ -1,4 +1,4 @@
-import { Point } from './Point';
+import type { Point } from './Point';
 
 /**
  * Add two points and return the result in a new Point

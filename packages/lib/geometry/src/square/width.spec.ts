@@ -1,4 +1,4 @@
-import { Square } from './Square';
+import type { Square } from './Square';
 import { width } from './width';
 
 describe('square', (): void => {

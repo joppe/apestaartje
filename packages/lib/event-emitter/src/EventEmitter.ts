@@ -1,5 +1,5 @@
-import { Listener } from './types/Listener';
-import { Unregister } from './types/Unregister';
+import type { Listener } from './types/Listener';
+import type { Unregister } from './types/Unregister';
 
 export type Events = Record<string, Listener<unknown>>;
 

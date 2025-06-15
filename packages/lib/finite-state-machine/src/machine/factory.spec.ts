@@ -1,6 +1,6 @@
-import { States } from '../state/States';
+import type { States } from '../state/States';
 
-import { Machine } from './Machine';
+import type { Machine } from './Machine';
 import { factory } from './factory';
 
 describe('factory', (): void => {

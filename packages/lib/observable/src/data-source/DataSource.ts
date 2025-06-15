@@ -1,6 +1,6 @@
-import { CompleteHandler } from './CompleteHandler';
-import { DataHandler } from './DataHandler';
-import { DataSourceOptions } from './DataSourceOptions';
+import type { CompleteHandler } from './CompleteHandler';
+import type { DataHandler } from './DataHandler';
+import type { DataSourceOptions } from './DataSourceOptions';
 
 /**
  * Abstract class for emitting data

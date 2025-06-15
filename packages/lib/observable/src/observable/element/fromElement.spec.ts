@@ -1,5 +1,5 @@
-import { Observable } from '../Observable';
-import { Subscription } from '../Subscription';
+import type { Observable } from '../Observable';
+import type { Subscription } from '../Subscription';
 
 import { fromElement } from './fromElement';
 

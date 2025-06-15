@@ -1,3 +1,3 @@
-import { Direction } from '../tiles/Direction';
+import type { Direction } from '../tiles/Direction';
 
 export type Callback = (direction: Direction) => void;

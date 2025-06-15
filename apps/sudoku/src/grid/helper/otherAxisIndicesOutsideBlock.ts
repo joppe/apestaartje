@@ -1,6 +1,6 @@
 import { range } from '@apestaartje/iterator/range/range';
 
-import { Axis } from '../Axis';
+import type { Axis } from '../Axis';
 
 export function otherAxisIndicesOutsideBlock(
   blockIndex: number,

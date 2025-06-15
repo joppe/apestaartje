@@ -1,4 +1,4 @@
-import { GameOfLife } from '../GameOfLife';
+import type { GameOfLife } from '../GameOfLife';
 
 export type ControlsFactoryOptions = {
   api: GameOfLife;

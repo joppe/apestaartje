@@ -1,5 +1,5 @@
-import { Point } from '@apestaartje/geometry/point/Point';
-import { Size } from '@apestaartje/geometry/size/Size';
+import type { Point } from '@apestaartje/geometry/point/Point';
+import type { Size } from '@apestaartje/geometry/size/Size';
 
 export type RectangleOptions = {
   position: Point;

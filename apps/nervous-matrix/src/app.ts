@@ -1,9 +1,9 @@
 import { Animator } from '@apestaartje/animation/animator/Animator';
-import { Chronometer } from '@apestaartje/animation/animator/Chronometer';
+import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Stage } from '@apestaartje/animation/stage/Stage';
-import { Size } from '@apestaartje/geometry/size/Size';
+import type { Size } from '@apestaartje/geometry/size/Size';
 
-import { Mapping } from './Mapping';
+import type { Mapping } from './Mapping';
 import { NervousMatrix } from './NervousMatrix';
 
 const size: Size = {

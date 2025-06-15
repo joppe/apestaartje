@@ -1,5 +1,5 @@
 import { Definition } from '../definition/Definition';
-import { Factory } from '../definition/Factory';
+import type { Factory } from '../definition/Factory';
 
 /**
  * The DI container

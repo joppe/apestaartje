@@ -1,6 +1,6 @@
-import { Size } from '@apestaartje/geometry/size/Size';
+import type { Size } from '@apestaartje/geometry/size/Size';
 
-import { Mapping } from './Mapping';
+import type { Mapping } from './Mapping';
 
 export type NervousMatrixOptions = {
   cols: number;

@@ -1,4 +1,4 @@
-import { Config } from './Config';
+import type { Config } from './Config';
 import { InputType } from './InputType';
 import { castValue } from './castValue';
 

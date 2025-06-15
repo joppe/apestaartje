@@ -1,4 +1,4 @@
-import { Line } from './Line';
+import type { Line } from './Line';
 import { length } from './length';
 
 describe('line', (): void => {

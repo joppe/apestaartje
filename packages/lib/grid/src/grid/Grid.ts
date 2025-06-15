@@ -1,4 +1,4 @@
-import { GridPosition } from './GridPosition';
+import type { GridPosition } from './GridPosition';
 
 export type GridOptions<T> = {
   rows: number;

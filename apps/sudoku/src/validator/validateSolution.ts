@@ -1,7 +1,7 @@
 import { range } from '@apestaartje/iterator/range/range';
 
-import { GroupCellsBy } from '../grid/GroupCellsBy';
-import { SudokuGrid } from '../grid/SudokuGrid';
+import type { GroupCellsBy } from '../grid/GroupCellsBy';
+import type { SudokuGrid } from '../grid/SudokuGrid';
 import { cellsByBlock } from '../grid/cellsByBlock';
 import { cellsByColumn } from '../grid/cellsByColumn';
 import { cellsByRow } from '../grid/cellsByRow';

@@ -1,4 +1,4 @@
-import { Vector } from './Vector';
+import type { Vector } from './Vector';
 import { angle } from './angle';
 import { length } from './length';
 

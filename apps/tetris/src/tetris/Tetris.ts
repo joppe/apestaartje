@@ -1,4 +1,4 @@
-import { Store } from '@apestaartje/store/Store';
+import type { Store } from '@apestaartje/store/Store';
 import { factory } from '@apestaartje/store/factory';
 
 import '../../style/tetris.css';
@@ -8,8 +8,8 @@ import { container } from './dependency-injection/container';
 import { Engine } from './game/Engine';
 import { HighScore } from './game/high-score/HighScore';
 import { Local } from './storage/Local';
-import { Storage } from './storage/Storage';
-import { Data } from './store/Data';
+import type { Storage } from './storage/Storage';
+import type { Data } from './store/Data';
 import { initial } from './store/initial';
 import './view/Root';
 

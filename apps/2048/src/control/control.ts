@@ -1,6 +1,6 @@
 import { Direction } from '../tiles/Direction';
 
-import { Callback } from './Callback';
+import type { Callback } from './Callback';
 
 export function control(callback: Callback): void {
   document.body.addEventListener('keydown', (event: KeyboardEvent) => {

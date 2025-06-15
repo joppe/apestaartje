@@ -1,4 +1,4 @@
-import { Asset } from './Asset';
+import type { Asset } from './Asset';
 
 /**
  * Configuration for adding an Asset to a Layer

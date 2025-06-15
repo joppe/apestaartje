@@ -1,8 +1,8 @@
 import { Canvas } from '@apestaartje/dom/canvas/Canvas';
 
-import { GameOfLife } from './GameOfLife';
-import { GameOfLifeOptions } from './GameOfLifeOptions';
-import { Cell } from './cell/Cell';
+import type { GameOfLife } from './GameOfLife';
+import type { GameOfLifeOptions } from './GameOfLifeOptions';
+import type { Cell } from './cell/Cell';
 import { cellRegistryFactory } from './cell/cellRegistryFactory';
 import { controlsFactory } from './controls/controlsFactory';
 

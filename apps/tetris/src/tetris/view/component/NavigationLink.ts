@@ -1,7 +1,7 @@
 import { ChildElement } from '@apestaartje/dom/custom-element/child-element/ChildElement';
 import { Component } from '@apestaartje/dom/custom-element/component/Component';
 import { Input } from '@apestaartje/dom/custom-element/input/Input';
-import { EventEmitter } from '@apestaartje/dom/custom-element/output/EventEmitter';
+import type { EventEmitter } from '@apestaartje/dom/custom-element/output/EventEmitter';
 import { Output } from '@apestaartje/dom/custom-element/output/Output';
 
 @Component({

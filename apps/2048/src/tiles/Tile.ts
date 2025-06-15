@@ -1,7 +1,7 @@
 import { element } from '@apestaartje/element/element';
 
-import { Position } from './Position';
-import { State } from './State';
+import type { Position } from './Position';
+import type { State } from './State';
 import { isSamePosition } from './isSamePosition';
 import './tiles.css';
 

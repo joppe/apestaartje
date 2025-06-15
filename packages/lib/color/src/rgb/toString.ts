@@ -1,4 +1,4 @@
-import { RGB } from './RGB';
+import type { RGB } from './RGB';
 
 function getPart(part: number): string {
   const s: string = part.toString(16);

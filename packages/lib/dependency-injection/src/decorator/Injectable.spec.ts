@@ -1,4 +1,4 @@
-import { Container as DIContainer } from '../container/Container';
+import type { Container as DIContainer } from '../container/Container';
 import { getContainer } from '../container/getContainer';
 
 import { Injectable } from './Injectable';

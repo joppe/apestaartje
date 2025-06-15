@@ -1,4 +1,4 @@
-import { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { add } from '@apestaartje/geometry/vector/add';
 import { scale } from '@apestaartje/geometry/vector/scale';
 import { subtract } from '@apestaartje/geometry/vector/subtract';
@@ -10,7 +10,7 @@ import { acceleration } from '@apestaartje/physics/move/acceleration';
 import { position } from '@apestaartje/physics/move/position';
 import { velocity } from '@apestaartje/physics/move/velocity';
 
-import { NodeOptions } from './NodeOptions';
+import type { NodeOptions } from './NodeOptions';
 
 export class Node {
   private _acceleration: Vector = { x: 0, y: 0 };

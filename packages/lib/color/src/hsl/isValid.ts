@@ -1,4 +1,4 @@
-import { HSL } from './HSL';
+import type { HSL } from './HSL';
 
 export function isValid(hsl: HSL): boolean {
   // check hue

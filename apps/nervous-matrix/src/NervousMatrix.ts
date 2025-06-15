@@ -1,7 +1,7 @@
-import { Chronometer } from '@apestaartje/animation/animator/Chronometer';
-import { Asset } from '@apestaartje/animation/stage/Asset';
+import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
+import type { Asset } from '@apestaartje/animation/stage/Asset';
 
-import { NervousMatrixOptions } from './NervousMatrixOptions';
+import type { NervousMatrixOptions } from './NervousMatrixOptions';
 import { loader } from './image/loader';
 import { keyboardListener } from './interaction/keyboardListener';
 import { Matrix } from './matrix/Matrix';

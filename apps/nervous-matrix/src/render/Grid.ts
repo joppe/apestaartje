@@ -1,15 +1,15 @@
 import { head } from '@apestaartje/array/head';
 import { range } from '@apestaartje/array/iterator/range';
 import { last } from '@apestaartje/array/last';
-import { Size } from '@apestaartje/geometry/size/Size';
+import type { Size } from '@apestaartje/geometry/size/Size';
 
-import { Mapping } from '../Mapping';
-import { Cell } from '../matrix/Cell';
-import { Matrix } from '../matrix/Matrix';
-import { Node } from '../spring/Node';
+import type { Mapping } from '../Mapping';
+import type { Cell } from '../matrix/Cell';
+import type { Matrix } from '../matrix/Matrix';
+import type { Node } from '../spring/Node';
 
-import { GridItem } from './GridItem';
-import { GridOptions } from './GridOptions';
+import type { GridItem } from './GridItem';
+import type { GridOptions } from './GridOptions';
 import { line } from './line';
 
 export class Grid {

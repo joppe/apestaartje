@@ -1,4 +1,4 @@
-import { Store } from './Store';
+import type { Store } from './Store';
 import { factory } from './factory';
 
 type Data = {

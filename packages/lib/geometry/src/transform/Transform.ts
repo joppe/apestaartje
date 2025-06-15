@@ -1,6 +1,6 @@
-import { Point } from '../point/Point';
+import type { Point } from '../point/Point';
 
-import { TransformOptions } from './TransformOptions';
+import type { TransformOptions } from './TransformOptions';
 
 /**
  * Object to handle transformation

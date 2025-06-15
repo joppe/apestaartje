@@ -1,10 +1,10 @@
 import { darken } from '@apestaartje/color/lightness/darken';
 import { lighten } from '@apestaartje/color/lightness/lighten';
-import { RGB } from '@apestaartje/color/rgb/RGB';
+import type { RGB } from '@apestaartje/color/rgb/RGB';
 import { fromString } from '@apestaartje/color/rgb/fromString';
 import { toString } from '@apestaartje/color/rgb/toString';
-import { Size } from '@apestaartje/geometry/size/Size';
-import { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { Size } from '@apestaartje/geometry/size/Size';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 
 export function block(
   context: CanvasRenderingContext2D,

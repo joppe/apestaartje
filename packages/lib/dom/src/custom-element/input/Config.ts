@@ -1,4 +1,4 @@
-import { InputType } from './InputType';
+import type { InputType } from './InputType';
 
 export type Config = {
   attribute?: string;

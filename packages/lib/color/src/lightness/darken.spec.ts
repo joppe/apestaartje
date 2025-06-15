@@ -1,4 +1,4 @@
-import { RGB } from '../rgb/RGB';
+import type { RGB } from '../rgb/RGB';
 
 import { darken } from './darken';
 

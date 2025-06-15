@@ -1,4 +1,4 @@
-import { Square } from './Square';
+import type { Square } from './Square';
 
 /**
  * Calculate the height of a square

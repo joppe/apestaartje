@@ -1,10 +1,10 @@
-import { Size } from '@apestaartje/geometry/size/Size';
+import type { Size } from '@apestaartje/geometry/size/Size';
 
-import { Cell } from '../grid/Cell';
-import { TetrominoData } from '../tetromino/TetrominoData';
-import { Type } from '../tetromino/Type';
+import type { Cell } from '../grid/Cell';
+import type { TetrominoData } from '../tetromino/TetrominoData';
+import type { Type } from '../tetromino/Type';
 
-import { BlockConfig } from './BlockConfig';
+import type { BlockConfig } from './BlockConfig';
 
 export interface Data {
   current: TetrominoData | undefined;

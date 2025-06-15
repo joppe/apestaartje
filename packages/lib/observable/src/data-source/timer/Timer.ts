@@ -1,5 +1,5 @@
 import { DataSource } from '../DataSource';
-import { DataSourceOptions } from '../DataSourceOptions';
+import type { DataSourceOptions } from '../DataSourceOptions';
 
 /**
  * Emit values over a period of time

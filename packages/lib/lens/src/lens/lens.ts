@@ -1,5 +1,5 @@
-import { Getter } from './Getter';
-import { Setter } from './Setter';
+import type { Getter } from './Getter';
+import type { Setter } from './Setter';
 
 export type Lens<T> = {
   get: Getter<T>;

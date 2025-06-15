@@ -1,4 +1,4 @@
-import { HTMLCustomElement } from '../HTMLCustomElement';
+import type { HTMLCustomElement } from '../HTMLCustomElement';
 import { Component } from '../component/Component';
 
 import { Bind } from './Bind';

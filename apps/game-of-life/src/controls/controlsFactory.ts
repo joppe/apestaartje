@@ -1,6 +1,6 @@
-import { FactoryFunction } from '@apestaartje/types/FactoryFunction';
+import type { FactoryFunction } from '@apestaartje/types/FactoryFunction';
 
-import { ControlsFactoryOptions } from './ControlsFactoryOptions';
+import type { ControlsFactoryOptions } from './ControlsFactoryOptions';
 
 export const controlsFactory: FactoryFunction<void, ControlsFactoryOptions> = (
   options: ControlsFactoryOptions,

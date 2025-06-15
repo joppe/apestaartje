@@ -1,9 +1,9 @@
 import { range } from '@apestaartje/array/iterator/range';
-import { Point } from '@apestaartje/geometry/point/Point';
-import { Size } from '@apestaartje/geometry/size/Size';
-import { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { Point } from '@apestaartje/geometry/point/Point';
+import type { Size } from '@apestaartje/geometry/size/Size';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 
-import { Cell } from './Cell';
+import type { Cell } from './Cell';
 
 export class Grid<T> {
   private readonly _size: Size;

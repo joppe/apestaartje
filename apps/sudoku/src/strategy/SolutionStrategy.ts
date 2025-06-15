@@ -1,3 +1,3 @@
-import { SudokuGrid } from '../grid/SudokuGrid';
+import type { SudokuGrid } from '../grid/SudokuGrid';
 
 export type SolutionStrategy = (grid: SudokuGrid) => Promise<number>;

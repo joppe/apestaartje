@@ -1,11 +1,11 @@
 import { radians } from '@apestaartje/geometry/angle/radians';
 import { Transform } from '@apestaartje/geometry/transform/Transform';
-import { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { add } from '@apestaartje/geometry/vector/add';
 import { subtract } from '@apestaartje/geometry/vector/subtract';
 
-import { TetrominoData } from './TetrominoData';
-import { Type } from './Type';
+import type { TetrominoData } from './TetrominoData';
+import type { Type } from './Type';
 import { getSize } from './getSize';
 
 const CENTER_OFFSET: Vector = {

@@ -1,8 +1,8 @@
-import { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
 
-import { Candy } from '../candy/Candy';
-import { Direction } from '../move/Direction';
-import { Snake } from '../snake/Snake';
+import type { Candy } from '../candy/Candy';
+import type { Direction } from '../move/Direction';
+import type { Snake } from '../snake/Snake';
 
 export type ResetOptions = {
   snake: Snake;

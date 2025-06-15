@@ -1,4 +1,4 @@
-import { Vector } from './Vector';
+import type { Vector } from './Vector';
 import { unit } from './unit';
 
 describe('vector', (): void => {

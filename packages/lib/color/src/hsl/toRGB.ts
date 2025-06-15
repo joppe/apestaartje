@@ -1,6 +1,6 @@
-import { RGB } from '../rgb/RGB';
+import type { RGB } from '../rgb/RGB';
 
-import { HSL } from './HSL';
+import type { HSL } from './HSL';
 import { isValid } from './isValid';
 
 /**

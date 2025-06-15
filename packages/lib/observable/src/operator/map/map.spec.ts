@@ -1,8 +1,8 @@
 import { Observable } from '../../observable/Observable';
-import { Subscriber } from '../../observable/Subscriber';
-import { Subscription } from '../../observable/Subscription';
-import { SafeObserver } from '../../observer/SafeObserver';
-import { Operator } from '../Operator';
+import type { Subscriber } from '../../observable/Subscriber';
+import type { Subscription } from '../../observable/Subscription';
+import type { SafeObserver } from '../../observer/SafeObserver';
+import type { Operator } from '../Operator';
 
 import { map } from './map';
 

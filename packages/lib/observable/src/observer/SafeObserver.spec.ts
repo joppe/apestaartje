@@ -1,4 +1,4 @@
-import { Subscription } from '../observable/Subscription';
+import type { Subscription } from '../observable/Subscription';
 
 import { SafeObserver } from './SafeObserver';
 

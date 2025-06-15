@@ -1,12 +1,12 @@
 import { element } from '@apestaartje/element/element';
 
-import { Axis } from './Axis';
+import type { Axis } from './Axis';
 import { Direction } from './Direction';
-import { MoveResult } from './MoveResult';
-import { Position } from './Position';
+import type { MoveResult } from './MoveResult';
+import type { Position } from './Position';
 import { State } from './State';
 import { Tile } from './Tile';
-import { TilesOptions } from './TilesOptions';
+import type { TilesOptions } from './TilesOptions';
 import './tiles.css';
 
 export class Tiles {

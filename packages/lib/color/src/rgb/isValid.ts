@@ -1,4 +1,4 @@
-import { RGB } from './RGB';
+import type { RGB } from './RGB';
 
 export function isValid(rgb: RGB): boolean {
   const properties: (keyof RGB)[] = ['r', 'g', 'b'];

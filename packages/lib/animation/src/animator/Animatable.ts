@@ -1,3 +1,3 @@
-import { Chronometer } from './Chronometer';
+import type { Chronometer } from './Chronometer';
 
 export type Animatable = (chronometer: Chronometer) => boolean;

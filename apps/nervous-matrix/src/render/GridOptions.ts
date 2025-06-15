@@ -1,7 +1,7 @@
-import { Size } from '@apestaartje/geometry/size/Size';
+import type { Size } from '@apestaartje/geometry/size/Size';
 
-import { Mapping } from '../Mapping';
-import { Matrix } from '../matrix/Matrix';
+import type { Mapping } from '../Mapping';
+import type { Matrix } from '../matrix/Matrix';
 
 export interface GridOptions {
   matrix: Matrix;

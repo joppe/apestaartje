@@ -1,9 +1,9 @@
-import { FactoryFunction } from '@apestaartje/types/FactoryFunction';
+import type { FactoryFunction } from '@apestaartje/types/FactoryFunction';
 
-import { Cell } from './Cell';
-import { CellCollection } from './CellCollection';
-import { CellRegistry } from './CellRegistry';
-import { CellRegistryFactoryOptions } from './CellRegistryFactoryOptions';
+import type { Cell } from './Cell';
+import type { CellCollection } from './CellCollection';
+import type { CellRegistry } from './CellRegistry';
+import type { CellRegistryFactoryOptions } from './CellRegistryFactoryOptions';
 
 export const cellRegistryFactory: FactoryFunction<
   CellRegistry,

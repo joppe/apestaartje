@@ -1,4 +1,4 @@
-import { Layer } from './Layer';
+import type { Layer } from './Layer';
 
 /**
  * Configuration for adding an Layer to the Stage

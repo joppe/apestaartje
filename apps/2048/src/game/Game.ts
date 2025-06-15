@@ -3,11 +3,11 @@ import { element } from '@apestaartje/element/element';
 import { control } from '../control/control';
 import { Grid } from '../grid/Grid';
 import { Score } from '../score/Score';
-import { Direction } from '../tiles/Direction';
-import { Position } from '../tiles/Position';
+import type { Direction } from '../tiles/Direction';
+import type { Position } from '../tiles/Position';
 import { Tiles } from '../tiles/Tiles';
 
-import { GameOptions } from './GameOptions';
+import type { GameOptions } from './GameOptions';
 import './game.css';
 
 export class Game {

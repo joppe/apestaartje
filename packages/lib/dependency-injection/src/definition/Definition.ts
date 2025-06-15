@@ -1,6 +1,6 @@
 import { args } from '@apestaartje/function/args';
 
-import { Factory } from './Factory';
+import type { Factory } from './Factory';
 
 /**
  * A dependency definition.

@@ -1,4 +1,4 @@
-import { Chronometer } from '../animator/Chronometer';
+import type { Chronometer } from '../animator/Chronometer';
 
 /**
  * An Asset that can be rendered on a Canvas element

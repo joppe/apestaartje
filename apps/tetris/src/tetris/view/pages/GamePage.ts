@@ -2,7 +2,7 @@ import { ChildElement } from '@apestaartje/dom/custom-element/child-element/Chil
 import { Component } from '@apestaartje/dom/custom-element/component/Component';
 import { Input } from '@apestaartje/dom/custom-element/input/Input';
 import { InputType } from '@apestaartje/dom/custom-element/input/InputType';
-import { Machine } from '@apestaartje/finite-state-machine/machine/Machine';
+import type { Machine } from '@apestaartje/finite-state-machine/machine/Machine';
 import { factory as stateFactory } from '@apestaartje/finite-state-machine/machine/factory';
 
 import { Event as GameEvent } from '../../finite-state-machine/game/Event';

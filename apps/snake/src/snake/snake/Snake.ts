@@ -1,13 +1,13 @@
-import { Chronometer } from '@apestaartje/animation/animator/Chronometer';
-import { Asset } from '@apestaartje/animation/stage/Asset';
+import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
+import type { Asset } from '@apestaartje/animation/stage/Asset';
 import { Timer } from '@apestaartje/animation/timer/Timer';
-import { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
 
 import { isSamePosition } from '../map/isSamePosition';
 import { Direction } from '../move/Direction';
 import { move } from '../move/move';
 import { opposite } from '../move/opposite';
-import { Renderer } from '../render/Renderer';
+import type { Renderer } from '../render/Renderer';
 
 import { Segment } from './Segment';
 

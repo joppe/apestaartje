@@ -1,4 +1,4 @@
-import { Cell, SudokuGrid } from './SudokuGrid';
+import type { Cell, SudokuGrid } from './SudokuGrid';
 
 export function cellsByRow(grid: SudokuGrid, row: number): Iterable<Cell> {
   const start = row * 9;

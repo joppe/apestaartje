@@ -1,9 +1,9 @@
 import { Observable } from '../../observable/Observable';
-import { Subscription } from '../../observable/Subscription';
-import { SafeObserver } from '../../observer/SafeObserver';
-import { Operator } from '../Operator';
+import type { Subscription } from '../../observable/Subscription';
+import type { SafeObserver } from '../../observer/SafeObserver';
+import type { Operator } from '../Operator';
 
-import { FilterFunction } from './FilterFunction';
+import type { FilterFunction } from './FilterFunction';
 
 export function filter<T>(predicate: FilterFunction<T>): Operator<T, T> {
   return (observable: Observable<T>): Observable<T> => {
