@@ -1,0 +1,13 @@
+import { Vector } from '@apestaartje/geometry/vector/Vector';
+
+import { Tetromino } from '../Tetromino';
+import { Type } from '../Type';
+import { getConfig } from '../factory/getConfig';
+
+import { createBlocks } from './createBlocks';
+
+export function factory(type: Type): Tetromino {
+  const blocks: Vector[] = createBlocks(getConfig(type));
+
+  return new Tetromino(type, blocks);
+}

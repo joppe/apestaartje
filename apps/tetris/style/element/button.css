@@ -1,0 +1,21 @@
+button {
+  border: none;
+  background-color: var(--red--geraldine);
+  color: var(--red--kenyan-copper);
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 10px;
+  line-height: 1;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: var(--green--white-rock);
+    color: var(--yellow--sisal);
+  }
+}
