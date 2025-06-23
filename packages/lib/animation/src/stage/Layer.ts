@@ -20,6 +20,10 @@ export class Layer {
     return this._canvas.element;
   }
 
+  get context(): CanvasRenderingContext2D {
+    return this._canvas.context;
+  }
+
   set color(color: string) {
     this._canvas.style.backgroundColor = color;
   }
@@ -34,7 +38,7 @@ export class Layer {
   }
 
   public addAsset(asset: Asset, id: string, depth: number): void {
-    const assetConfigs: AssetConfig[] = this._assetConfigs.concat({
+    const assetConfigs = this._assetConfigs.concat({
       asset,
       depth,
       id,
@@ -64,7 +68,7 @@ export class Layer {
   }
 
   public getAsset(id: string): Asset {
-    const assetConfig: AssetConfig | undefined = this._assetConfigs.find(
+    const assetConfig = this._assetConfigs.find(
       (config: AssetConfig): boolean => {
         return config.id === id;
       },
