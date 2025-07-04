@@ -15,5 +15,4 @@ When merging, create new Tile that is placed on top of the other two.
 - [ ] reset
 - [ ] score
 - [ ] separate folder for Tile related code
-- [ ] Storybook stories in TypeScript
 - [ ] element create reference by providing a callback function

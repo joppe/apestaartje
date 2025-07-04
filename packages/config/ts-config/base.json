@@ -50,7 +50,6 @@
       "@apestaartje/matrix/*": ["apps/matrix/src/*"],
       "@apestaartje/nervous-matrix/*": ["apps/nervous-matrix/src/*"],
       "@apestaartje/snake/*": ["apps/snake/src/*"],
-      "@apestaartje/storybook/*": ["apps/storybook/src/*"],
       "@apestaartje/sudoku/*": ["apps/sudoku/src/*"]
     }
   },

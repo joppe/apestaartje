@@ -3,8 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "cd ./apps/storybook && pnpm run build",
-    "dev": "cd ./apps/storybook && pnpm run dev",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
