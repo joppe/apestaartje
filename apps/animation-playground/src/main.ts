@@ -1,180 +1,111 @@
 import { Animator } from '@apestaartje/animation/animator/Animator';
-import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
-import type { Asset } from '@apestaartje/animation/stage/Asset';
 import { Stage } from '@apestaartje/animation/stage/Stage';
-import type { Point } from '@apestaartje/geometry/point/Point';
-import type { Vector } from '@apestaartje/geometry/vector/Vector';
+import { type Vector } from '@apestaartje/geometry/vector/Vector';
+import { add } from '@apestaartje/geometry/vector/add';
+import { length } from '@apestaartje/geometry/vector/length';
+import { scale } from '@apestaartje/geometry/vector/scale';
+import { subtract } from '@apestaartje/geometry/vector/subtract';
 
-import { circle, line } from './shapes';
+import { Ball } from './objects/Ball';
+import { Line } from './objects/Line';
+import { Spring } from './objects/Spring';
 import './style.css';
+import { Mouse } from './util/Mouse';
 
 const stageSize = { width: 800, height: 600 };
 
-type BallProps = {
-  position: Vector;
-  velocity?: Vector;
-  radius: number;
-  color: string;
-};
-
-class Ball implements Asset {
-  private _position: Vector;
-  private _velocity: Vector;
-  private _radius: number;
-  private _color: string;
-
-  get position(): Vector {
-    return this._position;
-  }
-
-  get radius(): number {
-    return this._radius;
-  }
-
-  get velocity(): Vector {
-    return this._velocity;
-  }
-
-  set velocity(value: Vector) {
-    this._velocity = value;
-  }
-
-  constructor({
-    position,
-    velocity: speed = { x: 0, y: 0 },
-    radius,
-    color,
-  }: BallProps) {
-    this._position = position;
-    this._velocity = speed;
-    this._radius = radius;
-    this._color = color;
-  }
-
-  cleanup(): boolean {
-    return false;
-  }
-
-  tick(_time: Chronometer): void {
-    this._position.x += this._velocity.x;
-    this._position.y += this._velocity.y;
-  }
-
-  render(context: CanvasRenderingContext2D): void {
-    circle(context, {
-      radius: this._radius,
-      position: this._position,
-      color: this._color,
-    });
-  }
-}
-
-type LineProps = {
-  start: Vector;
-  end: Vector;
-  color: string;
-  width: number;
-};
-
-class Line implements Asset {
-  private _start: Vector;
-  private _end: Vector;
-  private _color: string;
-  private _width: number;
-
-  set end(value: Vector) {
-    this._end = value;
-  }
-
-  constructor({ start, end, color, width }: LineProps) {
-    this._start = start;
-    this._end = end;
-    this._color = color;
-    this._width = width;
-  }
-
-  cleanup(): boolean {
-    return false;
-  }
-
-  tick(_time: Chronometer): void {
-    // No dynamic behavior for the line
-  }
-
-  render(context: CanvasRenderingContext2D): void {
-    line(context, {
-      start: this._start,
-      end: this._end,
-      color: this._color,
-      width: this._width,
-    });
-  }
-}
-
-class Mouse {
-  private _position: Point;
-
-  get position(): Point {
-    return this._position;
-  }
-
-  constructor(element: HTMLElement) {
-    this._position = { x: 0, y: 0 };
-
-    this.attachListeners(element);
-  }
-
-  private attachListeners(element: HTMLElement): void {
-    const rect = element.getBoundingClientRect();
-
-    const handle = (event: MouseEvent): void => {
-      this._position.x = event.clientX - rect.left;
-      this._position.y = event.clientY - rect.top;
-    };
-
-    element.addEventListener('mousemove', handle);
-    element.addEventListener('mouseenter', handle);
-  }
-}
-
+const c = 0.1; // Coefficient of friction
 const stage = new Stage(stageSize);
 const foreground = stage.createLayer('foreground', 10);
 const mouse = new Mouse(stage.element);
 
-const lineToMouse = new Line({
-  start: { x: 0, y: 0 },
-  end: { x: 100, y: 100 },
-  color: 'red',
-  width: 20,
-});
-
+const defaultBallAppearance = {
+  color: '#a2a9c3',
+  border: {
+    color: 'black',
+    width: 2,
+  },
+};
 const ball = new Ball({
-  position: { x: 100, y: 100 },
-  velocity: { x: 2.5, y: 2 },
-  radius: 20,
-  color: 'red',
+  position: { x: 400, y: 100 },
+  appearance: defaultBallAppearance,
+  edges: {
+    topLeft: { x: 0, y: 0 },
+    bottomRight: { x: stageSize.width, y: stageSize.height },
+  },
+  mass: 4,
+});
+const anchor = new Ball({
+  position: { x: 400, y: 20 },
+  appearance: {
+    color: '#c3a2a9',
+    border: {
+      color: 'black',
+      width: 2,
+    },
+  },
+  edges: {
+    topLeft: { x: 0, y: 0 },
+    bottomRight: { x: stageSize.width, y: stageSize.height },
+  },
+  mass: 1,
+});
+const line = new Line({
+  start: anchor.position,
+  end: ball.position,
+  color: 'black',
+  width: 2,
+});
+const spring = new Spring({
+  anchor: anchor.position,
+  restLength: 100,
+  maxLength: 200,
+  k: 0.1,
 });
 
-foreground.addAsset(ball, 'ball', 10);
-foreground.addAsset(lineToMouse, 'lineToMouse', 20);
+const gravity = { x: 0, y: 2 }; // Simulated gravity force
+const dragging = {
+  active: false,
+  offset: { x: 0, y: 0 },
+};
+
+foreground.addAsset(line, 'line', 10);
+foreground.addAsset(anchor, 'anchor', 20);
+foreground.addAsset(ball, 'ball', 30);
 
 const animator = new Animator((chronometer) => {
   stage.tick(chronometer);
 
-  lineToMouse.end = mouse.position;
+  ball.applyForce(gravity);
 
   if (
-    ball.position.x + ball.radius > stageSize.width ||
-    ball.position.x - ball.radius < 0
+    !dragging.active &&
+    mouse.isPressed &&
+    ball.isPointInside(mouse.position)
   ) {
-    ball.velocity.x *= -1; // Reverse horizontal speed
+    dragging.active = true;
+    dragging.offset = subtract(ball.position, mouse.position);
+    ball.appearance = {
+      ...defaultBallAppearance,
+      color: '#a2c3b4',
+    };
+  } else if (!mouse.isPressed && dragging.active) {
+    dragging.active = false;
+    ball.appearance = defaultBallAppearance;
+    ball.velocity = { x: 0, y: 0 };
   }
-  if (
-    ball.position.y + ball.radius > stageSize.height ||
-    ball.position.y - ball.radius < 0
-  ) {
-    ball.velocity.y *= -1; // Reverse vertical speed
+
+  if (dragging.active) {
+    const tryPosition = add(mouse.position, dragging.offset);
+
+    ball.position = spring.constraint(tryPosition);
+  } else {
+    const force = spring.calculateForce(ball.position);
+
+    ball.applyForce(force);
   }
+
+  line.end = ball.position;
 
   stage.render();
 
