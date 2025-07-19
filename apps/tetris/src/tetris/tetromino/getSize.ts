@@ -1,11 +1,11 @@
-import type { Square } from '@apestaartje/geometry/square/Square';
-import { height } from '@apestaartje/geometry/square/height';
-import { width } from '@apestaartje/geometry/square/width';
+import type { Rectangle } from '@apestaartje/geometry/rectangle/Rectangle';
+import { height } from '@apestaartje/geometry/rectangle/height';
+import { width } from '@apestaartje/geometry/rectangle/width';
 import type { Vector } from '@apestaartje/geometry/vector/Vector';
 
 export function getSize(blocks: Vector[]): number {
-  const square: Square = blocks.reduce(
-    (acc: Square, point: Vector): Square => {
+  const rectangle: Rectangle = blocks.reduce(
+    (acc: Rectangle, point: Vector): Rectangle => {
       return {
         topLeft: {
           x: Math.min(acc.topLeft.x, point.x),
@@ -27,8 +27,8 @@ export function getSize(blocks: Vector[]): number {
    * When calculating the width and height, it is calculated between the points (the top right corner of a block). Because a block is
    * always 1 wide/high always add one to the result.
    */
-  const w: number = width(square) + 1;
-  const h: number = height(square) + 1;
+  const w: number = width(rectangle) + 1;
+  const h: number = height(rectangle) + 1;
 
   return Math.max(w, h);
 }
