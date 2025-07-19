@@ -1,9 +1,6 @@
 import { Animator } from '@apestaartje/animation/animator/Animator';
 import { Stage } from '@apestaartje/animation/stage/Stage';
-import { type Vector } from '@apestaartje/geometry/vector/Vector';
 import { add } from '@apestaartje/geometry/vector/add';
-import { length } from '@apestaartje/geometry/vector/length';
-import { scale } from '@apestaartje/geometry/vector/scale';
 import { subtract } from '@apestaartje/geometry/vector/subtract';
 
 import { Ball } from './objects/Ball';
@@ -14,7 +11,6 @@ import { Mouse } from './util/Mouse';
 
 const stageSize = { width: 800, height: 600 };
 
-const c = 0.1; // Coefficient of friction
 const stage = new Stage(stageSize);
 const foreground = stage.createLayer('foreground', 10);
 const mouse = new Mouse(stage.element);

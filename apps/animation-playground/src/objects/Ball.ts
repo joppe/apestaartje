@@ -60,7 +60,7 @@ export class Ball extends Movable implements Asset {
   }: BallProps) {
     super({ position, velocity, acceleration, mass });
 
-    this._radius = mass * 10;
+    this._radius = mass * 5;
     this._appearance = appearance;
     this._edges = edges;
   }
