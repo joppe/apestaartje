@@ -7,6 +7,7 @@ export type MovableProps = {
   velocity: Vector;
   acceleration: Vector;
   mass: number;
+  damping?: number;
 };
 
 export class Movable {
@@ -14,7 +15,7 @@ export class Movable {
   protected _velocity: Vector;
   protected _acceleration: Vector;
   protected _mass: number;
-  private _damping = 0.98;
+  protected _damping: number;
 
   get position(): Vector {
     return this._position;
@@ -37,11 +38,13 @@ export class Movable {
     velocity,
     acceleration,
     mass,
+    damping = 0.98,
   }: MovableProps) {
     this._position = position;
     this._velocity = velocity;
     this._acceleration = acceleration;
     this._mass = mass;
+    this._damping = damping;
   }
 
   public applyForce(force: Vector): void {

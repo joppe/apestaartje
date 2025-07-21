@@ -16,7 +16,9 @@ const mouse = new Mouse(stage.element);
 const balls = [
   new Ball({
     position: { x: 400, y: 100 },
-    color: 'blue',
+    appearance: {
+      color: 'blue',
+    },
     edges: {
       topLeft: { x: 0, y: 0 },
       bottomRight: { x: stageSize.width, y: stageSize.height },
@@ -25,7 +27,9 @@ const balls = [
   }),
   new Ball({
     position: { x: 100, y: 100 },
-    color: 'red',
+    appearance: {
+      color: 'red',
+    },
     edges: {
       topLeft: { x: 0, y: 0 },
       bottomRight: { x: stageSize.width, y: stageSize.height },
