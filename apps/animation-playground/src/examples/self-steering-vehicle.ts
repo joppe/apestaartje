@@ -1,9 +1,9 @@
 import { Animator } from '@apestaartje/animation/animator/Animator';
-import { type Chronometer } from '@apestaartje/animation/animator/Chronometer';
+import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Stage } from '@apestaartje/animation/stage/Stage';
 
-import { SelfSteeringVehicle } from './objects/SelfSteeringVehicle';
-import './style.css';
+import { SelfSteeringVehicle } from '../objects/SelfSteeringVehicle';
+import '../style.css';
 
 const stageSize = { width: 800, height: 600 };
 
@@ -24,7 +24,7 @@ const vehicle = new SelfSteeringVehicle({
     topLeft: { x: 0, y: 0 },
     bottomRight: { x: stageSize.width, y: stageSize.height },
   },
-  maxSpeed: 5,
+  maxSpeed: 2,
   maxForce: 0.05,
 });
 foreground.addAsset(vehicle, 'vehicle', 10);
