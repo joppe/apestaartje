@@ -3,4 +3,5 @@ export type Chronometer = {
   current: number;
   offset: number;
   elapsed: number;
+  count: number;
 };
