@@ -1,6 +1,8 @@
+import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import type { Asset } from '@apestaartje/animation/stage/Asset';
-import { Grid } from '@apestaartje/grid/grid/Grid';
-import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import { Cell } from '@apestaartje/grid/Cell';
+import { Grid } from '@apestaartje/grid/Grid';
+import type { GridPosition } from '@apestaartje/grid/GridPosition';
 
 import type { Renderer } from '../render/Renderer';
 
@@ -24,7 +26,7 @@ export class Map implements Asset {
 
   constructor({ renderer, rows, columns }: MapOptions) {
     this._renderer = renderer;
-    this._grid = new Grid({ rows, columns, initializer: () => false });
+    this._grid = new Grid({ rows, columns, initialValue: false });
   }
 
   public randomFreePosition(): GridPosition {
@@ -41,30 +43,28 @@ export class Map implements Asset {
   }
 
   public addWall(position: GridPosition): void {
-    this._grid.setCell(position, true);
+    this._grid.setCell(new Cell({ value: true, ...position }));
   }
 
   public isWall(position: GridPosition): boolean {
-    return this._grid.getCell(position);
+    return this._grid.getCell(position).value;
   }
 
   public cleanup(): boolean {
     return false;
   }
 
-  public tick(): void {
+  public tick(_time: Chronometer): void {
     // Nothing to calculate
   }
 
   public render(context: CanvasRenderingContext2D): void {
-    this._grid.cells.forEach((value: boolean, index: number): void => {
-      if (!value) {
+    this._grid.cells.forEach((cell: Cell<boolean>) => {
+      if (!cell.value) {
         return;
       }
 
-      const position = this._grid.toPosition(index);
-
-      this._renderer.wall(position, context);
+      this._renderer.wall(cell.position, context);
     });
   }
 }

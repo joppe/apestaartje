@@ -1,4 +1,4 @@
-import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import type { GridPosition } from '@apestaartje/grid/GridPosition';
 
 import type { Candy } from '../candy/Candy';
 import type { Direction } from '../move/Direction';

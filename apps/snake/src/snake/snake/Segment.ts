@@ -1,4 +1,4 @@
-import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import type { GridPosition } from '@apestaartje/grid/GridPosition';
 
 export class Segment {
   private _position: GridPosition;
