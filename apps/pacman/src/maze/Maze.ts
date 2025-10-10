@@ -1,6 +1,6 @@
-import { Cell } from '@apestaartje/grid/Cell';
-import { Grid } from '@apestaartje/grid/Grid';
-import { GridPosition } from '@apestaartje/grid/GridPosition';
+import type { Cell } from '@apestaartje/grid/Cell';
+import type { Grid } from '@apestaartje/grid/Grid';
+import type { GridPosition } from '@apestaartje/grid/GridPosition';
 
 type MazeOptions = {
   grid: Grid<string>;

@@ -1,7 +1,7 @@
-import { Vector } from '@apestaartje/geometry/vector/Vector';
-import { GridPosition } from '@apestaartje/grid/GridPosition';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { GridPosition } from '@apestaartje/grid/GridPosition';
 
-import { Maze } from '../maze/Maze';
+import type { Maze } from '../maze/Maze';
 
 type HitWallOptions = {
   maze: Maze;

@@ -1,5 +1,5 @@
-import { Vector } from '@apestaartje/geometry/vector/Vector';
-import { Grid } from '@apestaartje/grid/Grid';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { Grid } from '@apestaartje/grid/Grid';
 
 type GetPacmanPositionFromGridOptions = {
   grid: Grid<string>;

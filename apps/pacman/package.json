@@ -14,13 +14,11 @@
   "license": "MIT",
   "dependencies": {
     "@apestaartje/animation": "workspace:*",
+    "@apestaartje/geometry": "workspace:*",
     "@apestaartje/grid": "workspace:*"
   },
   "devDependencies": {
-    "@apestaartje/animation": "workspace:*",
     "@apestaartje/eslint-config": "workspace:*",
-    "@apestaartje/geometry": "workspace:*",
-    "@apestaartje/grid": "workspace:*",
     "@apestaartje/ts-config": "workspace:*",
     "eslint": "^9.28.0",
     "typescript": "^5.1.3",

@@ -1,6 +1,6 @@
-import { Asset } from '@apestaartje/animation/stage/Asset';
+import type { Asset } from '@apestaartje/animation/stage/Asset';
 
-import { Maze } from './Maze';
+import type { Maze } from './Maze';
 
 type MazeRendererOptions = {
   maze: Maze;

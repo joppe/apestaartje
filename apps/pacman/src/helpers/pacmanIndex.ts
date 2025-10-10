@@ -1,3 +1,6 @@
+import type { Grid } from '@apestaartje/grid/Grid';
+import type { GridPosition } from '@apestaartje/grid/GridPosition';
+
 export function findPacman(
   grid: Grid<string>,
   pacmanChar: string,

@@ -1,7 +1,7 @@
 import { Animator } from '@apestaartje/animation/animator/Animator';
-import { Chronometer } from '@apestaartje/animation/animator/Chronometer';
+import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Stage } from '@apestaartje/animation/stage/Stage';
-import { Vector } from '@apestaartje/geometry/vector/Vector';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { add } from '@apestaartje/geometry/vector/add';
 
 import { hitWall } from './collision-detection/hitWall';

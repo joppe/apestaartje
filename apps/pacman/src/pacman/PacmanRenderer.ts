@@ -1,10 +1,10 @@
-import { Chronometer } from '@apestaartje/animation/animator/Chronometer';
-import { Asset } from '@apestaartje/animation/stage/Asset';
+import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
+import type { Asset } from '@apestaartje/animation/stage/Asset';
 import { Timer } from '@apestaartje/animation/timer/Timer';
 
 import sprite from '../../assets/pacman.gif';
 
-import { Pacman } from './Pacman';
+import type { Pacman } from './Pacman';
 
 type PacmanRendererOptions = {
   pacman: Pacman;
@@ -38,6 +38,7 @@ export class PacmanRenderer implements Asset {
     this._sprite = new Image();
     this._sprite.onload = (): void => {
       this._ready = true;
+      console.log('Pacman ready');
     };
     this._sprite.src = sprite;
     this._timer = new Timer(100);
