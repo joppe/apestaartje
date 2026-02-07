@@ -1,7 +1,7 @@
+import type { Rectangle } from '@apestaartje/geometry/rectangle/Rectangle';
+import { height } from '@apestaartje/geometry/rectangle/height';
+import { width } from '@apestaartje/geometry/rectangle/width';
 import type { Size } from '@apestaartje/geometry/size/Size';
-import type { Square } from '@apestaartje/geometry/square/Square';
-import { height } from '@apestaartje/geometry/square/height';
-import { width } from '@apestaartje/geometry/square/width';
 
 /**
  * Canvas helper class
@@ -61,7 +61,7 @@ export class Canvas {
    * Clear the canvas
    */
   public clear(
-    area: Square = {
+    area: Rectangle = {
       topLeft: { x: 0, y: 0 },
       bottomRight: { x: this.size.width, y: this.size.height },
     },

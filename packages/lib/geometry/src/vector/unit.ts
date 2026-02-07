@@ -7,7 +7,7 @@ import { scale } from './scale';
  */
 
 export function unit(a: Vector): Vector {
-  const len: number = length(a);
+  const len = length(a);
 
   if (len === 0) {
     throw new Error('Could not create unit vector because length is 0');

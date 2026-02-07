@@ -1,10 +1,10 @@
 import type { Point } from '../point/Point';
 
 /**
- * Interface describing a square
+ * Interface describing a rectangle
  */
 
-export type Square = {
+export type Rectangle = {
   topLeft: Point;
   bottomRight: Point;
 };

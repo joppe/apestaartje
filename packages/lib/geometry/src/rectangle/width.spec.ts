@@ -1,10 +1,10 @@
-import type { Square } from './Square';
+import type { Rectangle } from './Rectangle';
 import { width } from './width';
 
-describe('square', (): void => {
+describe('rectangle', (): void => {
   describe('width', (): void => {
-    it('calculate the width of a square', (): void => {
-      const s: Square = {
+    it('calculate the width of a rectangle', (): void => {
+      const s: Rectangle = {
         topLeft: {
           x: 0,
           y: 0,
@@ -19,7 +19,7 @@ describe('square', (): void => {
     });
 
     it('the width is alway equal or greater than zero', (): void => {
-      const s1: Square = {
+      const s1: Rectangle = {
         topLeft: {
           x: 100,
           y: 0,
@@ -29,7 +29,7 @@ describe('square', (): void => {
           y: 56,
         },
       };
-      const s2: Square = {
+      const s2: Rectangle = {
         topLeft: {
           x: 100,
           y: 0,

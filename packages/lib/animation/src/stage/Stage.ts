@@ -34,8 +34,8 @@ export class Stage {
   }
 
   public createLayer(id: string, depth: number): Layer {
-    const layer: Layer = new Layer(this._container, this._size);
-    const layerConfigs: LayerConfig[] = this._layerConfigs.concat({
+    const layer = new Layer(this._container, this._size);
+    const layerConfigs = this._layerConfigs.concat({
       depth,
       id,
       layer,
@@ -67,7 +67,7 @@ export class Stage {
   }
 
   public getLayer(id = 'root'): Layer {
-    const layerConfig: LayerConfig | undefined = this._layerConfigs.find(
+    const layerConfig = this._layerConfigs.find(
       (config: LayerConfig): boolean => {
         return config.id === id;
       },
