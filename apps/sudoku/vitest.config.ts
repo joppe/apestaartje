@@ -1,10 +1,6 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
 import { defineConfig, mergeConfig } from 'vitest/config';
 
 import baseConfig from '@apestaartje/vitest-config';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default mergeConfig(
   baseConfig,
@@ -16,18 +12,6 @@ export default mergeConfig(
         reporter: ['text', 'json', 'html'],
       },
       setupFiles: ['./vitest.setup.ts'],
-    },
-    resolve: {
-      alias: [
-        {
-          find: /^@apestaartje\/iterator\/(.*)$/,
-          replacement: path.resolve(
-            __dirname,
-            '../../packages/lib/iterator/src/$1',
-          ),
-        },
-      ],
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     },
   }),
 );

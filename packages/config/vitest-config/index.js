@@ -9,17 +9,17 @@ const moduleNameMapper = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'moduleNameMapper.json'), 'utf8'),
 );
 
-// Convert Jest moduleNameMapper to Vitest alias format
-const alias = Object.entries(moduleNameMapper).reduce((acc, [key, value]) => {
-  // Remove (.*) from the key and convert <rootDir>../path/src/$1 to absolute path
-  // Add trailing slash to support deep imports
-  const aliasKey = key.replace('/(.*)', '/');
-  const aliasValue = value
-    .replace('<rootDir>..', path.join(__dirname, '../../lib'))
-    .replace('/src/$1', '/src/');
-  acc[aliasKey] = aliasValue;
-  return acc;
-}, {});
+// Convert Jest moduleNameMapper to Vitest alias format using regex
+// This supports deep imports like @apestaartje/iterator/range/range
+const alias = Object.entries(moduleNameMapper).map(([key, value]) => {
+  // Extract package name from key: "@apestaartje/array/(.*)" -> "array"
+  const packageName = key.match(/@apestaartje\/([^/]+)/)[1];
+
+  return {
+    find: new RegExp(`^@apestaartje/${packageName}/(.*)$`),
+    replacement: path.join(__dirname, `../../lib/${packageName}/src/$1`),
+  };
+});
 
 const config = {
   test: {
@@ -28,6 +28,7 @@ const config = {
   },
   resolve: {
     alias,
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
   },
 };
 
