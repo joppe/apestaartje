@@ -2,3 +2,5 @@ packages:
   - apps/*
   - packages/config/*
   - packages/lib/*
+allowBuilds:
+  esbuild: set this to true or false
