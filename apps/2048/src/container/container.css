@@ -1,8 +1,8 @@
 @import '../vars.css';
 
 .container {
-    position: relative;
-    display: inline-block;
-    border-radius: 4px;
-    border: 2px solid var(--border-color);
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  border: 2px solid var(--border-color);
 }

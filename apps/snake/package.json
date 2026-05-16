@@ -1,18 +1,18 @@
 {
   "name": "@apestaartje/snake",
   "version": "1.0.0",
-  "type": "module",
   "description": "Snake game",
+  "license": "MIT",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
     "lint": "eslint ./src --fix"
   },
-  "author": {
-    "name": "Joppe Aarts",
-    "email": "joppe@apestaartje.info"
-  },
-  "license": "MIT",
   "dependencies": {
     "@apestaartje/animation": "workspace:*",
     "@apestaartje/grid": "workspace:*"

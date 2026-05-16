@@ -1,14 +1,17 @@
 {
   "name": "@apestaartje/game-of-life",
   "version": "1.0.0",
+  "license": "MIT",
+  "author": "Joppe Aarts <joppe@apestaartje.info>",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
     "lint": "eslint ./src --fix"
   },
-  "author": "Joppe Aarts <joppe@apestaartje.info>",
-  "license": "MIT",
+  "dependencies": {
+    "@apestaartje/dom": "workspace:*"
+  },
   "devDependencies": {
     "@apestaartje/eslint-config": "workspace:*",
     "@apestaartje/ts-config": "workspace:*",
@@ -16,8 +19,5 @@
     "eslint": "^9.28.0",
     "typescript": "^6.0.3",
     "vite": "^6.3.5"
-  },
-  "dependencies": {
-    "@apestaartje/dom": "workspace:*"
   }
 }

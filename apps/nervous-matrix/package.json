@@ -1,23 +1,16 @@
 {
   "name": "@apestaartje/nervous-matrix",
   "version": "2.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
     "lint": "eslint ./src --fix"
-  },
-  "author": {
-    "name": "Joppe Aarts",
-    "email": "joppe@apestaartje.info"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "@apestaartje/eslint-config": "workspace:*",
-    "@apestaartje/ts-config": "workspace:*",
-    "eslint": "^9.28.0",
-    "typescript": "^6.0.3",
-    "vite": "^6.3.5"
   },
   "dependencies": {
     "@apestaartje/animation": "workspace:*",
@@ -26,5 +19,12 @@
     "@apestaartje/geometry": "workspace:*",
     "@apestaartje/number": "workspace:*",
     "@apestaartje/physics": "workspace:*"
+  },
+  "devDependencies": {
+    "@apestaartje/eslint-config": "workspace:*",
+    "@apestaartje/ts-config": "workspace:*",
+    "eslint": "^9.28.0",
+    "typescript": "^6.0.3",
+    "vite": "^6.3.5"
   }
 }

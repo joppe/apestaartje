@@ -1,8 +1,13 @@
 {
   "name": "@apestaartje/sudoku",
   "version": "1.0.0",
-  "type": "module",
   "description": "Sudoku solver",
+  "license": "MIT",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
@@ -10,11 +15,6 @@
     "test": "vitest run --coverage",
     "test:watch": "vitest"
   },
-  "author": {
-    "name": "Joppe Aarts",
-    "email": "joppe@apestaartje.info"
-  },
-  "license": "MIT",
   "dependencies": {
     "@apestaartje/event-emitter": "workspace:*",
     "@apestaartje/grid": "workspace:*",

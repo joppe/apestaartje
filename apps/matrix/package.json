@@ -1,29 +1,29 @@
 {
   "name": "@apestaartje/matrix",
   "version": "0.0.0",
-  "type": "module",
   "description": "The Matrix rain effect",
+  "license": "MIT",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
+  "files": [
+    "src/**/*"
+  ],
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
     "lint": "eslint ./src --fix"
   },
-  "author": {
-    "name": "Joppe Aarts",
-    "email": "joppe@apestaartje.info"
+  "dependencies": {
+    "@apestaartje/animation": "workspace:*"
   },
-  "license": "MIT",
-  "files": [
-    "src/**/*"
-  ],
   "devDependencies": {
     "@apestaartje/eslint-config": "workspace:*",
     "@apestaartje/ts-config": "workspace:*",
     "eslint": "^9.28.0",
     "typescript": "^6.0.3",
     "vite": "^6.3.5"
-  },
-  "dependencies": {
-    "@apestaartje/animation": "workspace:*"
   }
 }

@@ -1,17 +1,17 @@
 {
   "name": "@apestaartje/event-emitter",
   "version": "0.0.1",
-  "type": "module",
   "description": "Listen and trigger events",
-  "scripts": {
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
-    "lint": "eslint ./src --fix"
-  },
+  "license": "MIT",
   "author": {
     "name": "Joppe Aarts",
     "email": "joppe@apestaartje.info"
   },
-  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
+    "lint": "eslint ./src --fix"
+  },
   "devDependencies": {
     "@apestaartje/eslint-config": "workspace:*",
     "@apestaartje/ts-config": "workspace:*",

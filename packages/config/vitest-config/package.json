@@ -1,14 +1,14 @@
 {
   "name": "@apestaartje/vitest-config",
   "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "generate-paths": "node ./scripts/package-mapper.js"
-  },
+  "license": "MIT",
   "author": {
     "name": "Joppe Aarts",
     "email": "joppe@apestaartje.info"
   },
-  "license": "MIT",
-  "main": "index.js"
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "generate-paths": "node ./scripts/package-mapper.js"
+  }
 }

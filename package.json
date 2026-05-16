@@ -2,27 +2,26 @@
   "name": "apestaartje",
   "version": "1.0.0",
   "description": "",
-  "scripts": {
-    "lint": "turbo run lint",
-    "test": "turbo run test",
-    "clean": "turbo run clean && rm -rf node_modules",
-    "format": "prettier --write \"**/*.{js,json,ts,md}\"",
-    "generate-paths": "turbo run generate-paths"
+  "license": "MIT",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joppe/apestaartje.git"
   },
-  "author": {
-    "name": "Joppe Aarts",
-    "email": "joppe@apestaartje.info"
+  "scripts": {
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "oxfmt",
+    "generate-paths": "turbo run generate-paths"
   },
-  "license": "MIT",
   "devDependencies": {
     "@apestaartje/eslint-config": "workspace:*",
-    "@apestaartje/prettier-config": "workspace:*",
     "eslint": "^9.28.0",
-    "prettier": "^3.5.3",
+    "oxfmt": "^0.50.0",
     "turbo": "^1.10.1",
     "vitest": "^4.1.6"
   },

@@ -1,19 +1,25 @@
 {
   "name": "@apestaartje/store",
   "version": "1.0.0",
-  "type": "module",
   "description": "A store library",
+  "license": "MIT",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
     "lint": "eslint ./src --fix",
     "test": "vitest run --coverage",
     "test:watch": "vitest"
   },
-  "author": {
-    "name": "Joppe Aarts",
-    "email": "joppe@apestaartje.info"
+  "dependencies": {
+    "@apestaartje/observable": "workspace:*"
   },
-  "license": "MIT",
   "devDependencies": {
     "@apestaartje/eslint-config": "workspace:*",
     "@apestaartje/ts-config": "workspace:*",
@@ -22,11 +28,5 @@
     "eslint": "^9.28.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.6"
-  },
-  "dependencies": {
-    "@apestaartje/observable": "workspace:*"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
