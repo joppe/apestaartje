@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+
 import type { Subscription } from '../observable/Subscription';
 
 import { SafeObserver } from './SafeObserver';
@@ -24,7 +26,7 @@ describe('SafeObserver', (): void => {
         },
       };
       const s: SafeObserver<number> = new SafeObserver<number>(o);
-      const nextSpy = jest.spyOn(o, 'next');
+      const nextSpy = vi.spyOn(o, 'next');
 
       s.next(16);
 
@@ -45,7 +47,7 @@ describe('SafeObserver', (): void => {
       const s: SafeObserver<number> = new SafeObserver<number>(o);
       s.registerSubscription(u);
 
-      const unsubscriptionSpy = jest.spyOn(u, 'unsubscribe');
+      const unsubscriptionSpy = vi.spyOn(u, 'unsubscribe');
 
       expect((): void => {
         s.next(16);
@@ -73,11 +75,11 @@ describe('SafeObserver', (): void => {
           // nothing
         },
       };
-      const unsubscriptionSpy = jest.spyOn(u, 'unsubscribe');
+      const unsubscriptionSpy = vi.spyOn(u, 'unsubscribe');
       const s: SafeObserver<number> = new SafeObserver<number>(o);
       s.registerSubscription(u);
 
-      const errorSpy = jest.spyOn(o, 'error');
+      const errorSpy = vi.spyOn(o, 'error');
       const e: Error = new Error('??');
 
       s.error(e);
@@ -101,7 +103,7 @@ describe('SafeObserver', (): void => {
       const s: SafeObserver<number> = new SafeObserver<number>(o);
       s.registerSubscription(u);
 
-      const unsubscriptionSpy = jest.spyOn(u, 'unsubscribe');
+      const unsubscriptionSpy = vi.spyOn(u, 'unsubscribe');
 
       expect((): void => {
         s.error(new Error('**'));
@@ -129,11 +131,11 @@ describe('SafeObserver', (): void => {
           // nothing
         },
       };
-      const unsubscriptionSpy = jest.spyOn(u, 'unsubscribe');
+      const unsubscriptionSpy = vi.spyOn(u, 'unsubscribe');
       const s: SafeObserver<number> = new SafeObserver<number>(o);
       s.registerSubscription(u);
 
-      const completeSpy = jest.spyOn(o, 'complete');
+      const completeSpy = vi.spyOn(o, 'complete');
 
       s.complete();
 
@@ -156,7 +158,7 @@ describe('SafeObserver', (): void => {
       const s: SafeObserver<number> = new SafeObserver<number>(o);
       s.registerSubscription(u);
 
-      const unsubscriptionSpy = jest.spyOn(u, 'unsubscribe');
+      const unsubscriptionSpy = vi.spyOn(u, 'unsubscribe');
 
       expect((): void => {
         s.complete();
@@ -176,7 +178,7 @@ describe('SafeObserver', (): void => {
       };
       s.registerSubscription(u);
 
-      const unsubscriptionSpy = jest.spyOn(u, 'unsubscribe');
+      const unsubscriptionSpy = vi.spyOn(u, 'unsubscribe');
 
       s.unsubscribe();
 
@@ -203,10 +205,10 @@ describe('SafeObserver', (): void => {
       };
       s.registerSubscription(u);
 
-      const unsubscriptionSpy = jest.spyOn(u, 'unsubscribe');
-      const nextSpy = jest.spyOn(o, 'next');
-      const errorSpy = jest.spyOn(o, 'error');
-      const completeSpy = jest.spyOn(o, 'complete');
+      const unsubscriptionSpy = vi.spyOn(u, 'unsubscribe');
+      const nextSpy = vi.spyOn(o, 'next');
+      const errorSpy = vi.spyOn(o, 'error');
+      const completeSpy = vi.spyOn(o, 'complete');
 
       s.unsubscribe();
 

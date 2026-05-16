@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+
 import { Observable } from '../../observable/Observable';
 import type { Subscriber } from '../../observable/Subscriber';
 import type { Subscription } from '../../observable/Subscription';
@@ -52,7 +54,7 @@ describe('filter', (): void => {
       },
     };
     const filtered: Observable<number> = f(observable);
-    const nextSpy = jest.spyOn(o, 'next');
+    const nextSpy = vi.spyOn(o, 'next');
 
     filtered.subscribe(o);
 

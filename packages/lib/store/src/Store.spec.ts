@@ -32,24 +32,26 @@ describe('Store', (): void => {
   });
 
   describe('subscribe', (): void => {
-    it('emit new values', (done: () => void): void => {
-      let count = 0;
+    it('emit new values', (): Promise<void> => {
+      return new Promise<void>((resolve) => {
+        let count = 0;
 
-      /**
-       * When the subscription is added the current value is immediately emitted
-       */
-      s.subscribe('foo', (value: string): void => {
-        count += 1;
+        /**
+         * When the subscription is added the current value is immediately emitted
+         */
+        s.subscribe('foo', (value: string): void => {
+          count += 1;
 
-        if (count === 1) {
-          expect(value).toBe('bar');
-        } else {
-          expect(value).toBe('Hello!');
-          done();
-        }
+          if (count === 1) {
+            expect(value).toBe('bar');
+          } else {
+            expect(value).toBe('Hello!');
+            resolve();
+          }
+        });
+
+        s.set('foo', 'Hello!');
       });
-
-      s.set('foo', 'Hello!');
     });
   });
 });

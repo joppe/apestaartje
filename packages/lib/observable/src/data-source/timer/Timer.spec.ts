@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+
 import type { DataSourceOptions } from '../DataSourceOptions';
 
 import { Timer } from './Timer';
@@ -13,8 +15,8 @@ describe('Timer', (): void => {
       },
     };
 
-    const onDataSpy = jest.spyOn(options, 'onData');
-    const onCompleteSpy = jest.spyOn(options, 'onComplete');
+    const onDataSpy = vi.spyOn(options, 'onData');
+    const onCompleteSpy = vi.spyOn(options, 'onComplete');
 
     new Timer(options, 10, 10);
 
@@ -37,8 +39,8 @@ describe('Timer', (): void => {
         },
       };
 
-      const onDataSpy = jest.spyOn(options, 'onData');
-      const onCompleteSpy = jest.spyOn(options, 'onComplete');
+      const onDataSpy = vi.spyOn(options, 'onData');
+      const onCompleteSpy = vi.spyOn(options, 'onComplete');
 
       new Timer(options, 100, 100);
 
