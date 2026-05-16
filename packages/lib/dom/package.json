@@ -20,7 +20,6 @@
     "@apestaartje/geometry": "workspace:*"
   },
   "devDependencies": {
-    "@apestaartje/ts-config": "workspace:*",
     "@apestaartje/types": "workspace:*",
     "@apestaartje/vitest-config": "workspace:*",
     "@vitest/coverage-v8": "^4.1.6",

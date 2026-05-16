@@ -21,7 +21,6 @@
     "@apestaartje/types": "workspace:*"
   },
   "devDependencies": {
-    "@apestaartje/ts-config": "workspace:*",
     "@apestaartje/vitest-config": "workspace:*",
     "@vitest/coverage-v8": "^4.1.6",
     "typescript": "^6.0.3",

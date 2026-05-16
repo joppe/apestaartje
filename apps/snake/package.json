@@ -17,7 +17,6 @@
     "@apestaartje/grid": "workspace:*"
   },
   "devDependencies": {
-    "@apestaartje/ts-config": "workspace:*",
     "typescript": "^6.0.3",
     "vite": "^6.3.5"
   }

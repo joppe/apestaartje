@@ -23,7 +23,6 @@
     "release": "npm publish dist"
   },
   "devDependencies": {
-    "@apestaartje/ts-config": "workspace:*",
     "typescript": "^6.0.3"
   }
 }

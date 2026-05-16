@@ -12,7 +12,6 @@
     "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage"
   },
   "devDependencies": {
-    "@apestaartje/ts-config": "workspace:*",
     "@apestaartje/vitest-config": "workspace:*",
     "@vitest/coverage-v8": "^4.1.6",
     "typescript": "^6.0.3",
