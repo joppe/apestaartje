@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import { FPS } from './FPS';
 
 describe('FPS', (): void => {

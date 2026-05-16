@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { toRGB } from './toRGB';
 
 describe('toRGB', (): void => {

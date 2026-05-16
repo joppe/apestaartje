@@ -1,3 +1,5 @@
+import { describe, it, test, expect } from 'vitest';
+
 import { assoc } from './assoc';
 import { lens } from './lens';
 import { prop } from './prop';

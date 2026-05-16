@@ -1,3 +1,5 @@
+import { describe, it, test, expect, beforeEach, afterEach } from 'vitest';
+
 import { Component } from '../component/Component';
 
 import { Input } from './Input';

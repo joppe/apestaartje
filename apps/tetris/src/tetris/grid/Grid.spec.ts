@@ -1,3 +1,5 @@
+import { describe, it, expect, beforeEach } from 'vitest';
+
 import type { Cell } from './Cell';
 import { Grid } from './Grid';
 

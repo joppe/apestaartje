@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { Tetromino } from './Tetromino';
 import { Type } from './Type';
 

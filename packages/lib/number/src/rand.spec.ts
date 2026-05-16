@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { rand } from './rand';
 
 describe('rand', (): void => {

@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { args } from './args';
 
 describe('function args', (): void => {

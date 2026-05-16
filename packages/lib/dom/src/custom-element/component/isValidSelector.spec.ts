@@ -1,3 +1,5 @@
+import { describe, it, test, expect } from 'vitest';
+
 import { isValidSelector } from './isValidSelector';
 
 describe('isValidSelector', (): void => {

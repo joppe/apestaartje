@@ -1,3 +1,5 @@
+import { describe, it, test, expect } from 'vitest';
+
 import { assoc } from './assoc';
 
 describe('assoc', (): void => {

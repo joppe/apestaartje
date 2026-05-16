@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { Definition } from './Definition';
 
 describe('Definition', (): void => {

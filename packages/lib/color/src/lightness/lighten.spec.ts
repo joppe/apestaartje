@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import type { RGB } from '../rgb/RGB';
 
 import { lighten } from './lighten';
