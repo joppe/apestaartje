@@ -33,7 +33,7 @@
     "@apestaartje/ts-config": "workspace:*",
     "@apestaartje/vitest-config": "workspace:*",
     "@vitest/coverage-v8": "^4.1.6",
-    "jsdom": "^25.0.0",
+    "jsdom": "^29.1.1",
     "typescript": "^6.0.3",
     "vite": "^6.3.5",
     "vitest": "^4.1.6"

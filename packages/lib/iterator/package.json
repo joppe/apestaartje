@@ -21,7 +21,6 @@
     "@apestaartje/types": "workspace:*",
     "@apestaartje/vitest-config": "workspace:*",
     "@vitest/coverage-v8": "^4.1.6",
-    "jest-environment-jsdom": "^29.5.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.6"
   }
