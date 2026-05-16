@@ -1,16 +1,16 @@
-import { describe, it, test, expect } from 'vitest';
+import { describe, it, expect } from "vitest";
 
-import { Component } from '../component/Component';
+import { Component } from "../component/Component";
 
-import type { EventEmitter } from './EventEmitter';
-import { Output } from './Output';
+import type { EventEmitter } from "./EventEmitter";
+import { Output } from "./Output";
 
 @Component({
-  selector: 'test-output',
+  selector: "test-output",
   template: ` <h1>Testing</h1> `,
 })
 class Test extends HTMLElement {
-  @Output('counter')
+  @Output("counter")
   declare public counter: EventEmitter<number>;
 
   private _count = 0;
@@ -22,15 +22,15 @@ class Test extends HTMLElement {
   }
 }
 
-describe('Output', (): void => {
-  it('fire a CustomEvent', (): void => {
-    window.document.body.appendChild(document.createElement('test-output'));
+describe("Output", (): void => {
+  it("fire a CustomEvent", (): void => {
+    window.document.body.appendChild(document.createElement("test-output"));
 
-    const el: Test = <Test>window.document.querySelector('test-output');
+    const el: Test = <Test>window.document.querySelector("test-output");
     let catchCount = 0;
     let lastValue: number | undefined;
 
-    window.document.body.addEventListener('counter', (event: Event): void => {
+    window.document.body.addEventListener("counter", (event: Event): void => {
       catchCount += 1;
       lastValue = (event as CustomEvent<number>).detail;
     });

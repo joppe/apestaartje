@@ -1,8 +1,6 @@
-/* eslint-env node */
+import crypto from "crypto";
 
-const crypto = require('crypto');
-
-Object.defineProperty(global.self, 'crypto', {
+Object.defineProperty(global.self, "crypto", {
   value: {
     getRandomValues: (arr) => crypto.randomFillSync(arr),
   },

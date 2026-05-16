@@ -1,17 +1,17 @@
-import { describe, it, test, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
 
-import { Component } from '../component/Component';
+import { Component } from "../component/Component";
 
-import { Input } from './Input';
-import { InputType } from './InputType';
+import { Input } from "./Input";
+import { InputType } from "./InputType";
 
 @Component({
-  selector: 'test-input',
+  selector: "test-input",
   template: ` <h1>Testing</h1> `,
 })
 class Test extends HTMLElement {
   @Input({
-    attribute: 'text',
+    attribute: "text",
     type: InputType.Str,
   })
   declare public string: string;
@@ -35,11 +35,11 @@ class Test extends HTMLElement {
   }
 }
 
-describe('Input', (): void => {
+describe("Input", (): void => {
   let container: HTMLDivElement;
 
   beforeEach((): void => {
-    container = document.createElement('div');
+    container = document.createElement("div");
 
     container.innerHTML = `
         <test-input text="Hello World!" float="3.14" boolean="false"></test-input>
@@ -52,24 +52,24 @@ describe('Input', (): void => {
     container.remove();
   });
 
-  it('When the attribute is given, the name of the property will be ignored', (): void => {
-    const el: Test = <Test>window.document.querySelector('test-input');
+  it("When the attribute is given, the name of the property will be ignored", (): void => {
+    const el: Test = <Test>window.document.querySelector("test-input");
 
-    expect(el.string).toBe('Hello World!');
+    expect(el.string).toBe("Hello World!");
   });
 
-  it('When the type is given, the value will be cased to that type', (): void => {
-    const el: Test = <Test>window.document.querySelector('test-input');
+  it("When the type is given, the value will be cased to that type", (): void => {
+    const el: Test = <Test>window.document.querySelector("test-input");
 
     expect(el.float).toBe(3.14);
   });
 
-  it('When the watch is set to true, the attribute is watched', (): void => {
-    const el: Test = <Test>window.document.querySelector('test-input');
+  it("When the watch is set to true, the attribute is watched", (): void => {
+    const el: Test = <Test>window.document.querySelector("test-input");
 
     expect(el.float).toBe(3.14);
 
-    el.setAttribute('float', '12');
+    el.setAttribute("float", "12");
 
     expect(el.float).toBe(12);
 

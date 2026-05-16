@@ -1,22 +1,22 @@
-import { describe, it, test, expect } from 'vitest';
+import { describe, it, expect } from "vitest";
 
-import { assoc } from './assoc';
+import { assoc } from "./assoc";
 
-describe('assoc', (): void => {
-  it('create a property value setter for an object', (): void => {
+describe("assoc", (): void => {
+  it("create a property value setter for an object", (): void => {
     type Foo = {
       foo: string;
     };
 
     const a = {
-      foo: 'bar',
+      foo: "bar",
     };
 
-    const setter = assoc<Foo>('foo');
+    const setter = assoc<Foo>("foo");
 
-    const a2 = setter('test', a);
+    const a2 = setter("test", a);
 
-    expect(a.foo).toBe('bar');
-    expect(a2.foo).toBe('test');
+    expect(a.foo).toBe("bar");
+    expect(a2.foo).toBe("test");
   });
 });

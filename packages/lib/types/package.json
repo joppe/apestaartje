@@ -19,14 +19,11 @@
   },
   "scripts": {
     "build": "tsc --project tsconfig.build.json --outDir dist",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
-    "lint": "eslint ./src --fix",
+    "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage",
     "release": "npm publish dist"
   },
   "devDependencies": {
-    "@apestaartje/eslint-config": "workspace:*",
     "@apestaartje/ts-config": "workspace:*",
-    "eslint": "^9.28.0",
     "typescript": "^6.0.3"
   }
 }

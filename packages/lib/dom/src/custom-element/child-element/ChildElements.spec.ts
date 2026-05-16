@@ -1,11 +1,11 @@
-import { describe, it, test, expect } from 'vitest';
+import { describe, it, expect } from "vitest";
 
-import { Component } from '../component/Component';
+import { Component } from "../component/Component";
 
-import { ChildElements } from './ChildElements';
+import { ChildElements } from "./ChildElements";
 
 @Component({
-  selector: 'test-childelements',
+  selector: "test-childelements",
   template: `
     <div>
       <h1>Testing</h1>
@@ -15,31 +15,31 @@ import { ChildElements } from './ChildElements';
   `,
 })
 class Test extends HTMLElement {
-  @ChildElements('p')
+  @ChildElements("p")
   declare public p: HTMLElement[];
 
-  @ChildElements('h2')
+  @ChildElements("h2")
   declare public h2: HTMLElement[];
 }
 
-describe('ChildElements', (): void => {
-  it('The decorator will fetch the elements from the shadow DOM', (): void => {
+describe("ChildElements", (): void => {
+  it("The decorator will fetch the elements from the shadow DOM", (): void => {
     window.document.body.appendChild(
-      document.createElement('test-childelements'),
+      document.createElement("test-childelements"),
     );
 
-    const el: Test = <Test>window.document.querySelector('test-childelements');
+    const el: Test = <Test>window.document.querySelector("test-childelements");
 
     expect(el.p.length).toBe(2);
-    expect(el.p[1].textContent).toBe('dolor sit amet');
+    expect(el.p[1].textContent).toBe("dolor sit amet");
   });
 
-  it('The value will be `null` if the element is not found', (): void => {
+  it("The value will be `null` if the element is not found", (): void => {
     window.document.body.appendChild(
-      document.createElement('test-childelements'),
+      document.createElement("test-childelements"),
     );
 
-    const el: Test = <Test>window.document.querySelector('test-childelements');
+    const el: Test = <Test>window.document.querySelector("test-childelements");
 
     expect(el.h2).toEqual([]);
   });

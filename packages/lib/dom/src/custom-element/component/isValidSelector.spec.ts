@@ -1,13 +1,13 @@
-import { describe, it, test, expect } from 'vitest';
+import { describe, it, expect } from "vitest";
 
-import { isValidSelector } from './isValidSelector';
+import { isValidSelector } from "./isValidSelector";
 
-describe('isValidSelector', (): void => {
-  it('validate the given selector', (): void => {
-    expect(isValidSelector('a-a')).toBe(true);
-    expect(isValidSelector('test-tag')).toBe(true);
-    expect(isValidSelector('a-')).toBe(false);
-    expect(isValidSelector('-a')).toBe(false);
-    expect(isValidSelector('-')).toBe(false);
+describe("isValidSelector", (): void => {
+  it("validate the given selector", (): void => {
+    expect(isValidSelector("a-a")).toBe(true);
+    expect(isValidSelector("test-tag")).toBe(true);
+    expect(isValidSelector("a-")).toBe(false);
+    expect(isValidSelector("-a")).toBe(false);
+    expect(isValidSelector("-")).toBe(false);
   });
 });

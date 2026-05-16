@@ -1,11 +1,11 @@
-import { describe, it, test, expect } from 'vitest';
+import { describe, it, expect } from "vitest";
 
-import { Component } from '../component/Component';
+import { Component } from "../component/Component";
 
-import { ChildElement } from './ChildElement';
+import { ChildElement } from "./ChildElement";
 
 @Component({
-  selector: 'test-childelement',
+  selector: "test-childelement",
   template: `
     <div>
       <h1>Testing</h1>
@@ -14,29 +14,29 @@ import { ChildElement } from './ChildElement';
   `,
 })
 class Test extends HTMLElement {
-  @ChildElement('h1')
+  @ChildElement("h1")
   declare public h1: HTMLElement | null;
 
-  @ChildElement('h2')
+  @ChildElement("h2")
   declare public h2: HTMLElement | null;
 }
 
-describe('ChildElement', (): void => {
-  it('The decorator will fetch the element from the shadow DOM', (): void => {
+describe("ChildElement", (): void => {
+  it("The decorator will fetch the element from the shadow DOM", (): void => {
     window.document.body.appendChild(
-      document.createElement('test-childelement'),
+      document.createElement("test-childelement"),
     );
 
-    const el = <Test>window.document.querySelector('test-childelement');
-    expect(el.h1?.textContent).toBe('Testing');
+    const el = <Test>window.document.querySelector("test-childelement");
+    expect(el.h1?.textContent).toBe("Testing");
   });
 
-  it('The value will be `null` if the element is not found', (): void => {
+  it("The value will be `null` if the element is not found", (): void => {
     window.document.body.appendChild(
-      document.createElement('test-childelement'),
+      document.createElement("test-childelement"),
     );
 
-    const el = <Test>window.document.querySelector('test-childelement');
+    const el = <Test>window.document.querySelector("test-childelement");
 
     expect(el.h2).toBe(null);
   });

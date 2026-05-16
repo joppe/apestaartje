@@ -11,7 +11,6 @@ export default mergeConfig(
         provider: 'v8',
         reporter: ['text', 'json', 'html'],
       },
-      setupFiles: ['./vitest.setup.ts'],
     },
   }),
 );

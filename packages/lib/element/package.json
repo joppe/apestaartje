@@ -12,18 +12,15 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
-    "lint": "eslint ./src --fix",
+    "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage",
     "test": "vitest run --coverage",
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "@apestaartje/eslint-config": "workspace:*",
     "@apestaartje/ts-config": "workspace:*",
     "@apestaartje/types": "workspace:*",
     "@apestaartje/vitest-config": "workspace:*",
     "@vitest/coverage-v8": "^4.1.6",
-    "eslint": "^9.28.0",
     "jest-environment-jsdom": "^29.5.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.6"

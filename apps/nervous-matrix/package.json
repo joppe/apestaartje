@@ -9,8 +9,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
-    "lint": "eslint ./src --fix"
+    "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage"
   },
   "dependencies": {
     "@apestaartje/animation": "workspace:*",
@@ -21,9 +20,7 @@
     "@apestaartje/physics": "workspace:*"
   },
   "devDependencies": {
-    "@apestaartje/eslint-config": "workspace:*",
     "@apestaartje/ts-config": "workspace:*",
-    "eslint": "^9.28.0",
     "typescript": "^6.0.3",
     "vite": "^6.3.5"
   }

@@ -1,16 +1,16 @@
-import { describe, it, test, expect } from 'vitest';
+import { describe, it, expect } from "vitest";
 
-import type { HTMLCustomElement } from '../HTMLCustomElement';
-import { Component } from '../component/Component';
+import type { HTMLCustomElement } from "../HTMLCustomElement";
+import { Component } from "../component/Component";
 
-import { Bind } from './Bind';
+import { Bind } from "./Bind";
 
 @Component({
-  selector: 'test-bind',
+  selector: "test-bind",
   template: `test`,
 })
 class Test extends HTMLElement implements HTMLCustomElement {
-  private readonly _foo: string = 'foo';
+  private readonly _foo: string = "foo";
 
   @Bind()
   public foo(): string {
@@ -22,14 +22,14 @@ class Test extends HTMLElement implements HTMLCustomElement {
   }
 }
 
-describe('Bind', (): void => {
-  it('binds the method to the instance', (): void => {
+describe("Bind", (): void => {
+  it("binds the method to the instance", (): void => {
     const t: Test = new Test();
     const f: () => string = t.foo;
     const b: () => string = t.bar;
 
-    expect(t.foo()).toBe('foo');
-    expect(f()).toBe('foo');
+    expect(t.foo()).toBe("foo");
+    expect(f()).toBe("foo");
     expect((): void => {
       b();
     }).toThrow();
