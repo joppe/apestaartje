@@ -18,7 +18,22 @@
     "pnpm-lock.yaml",
     "public",
   ],
-  "organizeImports": {
-    "groups": [["builtin", "external"], ["@apestaartje/**"], ["../"], ["./"]],
+  "sortImports": {
+    "customGroups": [
+      {
+        "groupName": "apestaartje",
+        "elementNamePattern": ["@apestaartje/**"],
+      },
+    ],
+    "groups": [
+      "type-import",
+      ["value-builtin", "value-external"],
+      "apestaartje",
+      "type-internal",
+      "value-internal",
+      ["type-parent", "type-sibling", "type-index"],
+      ["value-parent", "value-sibling", "value-index"],
+      "unknown",
+    ],
   },
 }
