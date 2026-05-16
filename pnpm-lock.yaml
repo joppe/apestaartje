@@ -92,6 +92,12 @@ importers:
       '@apestaartje/animation':
         specifier: workspace:*
         version: link:../../packages/lib/animation
+      '@apestaartje/dom':
+        specifier: workspace:*
+        version: link:../../packages/lib/dom
+      '@apestaartje/geometry':
+        specifier: workspace:*
+        version: link:../../packages/lib/geometry
     devDependencies:
       typescript:
         specifier: ^6.0.3
@@ -99,37 +105,6 @@ importers:
       vite:
         specifier: ^6.3.5
         version: 6.4.2
-
-  apps/maze-solver:
-    dependencies:
-      '@apestaartje/element':
-        specifier: workspace:*
-        version: link:../../packages/lib/element
-      '@apestaartje/iterator':
-        specifier: workspace:*
-        version: link:../../packages/lib/iterator
-      '@apestaartje/number':
-        specifier: workspace:*
-        version: link:../../packages/lib/number
-    devDependencies:
-      '@apestaartje/vitest-config':
-        specifier: workspace:*
-        version: link:../../packages/config/vitest-config
-      '@vitest/coverage-v8':
-        specifier: ^4.1.6
-        version: 4.1.6(vitest@4.1.6)
-      jsdom:
-        specifier: ^29.1.1
-        version: 29.1.1
-      typescript:
-        specifier: ^6.0.3
-        version: 6.0.3
-      vite:
-        specifier: ^6.3.5
-        version: 6.4.2
-      vitest:
-        specifier: ^4.1.6
-        version: 4.1.6(@vitest/coverage-v8@4.1.6)(jsdom@29.1.1)(vite@6.4.2)
 
   apps/nervous-matrix:
     dependencies:

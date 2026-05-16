@@ -1,22 +1,5 @@
 {
   "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "paths": {
-      "@apestaartje/animation/*": [
-        "packages/lib/animation/src/*"
-      ],
-      "@apestaartje/dom/*": [
-        "packages/lib/dom/src/*"
-      ],
-      "@apestaartje/geometry/*": [
-        "packages/lib/geometry/src/*"
-      ],
-      "@apestaartje/types/*": [
-        "packages/lib/types/src/*"
-      ]
-    },
-    "baseUrl": "../../"
-  },
   "include": [
     "src/**/*.ts"
   ]

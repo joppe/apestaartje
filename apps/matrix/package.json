@@ -16,10 +16,18 @@
     "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage"
   },
   "dependencies": {
-    "@apestaartje/animation": "workspace:*"
+    "@apestaartje/animation": "workspace:*",
+    "@apestaartje/dom": "workspace:*",
+    "@apestaartje/geometry": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^6.0.3",
     "vite": "^6.3.5"
+  },
+  "exports": {
+    "./*": {
+      "types": "./src/*.ts",
+      "default": "./src/*.ts"
+    }
   }
 }

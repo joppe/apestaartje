@@ -6,7 +6,6 @@
     "declaration": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "ignoreDeprecations": "6.0",
     "isolatedModules": true,
     "lib": [
       "ES2021",
@@ -19,106 +18,11 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "removeComments": true,
-    "resolvePackageJsonExports": false,
+    "resolvePackageJsonExports": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2021",
-    "useDefineForClassFields": true,
-    "paths": {
-      "@apestaartje/animation/*": [
-        "packages/lib/animation/src/*"
-      ],
-      "@apestaartje/lens/*": [
-        "packages/lib/lens/src/*"
-      ],
-      "@apestaartje/string/*": [
-        "packages/lib/string/src/*"
-      ],
-      "@apestaartje/finite-state-machine/*": [
-        "packages/lib/finite-state-machine/src/*"
-      ],
-      "@apestaartje/element/*": [
-        "packages/lib/element/src/*"
-      ],
-      "@apestaartje/event-emitter/*": [
-        "packages/lib/event-emitter/src/*"
-      ],
-      "@apestaartje/uuid/*": [
-        "packages/lib/uuid/src/*"
-      ],
-      "@apestaartje/array/*": [
-        "packages/lib/array/src/*"
-      ],
-      "@apestaartje/geometry/*": [
-        "packages/lib/geometry/src/*"
-      ],
-      "@apestaartje/types/*": [
-        "packages/lib/types/src/*"
-      ],
-      "@apestaartje/date/*": [
-        "packages/lib/date/src/*"
-      ],
-      "@apestaartje/observable/*": [
-        "packages/lib/observable/src/*"
-      ],
-      "@apestaartje/function/*": [
-        "packages/lib/function/src/*"
-      ],
-      "@apestaartje/dom/*": [
-        "packages/lib/dom/src/*"
-      ],
-      "@apestaartje/physics/*": [
-        "packages/lib/physics/src/*"
-      ],
-      "@apestaartje/store/*": [
-        "packages/lib/store/src/*"
-      ],
-      "@apestaartje/color/*": [
-        "packages/lib/color/src/*"
-      ],
-      "@apestaartje/dependency-injection/*": [
-        "packages/lib/dependency-injection/src/*"
-      ],
-      "@apestaartje/grid/*": [
-        "packages/lib/grid/src/*"
-      ],
-      "@apestaartje/iterator/*": [
-        "packages/lib/iterator/src/*"
-      ],
-      "@apestaartje/number/*": [
-        "packages/lib/number/src/*"
-      ],
-      "@apestaartje/monad/*": [
-        "packages/lib/monad/src/*"
-      ],
-      "@apestaartje/nervous-matrix/*": [
-        "apps/nervous-matrix/src/*"
-      ],
-      "@apestaartje/maze-solver/*": [
-        "apps/maze-solver/src/*"
-      ],
-      "@apestaartje/animation-playground/*": [
-        "apps/animation-playground/src/*"
-      ],
-      "@apestaartje/tetris/*": [
-        "apps/tetris/src/*"
-      ],
-      "@apestaartje/sudoku/*": [
-        "apps/sudoku/src/*"
-      ],
-      "@apestaartje/snake/*": [
-        "apps/snake/src/*"
-      ],
-      "@apestaartje/matrix/*": [
-        "apps/matrix/src/*"
-      ],
-      "@apestaartje/game-of-life/*": [
-        "apps/game-of-life/src/*"
-      ],
-      "@apestaartje/2048/*": [
-        "apps/2048/src/*"
-      ]
-    }
+    "useDefineForClassFields": true
   },
   "exclude": [
     "dist",
