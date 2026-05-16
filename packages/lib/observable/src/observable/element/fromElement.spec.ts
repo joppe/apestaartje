@@ -1,3 +1,5 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import type { Observable } from '../Observable';
 import type { Subscription } from '../Subscription';
 
@@ -31,7 +33,7 @@ describe('fromElement', (): void => {
 
   it('return an observable that emits values when the event occurs', (): void => {
     const observable: Observable<Event> = fromElement(el, 'click');
-    const nextSpy = jest.spyOn(observer, 'next');
+    const nextSpy = vi.spyOn(observer, 'next');
 
     observable.subscribe(observer);
     el.click();
@@ -41,7 +43,7 @@ describe('fromElement', (): void => {
 
   it('when unsubscribed, the event listener will be removed', (): void => {
     const observable: Observable<Event> = fromElement(el, 'click');
-    const removeEventListenerSpy = jest.spyOn(el, 'removeEventListener');
+    const removeEventListenerSpy = vi.spyOn(el, 'removeEventListener');
     const subscription: Subscription = observable.subscribe(observer);
 
     el.click();

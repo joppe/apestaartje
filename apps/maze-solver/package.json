@@ -1,0 +1,30 @@
+{
+  "name": "@apestaartje/2048",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
+  "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./src/*.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage"
+  },
+  "dependencies": {
+    "@apestaartje/element": "workspace:*",
+    "@apestaartje/iterator": "workspace:*",
+    "@apestaartje/number": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "vite": "^6.3.5"
+  }
+}

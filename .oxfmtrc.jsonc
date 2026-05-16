@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "quoteProps": "as-needed",
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "useTabs": false,
+  "printWidth": 80,
+  "ignorePatterns": [
+    ".cache",
+    ".idea",
+    ".git",
+    ".vscode",
+    "node_modules",
+    "pnpm-lock.yaml",
+    "public",
+  ],
+  "sortImports": {
+    "customGroups": [
+      {
+        "groupName": "apestaartje",
+        "elementNamePattern": ["@apestaartje/**"],
+      },
+    ],
+    "groups": [
+      "type-import",
+      ["value-builtin", "value-external"],
+      "apestaartje",
+      "type-internal",
+      "value-internal",
+      ["type-parent", "type-sibling", "type-index"],
+      ["value-parent", "value-sibling", "value-index"],
+      "unknown",
+    ],
+  },
+}

@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { Container as DIContainer } from './Container';
 
 describe('Container', (): void => {

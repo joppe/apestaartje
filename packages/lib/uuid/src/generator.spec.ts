@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { generator } from './generator';
 
 describe('createGenerator', (): void => {

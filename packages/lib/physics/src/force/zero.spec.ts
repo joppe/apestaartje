@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { length } from '@apestaartje/geometry/vector/length';
 

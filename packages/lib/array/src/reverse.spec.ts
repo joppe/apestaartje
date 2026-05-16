@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { reverse } from './reverse';
 
 describe('reverse', (): void => {

@@ -1,3 +1,5 @@
+import { describe, expect, it, vi } from 'vitest';
+
 import type { Observable } from '../observable/Observable';
 import type { Subscription } from '../observable/Subscription';
 
@@ -18,8 +20,8 @@ describe('Subject', (): void => {
   };
 
   it('is an observable with multicast', (): void => {
-    const nextSpy1 = jest.spyOn(observer1, 'next');
-    const nextSpy2 = jest.spyOn(observer2, 'next');
+    const nextSpy1 = vi.spyOn(observer1, 'next');
+    const nextSpy2 = vi.spyOn(observer2, 'next');
     const subject: Subject<number> = new Subject();
 
     subject.subscribe(observer1);
@@ -32,7 +34,7 @@ describe('Subject', (): void => {
 
   it('when all observers are unsubscribed it will complete', (): void => {
     const subject: Subject<number> = new Subject();
-    const completeSpy = jest.spyOn(subject, 'complete');
+    const completeSpy = vi.spyOn(subject, 'complete');
     const subscription1: Subscription = subject.subscribe(observer1);
     const subscription2: Subscription = subject.subscribe(observer2);
 
@@ -45,7 +47,7 @@ describe('Subject', (): void => {
 
   it('when unsubscribe is called on subject all observables are unsubscribed', (): void => {
     const subject: Subject<number> = new Subject();
-    const completeSpy = jest.spyOn(subject, 'complete');
+    const completeSpy = vi.spyOn(subject, 'complete');
 
     subject.subscribe(observer1);
     subject.subscribe(observer2);
@@ -59,7 +61,7 @@ describe('Subject', (): void => {
   it('asObservable', (): void => {
     const subject: Subject<number> = new Subject();
     const observable: Observable<number> = subject.asObservable();
-    const nextSpy1 = jest.spyOn(observer1, 'next');
+    const nextSpy1 = vi.spyOn(observer1, 'next');
 
     nextSpy1.mockClear();
     subject.next(1);

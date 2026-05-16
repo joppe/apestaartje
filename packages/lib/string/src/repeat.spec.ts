@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { repeat } from './repeat';
 
 describe('repeat', (): void => {

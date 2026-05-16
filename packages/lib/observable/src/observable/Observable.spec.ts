@@ -1,3 +1,5 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import type { SafeObserver } from '../observer/SafeObserver';
 import type { Operator } from '../operator/Operator';
 import { map } from '../operator/map/map';
@@ -90,7 +92,7 @@ describe('Observable', (): void => {
     });
 
     it('the data source subscription is unsubscribed when the observer unsubscribes', (): void => {
-      const unsubscibeSpy = jest.spyOn(subscription, 'unsubscribe');
+      const unsubscibeSpy = vi.spyOn(subscription, 'unsubscribe');
       const sub: Subscription = observable.subscribe(observerNumber);
 
       sub.unsubscribe();
@@ -99,7 +101,7 @@ describe('Observable', (): void => {
     });
 
     it('when the data source emits a value, that value is passed to the next method of the observer', (): void => {
-      const nextSpy = jest.spyOn(observerNumber, 'next');
+      const nextSpy = vi.spyOn(observerNumber, 'next');
 
       observable.subscribe(observerNumber);
       next(9);
@@ -108,7 +110,7 @@ describe('Observable', (): void => {
     });
 
     it("when finished doesn't receive new values via next", (): void => {
-      const nextSpy = jest.spyOn(observerNumber, 'next');
+      const nextSpy = vi.spyOn(observerNumber, 'next');
 
       nextSpy.mockClear();
 
@@ -120,7 +122,7 @@ describe('Observable', (): void => {
     });
 
     it("when unsubscribed doesn't receive new values via next", (): void => {
-      const nextSpy = jest.spyOn(observerNumber, 'next');
+      const nextSpy = vi.spyOn(observerNumber, 'next');
       const s: Subscription = observable.subscribe(observerNumber);
 
       nextSpy.mockClear();
@@ -132,7 +134,7 @@ describe('Observable', (): void => {
     });
 
     it('when an error occurs the error method is called', (): void => {
-      const errorSpy = jest.spyOn(observerNumber, 'error');
+      const errorSpy = vi.spyOn(observerNumber, 'error');
       const e: Error = new Error('?');
 
       observable.subscribe(observerNumber);
@@ -147,8 +149,8 @@ describe('Observable', (): void => {
           // nothing
         },
       };
-      const nextSpy1 = jest.spyOn(observerNumber, 'next');
-      const nextSpy2 = jest.spyOn(o2, 'next');
+      const nextSpy1 = vi.spyOn(observerNumber, 'next');
+      const nextSpy2 = vi.spyOn(o2, 'next');
       const s1: Subscription = observable.subscribe(observerNumber);
 
       nextSpy1.mockClear();
@@ -166,7 +168,7 @@ describe('Observable', (): void => {
 
   describe('pipe', (): void => {
     it('applies the given operators to the emitted values', (): void => {
-      const nextSpy = jest.spyOn(observerBoolean, 'next');
+      const nextSpy = vi.spyOn(observerBoolean, 'next');
       const double: Operator<number, number> = map<number, number>(
         (value: number): number => {
           return value * 2;

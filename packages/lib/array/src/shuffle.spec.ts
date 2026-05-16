@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { shuffle } from './shuffle';
 
 describe('shuffle', (): void => {

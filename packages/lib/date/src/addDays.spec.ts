@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { addDays } from './addDays';
 
 describe('addDays', (): void => {

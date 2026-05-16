@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { Component } from '../component/Component';
 
 import { ChildElement } from './ChildElement';

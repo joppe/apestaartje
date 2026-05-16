@@ -2,28 +2,26 @@
   "name": "apestaartje",
   "version": "1.0.0",
   "description": "",
-  "scripts": {
-    "lint": "turbo run lint",
-    "test": "turbo run test",
-    "clean": "turbo run clean && rm -rf node_modules",
-    "format": "prettier --write \"**/*.{js,json,ts,md}\"",
-    "generate-paths": "turbo run generate-paths"
+  "license": "MIT",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joppe/apestaartje.git"
   },
-  "author": {
-    "name": "Joppe Aarts",
-    "email": "joppe@apestaartje.info"
+  "type": "module",
+  "scripts": {
+    "lint": "oxlint .",
+    "test": "pnpm -r --parallel test",
+    "clean": "pnpm -r clean && rm -rf node_modules",
+    "format": "oxfmt",
+    "generate-paths": "pnpm -r generate-paths"
   },
-  "license": "MIT",
   "devDependencies": {
-    "@apestaartje/eslint-config": "workspace:*",
-    "@apestaartje/prettier-config": "workspace:*",
-    "eslint": "^9.28.0",
-    "prettier": "^3.5.3",
-    "turbo": "^1.10.1"
-  },
-  "packageManager": "pnpm@10.8.1+sha512.c50088ba998c67b8ca8c99df8a5e02fd2ae2e2b29aaf238feaa9e124248d3f48f9fb6db2424949ff901cffbb5e0f0cc1ad6aedb602cd29450751d11c35023677"
+    "oxfmt": "^0.50.0",
+    "oxlint": "^1.65.0",
+    "vitest": "^4.1.6"
+  }
 }

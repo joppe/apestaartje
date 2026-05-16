@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import type { Container } from './Container';
 import { getContainer } from './getContainer';
 

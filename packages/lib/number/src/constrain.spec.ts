@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { constrain } from './constrain';
 
 describe('constrain', (): void => {

@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { endOfWeek } from './endOfWeek';
 
 describe('endOfWeek', (): void => {

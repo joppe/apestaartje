@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { Component } from './Component';
 
 @Component({

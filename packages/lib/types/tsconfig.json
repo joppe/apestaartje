@@ -1,4 +1,6 @@
 {
-  "extends": "@apestaartje/ts-config/base.json",
-  "include": ["src/**/*.ts"]
+  "extends": "../../../tsconfig.base.json",
+  "include": [
+    "src/**/*.ts"
+  ]
 }

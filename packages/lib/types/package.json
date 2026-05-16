@@ -1,32 +1,34 @@
 {
   "name": "@apestaartje/types",
   "version": "1.1.0",
-  "type": "module",
   "description": "A library with common TypeScript types",
-  "scripts": {
-    "build": "tsc --project tsconfig.build.json --outDir dist",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
-    "lint": "eslint ./src --fix",
-    "release": "npm publish dist"
-  },
+  "keywords": [
+    "TypeScript"
+  ],
+  "license": "MIT",
   "author": {
     "name": "Joppe Aarts",
     "email": "joppe@apestaartje.info"
   },
-  "license": "MIT",
-  "keywords": [
-    "TypeScript"
-  ],
   "files": [
     "src/**/*.ts"
   ],
-  "devDependencies": {
-    "@apestaartje/eslint-config": "workspace:*",
-    "@apestaartje/ts-config": "workspace:*",
-    "eslint": "^9.28.0",
-    "typescript": "^5.1.3"
-  },
+  "type": "module",
   "publishConfig": {
     "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json --outDir dist",
+    "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage",
+    "release": "npm publish dist"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  },
+  "exports": {
+    "./*": {
+      "types": "./src/*.ts",
+      "default": "./src/*.ts"
+    }
   }
 }

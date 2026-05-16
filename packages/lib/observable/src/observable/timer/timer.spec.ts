@@ -1,3 +1,5 @@
+import { describe, expect, it, vi } from 'vitest';
+
 import type { Observable } from '../Observable';
 
 import { timer } from './timer';
@@ -12,7 +14,7 @@ describe('timer', (): void => {
   };
 
   it('will emit for a given time values each number of miliseconds', (done: () => void): void => {
-    const nextSpy = jest.spyOn(observer, 'next');
+    const nextSpy = vi.spyOn(observer, 'next');
     const t: Observable<number> = timer(10, 200);
 
     t.subscribe(observer);

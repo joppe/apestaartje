@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { tail } from './tail';
 
 describe('tail', (): void => {
