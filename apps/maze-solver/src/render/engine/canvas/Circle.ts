@@ -1,4 +1,6 @@
 import type { PolarCell } from '../../../grid/cell/PolarCell';
+import type { CellStyle } from '../RenderEngine';
+import type { Point } from './Point';
 
 import { Canvas } from './Canvas';
 
@@ -6,7 +8,11 @@ export class Circle extends Canvas {
   protected size: number | undefined;
   protected center: number | undefined;
 
-  public renderCell(cell: PolarCell): void {
+  public renderCell(
+    cell: PolarCell,
+    content?: string,
+    style?: CellStyle,
+  ): void {
     if (this.center === undefined) {
       throw new Error('Center is undefined');
     }
@@ -23,6 +29,10 @@ export class Circle extends Canvas {
       x: this.center + innerRadius * Math.cos(thetaCCW),
       y: this.center + innerRadius * Math.sin(thetaCCW),
     };
+    const topRight = {
+      x: this.center + outerRadius * Math.cos(thetaCCW),
+      y: this.center + outerRadius * Math.sin(thetaCCW),
+    };
     const bottomLeft = {
       x: this.center + innerRadius * Math.cos(thetaCW),
       y: this.center + innerRadius * Math.sin(thetaCW),
@@ -38,6 +48,22 @@ export class Circle extends Canvas {
 
     if (!cell.linked(cell.cw)) {
       this.line(bottomLeft, bottomRight);
+    }
+
+    const point: Point = {
+      x: topLeft.x + (bottomRight.x - topLeft.x) / 2,
+      y: topLeft.y + (bottomRight.y - topLeft.y) / 2,
+    };
+
+    if (style?.background) {
+      this.color2(
+        [topLeft, topRight, bottomRight, bottomLeft],
+        style.background,
+      );
+    }
+
+    if (content) {
+      this.text(point, content, style?.color ?? this._styles.textColor);
     }
   }
 
@@ -70,5 +96,25 @@ export class Circle extends Canvas {
     element.style.height = `${this.size}px`;
 
     return element;
+  }
+
+  protected color2(
+    points: [Point, Point, Point, Point],
+    background: string,
+  ): void {
+    this._ctx.fillStyle = background;
+    this._ctx.moveTo(points[0].x, points[0].y);
+    this._ctx.lineTo(points[1].x, points[1].y);
+    this._ctx.lineTo(points[2].x, points[2].y);
+    this._ctx.lineTo(points[3].x, points[3].y);
+    this._ctx.lineTo(points[0].x, points[0].y);
+    this._ctx.closePath();
+    this._ctx.fill();
+  }
+
+  protected text(point: Point, text: string, color: string): void {
+    this._ctx.textAlign = 'center';
+    this._ctx.fillStyle = color;
+    this._ctx.fillText(text, point.x, point.y);
   }
 }
