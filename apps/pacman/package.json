@@ -1,0 +1,30 @@
+{
+  "name": "@apestaartje/pacman",
+  "version": "1.0.0",
+  "description": "Pacman game",
+  "license": "MIT",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
+  "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./src/*.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage"
+  },
+  "dependencies": {
+    "@apestaartje/animation": "workspace:*",
+    "@apestaartje/geometry": "workspace:*",
+    "@apestaartje/grid": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "vite": "^6.3.5"
+  }
+}
