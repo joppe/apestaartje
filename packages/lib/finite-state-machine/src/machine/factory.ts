@@ -1,5 +1,4 @@
 import type { States } from '../state/States';
-
 import type { Machine } from './Machine';
 
 export function factory({ initial, states }: States): Machine {

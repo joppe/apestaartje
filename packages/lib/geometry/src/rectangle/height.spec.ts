@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 
 import type { Rectangle } from './Rectangle';
+
 import { height } from './height';
 
 describe('rectangle', (): void => {

@@ -1,7 +1,8 @@
+import type { Renderer } from '../render/Renderer';
+
 import { Candy } from '../candy/Candy';
 import { Map } from '../map/Map';
 import { Direction } from '../move/Direction';
-import type { Renderer } from '../render/Renderer';
 import { Snake } from '../snake/Snake';
 
 export type FromTemplateOptions = {

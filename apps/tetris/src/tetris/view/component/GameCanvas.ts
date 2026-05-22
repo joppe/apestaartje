@@ -8,13 +8,14 @@ import type { Size } from '@apestaartje/geometry/size/Size';
 import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import type { Store } from '@apestaartje/store/Store';
 
-import { container } from '../../dependency-injection/container';
 import type { Engine } from '../../game/Engine';
 import type { Cell } from '../../grid/Cell';
 import type { BlockConfig } from '../../store/BlockConfig';
 import type { Data } from '../../store/Data';
 import type { TetrominoData } from '../../tetromino/TetrominoData';
 import type { Type } from '../../tetromino/Type';
+
+import { container } from '../../dependency-injection/container';
 import { block as renderBlock } from '../canvas/block';
 import { getColor } from '../tetromino/getColor';
 

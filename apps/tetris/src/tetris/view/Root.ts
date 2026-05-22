@@ -1,14 +1,14 @@
 import { ChildElements } from '@apestaartje/dom/custom-element/child-element/ChildElements';
 import { Component } from '@apestaartje/dom/custom-element/component/Component';
-import type { Machine } from '@apestaartje/finite-state-machine/machine/Machine';
 import { factory as stateFactory } from '@apestaartje/finite-state-machine/machine/factory';
+import type { Machine } from '@apestaartje/finite-state-machine/machine/Machine';
 import type { Store } from '@apestaartje/store/Store';
 
-import { container } from '../dependency-injection/container';
-import { State } from '../finite-state-machine/global/State';
-import { config } from '../finite-state-machine/global/config';
 import type { Data } from '../store/Data';
 
+import { container } from '../dependency-injection/container';
+import { config } from '../finite-state-machine/global/config';
+import { State } from '../finite-state-machine/global/State';
 import './component/PageContainer';
 import './component/Preview';
 import './pages/GamePage';

@@ -3,6 +3,7 @@ import { range } from '@apestaartje/iterator/range/range';
 
 import type { Axis } from '../grid/Axis';
 import type { SudokuGrid } from '../grid/SudokuGrid';
+
 import { cellsByAxisFromBlock } from '../grid/cellsByAxisFromBlock';
 import { blockAxisIndexToGridAxisIndex } from '../grid/helper/blockAxisIndexToGridAxisIndex';
 import { otherAxisIndicesOutsideBlock } from '../grid/helper/otherAxisIndicesOutsideBlock';

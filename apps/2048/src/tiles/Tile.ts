@@ -2,6 +2,7 @@ import { element } from '@apestaartje/element/element';
 
 import type { Position } from './Position';
 import type { State } from './State';
+
 import { isSamePosition } from './isSamePosition';
 import './tiles.css';
 

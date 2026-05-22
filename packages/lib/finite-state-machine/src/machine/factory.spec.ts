@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 
 import type { States } from '../state/States';
-
 import type { Machine } from './Machine';
+
 import { factory } from './factory';
 
 describe('factory', (): void => {

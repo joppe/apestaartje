@@ -1,9 +1,9 @@
 import type { Size } from '@apestaartje/geometry/size/Size';
 
 import type { Chronometer } from '../animator/Chronometer';
+import type { LayerConfig } from './LayerConfig';
 
 import { Layer } from './Layer';
-import type { LayerConfig } from './LayerConfig';
 
 /**
  * The main Stage

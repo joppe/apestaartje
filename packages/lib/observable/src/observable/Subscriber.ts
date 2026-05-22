@@ -1,5 +1,4 @@
 import type { SafeObserver } from '../observer/SafeObserver';
-
 import type { Subscription } from './Subscription';
 
 /**

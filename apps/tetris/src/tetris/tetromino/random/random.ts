@@ -2,8 +2,8 @@ import { random as randomNumber } from '@apestaartje/number/random';
 
 import type { Tetromino } from '../Tetromino';
 import type { Type } from '../Type';
-import { factory } from '../factory/factory';
 
+import { factory } from '../factory/factory';
 import { createTypeList } from './createTypeList';
 
 export const random: () => Tetromino = ((): (() => Tetromino) => {

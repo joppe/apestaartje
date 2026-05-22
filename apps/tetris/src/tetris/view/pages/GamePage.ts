@@ -2,12 +2,12 @@ import { ChildElement } from '@apestaartje/dom/custom-element/child-element/Chil
 import { Component } from '@apestaartje/dom/custom-element/component/Component';
 import { Input } from '@apestaartje/dom/custom-element/input/Input';
 import { InputType } from '@apestaartje/dom/custom-element/input/InputType';
-import type { Machine } from '@apestaartje/finite-state-machine/machine/Machine';
 import { factory as stateFactory } from '@apestaartje/finite-state-machine/machine/factory';
+import type { Machine } from '@apestaartje/finite-state-machine/machine/Machine';
 
+import { config } from '../../finite-state-machine/game/config';
 import { Event as GameEvent } from '../../finite-state-machine/game/Event';
 import { State as GameState } from '../../finite-state-machine/game/State';
-import { config } from '../../finite-state-machine/game/config';
 import '../component/CountDown';
 import '../component/GameCanvas';
 import '../component/GameOver';

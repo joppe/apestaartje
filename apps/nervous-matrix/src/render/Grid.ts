@@ -7,9 +7,9 @@ import type { Mapping } from '../Mapping';
 import type { Cell } from '../matrix/Cell';
 import type { Matrix } from '../matrix/Matrix';
 import type { Node } from '../spring/Node';
-
 import type { GridItem } from './GridItem';
 import type { GridOptions } from './GridOptions';
+
 import { line } from './line';
 
 export class Grid {

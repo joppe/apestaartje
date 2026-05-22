@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 
 import type { Point } from './Point';
+
 import { add } from './add';
 
 describe('point', (): void => {

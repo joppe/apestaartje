@@ -153,11 +153,33 @@ importers:
         specifier: ^6.3.5
         version: 6.4.2
 
+  apps/pacman:
+    dependencies:
+      '@apestaartje/animation':
+        specifier: workspace:*
+        version: link:../../packages/lib/animation
+      '@apestaartje/geometry':
+        specifier: workspace:*
+        version: link:../../packages/lib/geometry
+      '@apestaartje/grid':
+        specifier: workspace:*
+        version: link:../../packages/lib/grid
+    devDependencies:
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vite:
+        specifier: ^6.3.5
+        version: 6.4.2
+
   apps/snake:
     dependencies:
       '@apestaartje/animation':
         specifier: workspace:*
         version: link:../../packages/lib/animation
+      '@apestaartje/geometry':
+        specifier: workspace:*
+        version: link:../../packages/lib/geometry
       '@apestaartje/grid':
         specifier: workspace:*
         version: link:../../packages/lib/grid

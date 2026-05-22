@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 
 import type { Line } from './Line';
+
 import { clone } from './clone';
 
 describe('line', (): void => {

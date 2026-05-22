@@ -1,6 +1,7 @@
 import type { GridPosition } from '@apestaartje/grid/GridPosition';
 
 import type { Direction } from './Direction';
+
 import { step } from './step';
 
 export function move(

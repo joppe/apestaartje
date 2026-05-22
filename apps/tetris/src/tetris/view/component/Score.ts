@@ -2,8 +2,9 @@ import { ChildElement } from '@apestaartje/dom/custom-element/child-element/Chil
 import { Component } from '@apestaartje/dom/custom-element/component/Component';
 import type { Store } from '@apestaartje/store/Store';
 
-import { container } from '../../dependency-injection/container';
 import type { Data } from '../../store/Data';
+
+import { container } from '../../dependency-injection/container';
 
 @Component({
   selector: 'tetris-score',

@@ -6,7 +6,6 @@ import { Input } from '@apestaartje/dom/custom-element/input/Input';
 import { InputType } from '@apestaartje/dom/custom-element/input/InputType';
 
 import '../style/main.css';
-
 import { BACKGROUND } from './colors';
 import { Factory } from './column/factory/Factory';
 

@@ -1,6 +1,6 @@
-import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { add } from '@apestaartje/geometry/vector/add';
 import { negate } from '@apestaartje/geometry/vector/negate';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 
 export function crop(blocks: Vector[]): Vector[] {
   const min: Vector = blocks.reduce((acc: Vector, block: Vector): Vector => {

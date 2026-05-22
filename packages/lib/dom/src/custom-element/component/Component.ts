@@ -1,6 +1,7 @@
 import type { Constructor } from '@apestaartje/types/Constructor';
 
 import type { Options } from './Options';
+
 import { isValidSelector } from './isValidSelector';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

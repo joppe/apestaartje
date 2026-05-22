@@ -1,16 +1,15 @@
 import type { Asset } from '@apestaartje/animation/stage/Asset';
 import type { Rectangle } from '@apestaartje/geometry/rectangle/Rectangle';
-import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { add } from '@apestaartje/geometry/vector/add';
 import { angle } from '@apestaartje/geometry/vector/angle';
 import { factory } from '@apestaartje/geometry/vector/factory';
 import { setLength } from '@apestaartje/geometry/vector/setLength';
 import { subtract } from '@apestaartje/geometry/vector/subtract';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { random } from '@apestaartje/number/random';
 import type { Range } from '@apestaartje/number/range/Range';
 
 import { circle, line } from '../draw/shapes';
-
 import { Movable } from './Movable';
 
 type Appearance = {
