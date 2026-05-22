@@ -45,6 +45,7 @@ export class Engine {
     this._size = size;
     this._control = control;
 
+    this._current = random();
     this._factor = MAX_SPEED - this._speed;
     this._grid = new Grid<Type>(this._size);
     this._store = container.resolve('store');
@@ -96,7 +97,7 @@ export class Engine {
       return;
     }
 
-    this._subscription.unsubscribe();
+    this._subscription?.unsubscribe();
     this._animator.stop();
   }
 
