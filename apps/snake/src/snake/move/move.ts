@@ -1,4 +1,4 @@
-import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import type { GridPosition } from '@apestaartje/grid/GridPosition';
 
 import type { Direction } from './Direction';
 import { step } from './step';
@@ -6,7 +6,7 @@ import { step } from './step';
 export function move(
   position: GridPosition,
   direction: Direction,
-  steps: number = 1,
+  steps = 1,
 ): GridPosition {
   let newPosition = position;
   let remainingSteps = steps;

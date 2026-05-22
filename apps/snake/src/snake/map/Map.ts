@@ -1,6 +1,7 @@
+import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import type { Asset } from '@apestaartje/animation/stage/Asset';
-import { Grid } from '@apestaartje/grid/grid/Grid';
-import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import { Grid } from '@apestaartje/grid/Grid';
+import type { GridPosition } from '@apestaartje/grid/GridPosition';
 
 import type { Renderer } from '../render/Renderer';
 
@@ -24,7 +25,11 @@ export class Map implements Asset {
 
   constructor({ renderer, rows, columns }: MapOptions) {
     this._renderer = renderer;
-    this._grid = new Grid({ rows, columns, initializer: () => false });
+    this._grid = new Grid({
+      rows,
+      columns,
+      cells: Array.from({ length: rows * columns }, () => false),
+    });
   }
 
   public randomFreePosition(): GridPosition {
@@ -52,13 +57,13 @@ export class Map implements Asset {
     return false;
   }
 
-  public tick(): void {
+  public tick(_time: Chronometer): void {
     // Nothing to calculate
   }
 
   public render(context: CanvasRenderingContext2D): void {
-    this._grid.cells.forEach((value: boolean, index: number): void => {
-      if (!value) {
+    this._grid.cells.forEach((cell: boolean, index: number) => {
+      if (!cell) {
         return;
       }
 

@@ -1,5 +1,5 @@
 import type { Asset } from '@apestaartje/animation/stage/Asset';
-import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import type { GridPosition } from '@apestaartje/grid/GridPosition';
 
 import type { Renderer } from '../render/Renderer';
 

@@ -1,14 +1,14 @@
 import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import type { Asset } from '@apestaartje/animation/stage/Asset';
 import { Timer } from '@apestaartje/animation/timer/Timer';
-import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import type { GridPosition } from '@apestaartje/grid/GridPosition';
+
+import type { Renderer } from '../render/Renderer';
 
 import { isSamePosition } from '../map/isSamePosition';
 import { Direction } from '../move/Direction';
 import { move } from '../move/move';
 import { opposite } from '../move/opposite';
-import type { Renderer } from '../render/Renderer';
-
 import { Segment } from './Segment';
 
 export type SnakeOptions = {
