@@ -3,19 +3,13 @@ import type { GridPosition } from './GridPosition';
 export type GridOptions<T> = {
   rows: number;
   columns: number;
-  initializer: Initializer<T>;
+  cells: T[];
 };
-
-export type InitializerOptions = GridPosition & {
-  index: number;
-};
-
-export type Initializer<T> = (options: InitializerOptions) => T;
 
 export class Grid<T> {
   private readonly _rows: number;
   private readonly _columns: number;
-  private _cells: T[];
+  private readonly _cells: T[];
 
   public get rows(): number {
     return this._rows;
@@ -33,18 +27,10 @@ export class Grid<T> {
     return this._cells;
   }
 
-  constructor({ rows, columns, initializer }: GridOptions<T>) {
+  constructor({ rows, columns, cells }: GridOptions<T>) {
     this._rows = rows;
     this._columns = columns;
-    this._cells = Array.from(
-      { length: this.size },
-      (_: unknown, index: number) => {
-        const row = this.toRow(index);
-        const column = this.toColumn(index);
-
-        return initializer({ row, column, index });
-      },
-    );
+    this._cells = cells;
   }
 
   public getCell(position: GridPosition): T {
