@@ -6,15 +6,16 @@ import type { Subscription } from '@apestaartje/observable/observable/Subscripti
 import { Subject } from '@apestaartje/observable/subject/Subject';
 import type { Store } from '@apestaartje/store/Store';
 
-import { Action } from '../control/Action';
 import type { Control } from '../control/Control';
-import { container } from '../dependency-injection/container';
 import type { Cell } from '../grid/Cell';
-import { Grid } from '../grid/Grid';
 import type { Data } from '../store/Data';
 import type { Tetromino } from '../tetromino/Tetromino';
 import type { TetrominoData } from '../tetromino/TetrominoData';
 import type { Type } from '../tetromino/Type';
+
+import { Action } from '../control/Action';
+import { container } from '../dependency-injection/container';
+import { Grid } from '../grid/Grid';
 import { random } from '../tetromino/random/random';
 
 const INITIAL_SPEED: number = 5;
@@ -27,7 +28,7 @@ export class Engine {
   private _factor: number;
   private _next: Tetromino | undefined;
   private _speed: number = INITIAL_SPEED;
-  private _subscription: Subscription;
+  private _subscription: Subscription | undefined;
   private _totalLines: number = 0;
   private readonly _animator: Animator;
   private readonly _control: Control;
@@ -44,6 +45,7 @@ export class Engine {
     this._size = size;
     this._control = control;
 
+    this._current = random();
     this._factor = MAX_SPEED - this._speed;
     this._grid = new Grid<Type>(this._size);
     this._store = container.resolve('store');
@@ -91,7 +93,7 @@ export class Engine {
       return;
     }
 
-    this._subscription.unsubscribe();
+    this._subscription?.unsubscribe();
     this._animator.stop();
   }
 
