@@ -1,5 +1,5 @@
-import type { Rectangle } from '@apestaartje/geometry/rectangle/Rectangle';
 import { height } from '@apestaartje/geometry/rectangle/height';
+import type { Rectangle } from '@apestaartje/geometry/rectangle/Rectangle';
 import { width } from '@apestaartje/geometry/rectangle/width';
 import type { Vector } from '@apestaartje/geometry/vector/Vector';
 

@@ -1,9 +1,9 @@
 import type { Observer } from '../observer/Observer';
-import { SafeObserver } from '../observer/SafeObserver';
 import type { Operator } from '../operator/Operator';
-
 import type { Subscriber } from './Subscriber';
 import type { Subscription } from './Subscription';
+
+import { SafeObserver } from '../observer/SafeObserver';
 
 export class Observable<T> {
   private readonly _subscriber: Subscriber<T>;

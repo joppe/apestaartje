@@ -3,7 +3,6 @@ import { type Vector } from '@apestaartje/geometry/vector/Vector';
 import { rand } from '@apestaartje/number/rand';
 
 import { randomVector } from '../../helpers/randomVector';
-
 import { Particle } from './Particle';
 
 type ParticleEmitterProps = {

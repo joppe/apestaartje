@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 
 import type { Vector } from './Vector';
+
 import { dotProduct } from './dotProduct';
 
 describe('vector', (): void => {

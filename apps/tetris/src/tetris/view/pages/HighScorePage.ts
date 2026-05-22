@@ -3,10 +3,11 @@ import { Component } from '@apestaartje/dom/custom-element/component/Component';
 import { Input } from '@apestaartje/dom/custom-element/input/Input';
 import { InputType } from '@apestaartje/dom/custom-element/input/InputType';
 
-import { container } from '../../dependency-injection/container';
-import { Event } from '../../finite-state-machine/global/Event';
 import type { Entry } from '../../game/high-score/Entry';
 import type { HighScore } from '../../game/high-score/HighScore';
+
+import { container } from '../../dependency-injection/container';
+import { Event } from '../../finite-state-machine/global/Event';
 import '../component/NavigationLink';
 
 @Component({

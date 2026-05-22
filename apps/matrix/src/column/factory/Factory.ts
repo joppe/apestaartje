@@ -1,8 +1,8 @@
 import type { Size } from '@apestaartje/geometry/size/Size';
 
-import { Column } from '../Column';
-
 import type { Config } from './Config';
+
+import { Column } from '../Column';
 
 export class Factory {
   private readonly _columns: Map<number, Column> = new Map();

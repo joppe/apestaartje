@@ -1,4 +1,5 @@
 import type { Vector } from './Vector';
+
 import { dotProduct } from './dotProduct';
 import { length } from './length';
 

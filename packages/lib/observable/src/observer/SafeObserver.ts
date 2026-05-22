@@ -1,5 +1,4 @@
 import type { Subscription } from '../observable/Subscription';
-
 import type { Observer } from './Observer';
 
 export class SafeObserver<T> implements Observer<T> {

@@ -8,6 +8,12 @@
     "email": "joppe@apestaartje.info"
   },
   "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./src/*.ts",
+      "default": "./src/*.ts"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -25,11 +31,5 @@
     "@vitest/coverage-v8": "^4.1.6",
     "typescript": "^6.0.3",
     "vitest": "^4.1.6"
-  },
-  "exports": {
-    "./*": {
-      "types": "./src/*.ts",
-      "default": "./src/*.ts"
-    }
   }
 }

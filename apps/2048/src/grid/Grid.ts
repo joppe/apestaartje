@@ -1,11 +1,11 @@
-import type { ElementConfig } from '@apestaartje/element/ElementConfig';
 import { element } from '@apestaartje/element/element';
+import type { ElementConfig } from '@apestaartje/element/ElementConfig';
 import { map } from '@apestaartje/iterator/map/map';
 import { range } from '@apestaartje/iterator/range/range';
 
 import type { Position } from '../tiles/Position';
-
 import type { GridOptions } from './GridOptions';
+
 import './grid.css';
 
 export class Grid {

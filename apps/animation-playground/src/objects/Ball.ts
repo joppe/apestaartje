@@ -1,11 +1,10 @@
 import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import type { Asset } from '@apestaartje/animation/stage/Asset';
 import type { Rectangle } from '@apestaartje/geometry/rectangle/Rectangle';
-import { type Vector } from '@apestaartje/geometry/vector/Vector';
 import { distance } from '@apestaartje/geometry/vector/distance';
+import { type Vector } from '@apestaartje/geometry/vector/Vector';
 
 import { circle } from '../draw/shapes';
-
 import { Movable } from './Movable';
 
 type Appearance = {

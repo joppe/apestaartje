@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 
 import type { HTMLCustomElement } from '../HTMLCustomElement';
-import { Component } from '../component/Component';
 
+import { Component } from '../component/Component';
 import { Bind } from './Bind';
 
 @Component({

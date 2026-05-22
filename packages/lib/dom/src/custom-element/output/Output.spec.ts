@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 
-import { Component } from '../component/Component';
-
 import type { EventEmitter } from './EventEmitter';
+
+import { Component } from '../component/Component';
 import { Output } from './Output';
 
 @Component({

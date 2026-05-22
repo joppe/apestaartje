@@ -1,13 +1,13 @@
 import { element } from '@apestaartje/element/element';
 
+import type { Direction } from '../tiles/Direction';
+import type { Position } from '../tiles/Position';
+import type { GameOptions } from './GameOptions';
+
 import { control } from '../control/control';
 import { Grid } from '../grid/Grid';
 import { Score } from '../score/Score';
-import type { Direction } from '../tiles/Direction';
-import type { Position } from '../tiles/Position';
 import { Tiles } from '../tiles/Tiles';
-
-import type { GameOptions } from './GameOptions';
 import './game.css';
 
 export class Game {

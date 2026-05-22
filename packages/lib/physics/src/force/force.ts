@@ -1,5 +1,5 @@
-import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { factory } from '@apestaartje/geometry/vector/factory';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 
 /**
  * Create a force vector

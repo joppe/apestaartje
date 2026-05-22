@@ -1,7 +1,7 @@
 import { darken } from '@apestaartje/color/lightness/darken';
 import { lighten } from '@apestaartje/color/lightness/lighten';
-import type { RGB } from '@apestaartje/color/rgb/RGB';
 import { fromString } from '@apestaartje/color/rgb/fromString';
+import type { RGB } from '@apestaartje/color/rgb/RGB';
 import { toString } from '@apestaartje/color/rgb/toString';
 import type { Size } from '@apestaartje/geometry/size/Size';
 import type { Vector } from '@apestaartje/geometry/vector/Vector';

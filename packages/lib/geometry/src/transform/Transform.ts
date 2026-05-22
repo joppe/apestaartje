@@ -1,5 +1,4 @@
 import type { Point } from '../point/Point';
-
 import type { TransformOptions } from './TransformOptions';
 
 /**

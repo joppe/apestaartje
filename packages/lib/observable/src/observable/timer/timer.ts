@@ -1,7 +1,8 @@
-import { Timer } from '../../data-source/timer/Timer';
 import type { SafeObserver } from '../../observer/SafeObserver';
-import { Observable } from '../Observable';
 import type { Subscription } from '../Subscription';
+
+import { Timer } from '../../data-source/timer/Timer';
+import { Observable } from '../Observable';
 
 export function timer(duration: number, delay = 1000): Observable<number> {
   return new Observable<number>(

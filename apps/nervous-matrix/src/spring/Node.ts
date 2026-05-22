@@ -1,8 +1,8 @@
-import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { add } from '@apestaartje/geometry/vector/add';
 import { scale } from '@apestaartje/geometry/vector/scale';
 import { subtract } from '@apestaartje/geometry/vector/subtract';
 import { unit } from '@apestaartje/geometry/vector/unit';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { add as addForce } from '@apestaartje/physics/force/add';
 import { damping } from '@apestaartje/physics/force/spring/damping';
 import { restoring } from '@apestaartje/physics/force/spring/restoring';

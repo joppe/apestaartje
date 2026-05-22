@@ -8,8 +8,8 @@ import { isSamePosition } from './snake/map/isSamePosition';
 import { Direction } from './snake/move/Direction';
 import { Renderer } from './snake/render/Renderer';
 import { Score } from './snake/score/Score';
-import { State, Status } from './snake/status/Status';
 import { Reset } from './snake/status/reset';
+import { State, Status } from './snake/status/Status';
 
 /**
  * The snake game

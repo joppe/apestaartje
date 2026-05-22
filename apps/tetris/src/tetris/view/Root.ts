@@ -57,12 +57,9 @@ export class Root extends HTMLElement {
   }
 
   public connectedCallback(): void {
-    window.addEventListener(
-      'state-change',
-      (event: Event): void => {
-        this.handleStateChange((event as CustomEvent<string>).detail);
-      },
-    );
+    window.addEventListener('state-change', (event: Event): void => {
+      this.handleStateChange((event as CustomEvent<string>).detail);
+    });
   }
 
   private handleStateChange(event: string): void {

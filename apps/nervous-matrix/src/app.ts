@@ -4,6 +4,7 @@ import { Stage } from '@apestaartje/animation/stage/Stage';
 import type { Size } from '@apestaartje/geometry/size/Size';
 
 import type { Mapping } from './Mapping';
+
 import { NervousMatrix } from './NervousMatrix';
 
 const size: Size = {

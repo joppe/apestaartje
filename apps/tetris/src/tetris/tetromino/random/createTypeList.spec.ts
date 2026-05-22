@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
 import { Type } from '../Type';
-
 import { createTypeList } from './createTypeList';
 
 describe('createTypesList', (): void => {

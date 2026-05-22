@@ -1,5 +1,6 @@
 import type { Axis } from './Axis';
 import type { Cell, SudokuGrid } from './SudokuGrid';
+
 import { cellsByColumnFromBlock } from './cellsByColumnFromBlock';
 import { cellsByRowFromBlock } from './cellsByRowFromBlock';
 

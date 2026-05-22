@@ -1,9 +1,9 @@
-import { type Vector } from '@apestaartje/geometry/vector/Vector';
 import { add } from '@apestaartje/geometry/vector/add';
 import { length } from '@apestaartje/geometry/vector/length';
 import { scale } from '@apestaartje/geometry/vector/scale';
 import { subtract } from '@apestaartje/geometry/vector/subtract';
 import { unit } from '@apestaartje/geometry/vector/unit';
+import { type Vector } from '@apestaartje/geometry/vector/Vector';
 
 type SpringProps = {
   anchor: Vector;

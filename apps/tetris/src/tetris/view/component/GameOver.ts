@@ -6,11 +6,11 @@ import type { EventEmitter } from '@apestaartje/dom/custom-element/output/EventE
 import { Output } from '@apestaartje/dom/custom-element/output/Output';
 import type { Store } from '@apestaartje/store/Store';
 
-import { container } from '../../dependency-injection/container';
-import { Event as GlobalEvent } from '../../finite-state-machine/global/Event';
 import type { HighScore } from '../../game/high-score/HighScore';
 import type { Data } from '../../store/Data';
 
+import { container } from '../../dependency-injection/container';
+import { Event as GlobalEvent } from '../../finite-state-machine/global/Event';
 import './EnterName';
 
 const ACTIVE_CLASS: string = 'active';

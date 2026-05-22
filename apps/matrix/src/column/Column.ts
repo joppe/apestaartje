@@ -1,10 +1,10 @@
 import type { Asset } from '@apestaartje/animation/stage/Asset';
 import type { Size } from '@apestaartje/geometry/size/Size';
 
-import { random } from '../chars';
-
 import type { Char } from './Char';
 import type { Config } from './Config';
+
+import { random } from '../chars';
 
 export class Column implements Asset {
   private _fontSize: number;

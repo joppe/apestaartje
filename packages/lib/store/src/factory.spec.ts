@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 
 import type { Store } from './Store';
+
 import { factory } from './factory';
 
 type Data = {

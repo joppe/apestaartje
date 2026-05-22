@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
 import { Component } from '../component/Component';
-
 import { ChildElements } from './ChildElements';
 
 @Component({

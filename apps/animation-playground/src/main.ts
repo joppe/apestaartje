@@ -1,8 +1,8 @@
 import { Animator } from '@apestaartje/animation/animator/Animator';
 import { Stage } from '@apestaartje/animation/stage/Stage';
-import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import { add } from '@apestaartje/geometry/vector/add';
 import { subtract } from '@apestaartje/geometry/vector/subtract';
+import type { Vector } from '@apestaartje/geometry/vector/Vector';
 
 import { Ball } from './objects/Ball';
 import { Line } from './objects/Line';

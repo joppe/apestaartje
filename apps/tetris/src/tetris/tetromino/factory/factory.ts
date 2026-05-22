@@ -1,9 +1,9 @@
 import type { Vector } from '@apestaartje/geometry/vector/Vector';
 
-import { Tetromino } from '../Tetromino';
 import type { Type } from '../Type';
-import { getConfig } from '../factory/getConfig';
 
+import { getConfig } from '../factory/getConfig';
+import { Tetromino } from '../Tetromino';
 import { createBlocks } from './createBlocks';
 
 export function factory(type: Type): Tetromino {

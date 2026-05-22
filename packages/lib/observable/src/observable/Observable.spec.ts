@@ -2,11 +2,11 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import type { SafeObserver } from '../observer/SafeObserver';
 import type { Operator } from '../operator/Operator';
-import { map } from '../operator/map/map';
-
-import { Observable } from './Observable';
 import type { Subscriber } from './Subscriber';
 import type { Subscription } from './Subscription';
+
+import { map } from '../operator/map/map';
+import { Observable } from './Observable';
 
 type NextableObserver<T> = { next(v: T): void };
 type ErrorableObserver = { error(e: Error): void };

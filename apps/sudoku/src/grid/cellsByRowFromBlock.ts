@@ -1,4 +1,5 @@
 import type { Cell, SudokuGrid } from './SudokuGrid';
+
 import { blockCellIndexToGridCellIndex } from './helper/blockCellIndexToGridCellIndex';
 
 export function cellsByRowFromBlock(
