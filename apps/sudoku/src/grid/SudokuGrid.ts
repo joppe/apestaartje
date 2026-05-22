@@ -1,5 +1,5 @@
-import { Grid } from '@apestaartje/grid/grid/Grid';
-import type { GridPosition } from '@apestaartje/grid/grid/GridPosition';
+import { Grid } from '@apestaartje/grid/Grid';
+import type { GridPosition } from '@apestaartje/grid/GridPosition';
 
 export type Cell = {
   index: number;
@@ -14,15 +14,15 @@ export class SudokuGrid {
   }
 
   constructor() {
+    const cells = Array.from({ length: 81 }, (_, index) => ({
+      index,
+      possibilities: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    }));
+
     this._grid = new Grid<Cell>({
       rows: 9,
       columns: 9,
-      initializer: ({ index }) => {
-        return {
-          index,
-          possibilities: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-        };
-      },
+      cells,
     });
   }
 
