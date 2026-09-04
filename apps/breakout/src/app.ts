@@ -2,12 +2,18 @@ import { Animator } from '@apestaartje/animation/animator/Animator';
 import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Stage } from '@apestaartje/animation/stage/Stage';
 
+import type { Action } from './control/Action';
+
 import { Ball } from './breakout/ball/Ball';
 import { Box } from './breakout/box/Box';
 import { factory as brickFactory } from './breakout/brick/factory';
-import { detectCollision } from './breakout/collision/detect';
+import {
+  type BounceImpact,
+  detectCollision,
+} from './breakout/collision/detect';
 import { Paddle } from './breakout/paddle/Paddle';
 import { factory as wallFactory } from './breakout/wall/factory';
+import { keyboard } from './control/keyboard';
 
 type AppOptions = {
   width: number;
@@ -24,6 +30,7 @@ export function app({
   wallOffset,
   wallSize,
 }: AppOptions) {
+  const control = keyboard();
   const stage = new Stage({
     width,
     height,
@@ -82,30 +89,45 @@ export function app({
   stage.render();
 
   const animator = new Animator((time: Chronometer): boolean => {
+    let bounced: BounceImpact | null = null;
+
     stage.tick(time);
 
-    for (const wall of walls) {
-      const bounced = detectCollision(ball, wall.rectangle);
+    if (paddle) {
+      bounced = detectCollision(ball, paddle.rectangle);
 
       if (bounced !== null) {
         ball.reflect(bounced.normal);
         ball.move(bounced.point);
-        break;
       }
     }
 
-    for (const brick of bricks) {
-      if (!brick.isBouncable) {
-        continue;
+    if (bounced === null) {
+      for (const wall of walls) {
+        bounced = detectCollision(ball, wall.rectangle);
+
+        if (bounced !== null) {
+          ball.reflect(bounced.normal);
+          ball.move(bounced.point);
+          break;
+        }
       }
+    }
 
-      const bounced = detectCollision(ball, brick.rectangle);
+    if (bounced === null) {
+      for (const brick of bricks) {
+        if (!brick.isBouncable) {
+          continue;
+        }
 
-      if (bounced !== null) {
-        ball.reflect(bounced.normal);
-        ball.move(bounced.point);
-        brick.hit();
-        break;
+        const bounced = detectCollision(ball, brick.rectangle);
+
+        if (bounced !== null) {
+          ball.reflect(bounced.normal);
+          ball.move(bounced.point);
+          brick.hit();
+          break;
+        }
       }
     }
 
@@ -114,6 +136,18 @@ export function app({
     return true;
   });
 
+  control.subscribe({
+    next: (action: Action): void => {
+      switch (action) {
+        case 'left':
+          paddle.move({ x: -10, y: 0 });
+          break;
+        case 'right':
+          paddle.move({ x: 10, y: 0 });
+          break;
+      }
+    },
+  });
   animator.start();
 
   stage.element.style.backgroundColor = '#000000';

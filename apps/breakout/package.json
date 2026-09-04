@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "@apestaartje/animation": "workspace:*",
-    "@apestaartje/geometry": "workspace:*"
+    "@apestaartje/geometry": "workspace:*",
+    "@apestaartje/observable": "workspace:*"
   },
   "devDependencies": {
     "@apestaartje/vitest-config": "workspace:*",

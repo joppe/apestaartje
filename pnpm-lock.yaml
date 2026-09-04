@@ -79,6 +79,9 @@ importers:
       '@apestaartje/geometry':
         specifier: workspace:*
         version: link:../../packages/lib/geometry
+      '@apestaartje/observable':
+        specifier: workspace:*
+        version: link:../../packages/lib/observable
     devDependencies:
       '@apestaartje/vitest-config':
         specifier: workspace:*

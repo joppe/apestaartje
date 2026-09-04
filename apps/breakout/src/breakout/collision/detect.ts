@@ -5,7 +5,7 @@ import type { Vector } from '@apestaartje/geometry/vector/Vector';
 
 import type { Ball } from '../ball/Ball';
 
-type BounceImpact = {
+export type BounceImpact = {
   normal: Vector;
   point: Point;
 };
