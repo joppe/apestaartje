@@ -1,0 +1,35 @@
+{
+  "name": "@apestaartje/breakout",
+  "version": "1.0.0",
+  "description": "Breakout game",
+  "license": "MIT",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
+  "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./src/*.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@apestaartje/animation": "workspace:*",
+    "@apestaartje/geometry": "workspace:*"
+  },
+  "devDependencies": {
+    "@apestaartje/vitest-config": "workspace:*",
+    "@vitest/coverage-v8": "^4.1.6",
+    "jsdom": "^29.1.1",
+    "typescript": "^6.0.3",
+    "vite": "^6.3.5",
+    "vitest": "^4.1.6"
+  }
+}
