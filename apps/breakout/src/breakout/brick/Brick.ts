@@ -9,9 +9,14 @@ type BrickOptions = {
 
 export class Brick implements Asset {
   private readonly _box: Box;
+  private _isHit = false;
 
   public get rectangle(): Rectangle {
     return this._box.rectangle;
+  }
+
+  public get isBouncable(): boolean {
+    return this._isHit === false;
   }
 
   constructor({ box }: BrickOptions) {
@@ -19,7 +24,11 @@ export class Brick implements Asset {
   }
 
   public cleanup(): boolean {
-    return false;
+    return this._isHit;
+  }
+
+  public hit(): void {
+    this._isHit = true;
   }
 
   public tick(): void {

@@ -80,11 +80,16 @@ export function app({
     }
 
     for (const brick of bricks) {
+      if (!brick.isBouncable) {
+        continue;
+      }
+
       const bounced = detectCollision(ball, brick.rectangle);
 
       if (bounced !== null) {
         ball.reflect(bounced.normal);
         ball.move(bounced.point);
+        brick.hit();
         break;
       }
     }
