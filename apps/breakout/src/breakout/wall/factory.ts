@@ -13,24 +13,29 @@ type FactoryOptions = {
 
 export function factory({ stage, offset, size }: FactoryOptions): Wall[] {
   const walls = [
+    // top
     new Wall({
       box: new Box({
         northEast: { x: offset, y: offset },
         size: { width: stage.width - 2 * offset, height: size },
       }),
     }),
+    // right
     new Wall({
       box: new Box({
         northEast: { x: stage.width - (offset + size), y: offset },
         size: { width: size, height: stage.height - 2 * offset },
       }),
     }),
+    /*/ bottom
     new Wall({
       box: new Box({
         northEast: { x: offset, y: stage.height - (offset + size) },
         size: { width: stage.width - 2 * offset, height: size },
       }),
     }),
+    /**/
+    // left
     new Wall({
       box: new Box({
         northEast: { x: offset, y: offset },

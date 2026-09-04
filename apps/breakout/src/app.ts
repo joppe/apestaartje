@@ -3,8 +3,10 @@ import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Stage } from '@apestaartje/animation/stage/Stage';
 
 import { Ball } from './breakout/ball/Ball';
+import { Box } from './breakout/box/Box';
 import { factory as brickFactory } from './breakout/brick/factory';
 import { detectCollision } from './breakout/collision/detect';
+import { Paddle } from './breakout/paddle/Paddle';
 import { factory as wallFactory } from './breakout/wall/factory';
 
 type AppOptions = {
@@ -29,6 +31,18 @@ export function app({
   const background = stage.createLayer('background', 10);
   const foreground = stage.createLayer('foreground', 100);
 
+  const paddle = new Paddle({
+    box: new Box({
+      northEast: {
+        x: 400,
+        y: height - (wallOffset + wallSize),
+      },
+      size: {
+        width: 200,
+        height: wallSize,
+      },
+    }),
+  });
   const walls = wallFactory({
     stage: { width, height },
     offset: wallOffset,
@@ -54,14 +68,15 @@ export function app({
   });
 
   background.freeze(true);
-  foreground.addAsset(ball, 'ball', 100);
+  foreground.addAsset(ball, 'ball', 2000);
+  foreground.addAsset(paddle, 'paddle', 1000);
 
   walls.forEach((wall, index) => {
-    background.addAsset(wall, `wall-${index}`, 10);
+    background.addAsset(wall, `wall-${index}`, 100 + index);
   });
 
   bricks.forEach((brick, index) => {
-    foreground.addAsset(brick, `brick-${index}`, 10);
+    foreground.addAsset(brick, `brick-${index}`, 200 + index);
   });
 
   stage.render();
