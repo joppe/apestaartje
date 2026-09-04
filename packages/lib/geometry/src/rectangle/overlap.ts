@@ -1,18 +1,23 @@
 import type { Rectangle } from './Rectangle';
 
-type OverlapProps = {
-  a: Rectangle;
-  b: Rectangle;
-};
+export function overlap(a: Rectangle, b: Rectangle): Rectangle | null {
+  const left = Math.max(a.topLeft.x, b.topLeft.x);
+  const top = Math.min(a.topLeft.y, b.topLeft.y);
+  const right = Math.min(a.bottomRight.x, b.bottomRight.x);
+  const bottom = Math.max(a.bottomRight.y, b.bottomRight.y);
 
-export function overlap({ a, b }: OverlapProps): boolean {
-  if (a.topLeft.x > b.bottomRight.x || b.topLeft.x > a.bottomRight.x) {
-    return false; // No overlap on the x-axis
+  if (left > right || bottom > top) {
+    return null;
   }
 
-  if (a.topLeft.y > b.bottomRight.y || b.topLeft.y > a.bottomRight.y) {
-    return false; // No overlap on the y-axis
-  }
-
-  return true; // Overlap exists
+  return {
+    topLeft: {
+      x: left,
+      y: top,
+    },
+    bottomRight: {
+      x: right,
+      y: bottom,
+    },
+  };
 }
