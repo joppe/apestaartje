@@ -12,13 +12,19 @@ import {
   detectCollision,
 } from './breakout/collision/detect';
 import { Paddle } from './breakout/paddle/Paddle';
+import { Score } from './breakout/score/Score';
 import { factory as wallFactory } from './breakout/wall/factory';
 import { keyboard } from './control/keyboard';
 
 type AppOptions = {
   width: number;
   height: number;
-  wallOffset: number;
+  wallOffset: {
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
+  };
   wallSize: number;
   container: HTMLElement;
 };
@@ -41,14 +47,15 @@ export function app({
   const paddle = new Paddle({
     box: new Box({
       northEast: {
-        x: 400,
-        y: height - (wallOffset + wallSize),
+        x: width / 2 - 60,
+        y: height - (wallOffset.top + wallSize),
       },
       size: {
-        width: 200,
+        width: 120,
         height: wallSize,
       },
     }),
+    width,
   });
   const walls = wallFactory({
     stage: { width, height },
@@ -57,7 +64,7 @@ export function app({
   });
   const ball = new Ball({
     velocity: { x: 2, y: 3 },
-    position: { x: 510, y: 405 },
+    position: { x: 310, y: 405 },
     size: 10,
   });
   const bricks = brickFactory({
@@ -68,15 +75,17 @@ export function app({
       height: 15,
     },
     northEast: {
-      x: 2 * wallOffset + wallSize + 20,
-      y: 2 * wallOffset + wallSize + 20,
+      x: 2 * wallOffset.left + wallSize + 20,
+      y: 2 * wallOffset.bottom + wallSize + 20,
     },
     gap: 10,
   });
+  const score = new Score({ position: { x: wallOffset.left, y: 30 } });
 
   background.freeze(true);
   foreground.addAsset(ball, 'ball', 2000);
   foreground.addAsset(paddle, 'paddle', 1000);
+  foreground.addAsset(score, 'score', 4000);
 
   walls.forEach((wall, index) => {
     background.addAsset(wall, `wall-${index}`, 100 + index);
@@ -95,11 +104,6 @@ export function app({
 
     if (paddle) {
       bounced = detectCollision(ball, paddle.rectangle);
-
-      if (bounced !== null) {
-        ball.reflect(bounced.normal);
-        ball.move(bounced.point);
-      }
     }
 
     if (bounced === null) {
@@ -107,8 +111,6 @@ export function app({
         bounced = detectCollision(ball, wall.rectangle);
 
         if (bounced !== null) {
-          ball.reflect(bounced.normal);
-          ball.move(bounced.point);
           break;
         }
       }
@@ -120,15 +122,19 @@ export function app({
           continue;
         }
 
-        const bounced = detectCollision(ball, brick.rectangle);
+        bounced = detectCollision(ball, brick.rectangle);
 
         if (bounced !== null) {
-          ball.reflect(bounced.normal);
-          ball.move(bounced.point);
           brick.hit();
+          score.update(10);
           break;
         }
       }
+    }
+
+    if (bounced !== null) {
+      ball.reflect(bounced.normal);
+      ball.move(bounced.point);
     }
 
     stage.render();

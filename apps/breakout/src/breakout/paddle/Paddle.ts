@@ -6,20 +6,30 @@ import type { Box } from '../box/Box';
 
 type PaddleOptions = {
   box: Box;
+  width: number;
 };
 
 export class Paddle implements Asset {
   private readonly _box: Box;
+  private readonly _width: number;
 
   public get rectangle(): Rectangle {
     return this._box.rectangle;
   }
 
-  constructor({ box }: PaddleOptions) {
+  constructor({ box, width }: PaddleOptions) {
     this._box = box;
+    this._width = width;
   }
 
   public move(offset: Point): void {
+    if (
+      this._box.rectangle.topLeft.x + offset.x < 0 ||
+      this._box.rectangle.bottomRight.x + offset.x > this._width
+    ) {
+      return;
+    }
+
     this._box.move(offset);
   }
 

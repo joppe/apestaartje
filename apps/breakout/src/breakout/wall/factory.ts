@@ -6,7 +6,12 @@ import { Wall } from './Wall';
 type FactoryOptions = {
   stage: Size;
   // The space between the wall and the edge of the canvas element
-  offset: number;
+  offset: {
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
+  };
   // The size of the wall
   size: number;
 };
@@ -16,30 +21,31 @@ export function factory({ stage, offset, size }: FactoryOptions): Wall[] {
     // top
     new Wall({
       box: new Box({
-        northEast: { x: offset, y: offset },
-        size: { width: stage.width - 2 * offset, height: size },
+        northEast: { x: offset.left, y: offset.bottom },
+        size: {
+          width: stage.width - (offset.left + offset.right),
+          height: size,
+        },
       }),
     }),
     // right
     new Wall({
       box: new Box({
-        northEast: { x: stage.width - (offset + size), y: offset },
-        size: { width: size, height: stage.height - 2 * offset },
+        northEast: { x: stage.width - (offset.right + size), y: offset.bottom },
+        size: {
+          width: size,
+          height: stage.height - (offset.top + offset.bottom),
+        },
       }),
     }),
-    /*/ bottom
-    new Wall({
-      box: new Box({
-        northEast: { x: offset, y: stage.height - (offset + size) },
-        size: { width: stage.width - 2 * offset, height: size },
-      }),
-    }),
-    /**/
     // left
     new Wall({
       box: new Box({
-        northEast: { x: offset, y: offset },
-        size: { width: size, height: stage.height - 2 * offset },
+        northEast: { x: offset.left, y: offset.bottom },
+        size: {
+          width: size,
+          height: stage.height - (offset.top + offset.bottom),
+        },
       }),
     }),
   ];
