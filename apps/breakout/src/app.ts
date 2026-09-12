@@ -69,7 +69,7 @@ export function app({
   });
   const bricks = brickFactory({
     columns: 10,
-    rows: 8,
+    rows: 5,
     size: {
       width: 60,
       height: 15,
@@ -126,7 +126,7 @@ export function app({
 
         if (bounced !== null) {
           brick.hit();
-          score.update(10);
+          score.update(10 + 10 * brick.level);
           break;
         }
       }

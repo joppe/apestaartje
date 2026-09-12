@@ -20,14 +20,18 @@ export function factory({
   gap,
 }: FactoryOptions): Brick[] {
   const bricks = Array.from({ length: columns * rows }).map((_, index) => {
+    const column = index % columns;
+    const row = Math.floor(index / columns);
+
     return new Brick({
       box: new Box({
         northEast: {
-          x: northEast.x + (index % columns) * (size.width + gap),
-          y: northEast.y + Math.floor(index / columns) * (size.height + gap),
+          x: northEast.x + column * (size.width + gap),
+          y: northEast.y + row * (size.height + gap),
         },
         size,
       }),
+      level: rows - row,
     });
   });
 
