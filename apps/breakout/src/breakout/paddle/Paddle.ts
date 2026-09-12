@@ -34,8 +34,8 @@ export class Paddle implements Asset {
   public render(context: CanvasRenderingContext2D): void {
     context.save();
     context.beginPath();
-    context.fillStyle = '#00ff00';
-    context.strokeStyle = '#00ff00';
+    context.fillStyle = '#ffffff';
+    context.strokeStyle = '#ffffff';
     context.rect(
       this._box.northEast.x,
       this._box.northEast.y,

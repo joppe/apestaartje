@@ -74,8 +74,8 @@ export class Ball implements Asset {
 
     context.save();
     context.beginPath();
-    context.fillStyle = '#f00';
-    context.strokeStyle = '#f00';
+    context.fillStyle = '#ffffff';
+    context.strokeStyle = '#ffffff';
     context.rect(
       this._position.x - halfSize,
       this._position.y - halfSize,
