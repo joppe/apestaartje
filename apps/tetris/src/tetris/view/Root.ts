@@ -1,14 +1,10 @@
 import { ChildElements } from '@apestaartje/dom/custom-element/child-element/ChildElements';
 import { Component } from '@apestaartje/dom/custom-element/component/Component';
-import type { Machine } from '@apestaartje/finite-state-machine/machine/Machine';
 import { factory as stateFactory } from '@apestaartje/finite-state-machine/machine/factory';
-import type { Store } from '@apestaartje/store/Store';
+import type { Machine } from '@apestaartje/finite-state-machine/machine/Machine';
 
-import { container } from '../dependency-injection/container';
-import { State } from '../finite-state-machine/global/State';
 import { config } from '../finite-state-machine/global/config';
-import type { Data } from '../store/Data';
-
+import { State } from '../finite-state-machine/global/State';
 import './component/PageContainer';
 import './component/Preview';
 import './pages/GamePage';
@@ -53,20 +49,18 @@ export class Root extends HTMLElement {
 
   private _currentState: string = config.initial;
   private readonly _state: Machine;
-  private readonly _store: Store<Data>;
 
   public constructor() {
     super();
 
     this._state = stateFactory(config);
-    this._store = container.resolve<Store<Data>>('store');
   }
 
   public connectedCallback(): void {
     window.addEventListener(
       'state-change',
-      (event: CustomEvent<string>): void => {
-        this.handleStateChange(event.detail);
+      (event: Event): void => {
+        this.handleStateChange((event as CustomEvent<string>).detail);
       },
     );
   }

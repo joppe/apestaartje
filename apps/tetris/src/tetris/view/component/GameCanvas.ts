@@ -8,13 +8,14 @@ import type { Size } from '@apestaartje/geometry/size/Size';
 import type { Vector } from '@apestaartje/geometry/vector/Vector';
 import type { Store } from '@apestaartje/store/Store';
 
-import { container } from '../../dependency-injection/container';
 import type { Engine } from '../../game/Engine';
 import type { Cell } from '../../grid/Cell';
 import type { BlockConfig } from '../../store/BlockConfig';
 import type { Data } from '../../store/Data';
 import type { TetrominoData } from '../../tetromino/TetrominoData';
 import type { Type } from '../../tetromino/Type';
+
+import { container } from '../../dependency-injection/container';
 import { block as renderBlock } from '../canvas/block';
 import { getColor } from '../tetromino/getColor';
 
@@ -33,8 +34,8 @@ export class GameCanvas extends HTMLElement {
   @Output('game-over')
   declare public finished: EventEmitter<boolean>;
 
-  private _background: Canvas;
-  private _foreground: Canvas;
+  private _background: Canvas | undefined;
+  private _foreground: Canvas | undefined;
   private readonly _blockSize: number;
   private readonly _engine: Engine;
   private readonly _lineSize: number;
@@ -105,7 +106,7 @@ export class GameCanvas extends HTMLElement {
   }
 
   private renderForeground(current: TetrominoData | undefined): void {
-    this._foreground.clear();
+    this._foreground?.clear();
 
     if (current === undefined) {
       return;
@@ -114,6 +115,10 @@ export class GameCanvas extends HTMLElement {
     const color: string = getColor(current.type);
 
     current.blocks.forEach((block: Vector): void => {
+      if (this._foreground === undefined) {
+        throw new Error('Foreground undefined');
+      }
+
       renderBlock(
         this._foreground.context,
         { x: block.x * this._blockSize, y: block.y * this._blockSize },
@@ -125,7 +130,7 @@ export class GameCanvas extends HTMLElement {
   }
 
   private renderBackground(cells: Cell<Type | undefined>[]): void {
-    this._background.clear();
+    this._background?.clear();
 
     cells.forEach((cell: Cell<Type | undefined>): void => {
       if (cell.value === undefined) {
@@ -133,6 +138,10 @@ export class GameCanvas extends HTMLElement {
       }
 
       const color: string = getColor(cell.value);
+
+      if (this._background === undefined) {
+        throw new Error('Foreground undefined');
+      }
 
       renderBlock(
         this._background.context,
