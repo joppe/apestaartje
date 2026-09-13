@@ -66,6 +66,10 @@ export class Layer {
     );
   }
 
+  public removeAllAssets(): void {
+    this._assetConfigs = [];
+  }
+
   public getAsset(id: string): Asset {
     const assetConfig = this._assetConfigs.find(
       (config: AssetConfig): boolean => {
