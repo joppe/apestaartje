@@ -1,17 +1,16 @@
-import { Animator } from '@apestaartje/animation/animator/Animator';
-import type { Chronometer } from '@apestaartje/animation/animator/Chronometer';
 import { Stage } from '@apestaartje/animation/stage/Stage';
+import { factory as stateFactory } from '@apestaartje/finite-state-machine/machine/factory';
 
 import type { Action } from './control/Action';
 
-import { Ball } from './ball/Ball';
-import { Box } from './box/Box';
-import { factory as brickFactory } from './brick/factory';
-import { type BounceImpact, detectCollision } from './collision/detect';
 import { keyboard } from './control/keyboard';
-import { Paddle } from './paddle/Paddle';
+import { GameOver } from './game-over/GameOver';
+import { Game } from './game/Game';
 import { Score } from './score/Score';
-import { factory as wallFactory } from './wall/factory';
+import { Start } from './start/Start';
+import { config } from './state/config';
+import { type Event, EVENT } from './state/Event';
+import { STATE } from './state/State';
 
 type AppOptions = {
   width: number;
@@ -33,126 +32,94 @@ export function app({
   wallOffset,
   wallSize,
 }: AppOptions) {
-  const control = keyboard();
   const stage = new Stage({
     width,
     height,
   });
+  const controls = keyboard();
+  const stateHandler = stateFactory(config);
   const background = stage.createLayer('background', 10);
-  const foreground = stage.createLayer('foreground', 100);
-
-  const paddle = new Paddle({
-    box: new Box({
-      northEast: {
-        x: width / 2 - 60,
-        y: height - (wallOffset.top + wallSize),
-      },
-      size: {
-        width: 120,
-        height: wallSize,
-      },
-    }),
-    width,
-  });
-  const walls = wallFactory({
-    stage: { width, height },
-    offset: wallOffset,
-    size: wallSize,
-  });
-  const ball = new Ball({
-    velocity: { x: 2, y: 3 },
-    position: { x: 310, y: 405 },
-    size: 10,
-  });
-  const bricks = brickFactory({
-    columns: 10,
-    rows: 5,
-    size: {
-      width: 60,
-      height: 15,
-    },
-    northEast: {
-      x: 2 * wallOffset.left + wallSize + 20,
-      y: 2 * wallOffset.bottom + wallSize + 20,
-    },
-    gap: 10,
-  });
+  const texts = stage.createLayer('background', 10);
   const score = new Score({ position: { x: wallOffset.left, y: 30 } });
+  const start = new Start({ position: { x: width / 2 - 200, y: height / 2 } });
+  const gameOver = new GameOver({
+    position: { x: width / 2 - 200, y: height / 2 },
+  });
+
+  texts.addAsset(score, 'score', 100);
+  texts.addAsset(start, 'start', 200);
+  texts.addAsset(gameOver, 'game-over', 300);
+
+  const game = new Game({
+    stage,
+    width,
+    height,
+    wallOffset,
+    wallSize,
+  });
+
+  game.score.subscribe({
+    next: (points: number) => {
+      score.update(points);
+    },
+  });
+  game.gameOver.subscribe({
+    next: () => {
+      handleState(EVENT.GameOver);
+    },
+  });
 
   background.freeze(true);
-  foreground.addAsset(ball, 'ball', 2000);
-  foreground.addAsset(paddle, 'paddle', 1000);
-  foreground.addAsset(score, 'score', 4000);
-
-  walls.forEach((wall, index) => {
-    background.addAsset(wall, `wall-${index}`, 100 + index);
-  });
-
-  bricks.forEach((brick, index) => {
-    foreground.addAsset(brick, `brick-${index}`, 200 + index);
-  });
-
   stage.render();
+  stage.element.style.backgroundColor = '#000000';
 
-  const animator = new Animator((time: Chronometer): boolean => {
-    let bounced: BounceImpact | null = null;
+  const handleState = (() => {
+    let state = stateHandler.initial();
 
-    stage.tick(time);
+    return function (event: Event): void {
+      const oldState = state;
+      const newState = stateHandler.transition(event, state);
 
-    if (paddle) {
-      bounced = detectCollision(ball, paddle.rectangle);
-    }
-
-    if (bounced === null) {
-      for (const wall of walls) {
-        bounced = detectCollision(ball, wall.rectangle);
-
-        if (bounced !== null) {
-          break;
-        }
+      if (oldState === newState) {
+        return;
       }
-    }
 
-    if (bounced === null) {
-      for (const brick of bricks) {
-        if (!brick.isBouncable) {
-          continue;
-        }
+      state = newState;
 
-        bounced = detectCollision(ball, brick.rectangle);
-
-        if (bounced !== null) {
-          brick.hit();
-          score.update(10 + 10 * brick.level);
+      switch (state) {
+        case STATE.Play:
+          start.hide();
+          gameOver.hide();
+          game.start();
           break;
-        }
+        case STATE.Land:
+          start.show();
+          gameOver.hide();
+          game.stop();
+          break;
+        case STATE.GameOver:
+          start.hide();
+          gameOver.show();
+          game.stop();
+          break;
       }
-    }
 
-    if (bounced !== null) {
-      ball.reflect(bounced.normal);
-      ball.move(bounced.point);
-    }
+      stage.render();
+    };
+  })();
 
-    stage.render();
-
-    return true;
-  });
-
-  control.subscribe({
+  controls.subscribe({
     next: (action: Action): void => {
       switch (action) {
-        case 'left':
-          paddle.move({ x: -10, y: 0 });
+        case 'start':
+          handleState(EVENT.Play);
           break;
-        case 'right':
-          paddle.move({ x: 10, y: 0 });
+        case 'reset':
+          handleState(EVENT.Restart);
           break;
       }
     },
   });
-  animator.start();
 
-  stage.element.style.backgroundColor = '#000000';
   container.appendChild(stage.element);
 }

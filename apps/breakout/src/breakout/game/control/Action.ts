@@ -1,6 +1,6 @@
 export const ACTION = {
-  Start: 'start',
-  Reset: 'reset',
+  Left: 'left',
+  Right: 'right',
 } as const;
 
 export type Action = (typeof ACTION)[keyof typeof ACTION];

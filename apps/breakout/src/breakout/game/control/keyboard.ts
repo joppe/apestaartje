@@ -6,19 +6,19 @@ import type { Control } from './Control';
 
 import { type Action, ACTION } from './Action';
 
-const SPACE: string = ' ';
-const RESET: string = 'a';
+const LEFT: string = 'ArrowLeft';
+const RIGHT: string = 'ArrowRight';
 
 export function keyboard(): Control {
   return new Observable<Action>(
     (observer: SafeObserver<Action>): Subscription => {
       function handle(event: KeyboardEvent): void {
         switch (event.key) {
-          case SPACE:
-            observer.next(ACTION.Start);
+          case LEFT:
+            observer.next(ACTION.Left);
             break;
-          case RESET:
-            observer.next(ACTION.Reset);
+          case RIGHT:
+            observer.next(ACTION.Right);
             break;
         }
       }
