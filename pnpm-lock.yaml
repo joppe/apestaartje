@@ -76,6 +76,9 @@ importers:
       '@apestaartje/animation':
         specifier: workspace:*
         version: link:../../packages/lib/animation
+      '@apestaartje/finite-state-machine':
+        specifier: workspace:*
+        version: link:../../packages/lib/finite-state-machine
       '@apestaartje/geometry':
         specifier: workspace:*
         version: link:../../packages/lib/geometry
