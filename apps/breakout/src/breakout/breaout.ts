@@ -4,17 +4,14 @@ import { Stage } from '@apestaartje/animation/stage/Stage';
 
 import type { Action } from './control/Action';
 
-import { Ball } from './breakout/ball/Ball';
-import { Box } from './breakout/box/Box';
-import { factory as brickFactory } from './breakout/brick/factory';
-import {
-  type BounceImpact,
-  detectCollision,
-} from './breakout/collision/detect';
-import { Paddle } from './breakout/paddle/Paddle';
-import { Score } from './breakout/score/Score';
-import { factory as wallFactory } from './breakout/wall/factory';
+import { Ball } from './ball/Ball';
+import { Box } from './box/Box';
+import { factory as brickFactory } from './brick/factory';
+import { type BounceImpact, detectCollision } from './collision/detect';
 import { keyboard } from './control/keyboard';
+import { Paddle } from './paddle/Paddle';
+import { Score } from './score/Score';
+import { factory as wallFactory } from './wall/factory';
 
 type AppOptions = {
   width: number;
