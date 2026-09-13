@@ -2,7 +2,6 @@ import { Canvas } from '@apestaartje/dom/canvas/Canvas';
 import type { Size } from '@apestaartje/geometry/size/Size';
 
 import type { Chronometer } from '../animator/Chronometer';
-
 import type { Asset } from './Asset';
 import type { AssetConfig } from './AssetConfig';
 
@@ -65,6 +64,10 @@ export class Layer {
         return assetConfig.id !== id;
       },
     );
+  }
+
+  public removeAllAssets(): void {
+    this._assetConfigs = [];
   }
 
   public getAsset(id: string): Asset {

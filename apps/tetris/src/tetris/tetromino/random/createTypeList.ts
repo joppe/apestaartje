@@ -5,9 +5,9 @@ import { Type } from '../Type';
 export function createTypeList(repeat: number): Type[] {
   const list: Type[] = [];
 
-  Object.keys(Type).forEach((type: Type): void => {
+  Object.keys(Type).forEach((type: string): void => {
     for (const _index of range(1, repeat, 1)) {
-      list.push(Type[type]);
+      list.push(Type[type as Type]);
     }
   });
 

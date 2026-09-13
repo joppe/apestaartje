@@ -6,15 +6,16 @@ import type { Subscription } from '@apestaartje/observable/observable/Subscripti
 import { Subject } from '@apestaartje/observable/subject/Subject';
 import type { Store } from '@apestaartje/store/Store';
 
-import { Action } from '../control/Action';
 import type { Control } from '../control/Control';
-import { container } from '../dependency-injection/container';
 import type { Cell } from '../grid/Cell';
-import { Grid } from '../grid/Grid';
 import type { Data } from '../store/Data';
 import type { Tetromino } from '../tetromino/Tetromino';
 import type { TetrominoData } from '../tetromino/TetrominoData';
 import type { Type } from '../tetromino/Type';
+
+import { Action } from '../control/Action';
+import { container } from '../dependency-injection/container';
+import { Grid } from '../grid/Grid';
 import { random } from '../tetromino/random/random';
 
 const INITIAL_SPEED: number = 5;
@@ -22,12 +23,12 @@ const SPEED_INCREMENT: number = 5;
 const MAX_SPEED: number = 60;
 
 export class Engine {
-  private _current: Tetromino;
+  private _current: Tetromino | undefined;
   private _counter: number = 0;
   private _factor: number;
   private _next: Tetromino | undefined;
   private _speed: number = INITIAL_SPEED;
-  private _subscription: Subscription;
+  private _subscription: Subscription | undefined;
   private _totalLines: number = 0;
   private readonly _animator: Animator;
   private readonly _control: Control;
@@ -87,6 +88,10 @@ export class Engine {
   }
 
   public stop(): void {
+    if (this._subscription === undefined) {
+      throw new Error('Contorl subscription not set');
+    }
+
     if (!this._animator.isPlaying()) {
       return;
     }
@@ -101,6 +106,10 @@ export class Engine {
   }
 
   private onAction(action: Action): void {
+    if (this._current === undefined) {
+      throw new Error('No current Tetromino');
+    }
+
     switch (action) {
       case Action.Left:
         this.place(this._current.move({ x: -1, y: 0 }));
@@ -121,6 +130,10 @@ export class Engine {
   }
 
   private tick(): boolean {
+    if (this._current === undefined) {
+      throw new Error('No current Tetromino');
+    }
+
     if (this.place(this._current.move({ x: 0, y: 1 }))) {
       return true;
     }
@@ -137,9 +150,17 @@ export class Engine {
   }
 
   private seal(): void {
+    if (this._current === undefined) {
+      throw new Error('No current Tetromino');
+    }
+
     const lines: number[] = [];
 
     this._current.data.blocks.forEach((block: Vector): void => {
+      if (this._current === undefined) {
+        throw new Error('No current Tetromino');
+      }
+
       this._grid.setCell(block, this._current.type);
 
       if (this.isFullLine(block.y)) {

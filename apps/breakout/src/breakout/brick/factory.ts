@@ -1,0 +1,39 @@
+import type { Point } from '@apestaartje/geometry/point/Point';
+import type { Size } from '@apestaartje/geometry/size/Size';
+
+import { Box } from '../box/Box';
+import { Brick } from './Brick';
+
+type FactoryOptions = {
+  columns: number;
+  rows: number;
+  size: Size;
+  northEast: Point;
+  gap: number;
+};
+
+export function factory({
+  columns,
+  rows,
+  size,
+  northEast,
+  gap,
+}: FactoryOptions): Brick[] {
+  const bricks = Array.from({ length: columns * rows }).map((_, index) => {
+    const column = index % columns;
+    const row = Math.floor(index / columns);
+
+    return new Brick({
+      box: new Box({
+        northEast: {
+          x: northEast.x + column * (size.width + gap),
+          y: northEast.y + row * (size.height + gap),
+        },
+        size,
+      }),
+      level: rows - row,
+    });
+  });
+
+  return bricks;
+}
