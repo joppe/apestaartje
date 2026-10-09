@@ -16,6 +16,7 @@
     "build": "cd ./rust && wasm-pack build  --out-dir ../wasm --out-name index"
   },
   "dependencies": {
+    "@apestaartje/animation": "workspace:*",
     "@apestaartje/dom": "workspace:*"
   },
   "devDependencies": {

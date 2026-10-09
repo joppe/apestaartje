@@ -265,6 +265,9 @@ importers:
 
   apps/game-of-life:
     dependencies:
+      '@apestaartje/animation':
+        specifier: workspace:*
+        version: link:../../packages/lib/animation
       '@apestaartje/dom':
         specifier: workspace:*
         version: link:../../packages/lib/dom
