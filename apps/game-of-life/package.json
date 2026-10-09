@@ -14,7 +14,8 @@
   "devDependencies": {
     "@apestaartje/types": "workspace:*",
     "typescript": "^6.0.3",
-    "vite": "^6.3.5"
+    "vite": "^8.3.4",
+    "vite-plugin-wasm": "^3.6.0"
   },
   "exports": {
     "./*": {

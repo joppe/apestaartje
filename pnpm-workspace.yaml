@@ -4,3 +4,5 @@ packages:
   - packages/lib/*
 allowBuilds:
   esbuild: false
+minimumReleaseAgeExclude:
+  - vite@8.3.4
