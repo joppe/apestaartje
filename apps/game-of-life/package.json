@@ -4,9 +4,16 @@
   "license": "MIT",
   "author": "Joppe Aarts <joppe@apestaartje.info>",
   "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./src/*.ts",
+      "default": "./src/*.ts"
+    }
+  },
   "scripts": {
     "dev": "vite",
-    "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage"
+    "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage",
+    "build": "cd ./rust && wasm-pack build  --out-dir ../wasm --out-name index"
   },
   "dependencies": {
     "@apestaartje/dom": "workspace:*"
@@ -16,11 +23,5 @@
     "typescript": "^6.0.3",
     "vite": "^8.3.4",
     "vite-plugin-wasm": "^3.6.0"
-  },
-  "exports": {
-    "./*": {
-      "types": "./src/*.ts",
-      "default": "./src/*.ts"
-    }
   }
 }
