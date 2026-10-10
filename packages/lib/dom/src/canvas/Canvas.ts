@@ -1,5 +1,6 @@
-import type { Rectangle } from '@apestaartje/geometry/rectangle/Rectangle';
+import { element } from '@apestaartje/element/element';
 import { height } from '@apestaartje/geometry/rectangle/height';
+import type { Rectangle } from '@apestaartje/geometry/rectangle/Rectangle';
 import { width } from '@apestaartje/geometry/rectangle/width';
 import type { Size } from '@apestaartje/geometry/size/Size';
 
@@ -43,7 +44,7 @@ export class Canvas {
   }
 
   constructor(size: Size) {
-    this._el = document.createElement('canvas');
+    this._el = element(['canvas']);
 
     this.size = size;
   }
