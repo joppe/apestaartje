@@ -6,7 +6,7 @@
 const MAX_VALUE: number = Math.pow(2, 32) - 1;
 
 export function rand(): number {
-  const byteArray: Uint32Array = new Uint32Array(1);
+  const byteArray: Uint32Array<ArrayBuffer> = new Uint32Array(1);
 
   window.crypto.getRandomValues(byteArray);
 
