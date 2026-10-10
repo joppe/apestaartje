@@ -16,9 +16,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage",
-    "test": "vitest run --coverage",
-    "test:watch": "vitest"
+    "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage"
   },
   "dependencies": {
     "@apestaartje/animation": "workspace:*",
@@ -31,7 +29,6 @@
     "@vitest/coverage-v8": "^4.1.6",
     "jsdom": "^29.1.1",
     "typescript": "^6.0.3",
-    "vite": "^8.3.4",
-    "vitest": "^4.1.6"
+    "vite": "^8.3.4"
   }
 }
