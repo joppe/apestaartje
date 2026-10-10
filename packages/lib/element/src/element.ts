@@ -1,6 +1,8 @@
-import type { ElementConfig } from './ElementConfig';
+import type { ElementConfig, TagName } from './ElementConfig';
 
-export function element(config: ElementConfig): HTMLElement {
+export function element<K extends TagName>(
+  config: ElementConfig<K>,
+): HTMLElementTagNameMap[K] {
   const [tagName, attributes = {}, children] = config;
   const el = document.createElement(tagName);
 
@@ -10,7 +12,11 @@ export function element(config: ElementConfig): HTMLElement {
 
   if (Array.isArray(children)) {
     children.forEach((child) => {
-      el.appendChild(element(child));
+      if (Array.isArray(child)) {
+        el.appendChild(element(child));
+      } else {
+        el.appendChild(child);
+      }
     });
   } else if (children !== undefined) {
     el.innerText = children;
