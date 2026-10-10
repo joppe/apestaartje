@@ -39,7 +39,7 @@ export function app({
   const controls = keyboard();
   const stateHandler = stateFactory(config);
   const background = stage.createLayer('background', 10);
-  const texts = stage.createLayer('background', 10);
+  const texts = stage.createLayer('texts', 20);
   const score = new Score({ position: { x: wallOffset.left, y: 30 } });
   const start = new Start({ position: { x: width / 2 - 200, y: height / 2 } });
   const gameOver = new GameOver({
