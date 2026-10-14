@@ -259,9 +259,6 @@ importers:
       vite:
         specifier: ^8.3.4
         version: 8.3.4
-      vitest:
-        specifier: ^4.1.6
-        version: 4.1.6(@vitest/coverage-v8@4.1.6)(jsdom@29.1.1)(vite@8.3.4)
 
   apps/game-of-life:
     dependencies:
@@ -271,6 +268,18 @@ importers:
       '@apestaartje/dom':
         specifier: workspace:*
         version: link:../../packages/lib/dom
+      '@apestaartje/element':
+        specifier: workspace:*
+        version: link:../../packages/lib/element
+      '@apestaartje/store':
+        specifier: workspace:*
+        version: link:../../packages/lib/store
+      '@apestaartje/theme':
+        specifier: workspace:*
+        version: link:../../packages/config/theme
+      lucide:
+        specifier: ^1.54.0
+        version: 1.54.0
     devDependencies:
       '@apestaartje/types':
         specifier: workspace:*
@@ -462,6 +471,12 @@ importers:
         specifier: ^4.1.6
         version: 4.1.6(@vitest/coverage-v8@4.1.6)(jsdom@29.1.1)(vite@8.3.4)
 
+  packages/config/theme:
+    devDependencies:
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+
   packages/config/vitest-config: {}
 
   packages/lib/animation:
@@ -469,6 +484,9 @@ importers:
       '@apestaartje/dom':
         specifier: workspace:*
         version: link:../dom
+      '@apestaartje/element':
+        specifier: workspace:*
+        version: link:../element
       '@apestaartje/geometry':
         specifier: workspace:*
         version: link:../geometry
@@ -562,6 +580,9 @@ importers:
 
   packages/lib/dom:
     dependencies:
+      '@apestaartje/element':
+        specifier: workspace:*
+        version: link:../element
       '@apestaartje/geometry':
         specifier: workspace:*
         version: link:../geometry
@@ -1503,6 +1524,9 @@ packages:
     resolution: {integrity: sha512-Gf/KoL3C/MlI7Bt0PGI9I+TeTC/I6r/csU58N4BSNc4lppLBeKsOdFYkK+dX0ABDUMJNfCHTyPpzwwO21Awd3A==}
     engines: {node: 20 || >=22}
 
+  lucide@1.54.0:
+    resolution: {integrity: sha512-2N2brA+7NYLDlxG2QNcmGej5Qhw3pYMPN9MLktTNkQfs7Sk/2g2e8s0CUWibLz5lPVKMYesxm+k/ndDB7E1JjQ==}
+
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
@@ -2232,6 +2256,8 @@ snapshots:
       lightningcss-win32-x64-msvc: 1.33.0
 
   lru-cache@11.3.6: {}
+
+  lucide@1.54.0: {}
 
   magic-string@0.30.21:
     dependencies:

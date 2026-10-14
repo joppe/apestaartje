@@ -1,0 +1,161 @@
+@property --rosewater {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #f5e0dc;
+}
+
+@property --flamingo {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #f2cdcd;
+}
+
+@property --pink {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #f5c2e7;
+}
+
+@property --mauve {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #cba6f7;
+}
+
+@property --red {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #f38ba8;
+}
+
+@property --maroon {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #eba0ac;
+}
+
+@property --peach {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #fab387;
+}
+
+@property --yellow {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #f9e2af;
+}
+
+@property --green {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #a6e3a1;
+}
+
+@property --teal {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #94e2d5;
+}
+
+@property --sky {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #89dceb;
+}
+
+@property --sapphire {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #74c7ec;
+}
+
+@property --blue {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #89b4fa;
+}
+
+@property --lavender {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #b4befe;
+}
+
+@property --text {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #cdd6f4;
+}
+
+@property --subtext1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #bac2de;
+}
+
+@property --subtext0 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #a6adc8;
+}
+
+@property --overlay2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #9399b2;
+}
+
+@property --overlay1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #7f849c;
+}
+
+@property --overlay0 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #6c7086;
+}
+
+@property --surface2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #585b70;
+}
+
+@property --surface1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #45475a;
+}
+
+@property --surface0 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #313244;
+}
+
+@property --base {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #1e1e2e;
+}
+
+@property --mantle {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #181825;
+}
+
+@property --crust {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #11111b;
+}
+
+@property --transparent {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: transparent;
+}

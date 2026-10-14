@@ -1,0 +1,24 @@
+{
+  "name": "@apestaartje/theme",
+  "version": "1.0.0",
+  "description": "Themes",
+  "license": "MIT",
+  "author": {
+    "name": "Joppe Aarts",
+    "email": "joppe@apestaartje.info"
+  },
+  "type": "module",
+  "exports": {
+    "./*.css": "./src/*.css",
+    "./*": {
+      "types": "./src/*.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

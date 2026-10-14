@@ -1,0 +1,34 @@
+.button {
+  --size: 30px;
+  --_primary-color: var(--green);
+  --_secondary-color: var(--crust);
+
+  padding: 0;
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--_secondary-color);
+  border: 1px solid var(--_primary-color);
+  border-radius: var(--radius-sm);
+  color: var(--_primary-color);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--_primary-color);
+    color: var(--_secondary-color);
+  }
+
+  &.active {
+    --_primary-color: var(--crust);
+    --_secondary-color: var(--blue);
+    pointer-events: none;
+  }
+
+  svg {
+    --size: 16px;
+    width: var(--size);
+    height: var(--size);
+  }
+}

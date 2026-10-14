@@ -1,4 +1,5 @@
 import { gameOfLife } from './game-of-life/gameOfLife';
+import '../style/global.css';
 
 const container = document.querySelector<HTMLDivElement>('#app');
 

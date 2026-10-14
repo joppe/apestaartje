@@ -13,11 +13,15 @@
   "scripts": {
     "dev": "vite",
     "clean": "rm -rf node_modules && rm -rf dist && rm -rf coverage",
-    "build": "cd ./rust && wasm-pack build  --out-dir ../wasm --out-name index"
+    "build": "cd ./rust && wasm-pack build --release  --out-dir ../wasm --out-name index"
   },
   "dependencies": {
     "@apestaartje/animation": "workspace:*",
-    "@apestaartje/dom": "workspace:*"
+    "@apestaartje/dom": "workspace:*",
+    "@apestaartje/element": "workspace:*",
+    "@apestaartje/store": "workspace:*",
+    "@apestaartje/theme": "workspace:*",
+    "lucide": "^1.54.0"
   },
   "devDependencies": {
     "@apestaartje/types": "workspace:*",

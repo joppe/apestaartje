@@ -17,8 +17,12 @@ pub struct Universe {
 }
 
 impl Universe {
-    fn get_index(&self, row: u32, column: u32) -> usize {
-        (row * self.width + column) as usize
+    fn initial_cell(idx: usize) -> Cell {
+        if idx % 2 == 0 || idx % 7 == 0 {
+            Cell::Alive
+        } else {
+            Cell::Dead
+        }
     }
 
     fn live_neighbor_count(&self, row: u32, column: u32) -> u8 {
@@ -53,14 +57,8 @@ impl Universe {
         let width = 64;
         let height = 64;
 
-        let cells = (0..width * height)
-            .map(|i| {
-                if i % 2 == 0 || i % 7 == 0 {
-                    Cell::Alive
-                } else {
-                    Cell::Dead
-                }
-            })
+        let cells = (0..(width * height) as usize)
+            .map(Self::initial_cell)
             .collect();
 
         Universe {
@@ -68,6 +66,21 @@ impl Universe {
             height,
             cells,
         }
+    }
+
+    pub fn get_index(&self, row: u32, column: u32) -> usize {
+        (row * self.width + column) as usize
+    }
+
+    pub fn erase(&mut self) {
+        self.cells.fill(Cell::Dead);
+    }
+
+    pub fn reset(&mut self) {
+        self.cells
+            .iter_mut()
+            .enumerate()
+            .for_each(|(idx, cell)| *cell = Self::initial_cell(idx));
     }
 
     pub fn width(&self) -> u32 {
@@ -80,6 +93,18 @@ impl Universe {
 
     pub fn cells(&self) -> *const Cell {
         self.cells.as_ptr()
+    }
+
+    pub fn alive(&mut self, row: u32, column: u32) {
+        let idx = self.get_index(row, column);
+
+        self.cells[idx] = Cell::Alive;
+    }
+
+    pub fn dead(&mut self, row: u32, column: u32) {
+        let idx = self.get_index(row, column);
+
+        self.cells[idx] = Cell::Dead;
     }
 
     pub fn tick(&mut self) {
