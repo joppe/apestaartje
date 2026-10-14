@@ -1,0 +1,15 @@
+@import '@apestaartje/theme/reset.css';
+@import '@apestaartje/theme/border-radius.css';
+@import '@apestaartje/theme/font.css';
+@import '@apestaartje/theme/spacing.css';
+@import '@apestaartje/theme/catppuccin/theme.css';
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface1);
+}

@@ -1,21 +1,23 @@
-import { gameOfLifeFactory } from './gameOfLifeFactory';
+import { gameOfLife } from './game-of-life/gameOfLife';
+import '../style/global.css';
 
-const root = document.body;
+const container = document.querySelector<HTMLDivElement>('#app');
 
-gameOfLifeFactory({
-  start: [
-    { x: 20, y: 20 },
-    { x: 21, y: 20 },
-    { x: 22, y: 20 },
-    { x: 23, y: 20 },
-    { x: 24, y: 20 },
-    { x: 25, y: 20 },
-    { x: 26, y: 20 },
-    { x: 27, y: 20 },
-    { x: 28, y: 20 },
-    { x: 29, y: 20 },
-  ],
+if (!container) {
+  throw new Error('No container element found');
+}
+
+gameOfLife({
+  container,
   config: {
-    container: root,
+    cell: {
+      size: 5,
+      border: 1,
+    },
+    colors: {
+      grid: '#CCCCCC',
+      alive: '#000000',
+      dead: '#FFFFFF',
+    },
   },
 });

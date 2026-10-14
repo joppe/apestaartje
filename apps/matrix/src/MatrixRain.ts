@@ -6,7 +6,6 @@ import { Input } from '@apestaartje/dom/custom-element/input/Input';
 import { InputType } from '@apestaartje/dom/custom-element/input/InputType';
 
 import '../style/main.css';
-
 import { BACKGROUND } from './colors';
 import { Factory } from './column/factory/Factory';
 
@@ -42,6 +41,7 @@ export class MatrixRain extends HTMLElement {
     const fontSize = 24;
     const size = { width: this.width, height: this.height };
     const stage = new Stage(size);
+    const layer = stage.createLayer();
     const factory = new Factory(size, { fontSize });
 
     stage.element.style.backgroundColor = BACKGROUND;
@@ -54,7 +54,7 @@ export class MatrixRain extends HTMLElement {
       const column = factory.tick();
 
       if (column !== undefined) {
-        stage.getLayer().addAsset(column, `column-${column.id}`, 10);
+        layer.addAsset(column, `column-${column.id}`, 10);
       }
 
       return true;

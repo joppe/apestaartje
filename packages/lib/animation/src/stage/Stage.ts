@@ -1,9 +1,11 @@
+import { element } from '@apestaartje/element/element';
 import type { Size } from '@apestaartje/geometry/size/Size';
 
 import type { Chronometer } from '../animator/Chronometer';
+import type { LayerConfig } from './LayerConfig';
 
 import { Layer } from './Layer';
-import type { LayerConfig } from './LayerConfig';
+import styles from './stage.module.css';
 
 /**
  * The main Stage
@@ -25,15 +27,14 @@ export class Stage {
   constructor(size: Size) {
     this._size = size;
 
-    this._container = document.createElement('div');
-    this._container.style.width = `${this._size.width}px`;
-    this._container.style.height = `${this._size.height}px`;
-    this._container.style.position = 'relative';
-
-    this.createLayer('root', 0);
+    this._container = element(['div', { class: styles.stage }]);
+    this._container.style.setProperty('--width', `${this._size.width}px`);
+    this._container.style.setProperty('--height', `${this._size.height}px`);
   }
 
-  public createLayer(id: string, depth: number): Layer {
+  public createLayer(preferredId?: string, preferredDepth?: number): Layer {
+    const depth = preferredDepth ?? this._layerConfigs.length;
+    const id = preferredId ?? String(depth);
     const layer = new Layer(this._container, this._size);
     const layerConfigs = this._layerConfigs.concat({
       depth,
@@ -66,7 +67,7 @@ export class Stage {
     );
   }
 
-  public getLayer(id = 'root'): Layer {
+  public getLayer(id): Layer {
     const layerConfig = this._layerConfigs.find(
       (config: LayerConfig): boolean => {
         return config.id === id;

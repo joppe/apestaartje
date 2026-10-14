@@ -5,6 +5,8 @@ import type { Chronometer } from '../animator/Chronometer';
 import type { Asset } from './Asset';
 import type { AssetConfig } from './AssetConfig';
 
+import styles from './layer.module.css';
+
 /**
  * A animatable layer
  */
@@ -29,14 +31,17 @@ export class Layer {
 
   constructor(container: HTMLElement, size: Size) {
     this._canvas = new Canvas(size);
-    this._canvas.style.position = 'absolute';
-    this._canvas.style.left = '0';
-    this._canvas.style.top = '0';
-    this._canvas.style.backgroundColor = 'transparent';
+    this._canvas.classList.add(styles.layer);
     this._canvas.appendTo(container);
   }
 
-  public addAsset(asset: Asset, id: string, depth: number): void {
+  public addAsset(
+    asset: Asset,
+    preferredId?: string,
+    preferredDepth?: number,
+  ): void {
+    const depth = preferredDepth ?? this._assetConfigs.length;
+    const id = preferredId ?? String(depth);
     const assetConfigs = this._assetConfigs.concat({
       asset,
       depth,
